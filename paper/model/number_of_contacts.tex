@@ -1,0 +1,26 @@
+\subsection{Modeling Numbers of Contacts}
+\label{sec:number_of_contacts}
+
+Consider a hypothetical population of 1,000 individuals in which 50 were infected with a novel infectious disease. From this data alone, it is impossible to say whether only those 50 people had contact with an infectious person and the disease has an infection probability of 1 in each contact or whether everyone met an infectious person but the disease has an infection probability of only 5 percent per contact. SEIR models do not even try to distinguish contact frequency from the infectiousness of each contact and combine the two in one parameter that is not invariant to social distancing policies.
+
+To model social distancing policies, we need to disentangle the effects of the number of contacts of each individual and the effect of policy-invariant infection probabilities specific to each contact type. Since not all contacts are equally infectious, we distinguish different contact types.
+
+The number and type of contacts in our model can be easily extended. Each type of contacts is described by a function that maps individual characteristics, health states and the date into a number of planned contacts for each individual. This allows to model a wide range of contact types.
+
+Currently, there are the following contact types:
+
+\begin{itemize}
+    \item Households: Each household member meets all other household members every day. The household sizes and structures are calibrated to be representative for Germany.
+    \item Random non-work contacts: Each person has contacts with randomly drawn other people. This contact type reflects contacts during pure leisure activities as well as non leisure activities such as grocery shopping or medical appointments.
+    \item Random work contacts: Each working adult has contact to randomly drawn other people.
+    \item Recurrent daily work contacts: Each working adult meets other workers every day. This is meant to capture work colleagues.
+    \item Recurrent weekly work contacts: Each working adult meets other workers once per week. We randomize over the days on which the meetings take place. This is meant to capture meetings with clients, superiors or other colleagues which happen infrequently.
+    \item Schools: Each student meets all of his classmates every day. Class sizes are calibrated to be representative for Germany. Schools are closed on weekends and during vacations, which vary by states.
+    \item Preschools: Similar to schools but for younger children.
+    \item Nurseries: Similar to schools but for very young children.
+\end{itemize}
+
+
+The number of random and recurrent contacts at the workplace and at home is calibrated with data provided by \cite{Mossong2008}. For details see Section~\ref{sec:calibration}. In particular, we sample the number of contacts or group sizes from empirical distributions that sometimes depend on age. Instead it would also be possible to use economic or other behavioral models to predict the number of contacts.
+
+Theoretically, each contact type can have its own infection probability. However, to reduce the number of free parameters and thus avoid a potential over-fitting we impose some constraints. For now, infection probabilities in schools, preschools and nurseries are equal. Moreover, we restrict all work contacts to have the same infection probability.
