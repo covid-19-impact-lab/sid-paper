@@ -12,9 +12,13 @@ Currently, there are the following contact types:
 \begin{itemize}
     \item Households: Each household member meets all other household members every day. The household sizes and structures are calibrated to be representative for Germany.
 
-    \item Random non-work contacts: Each person has contacts with randomly drawn other people. This contact type reflects contacts during pure leisure activities as well as non leisure activities such as grocery shopping or medical appointments.
+    \item Random non-work contacts: Each person has contacts with randomly drawn other people which are assortative with respect to region and age group. This contact type reflects contacts during pure leisure activities as well as non leisure activities such as grocery shopping or medical appointments.
 
-    \item Random work contacts: Each working adult has contact to randomly drawn other people.
+    \item Recurrent daily non-work contacts: Each person has daily recurring contacts which allows to model close relationships other than families between individuals.
+
+    \item Recurrent weekly non-work contacts: Each person has weekly recurring contacts like sports groups or other weekly activities.
+
+    \item Random work contacts: Each working adult has contact to randomly drawn other people at work.
 
     \item Recurrent daily work contacts: Each working adult meets other workers every day. This is meant to capture work colleagues.
 
@@ -27,7 +31,6 @@ Currently, there are the following contact types:
     \item Nurseries: Children younger than three years may attend a nursery and interact with one adult. The age of the children varies within groups. The remaining mechanics are similar to schools.
 \end{itemize}
 
-
 The number of random and recurrent contacts at the workplace and at home is calibrated with data provided by \cite{Mossong2008}. For details see Section~\ref{sec:calibration}. In particular, we sample the number of contacts or group sizes from empirical distributions that sometimes depend on age. Instead it would also be possible to use economic or other behavioral models to predict the number of contacts.
 
-Theoretically, each contact type can have its own infection probability. However, to reduce the number of free parameters and thus avoid a potential over-fitting we impose some constraints. For now, infection probabilities in schools, preschools and nurseries are equal. Moreover, we restrict all work contacts to have the same infection probability.
+Theoretically, each contact type can have its own infection probability. However, to reduce the number of free parameters and thus avoid a potential over-fitting we impose some constraints. For now, infection probabilities in schools, preschools and nurseries are equal. Moreover, we restrict all work contacts to have the same infection probability. ???STILL TRUE???

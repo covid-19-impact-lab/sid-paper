@@ -3,13 +3,26 @@
 % packages ======================================================================
 
 \usepackage{subcaption}
-\usepackage{graphicx}
 \usepackage{authblk}
 
-\usepackage{times}
+\usepackage{newtxtext}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[natbib=true,giveninits=false,uniquename=false,uniquelist=false,bibencoding=inputenc,bibstyle=authoryear-ibid,citestyle=authoryear-comp,maxcitenames=2,maxbibnames=10,useprefix=false,sortcites=true,backend=biber]{biblatex}
+\usepackage[USenglish]{babel}
+\usepackage[
+    natbib=true,
+    giveninits=false,
+    uniquename=false,
+    uniquelist=false,
+    bibencoding=inputenc,
+    bibstyle=authoryear-ibid,
+    citestyle=authoryear-comp,
+    maxcitenames=2,
+    maxbibnames=10,
+    useprefix=false,
+    sortcites=true,
+    backend=biber
+]{biblatex}
 \AtBeginDocument{\toggletrue{blx@useprefix}}
 \AtBeginBibliography{\togglefalse{blx@useprefix}}
 \usepackage{setspace}
@@ -22,12 +35,12 @@
     filecolor=black,
     menucolor=black,
     runcolor=black,
-    urlcolor=blue}
-\usepackage{threeparttable}
+    urlcolor=blue
+}
 \usepackage{listings}
 \usepackage{lscape}
-\usepackage{float, afterpage, rotating, graphicx}
-\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{graphicx}
 \usepackage{longtable, booktabs, tabularx}
 \usepackage{amsmath, amsfonts, amsthm, bm, amssymb}
 \usepackage{fancyvrb, moreverb, relsize}
@@ -46,41 +59,6 @@
 \usepackage[left=2.5cm, right=3.25cm, top=2cm, bottom=2cm]{geometry}
 \usepackage{placeins}
 \usepackage{pdfcomment}
-
-% colors ======================================================================
-% blues
-\definecolor{lb}{HTML}{3498DB}
-\definecolor{b}{HTML}{1565C0}
-\definecolor{db}{HTML}{002080}
-% greens
-\definecolor{lg}{HTML}{B2EC5D}
-\definecolor{g}{HTML}{55A868}
-\definecolor{dg}{HTML}{2E7D32}
-% yellows
-\definecolor{ly}{HTML}{F9A825}
-\definecolor{y}{HTML}{FF8F00}
-\definecolor{dy}{HTML}{EF6C00}
-% reds
-\definecolor{lr}{HTML}{D84315}
-\definecolor{r}{HTML}{C44E52}
-\definecolor{dr}{HTML}{C62828}
-% violet
-\definecolor{lv}{HTML}{C71585}
-\definecolor{v}{HTML}{9B59B6}
-\definecolor{dv}{HTML}{6A1B9A}
-% grey
-\definecolor{ln}{HTML}{BDBDBD}
-\definecolor{n}{HTML}{757575}
-\definecolor{dn}{HTML}{616161}
-% palettes
-\definecolor{p1}{HTML}{4A6FAC}
-\definecolor{p2}{HTML}{53A465}
-\definecolor{p3}{HTML}{C04C50}
-\definecolor{p4}{HTML}{7E6FAE}
-\definecolor{p5}{HTML}{C8B571}
-\definecolor{p6}{HTML}{62B1C8}
-% brown
-\definecolor{brown}{HTML}{4E342E}
 
 % settings ====================================================================
 \setlength{\skip\footins}{1.0cm}

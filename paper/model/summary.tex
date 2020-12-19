@@ -10,17 +10,13 @@ To alleviate these problems we propose a different model structure. Our model in
     \label{fig:model_graph}
 \end{figure}
 
-\pdfcommentmarkup[markup=Highlight]{
-
-The background characteristics include age, county and occupation of each simulated individual. Contact models are functions that map individual characteristics into a predicted number of contacts. Currently we distinguish between eight types of contact models which are all listed in Figure \ref{fig:model_graph}: households, recurrent and random work contacts, recurrent and random leisure contacts, and nursery, preschool, and school contacts.
-
-}{Are these contact models still up-to-date.}
+The background characteristics include age, county and occupation of each simulated individual. Contact models are functions that map individual characteristics into a predicted number of contacts. Currently we distinguish between eight types of contact models which are all listed in Figure~\ref{fig:model_graph}: households, recurrent and random work contacts, recurrent and random leisure contacts, and nursery, preschool, and school contacts.
 
 The predicted number of contacts is translated into infections by a matching algorithm. There are different matching algorithms for recurrent contacts (e.g. classmates, family members) and non-recurrent contacts (e.g. clients, contacts in supermarkets). The infection probability can differ for each contact type. All types of contacts can be assortative with respect to geographic and demographic characteristics.
 
 Once a person is infected, the disease progresses in a fairly standard way which is also depicted in Figure~\ref{fig:course_of_disease}. Asymptomatic cases and cases with mild symptoms are infectious for some time and recover eventually. Cases with severe symptoms additionally require hospitalization and lead to either recovery or death.
 
-There are two possible ways to enable testing for Covid-19 in the model. The first way allows to specify the ratio of known to unknown infections for each day. A random sample of all newly infected individuals will then receive a test result in the following days. The second approach allows people who experience symptoms as well as people who had a risk contact can demand a test. Test allocation models that take into account the testing capacity determine which individuals actually receive a test. Test processing models determine in which order the tests are processed and when infected individuals are notified.
+There are two possible ways to enable testing for Covid-19 in the model. The first way allows to specify the ratio of known to unknown infections for each day. A random sample of all newly infected individuals will then receive a test result in the following days. The second approach allows people who experience symptoms or people who had a risk contact can demand a test. Test allocation models assign tests to individuals while also respecting the capacities. Test processing models determine in which order the tests are processed and when infected individuals are notified.
 
 In addition, people who have symptoms, received a positive test, or had a risk contact can reduce their number of contacts across all contact types endogenously.
 
