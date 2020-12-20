@@ -1,0 +1,88 @@
+\subsection{Medical Parameters}
+
+This section discusses the medical parameters used in the model, their sources and how we arrived at the distributions used in the model.\footnotemark
+
+\footnotetext{Additional information can be found in the \href{https://sid-dev.readthedocs.io/en/latest/reference_guides/epi_params.html}{online documentation}.}
+
+
+\subsubsection{Length of Presymptomatic Stage / Incubation Period}
+
+
+Estimates of the incubation period usually give a range from 2 to 12 days. A meta analysis by \citet{McAloon2020} comes to the conclusion that ``The incubation period distribution may be modeled with a lognormal distribution with pooled $\mu$ and $\sigma$ parameters (95\% CIs) of 1.63 (95\% CI 1.51 to 1.75) and 0.50 (95\% CI 0.46 to 0.55), respectively.'' For simplicity we discretize this distribution into four bins.
+
+
+\subsubsection{Begin of Infectiousness}
+
+The period between infection and onset of infectiousness is called latent or latency period. However, the latency period is rarely given in epidemiological reports on Covid-19. Instead, scientists and agencies usually report the incubation period, the period from infection to the onset of symptoms. A few studies used measurements of virus shedding to estimate infectiousness during the course of the disease. When measurements started before the onset of symptoms the development of the viral load before symptoms gives us an indication of number of days between the onset of infectiousness and symptoms.
+
+The European Centre for Disease Prevention and Control estimates that people become infectious between one and two days before the symptoms set in. This is similar to \citet{He2020} who estimate this to take 2.3 days and is in line with \citet{Peak2020}.
+
+Given these numbers and the length of the incubation period we can calculate the latency period for symptomatic people. To our knowledge no estimates for the latency period of asymptomatic cases of COVID-19 exist. We assume it to be the same for symptomatic and asymptomatic cases.
+
+Thus, we arrive at the following distribution for latency periods: 40\% have one day. 35\% have two days. 20\% have three days and 5\% have 5 days.
+
+
+\subsubsection{Duration of Infectiousness}
+
+We assume that the duration of infectiousness is the same for both symptomatic and asymptomatic individuals as evidence suggests little differences in the transmission rates of SARS-CoV-2 virus between symptomatic and asymptomatic patients (\citet{Yin2020}) and that the viral load between symptomatic and asymptomatic individuals are similar (\citet{Zou2020}, \citet{Byrne2020}, \citet{Singanayagam2020}).
+
+Our distribution of the duration of infectiousness is based on \citet{Byrne2020}.
+
+For symptomatic cases they arrive at 0-5 days before symptom onset (figure 2) and 3-8 days of infectiousness afterwards.\footnote{Viral loads may be detected much later but 8 days seems to be the time after which most people are culture negative, as also reported by \citet{Singanayagam2020}} Thus, we arrive at 0 to 13 days as the range for infectiousness among individuals who become symptomatic (see also figure 5). This duration range is very much in line with the meta-analysis’ reported evidence for asymptomatic individuals (see their figure 1). Thus, we arrive at 0 to 13 days as the range for infectiousness among individuals who become symptomatic. This duration range is very much in line with the meta-analysis' reported evidence for asymptomatic individuals.
+
+Following this evidence we assume the following discretized distribution of the infectiousness period: 10\% of individuals are infectious for three days, 25\% for five days, another 25\% for seven days, 20\% for nine days and 20\% for eleven days.
+
+
+\subsubsection{Duration of Symptoms}
+
+We use the duration to recovery of mild and moderate cases reported by \cite[Figure~S3, Panel~2]{Bi2020} for the duration of symptoms for asymptomatic and non-ICU requiring symptomatic cases.
+
+We collapse the data to the following distribution: 10\% recover after 15 days and 30\% require 18, 22 or 27 days respectively.
+
+These numbers are only used for mild cases. We do not disaggregate by age. Note that the length of symptoms is not very important in our model given that individuals stop being infectious before their symptoms cease.
+
+
+\subsubsection{Time from Symptom Onset to Admission to ICU}
+
+The data on how many percent of symptomatic patients will require ICU is pretty thin. We rely on data by the US CDC (\citet{Stokes2020}) and \href{https://github.com/BDI-pathogens/OpenABM-Covid19/blob/572e24ca2dbf7153789a92ad3a27e4c515d0e576/documentation/parameters/parameter_dictionary.md}{the OpenABM-Project}. Table~\ref{tab:symptomatic-to-ICU} shows our derivations for the probabilities of requiring intensive care per age group.
+
+\begin{table}[tb]
+    \caption{Shares of symptomatic patients who will require ICU care by age groups.}
+    \label{tab:symptomatic-to-ICU}
+    \centering
+
+    \begin{tabular}{ll}
+        \toprule
+        Age Group & Share \\
+        \midrule
+        0-9 & 0.00005 \\
+        10-19 & 0.00030 \\
+        20-29 & 0.00075 \\
+        30-39 & 0.00345 \\
+        40-49 & 0.01380 \\
+        50-59 & 0.03404 \\
+        60-69 & 0.10138 \\
+        70-79 & 0.16891 \\
+        80-100 & 0.26871 \\
+        \bottomrule
+    \end{tabular}
+
+    \tablenotes{The data is taken from \citet{Stokes2020} and \href{https://github.com/BDI-pathogens/OpenABM-Covid19/blob/572e24ca2dbf7153789a92ad3a27e4c515d0e576/documentation/parameters/parameter_dictionary.md}{the OpenABM-Project}.}
+
+\end{table}
+
+For those who will require intensive care we follow \citet{Chen2020} who estimate the time from symptom onset to ICU admission as 8.5 $\pm$ 4 days.
+
+This aligns well with numbers reported for the time from first symptoms to hospitalization: \citet{Gaythorpe2020} report a mean of 5.76 with a standard deviation of 4. This is also in line with the durations collected by \href{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Steckbrief.html#doc13776792bodyText16}{the Robert Koch Institut}.
+
+We assume that the time between symptom onset and ICU takes 4, 6, 8 or 10 days with equal probabilities. These times mostly matter for the ICU capacities.
+
+
+\subsubsection{Death and Recovery from ICU}
+
+We take the survival probabilities and time to death and time until recovery from intensive care from the \href{https://tinyurl.com/y5owhyts}{OpenABM Project}.
+
+They report time until death to have a mean of 11.74 days and a standard deviation of 8.79 days. Approximating this with the normal distribution, we have nearly 10\% probability mass below 0. We use it nevertheless as several other distributions (such as chi squared and uniform) were unable to match the variance.
+Discretizing this leads to 41\% of individuals who die from Covid-19 to die after one day in intensive care. 22\% day after 12 days, 29\% after 20 days and 7\% after 32 days. Again, we rescale this for every age group among those that will not survive.
+
+They report time until recovery to have a mean of 18.8 days and a standard deviation of 12.21 days. Approximating this with the normal distribution, we have over 5\% probability mass below 0. Discretizing this of those who recover in intensive care 22\% do so after one day, 30\% after 15 days, 28\% after 25 days and 18\% after 45 days.
