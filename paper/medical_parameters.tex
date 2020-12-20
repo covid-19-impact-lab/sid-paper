@@ -53,15 +53,19 @@ individuals are similar (\citet{Zou2020}, \citet{Byrne2020}, \citet{Singanayagam
 Our distribution of the duration of infectiousness is based on \citet{Byrne2020}.
 
 For symptomatic cases they arrive at 0-5 days before symptom onset (figure 2) and 3-8
-days of infectiousness afterwards.\footnote{Viral loads may be detected much later but 8
-days seems to be the time after which most people are culture negative, as also reported
-by \citet{Singanayagam2020}} Thus, we arrive at 0 to 13 days as the range for
-infectiousness among individuals who become symptomatic (see also figure 5). This
-duration range is very much in line with the meta-analysis’ reported evidence for
+days of infectiousness afterwards.\footnotemark Thus, we arrive at 0 to 13 days as the
+range for infectiousness among individuals who become symptomatic (see also figure 5).
+This duration range is very much in line with the meta-analysis’ reported evidence for
 asymptomatic individuals (see their figure 1). Thus, we arrive at 0 to 13 days as the
 range for infectiousness among individuals who become symptomatic. This duration range
 is very much in line with the meta-analysis' reported evidence for asymptomatic
 individuals.
+
+\footnotetext{
+    Viral loads may be detected much later but 8 days seems to be the time after which
+    most people are culture negative, as also reported by \citet{Singanayagam2020}.
+}
+
 
 Following this evidence we assume the following discretized distribution of the
 infectiousness period: 10\% of individuals are infectious for three days, 25\% for five
@@ -125,7 +129,7 @@ This aligns well with numbers reported for the time from first symptoms to
 hospitalization: \citet{Gaythorpe2020} report a mean of 5.76 with a standard deviation
 of 4. This is also in line with the durations collected by
 \href{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Steckbrief.html#doc13776792bodyText16}{the
-Robert Koch Institut}.
+Robert-Koch-Institut}.
 
 We assume that the time between symptom onset and ICU takes 4, 6, 8 or 10 days with
 equal probabilities. These times mostly matter for the ICU capacities.
@@ -139,12 +143,12 @@ intensive care from the \href{https://tinyurl.com/y5owhyts}{OpenABM Project}.
 They report time until death to have a mean of 11.74 days and a standard deviation of
 8.79 days. Approximating this with the normal distribution, we have nearly 10\%
 probability mass below 0. We use it nevertheless as several other distributions (such as
-chi squared and uniform) were unable to match the variance. Discretizing this leads to
-41\% of individuals who die from Covid-19 to die after one day in intensive care. 22\%
-day after 12 days, 29\% after 20 days and 7\% after 32 days. Again, we rescale this for
-every age group among those that will not survive.
+chi squared and uniform) were unable to match the variance. Discretizing the
+distribution leads to 41\% of individuals who will die from Covid-19 after one day in
+intensive care, 22\% day after 12 days, 29\% after 20 days and 7\% after 32 days. Again,
+we rescale this for every age group among those that will not survive.
 
-They report time until recovery to have a mean of 18.8 days and a standard deviation of
+They report a mean duration of 18.8 days until recovery and a standard deviation of
 12.21 days. Approximating this with the normal distribution, we have over 5\%
-probability mass below 0. Discretizing this of those who recover in intensive care 22\%
-do so after one day, 30\% after 15 days, 28\% after 25 days and 18\% after 45 days.
+probability mass below 0. Of those who recover in intensive care, 22\% do so
+after one day, 30\% after 15 days, 28\% after 25 days and 18\% after 45 days.

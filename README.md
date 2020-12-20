@@ -23,3 +23,30 @@ Here is a list of publications which rely on sid.
 - v1 - 2020-11-25
 
   The first version of the paper was published to accompany Dorn et al. (2020).
+
+
+## Development
+
+Here are some useful things to know.
+
+- Uncomment the following line in ``paper/preamble.tex`` to remove all comments from the
+  compiled paper.
+
+  ```latex
+  % \PassOptionsToPackage{final}{changes}
+  ```
+
+- Register yourself as a commentator with your own color in ``paper/preamble.tex`` as
+  seen here:
+
+  ```latex
+  \definechangesauthor[name={Tobias}, color=alizarin]{T}
+  ```
+
+  Then, comment or propose a replacement or deletion with
+
+  ```latex
+  \comment[id=T]{<some-comment>}
+  \delete[id=T]{<comment>}{<to-be-deleted>}
+  \replace[id=T]{<comment>}{<to-be-replaced>}
+  ```
