@@ -22,8 +22,13 @@ we expect an improved model fit when we allow for more free parameters.
 \begin{figure}[!tp]
     \centering
     \includegraphics[width=\textwidth]{../figures/goodness_of_fit_by_age_group}
-    \caption{Actual vs. simulated infection and fatality rates}
+    \caption{Reported vs. simulated weekly incidence rates of infections.}
     \label{fig:goodness_of_fit}
+    \figurenotes{
+        The figure shows the weekly incidence rates per 100,000 people for the reported
+        (red line) versus the simulated infections rates (blue line) for age groups
+        available in the data provided by the Robert-Koch Institut.
+    }
 \end{figure}
 
 
@@ -38,8 +43,16 @@ Figure~\ref{fig:out-of-sample-fit}.
 \begin{figure}[!tp]
     \centering
     \includegraphics[width=\textwidth]{../figures/out_of_sample_validation}
-    \caption{Projected effect of the lockdown-light}
+    \caption{Predicted effect of the "Lockdown Light" on infection rates.}
     \label{fig:out-of-sample-fit}
+    \figurenotes{
+        For the time period until the beginning of November, the figure shows the weekly
+        incidence rates of infections per 100,000 people from reported (black) versus
+        simulated (blue) data. With the start of November, the projections of the three
+        scenarios, optimistic (blue), neutral (red), and pessimistic (mint green), are
+        shown until the beginning of the Christmas holidays. The actual incidence rates
+        (black) are reported until the 24th November.
+    }
 \end{figure}
 
 The model correctly predicts the effect of the lockdown light with reasonable accuracy.

@@ -6,7 +6,9 @@ ROOT = Path(__file__).parent
 BLD = ROOT / "bld"
 
 
-@pytask.mark.latex
+@pytask.mark.latex(
+    ["--pdf", "--interaction=nonstopmode", "--synctex=1", "--cd", "--shell-escape"]
+)
 @pytask.mark.depends_on(
     [ROOT / "paper" / "paper.tex"] + list(ROOT.joinpath("paper").rglob("*.tex"))
 )

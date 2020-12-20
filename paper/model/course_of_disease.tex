@@ -7,8 +7,12 @@ progresses in the way depicted in Figure~\ref{fig:course_of_disease}.
 
 \begin{figure}[!tp]
     \includegraphics[width=\textwidth]{../figures/disease_progression.png}
-    \caption{Course of Disease in the model}
+    \caption{Course of Disease in the model.}
     \label{fig:course_of_disease}
+    \figurenotes{
+        The figure depicts the course of the disease from infection to either the state
+        of recovery or death.
+    }
 \end{figure}
 
 First, infected individuals will become infectious after one to five days. About one
@@ -31,9 +35,10 @@ We allow the progression of the disease to be stochastic in two ways: Firstly, s
 changes only occur with a certain probability (e.g. only a fraction of infected
 individuals develops symptoms). Secondly, the number of periods for which an individual
 remains in a state is drawn randomly. The parameters that govern these processes are
-taken from the literature. They can vary with the age of an individual.
+taken from the literature\footnotemark and age-dependent.
 
-Detailed information on the calibration of the disease parameters is available as part
-of our
-\href{https://sid-dev.readthedocs.io/en/latest/reference_guides/epi_params.html}{online
-documentation}.
+\footnotetext{
+    Detailed information on the calibration of the disease parameters is available as
+    part of our
+    \href{https://sid-dev.readthedocs.io/en/latest/reference_guides/epi_params.html}{online documentation}.
+}

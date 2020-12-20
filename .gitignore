@@ -65,3 +65,4 @@ ergebnisse.tex
 *.pdf
 *.loc
 *.soc
+_minted-*/

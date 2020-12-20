@@ -31,11 +31,12 @@
 
 \bibliography{../references.bib}
 
-\usepackage{listings}
 
-% Define environments to comment on the side-line.
+\usepackage[newfloat, outputdir=../bld]{minted}
+
+% Define environments to comment on the sidebar of the PDF.
 \definechangesauthor[name={Tobias}, color=alizarin]{T}
 \definechangesauthor[name={Janos}, color=internationalorange]{J}
 \definechangesauthor[name={Klara}, color=electricultramarine]{K}
-
-% Use \replace[id=T]{<to-be-replaced>}{<new>} or the same with \deleted to propose changes.
+% Use \replace[id=T]{<to-be-replaced>}{<new>} or the same with \deleted to propose
+% changes.
