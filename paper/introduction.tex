@@ -1,23 +1,22 @@
 \section{Introduction}
 \label{sec:introduction}
 
-
-The first wave of the Covid-19 pandemic prompted strict lockdowns and restrictions across the world. As a result, many countries were able to reduce the number of positive cases and could relax restrictions imposed on their societies. At the same time, the social and economic costs were enormous. In the second wave, countries are trying to implement more nuanced policies. For example, Germany imposed a ``lockdown-light'' in November. Some businesses are closed and certain leisure activities are prohibited but schools and nurseries stay open.\blfootnote{Gabler and Röhrl are grateful for financial support by the German Research Foundation (DFG) through CRC-TR 224 (Projects C01 and A02, respectively). Gabler is grateful for funding by IZA Institute of Labor Economics.}
+The first wave of the Covid-19 pandemic prompted strict lockdowns and restrictions across the world. As a result, many countries were able to reduce the number of positive cases and could relax restrictions imposed on their societies. At the same time, the social and economic costs were enormous. In the second wave, countries are trying to implement more nuanced policies. For example, Germany imposed a ``lockdown-light'' in November. Some businesses are closed and certain leisure activities are prohibited but schools and nurseries stay open.
 
 Current epidemiological models have not been designed to predict the effect of such fine-grained policies. These models need to be extended for each new policy proposal and cannot be easily adapted to fast changing environments. This report describes a model that has been designed from the ground up to predict the effects of contact reducing policies in real time. At the time of this writing, it has the following features:
 
-\setstretch{1.0}
 \begin{enumerate}
     \item At the core of the model, people meet people based on a matching algorithm. We distinguish various types of contacts. Currently, these are households, leisure activities, schools, nurseries and several types of contacts at the workplace. Contact types can be random or recurrent and vary in frequency.
     \item Policies can be implemented as shutting down contact types entirely or partially. The reduction of contacts can be random or systematic, e.g., to allow for essential workers.
     \item Infection probabilities vary across contact types, but are invariant to policies which reduce contacts.
     \item The model achieves a good fit on German infection and fatality rate data even if only the infection probabilities are fit to the data and the remaining parameters are calibrated from the medical literature and datasets on contact frequencies.
-    \item High quality Python code for the model is freely available on \href{https://github.com/covid-19-impact-lab/sid}{https://github.com/covid-19-impact-lab/sid}, well documented and very flexible. We are actively looking for researchers who want to use our model for their projects.
+    \item High quality Python code for the model is freely available on Github, well documented and very flexible\footnotemark. We are actively looking for researchers who want to use our model for their projects.
 \end{enumerate}
-\setstretch{1.25}
 
-After a brief literature review we describe our model in detail and validate its in-sample and out-of-sample fit on German data.
+\footnotetext{The code can be found under \url{https://github.com/covid-19-impact-lab/sid} and the documentation with tutorials and background information under \url{https://sid-dev.readthedocs.io/}.}
+
+In Section~\ref{sec:literature_review}, we give a short overview of epidemiological models and how they relate to our model. We continue with a detailed model description in Section~\ref{sec:model} and proceed with a description of model parameters and the estimation in Section~\ref{sec:calibration_and_estimation}. The model is validated in Section~\ref{sec:model_validation} by assessing the in-sample fit for reported infections from August to October and by comparing the out-of-sample fit for the period from November until the beginning of Christmas for different lockdown scenarios. We conclude in Section~\ref{sec:conclusion}.
 
 This report describes the model in an abstract way, but uses many realistic examples from a version that is specialized to Germany. It is important to note that this specialization is not baked into the model or the Python code. It is easy to adjust the model to other countries if data on the number of contacts and a dataset with background characteristics are available.
 
-More details about the German model as well as applications to currently discussed German policies can be found in a companion paper (\cite{Dorn2020a}).
+More details about the German model as well as applications to currently discussed German policies can be found in a companion paper (\cite{Dorn2020a}).\comment[id=T]{Needs to be updated with a reference to the new report.}

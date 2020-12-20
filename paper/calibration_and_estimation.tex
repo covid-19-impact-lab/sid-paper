@@ -11,7 +11,7 @@ Most of these parameters can be calibrated from existing datasets or the medical
 \subsubsection{Length of Presymptomatic Stage / Incubation Period}
 
 
-Estimates of the incubation period usually give a range from 2 to 12 days. A meta analysis by \cite{McAloon2020} comes to the conclusion that ``The incubation period distribution may be modelled with a lognormal distribution with pooled $\mu$ and $\sigma$ parameters (95 \% CIs) of 1.63 (95 \% CI 1.51 to 1.75) and 0.50 (95 \% CI 0.46 to 0.55), respectively.'' For simplicity we discretize this distribution into four bins.
+Estimates of the incubation period usually give a range from 2 to 12 days. A meta analysis by \cite{McAloon2020} comes to the conclusion that ``The incubation period distribution may be modelled with a lognormal distribution with pooled $\mu$ and $\sigma$ parameters (95\% CIs) of 1.63 (95\% CI 1.51 to 1.75) and 0.50 (95\% CI 0.46 to 0.55), respectively.'' For simplicity we discretize this distribution into four bins.
 
 
 \subsubsection{Begin of Infectiousness}
@@ -49,11 +49,9 @@ These numbers are only used for mild cases. We do not disaggregate by age. Note 
 
 \subsubsection{Time from Symptom Onset to Admission to ICU}
 
-The data on how many percent of symptomatic patients will require ICU is pretty thin. We rely on data by the US CDC (\cite{Stokes2020}) and \href{https://github.com/BDI-pathogens/OpenABM-Covid19/blob/master/documentation/parameters/parameter_dictionary.md}{the OpenABM-Project (2020-09-14)}.
+The data on how many percent of symptomatic patients will require ICU is pretty thin. We rely on data by the US CDC (\cite{Stokes2020}) and \href{https://github.com/BDI-pathogens/OpenABM-Covid19/blob/572e24ca2dbf7153789a92ad3a27e4c515d0e576/documentation/parameters/parameter_dictionary.md}{the OpenABM-Project}. Table~\ref{tab:symptomatic-to-ICU} shows our derivations for the probabilities of requiring intensive care per age group.
 
-From these sources we arrive at the following probabilities of requiring intensive care:
-
-\begin{table}[!ht]
+\begin{table}[tb]
     \caption{Shares of symptomatic patients who will require ICU care by age groups.}
     \label{tab:symptomatic-to-ICU}
     \centering
@@ -73,6 +71,8 @@ From these sources we arrive at the following probabilities of requiring intensi
         80-100 & 0.26871 \\
         \bottomrule
     \end{tabular}
+
+    \tablenotes{The data is taken from \cite{Stokes2020} and \href{https://github.com/BDI-pathogens/OpenABM-Covid19/blob/572e24ca2dbf7153789a92ad3a27e4c515d0e576/documentation/parameters/parameter_dictionary.md}{the OpenABM-Project}.}
 
 \end{table}
 
@@ -96,7 +96,6 @@ They report time until recovery to have a mean of 18.8 days and a standard devia
 
 \subsection{Number of Contacts}
 
-% Mossong data
 We calibrate the parameters for the predicted numbers of contacts from contact diaries of over 2000 individuals from Germany, Belgium, the Netherlands and Luxembourg \citep{Mossong2008}. Each contact diary contains all contacts an individual had throughout one day, including information on the other person (such as age and gender) and information on the contact. Importantly, for each contact individuals entered of which type the contact (school, leisure, work etc.) was and how frequent the contact with the other person is.
 
 Thus, we can use the empirical distributions from this data as pre-pandemic number of contacts.
@@ -104,16 +103,19 @@ Thus, we can use the empirical distributions from this data as pre-pandemic numb
 
 \subsection{Assortative Matching}
 
-As mentioned in section \ref{sec:matching}, the probability that two individuals are matched can depend on background characteristics. In particular, we allow this probability to depend on age and county of residence. While we do not have good data on geographical assortativeness and just roughly calibrate it such that 60 \% of contacts are within the same county,\footnote{We are working on improving this estimation with mobility data.} we can calibrate the age assortativeness from the same data we use to calibrate the number of contacts.
+As mentioned in section \ref{sec:matching}, the probability that two individuals are matched can depend on background characteristics. In particular, we allow this probability to depend on age and county of residence. While we do not have good data on geographical assortativeness and just roughly calibrate it such that 60 \% of contacts are within the same county\footnotemark, we can calibrate the age assortativeness from the same data we use to calibrate the number of contacts.
 
-\begin{figure}[!ht]
+\footnotetext{We are working on improving this estimation with mobility data.}
+
+\begin{figure}[!tp]
     \centering
-    \includegraphics[width=0.7\textwidth]{../figures/assortative_matching_probability_example.png}
+    \includegraphics[width=\textwidth]{../figures/assortative_matching_probability_example.png}
     \caption{Distribution of random non-work contacts by age of participants}
     \label{fig:assortativeness}
 \end{figure}
 
 Figure~\ref{fig:assortativeness} shows that overall contacts within age groups or age groups that are closer to each other are more frequent.
+
 
 \subsection{Infection Probabilities}
 \label{sec:estimation}
@@ -123,35 +125,3 @@ To calibrate infection probabilities outside of the model, it would be important
 Currently, we use data for Germany from August to October (both inclusive). We do not use earlier periods to save computational time. Moreover, we would be worried that the infection probabilities have small seasonal variation that we currently cannot model. However, we plan to expand the estimation period soon.
 
 To avoid overfitting and simplify the numerical optimization problem, we only allow for four different probabilities: 1) for contacts in schools, preschools and nurseries. 2) for work contacts. 3) for households. 4) for leisure activities.
-
-
-\section{Model Validation}
-
-We validate our model in two ways: 1) We look at the in-sample fit over the estimation period. 2) We look at the out-of-sample fit for November. The last one is a challenging test for our model because there was a strong policy change between the estimation period and November. The model convincingly passes both tests.
-
-
-\subsection{In-Sample Fit}
-
-Despite fitting only four free parameters, the in-sample fit is very good. The best fit is achieved in the largest age groups. This is so mechanically, because we weight the deviations between simulated and observed infection rates by group sizes. The worst fit is achieved for the 80 to 100 years old. The model predicts too few infections for these groups because they have very few contacts in all contact types we have included so far. We plan to address this issue soon by adding another contact type that captures all contacts in the data by \cite{Mossong2008} that we have not included so far. Moreover, we expect an improved model fit when we allow for more free parameters.
-
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=0.7\textwidth]{../figures/goodness_of_fit_by_age_group}
-    \caption{Actual vs. simulated infection and fatality rates}
-    \label{fig:goodness_of_fit}
-\end{figure}
-
-
-\subsection{Out-of-Sample Fit}
-
-We can assess the out-of-sample fit by projecting the effect of the lockdown light and comparing it to case numbers until now. It is important to note that this is not just a simple extrapolation of a time trend because the lockdown light only started after the estimation period. The out-of-sample fit can be assessed in Figure~\ref{fig:out-of-sample-fit}.
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=0.7\textwidth]{../figures/out_of_sample_validation}
-    \caption{Projected effect of the lockdown-light}
-    \label{fig:out-of-sample-fit}
-\end{figure}
-
-The model correctly predicts the effect of the lockdown light with reasonable accuracy. In particular, the actual case numbers are between our neutral and pessimistic projection. The plot also shows that ending the lockdown light as planned on November 30 would lead to an explosive growth in case numbers in all scenarios.

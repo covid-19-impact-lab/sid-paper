@@ -63,3 +63,5 @@ todo.txt
 tex2pdf*
 ergebnisse.tex
 *.pdf
+*.loc
+*.soc
