@@ -1,9 +1,14 @@
 \section{Calibration and Estimation}
 \label{sec:calibration_and_estimation}
 
-The model is described by a large number of parameters that govern the number of contacts a person has, the likelihood of becoming infected on each contact, the likelihood of developing light or strong symptoms or even dying from the disease as well as the duration each stage of the disease takes.
+The model is described by a large number of parameters that govern the number of
+contacts a person has, the likelihood of becoming infected on each contact, the
+likelihood of developing light or strong symptoms or even dying from the disease as well
+as the duration each stage of the disease takes.
 
-Most of these parameters can be calibrated from existing datasets or the medical literature. Only the infection probabilities have to be estimated inside the model by fitting it to time series data of case numbers and fatality rates.
+Most of these parameters can be calibrated from existing datasets or the medical
+literature. Only the infection probabilities have to be estimated inside the model by
+fitting it to time series data of case numbers and fatality rates.
 
 
 \input{medical_parameters}
@@ -11,14 +16,26 @@ Most of these parameters can be calibrated from existing datasets or the medical
 
 \subsection{Number of Contacts}
 
-We calibrate the parameters for the predicted numbers of contacts from contact diaries of over 2000 individuals from Germany, Belgium, the Netherlands and Luxembourg \citep{Mossong2008}. Each contact diary contains all contacts an individual had throughout one day, including information on the other person (such as age and gender) and information on the contact. Importantly, for each contact individuals entered of which type the contact (school, leisure, work etc.) was and how frequent the contact with the other person is.
+We calibrate the parameters for the predicted numbers of contacts from contact diaries
+of over 2000 individuals from Germany, Belgium, the Netherlands and Luxembourg
+\citep{Mossong2008}. Each contact diary contains all contacts an individual had
+throughout one day, including information on the other person (such as age and gender)
+and information on the contact. Importantly, for each contact individuals entered of
+which type the contact (school, leisure, work etc.) was and how frequent the contact
+with the other person is.
 
-Thus, we can use the empirical distributions from this data as pre-pandemic number of contacts.
+Thus, we can use the empirical distributions from this data as pre-pandemic number of
+contacts.
 
 
 \subsection{Assortative Matching}
 
-As mentioned in section \ref{sec:matching}, the probability that two individuals are matched can depend on background characteristics. In particular, we allow this probability to depend on age and county of residence. While we do not have good data on geographical assortativeness and just roughly calibrate it such that 60 \% of contacts are within the same county\footnotemark, we can calibrate the age assortativeness from the same data we use to calibrate the number of contacts.
+As mentioned in section \ref{sec:matching}, the probability that two individuals are
+matched can depend on background characteristics. In particular, we allow this
+probability to depend on age and county of residence. While we do not have good data on
+geographical assortativeness and just roughly calibrate it such that 60 \% of contacts
+are within the same county\footnotemark, we can calibrate the age assortativeness from
+the same data we use to calibrate the number of contacts.
 
 \footnotetext{We are working on improving this estimation with mobility data.}
 
@@ -29,14 +46,25 @@ As mentioned in section \ref{sec:matching}, the probability that two individuals
     \label{fig:assortativeness}
 \end{figure}
 
-Figure~\ref{fig:assortativeness} shows that overall contacts within age groups or age groups that are closer to each other are more frequent.
+Figure~\ref{fig:assortativeness} shows that overall contacts within age groups or age
+groups that are closer to each other are more frequent.
 
 
 \subsection{Infection Probabilities}
 \label{sec:estimation}
 
-To calibrate infection probabilities outside of the model, it would be important to know the exact duration and distance of each contact type as well as virus loads. Since this is not available in any dataset, we estimate those parameters inside the model with the method of simulated moments \citep{McFadden1989} by minimizing the distance between simulated and observed infection rates. Since our model includes a lot of randomness, we average simulated infection rates over several model runs.
+To calibrate infection probabilities outside of the model, it would be important to know
+the exact duration and distance of each contact type as well as virus loads. Since this
+is not available in any dataset, we estimate those parameters inside the model with the
+method of simulated moments \citep{McFadden1989} by minimizing the distance between
+simulated and observed infection rates. Since our model includes a lot of randomness, we
+average simulated infection rates over several model runs.
 
-Currently, we use data for Germany from August to October (both inclusive). We do not use earlier periods to save computational time. Moreover, we would be worried that the infection probabilities have small seasonal variation that we currently cannot model. However, we plan to expand the estimation period soon.
+Currently, we use data for Germany from August to October (both inclusive). We do not
+use earlier periods to save computational time. Moreover, we would be worried that the
+infection probabilities have small seasonal variation that we currently cannot model.
+However, we plan to expand the estimation period soon.
 
-To avoid overfitting and simplify the numerical optimization problem, we only allow for four different probabilities: 1) for contacts in schools, preschools and nurseries. 2) for work contacts. 3) for households. 4) for leisure activities.
+To avoid overfitting and simplify the numerical optimization problem, we only allow for
+four different probabilities: 1) for contacts in schools, preschools and nurseries. 2)
+for work contacts. 3) for households. 4) for leisure activities.
