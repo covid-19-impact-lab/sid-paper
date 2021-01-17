@@ -1,0 +1,12 @@
+name: sid-paper
+
+channels:
+  - conda-forge
+  - pytask
+
+dependencies:
+  - python=3.8
+
+  - pytask
+  - pytask-latex
+  - Pygments

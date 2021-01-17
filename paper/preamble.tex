@@ -1,134 +1,42 @@
-\documentclass[a4paper,11pt,leqno,fleqn]{article}
+% To ``accept'' all changes in the document:
+% \PassOptionsToPackage{final}{changes}
 
-% commands =====================================================================
-\renewcommand{\baselinestretch}{1.25}\normalsize
-\newcommand{\vect}[1]{\mathbf{#1}}
-\newcommand{\thin}{\thinspace}
-\newcommand{\thick}{\thickspace}
-\newcommand{\N}{\mathrm{N}} %Normal Distribution
-\newcommand{\U}{\mathrm{U}} %Uniform Distribution
-\newcommand{\D}{\mathrm{D}} %Dirichlet Distribution
-\newcommand{\W}{\mathrm{W}} %Wishart Distribution
-\newcommand{\E}{\mbox{E}}       %Expectation
-\newcommand{\Iden}{\mathbb{I}}  %Identity Matrix
-\newcommand{\Ind}{\mathrm{I}}   %Indicator Function
-\newcommand{\var}{\mathrm{var}\thin}
-\newcommand{\plim}{\mathrm{plim}\thin}
-\newcommand{\cov}{\mathrm{cov}\thin}
-\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
-\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern5mu{#1#2}}}
-\renewcommand{\arraystretch}{1.05}
-\newenvironment{boenumerate}
-{\begin{enumerate}\renewcommand\labelenumi{\textbf{(\theenumi)}}}
-{\end{enumerate}}
+\documentclass[a4paper, 10pt]{article}
+% fleqn: flush-left aligned equations
+
+\newcommand{\papertitle}{
+    People Meet People - A~Microlevel Approach to Predicting the Effect of Policies on
+    the Spread of Covid-19
+}
+
+\input{../templates/Preamble_Fundamental_packages}
+\hypersetup{
+    pdftitle={\papertitle},
+    pdfauthor={Janoś Gabler, Tobias Raabe, Klara Röhrl}
+}
 
 % packages ======================================================================
 
-\usepackage{subcaption}
-\usepackage{graphicx}
-\usepackage{authblk}
+\input{../templates/Preamble_Page_layout_general}
+\input{../templates/Preamble_Page_layout_paper}
+\subimport{../templates/}{Preamble_Fonts_Charter_FiraSans}
+\input{../templates/Preamble_Sansserif_math}
+\input{../templates/Preamble_BibLaTeX_AER}
+%\input{../templates/Preamble_BibLaTeX_APA}
+\input{../templates/Preamble_Commenting_and_highlighting}
+\input{../templates/Preamble_Miscellaneous}
 
-\usepackage{times}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[natbib=true,giveninits=false,uniquename=false,uniquelist=false,bibencoding=inputenc,bibstyle=authoryear-ibid,citestyle=authoryear-comp,maxcitenames=2,maxbibnames=10,useprefix=false,sortcites=true,backend=biber]{biblatex}
-\AtBeginDocument{\toggletrue{blx@useprefix}}
-\AtBeginBibliography{\togglefalse{blx@useprefix}}
-\usepackage{setspace}
-\usepackage[unicode=true]{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    anchorcolor=black,
-    citecolor=black,
-    filecolor=black,
-    menucolor=black,
-    runcolor=black,
-    urlcolor=blue}
-\usepackage{threeparttable}
-\usepackage{listings}
-\usepackage{lscape}
-\usepackage{float, afterpage, rotating, graphicx}
-\usepackage{epstopdf}
-\usepackage{longtable, booktabs, tabularx}
-\usepackage{amsmath, amsfonts, amsthm, bm, amssymb}
-\usepackage{fancyvrb, moreverb, relsize}
-\usepackage{eurosym, calc, chngcntr}
-\usepackage{caption}
-\usepackage{mdwlist}
-\usepackage{xfrac}
-\usepackage{setspace}
-\usepackage{adjustbox}
-% \usepackage[position=bottom]{subfig}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{fancybox}
-\usepackage{appendix}
-\usepackage{enumerate}
-\usepackage{color,colortbl}
-\usepackage[left=2.5cm, right=3.25cm, top=2cm, bottom=2cm]{geometry}
-\usepackage{placeins}
-\usepackage{pdfcomment}
+% Add global hyphenation rules to avoid unwelcome linebreaks:
+% \hyphenation{Bu-shong Della-Vigna}
 
-% colors ======================================================================
-% blues
-\definecolor{lb}{HTML}{3498DB}
-\definecolor{b}{HTML}{1565C0}
-\definecolor{db}{HTML}{002080}
-% greens
-\definecolor{lg}{HTML}{B2EC5D}
-\definecolor{g}{HTML}{55A868}
-\definecolor{dg}{HTML}{2E7D32}
-% yellows
-\definecolor{ly}{HTML}{F9A825}
-\definecolor{y}{HTML}{FF8F00}
-\definecolor{dy}{HTML}{EF6C00}
-% reds
-\definecolor{lr}{HTML}{D84315}
-\definecolor{r}{HTML}{C44E52}
-\definecolor{dr}{HTML}{C62828}
-% violet
-\definecolor{lv}{HTML}{C71585}
-\definecolor{v}{HTML}{9B59B6}
-\definecolor{dv}{HTML}{6A1B9A}
-% grey
-\definecolor{ln}{HTML}{BDBDBD}
-\definecolor{n}{HTML}{757575}
-\definecolor{dn}{HTML}{616161}
-% palettes
-\definecolor{p1}{HTML}{4A6FAC}
-\definecolor{p2}{HTML}{53A465}
-\definecolor{p3}{HTML}{C04C50}
-\definecolor{p4}{HTML}{7E6FAE}
-\definecolor{p5}{HTML}{C8B571}
-\definecolor{p6}{HTML}{62B1C8}
-% brown
-\definecolor{brown}{HTML}{4E342E}
-
-% settings ====================================================================
-\setlength{\skip\footins}{1.0cm}
-
-\setlength{\parindent}{0mm}
-\setlength{\parskip}{2mm}
+\bibliography{../references.bib}
 
 
-\newcommand\blfootnote[1]{%
-  \begingroup
-  \renewcommand\thefootnote{}\footnote{#1}%
-  \addtocounter{footnote}{-1}%
-  \endgroup
-}
+\usepackage[newfloat, outputdir=../bld]{minted}
 
-
-
-
-% title =======================================================================
-\title{People Meet People - A Microlevel Approach to Predicting the Effect of Policies on the Spread of Covid-19}
-\date{\today}
-\author[1,2]{Janoś Gabler}
-\author[3]{Tobias Raabe}
-\author[1]{Klara Röhrl}
-\affil[1]{Bonn Graduate School of Economics}
-\affil[2]{IZA Institute of Labor Economics}
-\affil[3]{Unaffiliated}
-
-\addbibresource{../references.bib}
+% Define environments to comment on the sidebar of the PDF.
+\definechangesauthor[name={Tobias}, color=alizarin]{T}
+\definechangesauthor[name={Janos}, color=internationalorange]{J}
+\definechangesauthor[name={Klara}, color=electricultramarine]{K}
+% Use \replace[id=T]{<to-be-replaced>}{<new>} or the same with \deleted to propose
+% changes.

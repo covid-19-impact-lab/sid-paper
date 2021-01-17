@@ -1,0 +1,43 @@
+\subsection{Testing} % (fold)
+\label{sub:testing}
+
+The model offers two approaches to implement testing for Covid-19.
+
+The first way can be described as an top-down approach. Using data on estimates for the
+ratio of known to all infections\footnotemark a random sample of individuals who is
+newly infected is sampled and assigned a test. The result of the test will be revealed
+after some duration which must take into account the time it takes for a person to
+develop symptoms, the availability of tests and time to process the tests.
+
+\footnotetext{The Dunkelzifferradar project publishes daily estimates of the dark figure
+of infections under \url{https://covid19.dunkelzifferradar.de/}}
+
+The second way is an bottom-up approach which consists of three phases. In the first
+phase, the demand for tests is modeled. Demand functions map from individual
+characteristics to a probability which is the probability for this individual to demand
+a test. There can be multiple demand functions where each function may describe a
+different channel. For example, individuals who experience symptoms or have a risk
+contact may ask for a test. Or, the ministry of education requires a negative test
+result from every teacher every second week. After the probabilities for each individual
+and every demand model are computed, individuals who demand a test as well as the
+channel is sampled.
+
+The second stage is the allocation phase in which demand and supply for tests are
+matched. The number of available tests can be inferred from official data and used to
+model shortages in supply. When demand exceeds supply, some individuals might be given
+preferred access to tests because of their own vulnerability or their potential to
+become a super-spreader.
+
+In the last and third phase, administered tests are determined to be processed. This
+step can become a bottleneck in the testing process if there are not enough laboratories
+or necessary resources available to evaluate all tests.
+
+The strength of the first approach is its simplicity, but it relies on estimates for the
+ratio of known to unknown cases for which not much data exist in the absence of
+systematic and randomized testing. The second approach is much more detailed and in
+principle able to reflect individual responses and governmental restrictions on the
+access to tests. At the same time, individual behavior and restrictions are complex and
+the determinants of the demand, allocation and processing functions require a lot of
+calibration.
+
+% subsection testing (end)
