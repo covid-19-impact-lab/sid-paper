@@ -1,19 +1,37 @@
 \section{Introduction}
 \label{sec:introduction}
 
+% setting
 The first wave of the Covid-19 pandemic prompted strict lockdowns and restrictions
-across the world. Many countries were able to contain the spread of the virus and to
-relax restrictions during midyear. At the same time, the social and economic costs were
-enormous. In the second wave, countries are trying to implement more nuanced policies.
-For example, Germany imposed a ``lockdown-light'' in November. Some businesses are
-closed and certain leisure activities are prohibited but educational facilities remain
-open.
+across the world.
+At large social and economic costs, these strict measures were able to suppress the
+spread of the disease and allowed governments to relax restrictions over the summer.
+Governments were more hesitant and imposed less restrictive policies when infections
+started to soar again in the fall.
+For example, Germany imposed a ``lockdown-light'' in November, closing fewer businesses
+than in spring and leaving schools open. Mobility data also showed that individuals
+reduced their mobility much less than during the first lockdown.
 
-Current epidemiological models have not been designed to predict the effect of
-fine-grained policies. The models need to be extended for each new policy proposal and
-cannot be easily adapted to fast changing environments. This report describes a model
-that has been designed from the ground up to predict the effects of contact reducing
-policies in real time. It has the following features:
+\textcolor{red}{Add image of Google Mobility reductions!}
+
+% challenge
+The less restrictive lockdown led only to a stagnation of cases and led many experts
+\textcolor{red}{(Cite No-Covid, Zero-Covid, Leopoldina, Lancet...)} to call for a
+strict lockdown to bring cases back to very low levels, such as single digit incidences.
+These calls have received additional attention since new and more contagiuos variants
+have emerged in several countries and increased the urgency to reduce transmission
+dynamics and increased awareness for the mutagenic potential of high incidences.
+\textcolor{red}{Add citations!}
+
+However, epidemiological models are not suited to advise which combination of policies
+would be able to bring infections down to sustainable levels.
+As they have not been designed to predict the effects of fine-grained policies,
+they need to be extended for each new policy proposal.
+Nor can they show the trade-offs, substitutability or complementarity of policies.
+
+% contribution
+This report describes a model that has been designed from the ground up to predict the
+effects of contact reducing policies in real time. It has the following features:
 
 \begin{enumerate}
     \item At the core of the model, people meet people based on a matching algorithm. We
@@ -49,13 +67,13 @@ policies in real time. It has the following features:
 }
 
 This report describes the model in an abstract way, but uses many realistic examples
-from a version that is specialized to Germany. It is important to note that this
-specialization is not baked into the model or the Python code. It is easy to adjust the
-model to other countries if data on the number of contacts and a dataset with background
-characteristics are available.
+from a version that is specialized to Germany. It is important to note that it would
+be easy to adjust the model to other countries if data on the number of contacts and
+a dataset with background characteristics are available.
 
 More details about the German model as well as applications to currently discussed
 German policies can be found in \citet{Dorn2020a}.
+\textcolor{red}{Update citation to home office report.}
 
 In Section~\ref{sec:literature_review}, we give a short overview of epidemiological
 models. We continue with a detailed description of our model in Section~\ref{sec:model}
