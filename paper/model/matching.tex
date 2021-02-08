@@ -3,8 +3,8 @@
 
 The empirical data described above only allows to estimate the number of contacts each
 person has. In order to simulate transmissions of Covid-19, the numbers of contacts has
-to be translated into actual meetings between people. This is achieved by matching
-algorithms:
+to be translated into actual meetings between people. This is achieved by our matching
+algorithm:
 
 As described in section \ref{sec:number_of_contacts}, some contact types are recurrent
 (i.e. the same people meet regularly), others are non-recurrent (i.e. it would only be
@@ -13,8 +13,8 @@ and non recurrent contact models.
 
 Recurrent contacts are described by two components: 1) A variable in the background
 characteristics. An example would be a school class identifier which could come from
-actual data or be drawn randomly to achieve representative class sizes. 2) A
-deterministic or random function that takes the value 0 (non-participating) and 1
+actual data or be drawn randomly to achieve representative class sizes.
+2) A deterministic or random function that takes the value 0 (non-participating) and 1
 (participating) and can depend on the weekday, date and health state. This can be used
 to model vacations, weekends or symptomatic people who stay home (see section
 \ref{sec:endogenous_contact_reductions} for details).
@@ -50,8 +50,8 @@ describe how the algorithm works in words.
                 group_j = draw_group_of_other_person()
                 j = draw_other_person_from_that_group(group_j)
 
-                if infection_takes_places(i, j):
-                    # Update health statuses.
+                if infection_takes_pinfectedlaces(i, j):
+                    update_health_state_of_freshly_infected()
 
                 remaining_contacts[i, contact_type] -= 1
                 remaining_contacts[j, contact_type] -= 1
@@ -62,11 +62,11 @@ describe how the algorithm works in words.
 We first randomly draw a contact type and individual. For each contact of the drawn
 contact type that person has, we first draw the group of the other person (first stage).
 Next, we calculate the probability to be drawn for each member of the group, based on
-the number of remaining contacts. I.e. people who have more remaining contacts are drawn
+the number of remaining contacts, i.e. people who have more remaining contacts are drawn
 with a higher probability. This has to be re-calculated each time because with each
 matched contact, the number of remaining contacts changes. We then draw the other
 individual, determine whether an infection takes place and if so update the health
-states of the newly infected person. Finally, we reduce the number of remaining contacts
+state of the newly infected person. Finally, we reduce the number of remaining contacts
 of the two matched individuals by one.
 
 The recalculation of matching probabilities in the second stage is computationally
