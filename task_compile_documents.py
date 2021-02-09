@@ -9,7 +9,14 @@ DEPENDENCIES += list(ROOT.joinpath("paper").rglob("*.tex"))
 
 
 @pytask.mark.latex(
-    ["--pdf", "--interaction=nonstopmode", "--synctex=1", "--cd", "--shell-escape"]
+    [
+        "--pdf",
+        "--interaction=nonstopmode",
+        "--synctex=1",
+        "--cd",
+        "--shell-escape",
+        "-f",
+    ]
 )
 @pytask.mark.depends_on(DEPENDENCIES)
 @pytask.mark.produces(BLD / "paper.pdf")
