@@ -50,7 +50,7 @@ describe how the algorithm works in words.
                 group_j = draw_group_of_other_person()
                 j = draw_other_person_from_that_group(group_j)
 
-                if infection_takes_pinfectedlaces(i, j):
+                if infection_takes_place(i, j):
                     update_health_state_of_freshly_infected()
 
                 remaining_contacts[i, contact_type] -= 1
