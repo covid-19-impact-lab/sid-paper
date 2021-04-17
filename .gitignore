@@ -1,6 +1,8 @@
 *-blx.bib
 *.asv
 *.aux
+*.bib.bak
+*.bib.sav
 *.bbl
 *.bcf
 *.bib_*.utf8

@@ -1,11 +1,11 @@
 \subsection{Summary}
 \label{sub:model_summary}
 
-To alleviate these problems we propose a different model structure. Our model inherits
-many features from agent-based simulation models but replaces the contacts between
-moving particles by contacts between individuals who work, go to school, live in a
-household and enjoy leisure activities. The structure of the model is depicted in
-Figure~\ref{fig:model_graph}.
+To predict the effects of a wide variety of fine-grained social distancing policies we
+propose a different model structure. Our model inherits many features from agent-based
+simulation models but replaces the contacts between moving particles by contacts between
+individuals who work, go to school, live in a household and enjoy leisure activities.
+The structure of the model is depicted in Figure~\ref{fig:model_graph}.
 
 \begin{figure}[!tp]
     \centering
@@ -16,7 +16,7 @@ Figure~\ref{fig:model_graph}.
 
 The background characteristics include age, county and occupation of each simulated
 individual. Contact models are functions that map individual characteristics into a
-predicted number of contacts. Currently we distinguish between eight types of contact
+predicted number of contacts. Currently, we distinguish between eight types of contact
 models which are all listed in Figure~\ref{fig:model_graph}: households, recurrent and
 random work contacts, recurrent and random leisure contacts, and nursery, preschool, and
 school contacts.
@@ -27,19 +27,19 @@ members) and non-recurrent contacts (e.g. clients, contacts in supermarkets). Th
 infection probability can differ for each contact type. All types of contacts can be
 assortative with respect to geographic and demographic characteristics.
 
-Once a person is infected, the disease progresses in a fairly standard way which is also
+Once a person is infected, the disease progresses in a fairly standard way which is
 depicted in Figure~\ref{fig:course_of_disease}. Asymptomatic cases and cases with mild
 symptoms are infectious for some time and recover eventually. Cases with severe symptoms
 additionally require hospitalization and lead to either recovery or death.
 
-There are two possible ways to enable testing for Covid-19 in the model. The first way
-allows to specify the ratio of known to unknown infections for each day. A random sample
-of all newly infected individuals will then receive a test result in the following days.
-The second approach consists of three steps. First, individuals demand a test because
-they, e.g., experience symptoms. Secondly, tests are allocated to individuals while
-respecting governmental access restrictions to test. Thirdly, depending of the
-capacities of laboratories, tests are processed for some time until the individual
-receives her test result.
+Our model also allows the evaluation of different testing strategies by having a
+detailed three-step model of test demand, allocation and processing: First, individuals
+demand a test because they, e.g., experience symptoms. Secondly, tests are allocated to
+individuals while respecting governmental access restrictions to tests. Thirdly,
+depending of the capacities of laboratories, tests are processed for some time until the
+individual receives her test result. This framework would allow to evaluate the effect
+of different testing demand behavior and allocation policies, as are for example
+discussed by \cite{Troeger2020}.
 
 In addition, people who have symptoms, received a positive test, or had a risk contact
 can reduce their number of contacts across all contact types endogenously.
@@ -56,8 +56,8 @@ This in turn allows us to estimate policy-invariant infection probabilities from
 series of infection and death rates using the method of simulated moments
 \citep{McFadden1989}. Since the infection probabilities are time-invariant, data
 collected since the beginning of the pandemic can be used for estimation. Moreover,
-since we can model the testing strategies that were in place at each point in time, we
-can correct the estimates for the fact that not all infections are observed.
+since we model the testing strategies that were in place at each point in time, we can
+correct the estimates for the fact that not all infections are observed.
 
 Last but not least, performing simulations whose starting point is set amidst the
 pandemic requires special adjustments to arrive at a realistic distribution of courses

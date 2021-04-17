@@ -10,18 +10,25 @@ period and November. The model convincingly passes both tests.
 \subsection{In-Sample Fit}
 \label{sub:in_sample_fit}
 
-Despite fitting only four free parameters, the in-sample fit is very good. The best fit
-is achieved in the largest age groups. This is so mechanically, because we weight the
+Despite fitting only four infection probabilities, the in-sample fit is very good.
+The best fit is achieved in the largest age groups.
+This is so mechanically, because we weigh the
 deviations between simulated and observed infection rates by group sizes. The worst fit
-is achieved for the 80 to 100 years old. The model predicts too few infections for these
-groups because they have very few contacts in all contact types we have included so far.
-We plan to address this issue soon by adding another contact type that captures all
-contacts in the data by \citet{Mossong2008} that we have not included so far. Moreover,
-we expect an improved model fit when we allow for more free parameters.
+is achieved for the 80 to 100 years old.
+There are three reasons for this: Firstly, we only model private households at
+the moment, meaning that nursing homes are not part of the synthetic population we
+simulate. Since community housing residents are part of the German Mikrozensus
+\citep{FDSAeDBUDL2018} which forms the basis for our synthetic population, we can and
+plan to include community housing residents in the near future.
+Secondly, the elderly, especially nursing home residents, are tested more often than
+the general population leading to more cases being detected in this age group.
+We are currently working to include age-variant testing strategies,
+using \href{https://ars.rki.de/Content/COVID19/Main.aspx}{data by the RKI}
+\citep{Seifried2020}.
 
-\begin{figure}[!tp]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{../figures/goodness_of_fit_by_age_group}
+    \includegraphics[width=1.1\textwidth]{../figures/goodness_of_fit_by_age_group}
     \caption{Reported vs. simulated weekly incidence rates of infections.}
     \label{fig:goodness_of_fit}
     \figurenotes{
@@ -31,14 +38,15 @@ we expect an improved model fit when we allow for more free parameters.
     }
 \end{figure}
 
+\FloatBarrier
 
 \subsection{Out-of-Sample Fit}
 \label{sub:out_of_sample_fit}
 
 We can assess the out-of-sample fit by projecting the effect of the lockdown light and
-comparing it to case numbers until now. It is important to note that this is not just a
-simple extrapolation of a time trend because the lockdown light only started after the
-estimation period. The out-of-sample fit can be assessed in
+comparing it to case numbers until mid of November. It is important to note that this
+is not just a simple extrapolation of a time trend because the lockdown light only started
+after the estimation period. The out-of-sample fit can be assessed in
 Figure~\ref{fig:out-of-sample-fit}.
 
 \begin{figure}[!tp]
@@ -58,5 +66,5 @@ Figure~\ref{fig:out-of-sample-fit}.
 
 The model correctly predicts the effect of the lockdown light with reasonable accuracy.
 In particular, the actual case numbers are between our neutral and pessimistic
-projection. The plot also shows that ending the lockdown light as planned on November 30
-would lead to an explosive growth in case numbers in all scenarios.
+projection. The plot also shows that ending the lockdown light on November 30, as was
+originally planned, would lead to an explosive growth in case numbers in all scenarios.

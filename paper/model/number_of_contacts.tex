@@ -2,11 +2,11 @@
 \label{sec:number_of_contacts}
 
 Consider a hypothetical population of 1,000 individuals in which 50 were infected with a
-novel infectious disease. From this data alone, it is impossible to say whether only
+novel infectious disease. From this alone, it is impossible to say whether only
 those 50 people had contact with an infectious person and the disease has an infection
 probability of 1 in each contact or whether everyone met an infectious person but the
 disease has an infection probability of only 5 percent per contact. SEIR models do not
-even try to distinguish contact frequency from the infectiousness of each contact and
+distinguish contact frequency from the infectiousness of each contact and
 combine the two in one parameter that is not invariant to social distancing policies.
 
 To model social distancing policies, we need to disentangle the effects of the number of
@@ -63,8 +63,8 @@ Currently, there are the following contact types:
     mechanics are similar to schools.
 \end{itemize}
 
-The number of random and recurrent contacts at the workplace and at home is calibrated
-with data provided by \citet{Mossong2008}. For details see
+The number of random and recurrent contacts at the workplace, during leisure activities
+and at home is calibrated with data provided by \citet{Mossong2008}. For details see
 Section~\ref{sec:number_of_contacts}. In particular, we sample the number of contacts or
 group sizes from empirical distributions that sometimes depend on age. It is also
 possible to use economic or other behavioral models to predict the number of contacts.
@@ -72,6 +72,5 @@ possible to use economic or other behavioral models to predict the number of con
 Theoretically, each contact type can have its own infection probability. However, to
 reduce the number of free parameters and thus avoid a potential over-fitting we impose
 some constraints. For now, infection probabilities in schools, preschools and nurseries
-are equal. Moreover, we restrict all work contacts to have the same infection
-probability.\comment[id=T]{I have no idea about the current infection probabilities.
-Does it need an update?}
+are equal. Moreover, we restrict all work contacts and all non-work contacts to have
+the same infection probability.

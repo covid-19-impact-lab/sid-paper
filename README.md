@@ -18,6 +18,8 @@ paper](https://www.iza.org/publications/dp/13899). Please cite it with
 }
 ```
 
+The [latest version of the paper](paper.pdf) can be found in this repository.
+
 
 ## Related publications
 
@@ -45,6 +47,10 @@ Here is a list of publications which rely on sid.
 
   The second version of the paper was published to accompany Gabler, Raabe, Röhrl, von
   Gaudecker (2020).
+
+- v3 - 2021-02-09
+
+  An updated version for the CRC Discussion Series.
 
 
 ## Development

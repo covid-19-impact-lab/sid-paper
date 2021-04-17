@@ -1,19 +1,36 @@
 \section{Introduction}
 \label{sec:introduction}
 
+% setting
 The first wave of the Covid-19 pandemic prompted strict lockdowns and restrictions
-across the world. Many countries were able to contain the spread of the virus and to
-relax restrictions during midyear. At the same time, the social and economic costs were
-enormous. In the second wave, countries are trying to implement more nuanced policies.
-For example, Germany imposed a ``lockdown-light'' in November. Some businesses are
-closed and certain leisure activities are prohibited but educational facilities remain
-open.
+across the world.
+At large social and economic costs, these strict measures were able to suppress the
+spread of the disease in many countries and allowed governments to relax restrictions
+over the summer.
+When infections started to soar again in the fall, governments were more hesitant
+and imposed less restrictive policies.
+For example, Germany imposed a ``lockdown-light'' in November, closing fewer businesses
+than in spring and leaving schools open.
 
-Current epidemiological models have not been designed to predict the effect of
-fine-grained policies. The models need to be extended for each new policy proposal and
-cannot be easily adapted to fast changing environments. This report describes a model
-that has been designed from the ground up to predict the effects of contact reducing
-policies in real time. It has the following features:
+% challenge
+The less restrictive lockdowns proved insufficient to stop the second wave, leading
+many experts to call for a strict lockdown to bring cases back to very low levels,
+such as single digit incidences (for example \cite{Priesemann2021}).
+These calls have received additional attention since new and more contagiuos variants
+have emerged in across the globe \citep{Duong2021} and increased the urgency to
+reduce transmission dynamics and increased awareness for the mutagenic threat posed by
+high incidences.
+Given the importance to bring down and maintain low infection numbers until
+vaccinations reach herd immunity levels, it is paramount for policy makers and the
+public to understand the effectiveness and trade-offs involved in different policies.
+
+However, epidemiological models are not suited for this task.
+As they have not been designed to predict the effects of fine-grained policies,
+they need to be extended for each new policy proposal.
+
+% contribution
+This report describes a model that has been designed from the ground up to predict the
+effects of contact reducing policies in real time. It has the following features:
 
 \begin{enumerate}
     \item At the core of the model, people meet people based on a matching algorithm. We
@@ -23,18 +40,19 @@ policies in real time. It has the following features:
           in frequency.
 
     \item Policies can be implemented as shutting down contact types entirely or
-          partially. The reduction of contacts can be random or systematic, e.g., to
-          allow for essential workers.
+          partially. The reduction of contacts can be random or systematic. For example,
+          it is possible to implement split class schooling where only one half of each
+          class attends and the attending half switches on a weekly bases.
 
     \item Infection probabilities vary across contact types and reflect properties of
           the contact like the location (indoor/outdoor) and the kind of interaction
           (duration, physical contact). The probabilities are independent from the
-          number of contacts and thus policy-invariant.
+          number of contacts and, thus, policy-invariant.
 
     \item The model achieves a good fit on German data of infection rates even if only
           the infection probabilities are fit to the data and the remaining parameters
           are calibrated from the medical literature and datasets on contact
-          frequencies.
+          frequencies and mobility reductions.
 
     \item High quality Python code for the model is freely available on Github, well
           documented and very flexible\footnotemark. We are actively looking for
@@ -49,16 +67,16 @@ policies in real time. It has the following features:
 }
 
 This report describes the model in an abstract way, but uses many realistic examples
-from a version that is specialized to Germany. It is important to note that this
-specialization is not baked into the model or the Python code. It is easy to adjust the
-model to other countries if data on the number of contacts and a dataset with background
-characteristics are available.
+from a version that is specialized to Germany. It is important to note that it would
+be easy to adjust the model to other countries if data on the number of contacts and
+a dataset with background characteristics are available.
 
 More details about the German model as well as applications to currently discussed
-German policies can be found in \citet{Dorn2020a}.
+German policies can be found in \citet{Dorn2020a, Gabler2020, Gabler2021}.
 
-In Section~\ref{sec:literature_review}, we give a short overview of epidemiological
-models. We continue with a detailed description of our model in Section~\ref{sec:model}
+The report proceeds as follows: In Section~\ref{sec:literature_review}, we give a
+short overview of epidemiological models.
+We continue with a detailed description of our model in Section~\ref{sec:model}
 and proceed with a description of model parameters and the estimation in
 Section~\ref{sec:calibration_and_estimation}. The model is validated in
 Section~\ref{sec:model_validation} by assessing the in-sample fit for reported

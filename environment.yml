@@ -2,11 +2,10 @@ name: sid-paper
 
 channels:
   - conda-forge
-  - pytask
 
 dependencies:
   - python=3.8
 
+  - pre-commit
   - pytask
   - pytask-latex
-  - Pygments
