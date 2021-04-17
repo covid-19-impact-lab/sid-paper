@@ -4,20 +4,18 @@
 Consider a situation where you want to start a simulation with the beginning set amidst
 the pandemic. It means that several thousands of individuals should already have
 recovered from the disease, be infectious, symptomatic or in intensive care at the start
-of your simulation.
-Additionally, the sample of infectious people who will determine the course of the
-pandemic in the following periods is likely not representative of the whole population
-because of differences in behavior (number of contacts, assortativeness), past policies
-(school closures), etc..
-The distribution of courses of diseases in the population at the begin of the simulation is
-called initial conditions.
+of your simulation. Additionally, the sample of infectious people who will determine the
+course of the pandemic in the following periods is likely not representative of the
+whole population because of differences in behavior (number of contacts,
+assortativity), past policies (school closures), etc.. The distribution of courses of
+diseases in the population at the begin of the simulation is called initial conditions.
 
 To come up with realistic initial conditions, we match reported infections from official
 data to simulated individuals by available characteristics like age and geographic
 information. The matching must be done for each day of a longer time frame like a month
 to have individuals with possible health states. Then, health statuses evolve until the
-begin of the simulation period without simulating infections by contacts.
-We also correct reported infections for a reporting lag and scale them up to arrive
-at the true number of infections.
+begin of the simulation period without simulating infections by contacts. We also
+correct reported infections for a reporting lag and scale them up to arrive at the true
+number of infections.
 
 % subsection initial_conditions (end)

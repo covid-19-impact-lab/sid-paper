@@ -65,9 +65,9 @@ Next, we calculate the probability to be drawn for each member of the group, bas
 the number of remaining contacts, i.e. people who have more remaining contacts are drawn
 with a higher probability. This has to be re-calculated each time because with each
 matched contact, the number of remaining contacts changes. We then draw the other
-individual, determine whether an infection takes place and if so update the health
-state of the newly infected person. Finally, we reduce the number of remaining contacts
-of the two matched individuals by one.
+individual, determine whether an infection takes place and if so update the health state
+of the newly infected person. Finally, we reduce the number of remaining contacts of the
+two matched individuals by one.
 
 The recalculation of matching probabilities in the second stage is computationally
 intensive because it requires summing up all remaining contacts in that group. Using a

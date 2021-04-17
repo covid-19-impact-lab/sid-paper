@@ -1,11 +1,10 @@
 \subsection{Summary}
 \label{sub:model_summary}
 
-To predict the effects of a wide variety of fine-grained social distancing policies
-we propose a different model structure.
-Our model inherits many features from agent-based simulation models but replaces
-the contacts between moving particles by contacts between individuals who work,
-go to school, live in a household and enjoy leisure activities.
+To predict the effects of a wide variety of fine-grained social distancing policies we
+propose a different model structure. Our model inherits many features from agent-based
+simulation models but replaces the contacts between moving particles by contacts between
+individuals who work, go to school, live in a household and enjoy leisure activities.
 The structure of the model is depicted in Figure~\ref{fig:model_graph}.
 
 \begin{figure}[!tp]
@@ -33,15 +32,14 @@ depicted in Figure~\ref{fig:course_of_disease}. Asymptomatic cases and cases wit
 symptoms are infectious for some time and recover eventually. Cases with severe symptoms
 additionally require hospitalization and lead to either recovery or death.
 
-Our model also allows the evaluation of different testing strategies by having a detailed
-three-step model of test demand, allocation and processing:
-First, individuals demand a test because they, e.g., experience symptoms.
-Secondly, tests are allocated to individuals while respecting governmental access
-restrictions to tests.
-Thirdly, depending of the capacities of laboratories, tests are processed for some time
-until the individual receives her test result.
-This framework would allow to evaluate the effect of different testing demand behavior
-and allocation policies, as are for example discussed by \cite{Troeger2020}.
+Our model also allows the evaluation of different testing strategies by having a
+detailed three-step model of test demand, allocation and processing: First, individuals
+demand a test because they, e.g., experience symptoms. Secondly, tests are allocated to
+individuals while respecting governmental access restrictions to tests. Thirdly,
+depending of the capacities of laboratories, tests are processed for some time until the
+individual receives her test result. This framework would allow to evaluate the effect
+of different testing demand behavior and allocation policies, as are for example
+discussed by \cite{Troeger2020}.
 
 In addition, people who have symptoms, received a positive test, or had a risk contact
 can reduce their number of contacts across all contact types endogenously.
@@ -58,8 +56,8 @@ This in turn allows us to estimate policy-invariant infection probabilities from
 series of infection and death rates using the method of simulated moments
 \citep{McFadden1989}. Since the infection probabilities are time-invariant, data
 collected since the beginning of the pandemic can be used for estimation. Moreover,
-since we model the testing strategies that were in place at each point in time, we
-can correct the estimates for the fact that not all infections are observed.
+since we model the testing strategies that were in place at each point in time, we can
+correct the estimates for the fact that not all infections are observed.
 
 Last but not least, performing simulations whose starting point is set amidst the
 pandemic requires special adjustments to arrive at a realistic distribution of courses
