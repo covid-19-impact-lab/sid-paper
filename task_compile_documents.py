@@ -24,6 +24,6 @@ def task_compile_documents():
 
 
 @pytask.mark.depends_on(BLD / "paper.pdf")
-@pytask.mark.produces(ROOT / ".." / "paper.pdf")
+@pytask.mark.produces(ROOT / "paper.pdf")
 def task_copy_pdf_to_root(depends_on, produces):
     shutil.copy(depends_on, produces)
