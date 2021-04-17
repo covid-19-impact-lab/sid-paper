@@ -41,20 +41,20 @@ describe how the algorithm works in words.
 \begin{listing}
     \label{code:matching}
     \begin{minted}{python}
-        while are_unmatched_contacts_left:
+    while are_unmatched_contacts_left:
 
-            contact_type, i = draw_contact_type_and_individual()
+        contact_type, i = draw_contact_type_and_individual()
 
-            for _ in remaining_contacts[i, contact_type]:
+        for _ in remaining_contacts[i, contact_type]:
 
-                group_j = draw_group_of_other_person()
-                j = draw_other_person_from_that_group(group_j)
+            group_j = draw_group_of_other_person()
+            j = draw_other_person_from_that_group(group_j)
 
-                if infection_takes_place(i, j):
-                    update_health_state_of_freshly_infected()
+            if infection_takes_place(i, j):
+                update_health_state_of_freshly_infected()
 
-                remaining_contacts[i, contact_type] -= 1
-                remaining_contacts[j, contact_type] -= 1
+            remaining_contacts[i, contact_type] -= 1
+            remaining_contacts[j, contact_type] -= 1
     \end{minted}
     \caption{Pseudo-code of the matching algorithm for non-recurrent contacts.}
 \end{listing}

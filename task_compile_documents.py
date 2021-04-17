@@ -1,11 +1,11 @@
-import pytask
+import shutil
 from pathlib import Path
+
+import pytask
 
 
 ROOT = Path(__file__).parent
 BLD = ROOT / "bld"
-DEPENDENCIES = [ROOT / "paper" / "paper.tex", ROOT / "references.bib"]
-DEPENDENCIES += list(ROOT.joinpath("paper").rglob("*.tex"))
 
 
 @pytask.mark.latex(
@@ -15,10 +15,15 @@ DEPENDENCIES += list(ROOT.joinpath("paper").rglob("*.tex"))
         "--synctex=1",
         "--cd",
         "--shell-escape",
-        "-f",
     ]
 )
-@pytask.mark.depends_on(DEPENDENCIES)
+@pytask.mark.depends_on(ROOT / "paper" / "paper.tex")
 @pytask.mark.produces(BLD / "paper.pdf")
 def task_compile_documents():
     pass
+
+
+@pytask.mark.depends_on(BLD / "paper.pdf")
+@pytask.mark.produces(ROOT / ".." / "paper.pdf")
+def task_copy_pdf_to_root(depends_on, produces):
+    shutil.copy(depends_on, produces)
