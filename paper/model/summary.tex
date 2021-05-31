@@ -1,10 +1,11 @@
 \subsection{Summary}
 \label{sub:model_summary}
 
-To predict the effects of a wide variety of fine-grained social distancing policies we
-propose a different model structure. Our model inherits many features from agent-based
-simulation models but replaces the contacts between moving particles by contacts between
-individuals who work, go to school, live in a household and enjoy leisure activities.
+To predict and quantify the effects of a wide variety of fine-grained social distancing policies, vaccinations and rapid testing, we propose a different model structure. Our
+model inherits many features from prototypical agent-based simulation models but
+replaces the contacts between moving particles by contacts between individuals who work,
+go to school, live in a household and enjoy leisure activities.
+
 The structure of the model is depicted in Figure~\ref{fig:model_graph}.
 
 \begin{figure}[!tp]
@@ -27,22 +28,29 @@ members) and non-recurrent contacts (e.g. clients, contacts in supermarkets). Th
 infection probability can differ for each contact type. All types of contacts can be
 assortative with respect to geographic and demographic characteristics.
 
+The infection probabilities of contacts vary with contact type, age of the susceptible
+person, and the virus strain of the infected person. Moreover, they follow a seasonal
+pattern. The strength of the seasonality effect is higher for contacts that are easy to
+be moved to an outside location in summer (such as leisure contacts) and smaller for
+contacts that take place inside even in summer (e.g. work contacts).
+
 Once a person is infected, the disease progresses in a fairly standard way which is
 depicted in Figure~\ref{fig:course_of_disease}. Asymptomatic cases and cases with mild
 symptoms are infectious for some time and recover eventually. Cases with severe symptoms
 additionally require hospitalization and lead to either recovery or death.
 
-Our model also allows the evaluation of different testing strategies by having a
-detailed three-step model of test demand, allocation and processing: First, individuals
-demand a test because they, e.g., experience symptoms. Secondly, tests are allocated to
-individuals while respecting governmental access restrictions to tests. Thirdly,
-depending of the capacities of laboratories, tests are processed for some time until the
-individual receives her test result. This framework would allow to evaluate the effect
-of different testing demand behavior and allocation policies, as are for example
-discussed by \cite{Troeger2020}.
+After rapid tests become available, people who work or go to school can receive rapid
+tests there. Moreover, people can decide to make a rapid test if they develop symptoms,
+have many planned contacts or observe cases in their contact network. People who have a positive rapid test demand a confirmatory PCR test with a certain
+probability. Moreover, PCR tests can be demanded because of symptoms or randomly.
 
-In addition, people who have symptoms, received a positive test, or had a risk contact
-can reduce their number of contacts across all contact types endogenously.
+This rich model of PCR and rapid tests leads to a share of detected cases that varies
+over time and across age groups. It also allows to quantify the effect of changes in
+testing policies on the dynamic of infections.
+
+People who have symptoms, received a positive test, or had a risk contact
+can reduce their number of contacts across all contact types endogenously. The extent to
+which this is done is calibrated from survey data.
 
 The model makes it very simple to translate policies into model quantities. For example,
 school closures imply the complete suspension of school contacts. A strict lockdown
