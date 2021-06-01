@@ -3,57 +3,47 @@
 
 % setting
 The first wave of the Covid-19 pandemic prompted strict lockdowns and restrictions
-across the world.
-At large social and economic costs, these strict measures were able to suppress the
-spread of the disease in many countries and allowed governments to relax restrictions
-over the summer.
-When infections started to soar again in the fall, governments were more hesitant
-and imposed less restrictive policies.
-For example, Germany imposed a ``lockdown-light'' in November, closing fewer businesses
-than in spring and leaving schools open.
+across the world. The reaction to second waves consisted of more targeted policy
+measures such as splitting school classes, closing restaurants and encouragement of home
+office. To combat the third and fourth waves, that were triggered by the spread of more
+infectious variants, governments relied on the same targeted measures and previously
+non-available tools such as large scale rapid testing and vaccinations.
 
-% challenge
-The less restrictive lockdowns proved insufficient to stop the second wave, leading
-many experts to call for a strict lockdown to bring cases back to very low levels,
-such as single digit incidences (for example \cite{Priesemann2021}).
-These calls have received additional attention since new and more contagiuos variants
-have emerged in across the globe \citep{Duong2021} and increased the urgency to
-reduce transmission dynamics and increased awareness for the mutagenic threat posed by
-high incidences.
-Given the importance to bring down and maintain low infection numbers until
-vaccinations reach herd immunity levels, it is paramount for policy makers and the
-public to understand the effectiveness and trade-offs involved in different policies.
+While this multitude of policy measures has led to declining case numbers in most
+countries, it becomes harder and harder to evaluate the contribution each policy had on
+the overall outcome. Moreover, the longer the pandemic lasts, the more important it
+becomes to accurately model heterogeneities in contact behavior and a realistic network
+of recurrent contacts because some sub-populations might develop herd immunity even
+though the full population does not.
 
-However, epidemiological models are not suited for this task.
-As they have not been designed to predict the effects of fine-grained policies,
-they need to be extended for each new policy proposal.
-
-% contribution
-This report describes a model that has been designed from the ground up to predict the
-effects of contact reducing policies in real time. It has the following features:
+The workhorse model of epidemiology, the S(E)IR model as well as many recent extensions
+to it are not up to this task. We develop an agent-based simulation model that has been
+designed from the ground up to predict and quantify the effects of contact reducing
+policies, vaccinations and testing strategies in a constantly changing policy
+environment. It has the following features:
 
 \begin{enumerate}
     \item At the core of the model, people meet people based on a matching algorithm. We
           distinguish various types of contacts. The contact types are households,
           leisure activities, schools, preschools, and nurseries and several types of
           contacts at the workplace. Contact types can be random or recurrent and vary
-          in frequency.
+          in frequency and infectiousness.
 
     \item Policies can be implemented as shutting down contact types entirely or
           partially. The reduction of contacts can be random or systematic. For example,
           it is possible to implement split class schooling where only one half of each
-          class attends and the attending half switches on a weekly bases.
+          class attends and the attending half switches on a weekly bases. The extent to
+          which contacts are reduced can be calibrated from observed data or estimated
+          inside the model.
 
     \item Infection probabilities vary across contact types and reflect properties of
           the contact like the location (indoor/outdoor) and the kind of interaction
           (duration, physical contact). The probabilities are independent from the
           number of contacts and, thus, policy-invariant.
 
-    \item The model achieves a good fit on German data of infection rates even if only
-          the infection probabilities are fit to the data and the remaining parameters
-          are calibrated from the medical literature and datasets on contact
-          frequencies and mobility reductions.
-
+    \item We distinguish detected and undetected cases. The share of detected cases
+    varies over time and across age groups. Moreover, it can be influenced by rapid
+    testing policies.
     \item High quality Python code for the model is freely available on Github, well
           documented and very flexible\footnotemark. We are actively looking for
           researchers who want to use our model for their projects and apply it to other
@@ -66,20 +56,25 @@ effects of contact reducing policies in real time. It has the following features
     \url{https://sid-dev.readthedocs.io/}.
 }
 
-This report describes the model in an abstract way, but uses many realistic examples
-from a version that is specialized to Germany. It is important to note that it would
-be easy to adjust the model to other countries if data on the number of contacts and
-a dataset with background characteristics are available.
+The model achieves a good fit on German data of infection and fatality rates, even
+though most parameters are calibrated from the literature and observable datasets and
+only a few parameters are estimated inside the model. At accurately predicts the rise of
+the B117 mutation in spring 2020. It can also explain the surprising decline of case
+numbers at the end of April, without making ad hoc assumptions on behavioral changes at
+the time.
 
-More details about the German model as well as applications to currently discussed
-German policies can be found in \citet{Dorn2020a, Gabler2020, Gabler2021}.
+The model has previously been applied to predict the effect of schooling policies,
+contact tracing policies over the Christmas holidays and the effect of work from home
+(\citet{Dorn2020a, Gabler2020, Gabler2021}).
 
-The report proceeds as follows: In Section~\ref{sec:literature_review}, we give a
-short overview of epidemiological models.
-We continue with a detailed description of our model in Section~\ref{sec:model}
-and proceed with a description of model parameters and the estimation in
-Section~\ref{sec:calibration_and_estimation}. The model is validated in
-Section~\ref{sec:model_validation} by assessing the in-sample fit for reported
-infections from August to October and by comparing the out-of-sample fit for the period
-from November until the beginning of Christmas for different lockdown scenarios. We
-conclude in Section~\ref{sec:conclusion}.
+
+\textcolor{blue}{Summary of the main results}
+
+The remainder is structured as follows: In Section~\ref{sec:literature_review}, we give
+a short overview of epidemiological models. Section ~\ref{sec:background} summarizes the
+policy environments and dynamic of the Covid-19 pandemic in Europe, with a special focus
+on Germany. We continue with a general description of our modelling framework  as well
+as a specialization to the German context in section~\ref{sec:model}.
+Section~\ref{sec:calibration_and_estimation} describes our empirical datasets, sources
+of calibrated parameters and estimation procedure. \textcolor{blue}{desribe result
+section}. We conclude in section~\ref{sec:conclusion}.
