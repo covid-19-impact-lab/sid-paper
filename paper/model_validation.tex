@@ -1,42 +1,88 @@
 \section{Model Validation}
 \label{sec:model_validation}
 
-We validate our model in two ways: 1) We look at the in-sample fit over the estimation
-period. 2) We look at the out-of-sample fit for November. The last one is a challenging
-test for our model because there was a strong policy change between the estimation
-period and November. The model convincingly passes both tests.
+This compares simulated data from our model with empirical data from Germany. We at
+observed infections, fatality rates, the spread of the B117 mutation, vaccinations and
+rapid test demands. Where available we do not only look at aggregated statistics but
+also analyze the model fit for age groups.
+
+\textcolor{red}{summarize the fit}
 
 
-\subsection{In-Sample Fit}
+\subsection{Observed Infections}
 \label{sub:in_sample_fit}
 
-Despite fitting only four infection probabilities, the in-sample fit is very good.
-The best fit is achieved in the largest age groups.
-This is so mechanically, because we weigh the
-deviations between simulated and observed infection rates by group sizes. The worst fit
-is achieved for the 80 to 100 years old.
-There are three reasons for this: Firstly, we only model private households at
-the moment, meaning that nursing homes are not part of the synthetic population we
-simulate. Since community housing residents are part of the German Mikrozensus
-\citep{FDSAeDBUDL2018} which forms the basis for our synthetic population, we can and
-plan to include community housing residents in the near future.
-Secondly, the elderly, especially nursing home residents, are tested more often than
-the general population leading to more cases being detected in this age group.
-We are currently working to include age-variant testing strategies,
-using \href{https://ars.rki.de/Content/COVID19/Main.aspx}{data by the RKI}
-\citep{Seifried2020}.
+% Despite fitting only four infection probabilities, the in-sample fit is very good.
+% The best fit is achieved in the largest age groups.
+% This is so mechanically, because we weigh the
+% deviations between simulated and observed infection rates by group sizes. The worst fit
+% is achieved for the 80 to 100 years old.
+% There are three reasons for this: Firstly, we only model private households at
+% the moment, meaning that nursing homes are not part of the synthetic population we
+% simulate. Since community housing residents are part of the German Mikrozensus
+% \citep{FDSAeDBUDL2018} which forms the basis for our synthetic population, we can and
+% plan to include community housing residents in the near future.
+% Secondly, the elderly, especially nursing home residents, are tested more often than
+% the general population leading to more cases being detected in this age group.
+% We are currently working to include age-variant testing strategies,
+% using \href{https://ars.rki.de/Content/COVID19/Main.aspx}{data by the RKI}
+% \citep{Seifried2020}.
+
+
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=1.1\textwidth]{../figures/goodness_of_fit_by_age_group}
-    \caption{Reported vs. simulated weekly incidence rates of infections.}
-    \label{fig:goodness_of_fit}
-    \figurenotes{
-        The figure shows the weekly incidence rates per 100,000 people for the reported
-        (red line) versus the simulated infections rates (blue line) for age groups
-        available in the data provided by the Robert-Koch Institut.
-    }
+\centering
+\begin{subfigure}{.6\textwidth}
+  \includegraphics[width=0.9 \textwidth]{../figures/results/figures/comparisons/fall_fit/full_new_known_case}
+\end{subfigure}%
+\begin{subfigure}{.6\textwidth}
+  \includegraphics[width=0.9 \textwidth]{../figures/results/figures/comparisons/spring_fit/full_new_known_case}
+\end{subfigure}
+\caption{Simulated and Empirical Infections}
+\figurenotes{The figure shows the weekly incidence rates per 100,000 people for the reported versus the simulated infections rates.}
+\label{fig:aggregated_fit}
 \end{figure}
+
+
+
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{.6\textwidth}
+  \includegraphics[width=0.9 \textwidth]{../figures/results/figures/incidences_by_group/age_group_rki/full_fall_baseline_new_known_case}
+\end{subfigure}%
+\begin{subfigure}{.6\textwidth}
+  \includegraphics[width=0.9 \textwidth]{../figures/results/figures/incidences_by_group/age_group_rki/full_spring_baseline_new_known_case}
+\end{subfigure}
+\caption{Simulated and Empirical Infections by Age Group}
+\figurenotes{The figure shows the weekly incidence rates per 100,000 people for the reported versus the simulated infections rates for different age groups.}
+\label{fig:age_group_fit}
+\end{figure}
+
+
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{.6\textwidth}
+  \includegraphics[width=0.9 \textwidth]{../figures/results/figures/incidences_by_group/state/full_fall_baseline_new_known_case}
+\end{subfigure}%
+\begin{subfigure}{.6\textwidth}
+  \includegraphics[width=0.9 \textwidth]{../figures/results/figures/incidences_by_group/state/full_spring_baseline_new_known_case}
+\end{subfigure}
+\caption{Simulated and Empirical Infections by Age Group}
+\figurenotes{The figure shows the weekly incidence rates per 100,000 people for the reported versus the simulated infections rates for different federal regions.}
+\label{fig:state_fit}
+\end{figure}
+
+
+
+\FloatBarrier
+
+
+\section{The Spread of the B117 Mutation}
+
+
+\textcolor{red}{We don't have this figure in the repo yet, but the fit is perfect}
+
+
 
 \FloatBarrier
 
