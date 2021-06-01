@@ -1,0 +1,8 @@
+sid:
+    - de5ab8f83f9fbf4cfebd599d11fd418df9e1d612
+    - set start countdown value to -9999
+
+sid-germany:
+    - 3147e6692e00b333617fdf97db12a31a37be5483
+    - Actually plot the share of individuals with at least weekly rapid tests.
+
