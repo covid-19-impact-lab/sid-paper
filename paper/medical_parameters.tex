@@ -1,52 +1,53 @@
 \subsection{Medical Parameters}
 
-This section discusses the medical parameters used in the model, their sources and how
-we arrived at the distributions used in the model.\footnotemark
+This section discusses the medical parameters used in the model, their sources and how we
+arrived at the distributions used in the model.\footnotemark See
+Figure~\ref{fig:course_of_disease} for a summary of our disease progression model.
 
 \footnotetext{Additional information can be found in the
 \href{https://sid-dev.readthedocs.io/en/latest/reference_guides/epi_params.html}{online
 documentation}.}
 
+\subsubsection{Duration until Infectiousness and Symptoms}
 
-\subsubsection{Length of Presymptomatic Stage / Incubation Period}
+% Latency Period
+The first medical parameter we need is the length of the period between infection and
+the start of infectiousness, the so called latent period.
+We infer it from two other measures that are more common in the medical literature:
+Firstly, the time between infection and the onset of symptoms, the incubation period.
+Secondly, the time between the start of infectiousness and the onset of symptoms.
+We assume that the latency period is the same for symptomatic and asymptomatic individuals.
 
+% Asymptomatic Share
+Once individuals become infectious a share of them goes on to develop symptoms while
+others remain asymptomatic.
+We rely on data by \cite{Davies2020} for the age-dependent probability to develop
+symptoms. It varies from 25\% for children and young adults to nearly 70\% for the
+elderly.
 
-Estimates of the incubation period usually give a range from 2 to 12 days. A meta
-analysis by \citet{McAloon2020} comes to the conclusion that ``The incubation period
-distribution may be modeled with a lognormal distribution with pooled $\mu$ and $\sigma$
-parameters (95\% CIs) of 1.63 (95\% CI 1.51 to 1.75) and 0.50 (95\% CI 0.46 to 0.55),
-respectively.'' For simplicity we discretize this distribution into four bins.
+% Incubation Period
+The incubation period is usually estimated to be two to twelve days.
+A meta analysis by \citet{McAloon2020} comes to the conclusion that
+``The incubation period distribution may be modeled with a lognormal distribution with
+pooled $\mu$ and $\sigma$ parameters (95\% CIs) of 1.63 (95\% CI 1.51 to 1.75) and 0.50
+(95\% CI 0.46 to 0.55), respectively.''
+For simplicity we discretize this distribution into four bins.
 
+% Length of the presymptomatic stage
+The \href{European Centre for Disease Prevention and Control}{https://bit.ly/3pi18Ax}
+reports that people become infectious between one and two days before symptoms start.\footnotemark
 
-\subsubsection{Begin of Infectiousness}
+\footnotetext{
+This is similar to \citet{He2020} and in line with
+\citet{Peak2020}.}
 
-The period between infection and onset of infectiousness is called latent or latency
-period. However, the latency period is rarely given in epidemiological reports on
-Covid-19. Instead, scientists and agencies usually report the incubation period, the
-period from infection to the onset of symptoms. A few studies used measurements of virus
-shedding to estimate infectiousness during the course of the disease. When measurements
-started before the onset of symptoms the development of the viral load before symptoms
-gives us an indication of number of days between the onset of infectiousness and
-symptoms.
-
-The European Centre for Disease Prevention and Control estimates that people become
-infectious between one and two days before the symptoms set in. This is similar to
-\citet{He2020} who estimate this to take 2.3 days and is in line with \citet{Peak2020}.
-
-Given these numbers and the length of the incubation period we can calculate the latency
-period for symptomatic people. To our knowledge no estimates for the latency period of
-asymptomatic cases of COVID-19 exist. We assume it to be the same for symptomatic and
-asymptomatic cases.
-
-Thus, we arrive at the following distribution for latency periods: 40\% have one day.
-35\% have two days. 20\% have three days and 5\% have 5 days.
-
+Taking these estimates together, we arrive at a latent period of one to five days.
 
 \subsubsection{Duration of Infectiousness}
 
 We assume that the duration of infectiousness is the same for both symptomatic and
 asymptomatic individuals as evidence suggests little differences in the transmission
-rates of SARS-CoV-2 virus between symptomatic and asymptomatic patients
+rates between symptomatic and asymptomatic patients
 (\citet{Yin2020}) and that the viral load between symptomatic and asymptomatic
 individuals are similar (\citet{Zou2020}, \citet{Byrne2020}, \citet{Singanayagam2020}).
 
@@ -56,16 +57,12 @@ For symptomatic cases they arrive at 0-5 days before symptom onset (figure 2) an
 days of infectiousness afterwards.\footnotemark Thus, we arrive at 0 to 13 days as the
 range for infectiousness among individuals who become symptomatic (see also figure 5).
 This duration range is very much in line with the meta-analysis’ reported evidence for
-asymptomatic individuals (see their figure 1). Thus, we arrive at 0 to 13 days as the
-range for infectiousness among individuals who become symptomatic. This duration range
-is very much in line with the meta-analysis' reported evidence for asymptomatic
-individuals.
+asymptomatic individuals (see their figure 1).
 
 \footnotetext{
     Viral loads may be detected much later but 8 days seems to be the time after which
     most people are culture negative, as also reported by \citet{Singanayagam2020}.
 }
-
 
 Following this evidence we assume the following discretized distribution of the
 infectiousness period: 10\% of individuals are infectious for three days, 25\% for five
@@ -89,8 +86,7 @@ infectious before their symptoms cease.
 \subsubsection{Time from Symptom Onset to Admission to ICU}
 
 The data on how many percent of symptomatic patients will require ICU is pretty thin. We
-rely on data by the US CDC (\citet{Stokes2020}) and
-\href{https://github.com/BDI-pathogens/OpenABM-Covid19/blob/572e24ca2dbf7153789a92ad3a27e4c515d0e576/documentation/parameters/parameter_dictionary.md}{the
+rely on data by the US CDC (\citet{Stokes2020}) and \href{https://bit.ly/3yKXFyu}{the
 OpenABM-Project}. Table~\ref{tab:symptomatic-to-ICU} shows our derivations for the
 probabilities of requiring intensive care per age group.
 
