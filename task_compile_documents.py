@@ -15,6 +15,7 @@ BLD = ROOT / "bld"
         "--synctex=1",
         "--cd",
         "--shell-escape",
+        "-f",
     ]
 )
 @pytask.mark.depends_on(ROOT / "paper" / "paper.tex")
