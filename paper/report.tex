@@ -1,0 +1,100 @@
+\section{Report}
+
+Main contributions
+\begin{itemize}
+      \item Pattern: Large 2nd/3rd waves, B.1.1.7 dominant variant, steep fall in spring
+      \item Many policies and developments at once: Seasonality, NPIs (private / school closures / workplace restrictions), , vaccinations, tests.
+      \item Model that makes the most of many available data sources to gauge the relative effects in this transition period -- see joint distribution of infections with age, geography. But contacts with age, geography, occupations. 
+      \item Intuitive -- directly work with primitives
+      \item Very general approach: Limited only by size of computer and availability of data
+      \item Too many policies at once for SEIR extensions
+\end{itemize}
+
+
+% Main Text is not divided into sub-headings for Reports. 
+
+% The manuscript should start with a brief introduction describing the paper’s significance. The introduction should provide sufficient background information to make the article intelligible to readers in other disciplines, and sufficient context that the significance of the experimental findings is clear. 
+
+\paragraph{Motivation}
+\begin{itemize}
+    \item CoViD-19 pandemic huge challenge. 
+    \item Vaccination hold promise that will can be contained. 
+    \item But most countries find themselves still many months---and often years---away from reaching herd immunity through vaccinations.
+    \item Important what they do in the meantime
+    \item Measures initially hard lockdown, but always crept back and not sustainable in long run
+    \item Measures become increasingly diverse: Testing, Vaccination, ...
+    \item Effect of seasonality unclear.
+    \item Striking patterns in Europe. 
+    \item Important to have models explaining the spread, which take advantage of data in a timely fashion and predict effects of interventions
+\end{itemize}
+
+\paragraph{Standard approaches }
+\begin{itemize}
+    \item Most common class of models: SEIR
+    \item Not well suited at rapid developments, multiple changes at once, gauging effects
+\end{itemize}
+
+\paragraph{Broad description of our model}
+\begin{itemize}
+    \item Agent-based models promising alternative
+    \item So far high level of abstraction
+    \item Put interactions between heterogeneous people at center
+    \item Core innovations: Recurrent contacts and assortative matching
+    \item Various settings: Home, social, school, work
+\end{itemize}
+
+\paragraph{Further important features }
+\begin{itemize}
+    \item Vaccinations including remaining infectiousness
+    \item Tests including false positives / negatives
+    \item Various strains
+    \item Progression of CoViD-19 and infectiousness
+    \item Detailed schooling models (A/B classes, full closures, hygiene multipliers,...)
+    \item Detailed work models (work from home)
+    \item Model for undetected infections to make publicly disclosed data usable (only thing that requires bespoke tailoring for other countries?)
+\end{itemize}
+
+\paragraph{Advantages of our model}
+\begin{itemize}
+    \item Very intuitive, yet easy to extend. Curse of Dimensionality / Computing power are the only restrictions
+    \item Allows to use wide array of data (contacts, census, mobility, infection rates, prevalence of strains, vaccination rates, test rates, vaccination / test efficacy, NPIs, ...)
+\end{itemize}    
+
+\paragraph{Example: Germany}
+\begin{itemize}
+    \item Good first response
+    \item Then relaxed over the summer at low incidence rates
+    \item Cross-country mobility planted the seeds for fall wave
+\end{itemize}
+
+\paragraph{Story by Figures}
+\begin{itemize}
+    \item Fig 1: Model fit and measures
+    \item Fig 2: Scenarios, Shapley
+    \item Fig 3: Schooling scenarios? Including vacation effects in fall? Similar for Easter?
+\end{itemize}
+
+\paragraph{Points to mention}
+\begin{itemize}
+    \item Social structure / conditional block testing in families important (?)
+    \item Trump-effect: More testing = more cases true for how long?
+\end{itemize}
+
+% Technical terms should be defined. 
+
+% Symbols, abbreviations, and acronyms should be defined the first time they are used. 
+
+% All tables and figures should be cited in numerical order.
+
+% All data must be shown either in the main text or in the Supplementary Materials or must be available in an established database with accession details provided in the acknowledgements section.
+
+% References to unpublished materials are not allowed to substantiate significant conclusions of the paper.
+
+
+\section{Supplementary Material}
+
+\begin{enumerate}
+    \item Model
+    \item Data
+    \item Identification and Estimation
+\end{enumerate}
