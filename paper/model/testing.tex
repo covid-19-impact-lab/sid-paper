@@ -1,14 +1,18 @@
 \subsection{Testing} % (fold)
 \label{sub:testing}
 
-We support to model testing as consisting of three stages. Firstly, we model who demands
-a test. Demand functions map from individual characteristics to a probability which is
-the probability for this individual to demand a test. There can be multiple demand
-functions where each function may describe a different channel. For example, individuals
-who experience symptoms or have a risk contact may ask for a test. Or, the ministry of
-education requires a negative test result from every teacher every second week. After
-the probabilities for each individual and every demand model are computed, individuals
-who demand a test as well as the channel is sampled.
+Our model includes both PCR tests which are scarce and take time until the result becomes
+available and rapid tests which are done after an individual's contacts are determined
+but before the contacts take place.
+
+PCR testing consists of three stages. Firstly, we model who demands a PCR test. Demand
+functions map from individual characteristics to a probability which is the probability
+for this individual to demand a test. There can be multiple demand functions where each
+function may describe a different channel. For example, individuals who experience
+symptoms or have a risk contact may ask for a test. Or, the ministry of education
+requires a negative test result from every teacher every second week. After the
+probabilities for each individual and every demand model are computed, individuals who
+demand a test as well as the channel is sampled.
 
 The second stage is the allocation phase in which demand and supply for tests are
 matched. The number of available tests can be inferred from official data and used to
@@ -28,6 +32,18 @@ estimates as well as data on the test distribution over age groups by the
 RKI\footnote{https://ars.rki.de/Content/COVID19/Main.aspx} we allocate tests firstly
 among the symptomatic and then randomly allocate tests to newly infected to fit the
 German test distribution.
+
+Rapid tests are modeled much simpler. Every day before individuals have contacts they can
+decide to be tested. For example students that plan to attend school that day and have
+not done a rapid test in the last three days get a rapid test. Then they immediately
+receive the test result. After they have received their test result individuals can react
+to it by reducing their contacts. For example positively tested individuals may not go to
+work and reduce their household contacts to some degree. Who reduces their contacts to
+what degree depends on a quarantine compliance attribute.
+
+Our rapid tests include false positives and false negatives. The sensitivity of rapid tests in our model depends on when the individual has
+or will become infectious. This way we can account for the fact that rapid tests are
+likely to be false positive before infectiousness starts.
 
 
 % subsection testing (end)
