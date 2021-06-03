@@ -1,10 +1,10 @@
 \section{Calibration and Estimation}
 \label{sec:calibration_and_estimation}
 
-The model is described by a large number of parameters that govern the number of
-contacts a person has, the likelihood of becoming infected on each contact, the
-likelihood of developing light or strong symptoms or even dying from the disease as well
-as the duration each stage of the disease takes.
+The model is described by a large number of parameters that govern the number of contacts
+a person has, the likelihood of becoming infected on each contact, the likelihood of
+developing light or strong symptoms or even dying from the disease as well as the
+duration each stage of the disease takes.
 
 Most of these parameters can be calibrated from existing datasets or the medical
 literature. Only the infection probabilities have to be estimated inside the model by
@@ -17,13 +17,13 @@ fitting it to time series data of case numbers and fatality rates.
 \subsection{Number of Contacts}
 \label{sub:number_of_contacts}
 
-We calibrate the parameters for the predicted numbers of contacts from contact diaries
-of over 2000 individuals from Germany, Belgium, the Netherlands and Luxembourg
+We calibrate the parameters for the predicted numbers of contacts from contact diaries of
+over 2000 individuals from Germany, Belgium, the Netherlands and Luxembourg
 \citep{Mossong2008}. Each contact diary contains all contacts an individual had
 throughout one day, including information on the other person (such as age and gender)
 and information on the contact. Importantly, for each contact individuals entered of
-which type the contact (school, leisure, work etc.) was and how frequent the contact
-with the other person is.
+which type the contact (school, leisure, work etc.) was and how frequent the contact with
+the other person is.
 
 Thus, we can use the empirical distributions from this data as pre-pandemic number of
 contacts.
@@ -38,8 +38,8 @@ As mentioned in section \ref{sec:matching}, the probability that two individuals
 matched can depend on background characteristics. In particular, we allow this
 probability to depend on age and county of residence. While we do not have good data on
 geographical assortativity and just roughly calibrate it such that 60 \% of contacts are
-within the same county, we can calibrate the assortative mixing by age from the same
-data we use to calibrate the number of contacts.
+within the same county, we can calibrate the assortative mixing by age from the same data
+we use to calibrate the number of contacts.
 
 \begin{figure}[ht]
     \centering
@@ -50,14 +50,12 @@ data we use to calibrate the number of contacts.
         The figure shows the distribution of random non-work contacts by age groups. A
         row shows the share of contacts a certain age group has with all other age
         groups. Higher values are colored in darker red tones. The diagonal represents
-        the share of contacts with individuals from the same age group.
-    }
+        the share of contacts with individuals from the same age group. }
 \end{figure}
 
-Figure~\ref{fig:assortativity} shows that assortativity by age is especially strong
-for children and younger adults. For older people, the pattern becomes more dispersed
-around their own age group, but within-age-group contacts are still the most common
-contacts.
+Figure~\ref{fig:assortativity} shows that assortativity by age is especially strong for
+children and younger adults. For older people, the pattern becomes more dispersed around
+their own age group, but within-age-group contacts are still the most common contacts.
 
 \FloatBarrier
 
@@ -72,10 +70,9 @@ method of simulated moments \citep{McFadden1989} by minimizing the distance betw
 simulated and observed infection rates. Since our model includes a lot of randomness, we
 average simulated infection rates over several model runs.
 
-Currently, we use data for Germany from August until November.
-We do not use earlier periods to save computational time.
-Moreover, we would be worried that the there are seasonal effects that we currently do
-not model.
+Currently, we use data for Germany from August until November. We do not use earlier
+periods to save computational time. Moreover, we would be worried that the there are
+seasonal effects that we currently do not model.
 
 To avoid overfitting and simplify the numerical optimization problem, we only allow for
 four different probabilities: 1) for contacts in schools, preschools and nurseries. 2)
@@ -85,13 +82,12 @@ for work contacts. 3) for households. 4) for leisure activities.
 
 \FloatBarrier
 
-In our empirical application we distinguish four groups of contact types:
-households, education, work and other contacts.
-For households we assume that the individuals' contacts in their households do not change
-over our estimation period.
-For nurseries, preschools and schools we implement vacations as announced by the German
-federal states as well as school closures. For the moment we ignore both emergency
-childcare and that lack of childcare leads working parents to stay home.
+In our empirical application we distinguish four groups of contact types: households,
+education, work and other contacts. For households we assume that the individuals'
+contacts in their households do not change over our estimation period. For nurseries,
+preschools and schools we implement vacations as announced by the German federal states
+as well as school closures. For the moment we ignore both emergency childcare and that
+lack of childcare leads working parents to stay home.
 %
 % Schließung von Kindertagesstätten und Schulen: 37,4 Millionen ausgefallene Arbeitstage
 % http://www.iab-forum.de/schul-und-kitaschliessungen-krankheit-quarantaene-die-coronabedingten-arbeitsausfaelle-der-erwerbstaetigen-steigen-auf-592-millionen-arbeitstage/
@@ -133,3 +129,60 @@ probabilities to fit the time series data. We use very few change points and tie
 particular events such as policy announcements or particular holidays.
 
 \FloatBarrier
+
+\subsection{Rapid Test Demand}
+
+In our model, there are five reasons why rapid tests are done:
+\begin{enumerate}
+    \item someone plans to have work contacts
+    \item someone is an employees of an educational facility or school pupil
+    \item someone lives in a household where someone has tested positive or developed symptoms
+    \item someone has developed symptoms but has not received a PCR test
+    \item someone plans to participate in a weekly non-work meeting
+\end{enumerate}
+
+% work rapid tests
+
+For work contacts, we know from the COSMO study (\cite{Betsch2021}, 20th/21st of April) that 60\% of workers who receive a test offer by their employer regularly use it. We assume this to be time constant.
+
+In addition, there are some surveys that allow us to trace the expansion of employers who
+offer tests to their employees. Mid march, 20\% of employers offered tests to their
+employees \citep{DIHK2021}. In the second half of March, 23\% of employees reported being
+offered weekly rapid tests by their employer \citep{Ahlers2021}. This share increased to
+60\% until the first days of April \cite{ZDF2021}. Until mid April 70\% of workers were
+expected to receive a weekly test offer \citep{AerzteZeitung2021}. However, according to
+surveys conducted in mid April \citep{Betsch2021}, less than two thirds of individuals
+with work contacts receive a test offer. Starting on April 19th employers were required by law to provide two weekly tests to their employees \citep{Bundesanzeiger2021}.
+We assume that compliance is incomplete and only 80\% of employers actually offer tests.
+
+% educ rapid tests
+
+\textcolor{red}{Sources still missing below this}
+
+We assume that employees in educational facilities start getting tested in 2021 and that
+by March 1st 30\% of them are tested weekly. The share increases to 90\% for the week before Easter. At that time both Bavaria and Baden-Württemberg were offering tests to teachers and North-Rhine Westphalia and Lower Saxony were already testing students and tests for students and teachers were already mandatory in Saxony. After Easter we assume that 95\% of teachers get tested twice per week.
+
+Tests for students started later so we assume that they only start in February and only
+10\% of students get tested by March 1st. Relying on the same sources as above we
+approximate that by the week before Easter this share had increased to 40\%.
+
+After Easter we assume the share of students receiving twice weekly tests to
+based on tests already being mandatory in North-Rhine Westphalia and Bavaria while still
+being voluntary in Baden-Württemberg. There tests become mandatory on April 19th.
+
+
+% household member rapid tests
+
+
+
+% own symptom rapid test demand
+
+
+
+% private meeting test demand
+
+
+
+\textcolor{red}{
+    Add a section on how we calibrate rapid test demand; Mainly describe the datapoints we have and say that we usually interpolate linearly in between data points. (Only exception to that is private rapid test demand, which we fit to data)
+}
