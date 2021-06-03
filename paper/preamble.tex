@@ -1,5 +1,5 @@
 % To ``accept'' all changes in the document:
-\PassOptionsToPackage{final}{changes}
+% \PassOptionsToPackage{final}{changes}
 
 \documentclass[a4paper, 10pt]{article}
 % fleqn: flush-left aligned equations
@@ -31,11 +31,12 @@ The Effectiveness of Strategies to Contain SARS-CoV-2: Testing, Vaccinations, an
 \bibliography{../references.bib}
 
 
-\usepackage[newfloat, outputdir=../bld]{minted}
+\usepackage[newfloat, outputdir=../bld, cache=false]{minted}
 
 % Define environments to comment on the sidebar of the PDF.
 \definechangesauthor[name={Tobias}, color=alizarin]{T}
 \definechangesauthor[name={Janos}, color=internationalorange]{J}
 \definechangesauthor[name={Klara}, color=electricultramarine]{K}
+\definechangesauthor[name={HM}, color=blue]{HM}
 % Use \replace[id=T]{<to-be-replaced>}{<new>} or the same with \deleted to propose
 % changes.

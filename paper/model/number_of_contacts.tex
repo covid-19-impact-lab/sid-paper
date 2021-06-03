@@ -19,39 +19,36 @@ contacts is described by a function that maps individual characteristics, health
 and the date into a number of planned contacts for each individual. This allows to model
 a wide range of contact types.
 
-In our empirical application we distinguish the following types of contacts:
+In our empirical application we distinguish the following types of contacts:\comment[id=HM]{I started updating this to understand it better myself. In the end, I think it will be useful to group into HH / work / schools and add an introductory sentence for each group. E.g., that work is for everybody who is working --- except there is a different model for teachers (?), ...}
 
 \begin{itemize}
     \item Households: Each household member meets all other household members every day.
-    The household sizes and structures are calibrated to be representative for Germany.
+    % Household sizes and structures are calibrated to be representative for Germany.
+    
+    \item Recurrent daily non-work contacts representing very close family or friendship
+    relations outside the household.
+    
+    \item Recurrent weekly non-work contacts representing friendships, sports groups,
+    charity work, or other activities. We randomize over the days on which the meetings take place.\comment[id=HM]{True?}
+    
+    \item Random non-work contacts: Contacts with randomly drawn other
+    people, which are assortative with respect to region and age group. This contact type
+    reflects contacts during leisure activities, grocery shopping, medical appointments,
+    etc..
 
-    \item Random non-work contacts: Each person has contacts with randomly drawn other
-    people which are assortative with respect to region and age group. This contact type
-    reflects contacts during pure leisure activities as well as non leisure activities
-    such as grocery shopping or medical appointments.
+    \item Recurrent daily work contacts, capturing direct colleagues.
+    
+    \item Recurrent weekly work contacts, representing meetings with clients, superiors, or more distant colleagues.
+    We randomize over the days on which the meetings take place. 
 
-    \item Recurrent daily non-work contacts: Each person has daily recurring contacts
-    which allows to model close relationships other than families between individuals.
-
-    \item Recurrent weekly non-work contacts: Each person has weekly recurring contacts
-    like sports groups or other weekly activities.
-
-    \item Random work contacts: Each working adult has contact to randomly drawn other
-    people at work.
-
-    \item Recurrent daily work contacts: Each working adult meets other workers every
-    day. This is meant to capture work colleagues.
-
-    \item Recurrent weekly work contacts: Each working adult meets other workers once
-    per week. We randomize over the days on which the meetings take place. This is meant
-    to capture meetings with clients, superiors or other colleagues which happen
-    infrequently.
+    \item Random work contacts: Working adults' contacts with randomly drawn other
+    people, which are assortative in geographical location\comment[id=HM]{True? age?}
 
     \item Schools: Each student meets all of his classmates every day. Class sizes are
     calibrated to be representative for Germany and students have the same age. Schools
     are closed on weekends and during vacations, which vary by states. School classes
     also meet three pairs of teachers every school day. The pairs are meant to represent
-    interactions between teachers.
+    interactions between teachers.\comment[id=HM]{Not updated from here on. Mayb}
 
     \item Preschools: Children who are at least three years old and younger than six may
     attend preschool. Each group of nine children interacts with the same two adults
