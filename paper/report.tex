@@ -72,10 +72,14 @@ At the core of our agent-based model are physical contacts between heterogeneous
 
 Susceptibility to contracting CoViD-19 is dependent on age and so is the progression of the disease. We differentiate between an inital period of infection without being infectious or showing symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring intensive care, and recovery or death. The probabilities of transitioning between these states depend on age; their duration is random within intervals calibrated to medical literature.\comment[id=HM]{Cite}. Conditional on the type of contact, infectiousness independent of ages.\comment[id=HM]{Cite current Drosten paper}
 
-The model includes several other features, which are crucial to describe the evolution of the pandemic in 2020-2021. New virus strains with different profiles regarding infectiousness and disease progress can be introduced. Vaccinations induce immunity; vaccinated agents do not transmit the virus.\footnote{All of these approximations could be easily relaxed at the cost of a higher computational burden.} While vaccines are rolled out, priority may depend on age and occupation. Agents may demand two types of tests as described in Figure~\ref{fig:pcr_antigen_tests}. First, polymerase chain reaction (PCR) tests directly reveal whether an individual is infected or not. PCR tests require some time to be processed and there are always aggregate capacity constraints. Second, rapid antigen tests yield immediate results. Specificity and sensitivity of these tests is set according to the XXX data.\comment[id=HM]{subsequent PCR tests, quarantine, work/school}. Demand for rapid tests will depend on policy, e.g., prices, testing requirements before work, attending school, or visiting restaurants and shops.
+The model includes several other features, which are crucial to describe the evolution of the pandemic in 2020-2021. New virus strains with different profiles regarding infectiousness and disease progress can be introduced. With a probability calibrated to XXX\comment[id=HM]{Klara, please add citatiion}, vaccinated agents become immune and they do not transmit the virus. While vaccines are rolled out, priority may depend on age and occupation. Agents may demand two types of tests as described in Figure~\ref{fig:pcr_antigen_tests}. First, polymerase chain reaction (PCR) tests directly reveal whether an individual is infected or not. PCR tests require some time to be processed and there are always aggregate capacity constraints. Second, rapid antigen tests yield immediate results. Specificity and sensitivity of these tests is set according to the XXX data.\comment[id=HM]{subsequent PCR tests, quarantine, work/school}. Demand for rapid tests will depend on policy, e.g., prices, testing requirements before work, attending school, or visiting restaurants and shops.
+
+
+Identification
 
 Modelling a population of agents according to actual demographic characterists means that we can use a wide array of data to estimate the model parameters. Mobility data is used to inform reductions in work and social contacts.\comment[id=HM]{check} School and daycare policies can be incorporated directly from official directives. Infection rates by age and geographical region are matched to officially recorded numbers, so is the prevalence of virus strains. In order to translate simulated cases in our model to officially recorded cases, we use the model depicted in Figure~\ref{fig:model_for_official_cases}. 
 
+Simulated data have very similar structure to data that is used for regression analyses. Can use as further plausbility check.
 
 \paragraph{Example: Germany}
 \begin{itemize}
@@ -86,21 +90,159 @@ Modelling a population of agents according to actual demographic characterists m
 \end{itemize}
 
 
+\begin{figure}[!tp]
+    \centering
 
-\paragraph{Story by Figures}
-\begin{itemize}
-    \item Fig 2: Model fit and measures
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        % \includegraphics[width=\textwidth]{../figures/model_detailed.png}
+        Stringency index + multipliers
 
-          Aggregate. Refer to appendix for fits by age group and geographical region.
+        Contact reduction $\times$ hygiene multiplier for different types of contacts 
+        
+        potentially $\times$ seasonality
 
-    \item Fig 3: Scenarios, Shapley. Why testing so effective. Form of TTI.
+        else put seasonality separately
+        \begin{itemize}
+            \item Work
+            \item School
+            \item Other
+        \end{itemize}
 
-    \item Fig 4: Schooling scenarios? Including vacation effects in fall? Similar for Easter?
+        \caption{{\small Contact reductions}}
+        \label{fig:stringency_index}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
 
-\end{itemize}
+        Number of PCR tests
+
+        Fraction of pupils with antigen tests
+
+        Fraction of workers with antigen tests
+
+        Fraction of vaccinations (effective = lagged by two weeks or date of vaccination?)
+
+        \vskip2ex
+
+        % \includegraphics[width=\textwidth]{../figures/model_detailed.png}
+        \caption{{\small Tests and vaccinations}}
+        \label{fig:pcr_antigen_tests_vaccinations}
+    \end{subfigure}
+    \vskip3ex
+    
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        % \includegraphics[width=\textwidth]{../figures/disease_progression.png}
+        Share known cases (estimated)
+        
+        Share B.1.1.7
+
+        \vskip2ex
+
+        \caption{Share of known cases and fraction of B.1.1.7 strain}
+        \label{fig:share_known_cases_b117}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+
+        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case}
+        \caption{{\small Recorded cases: Empirical and simulated}}
+        \label{fig:aggregated_fit}
+    \end{subfigure}
+
+    \caption{Drivers of the pandemic and model fit, September 2020 to May 2021}
+    \label{fig:pandemic_drivers_model_fit}
+
+    Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
+
+\end{figure}
+
+
+
+\begin{figure}[!tp]
+    \centering
+
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/one_off_and_combined/full_new_known_case_cropped}
+        \caption{{\small Recorded cases: 2021 scenarios}}
+        \label{fig:full_new_known_case_cropped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+
+        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/one_off_and_combined/full_newly_infected_cropped}
+        \caption{{\small Total cases: 2021 scenarios}}
+        \label{fig:full_newly_infected_cropped}
+    \end{subfigure}
+    \vskip3ex
+    
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        % \includegraphics[width=\textwidth]{../figures/disease_progression.png}
+
+        Shapley values
+
+        \vskip2ex
+
+        \caption{Decomposition of effects for Figure~\ref{fig:full_newly_infected_cropped}}
+        \label{fig:decompisition total cases}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+
+        % \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case}
+
+        Effects of social structure (implicit tracing) / effects of different types of testing
+
+        \vskip2ex
+
+        \caption{{\small Effects of different types of testing}}
+        \label{fig:decomposition_tests}
+    \end{subfigure}
+
+    \caption{The effect of different interventions on recorded and actual infections}
+    \label{fig:interventions_broad}
+
+    Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
+
+\end{figure}
+
+
+\begin{figure}[!tp]
+    \centering
+
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        % \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/one_off_and_combined/full_new_known_case_cropped}
+        \caption{{\small Effects of different schooling scenarios after Easter}}
+        \label{fig:schooling_scenarios_easter}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+
+        % \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/one_off_and_combined/full_newly_infected_cropped}
+        \caption{{\small TBD}}
+        \label{fig:full_newly_infected_cropped}
+    \end{subfigure}
+    \vskip3ex    
+
+    \caption{Schooling / maybe home office}
+    \label{fig:interventions_school}
+
+    Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
+
+\end{figure}
+
+
 
 \paragraph{Points to mention}
 \begin{itemize}
+    \item If anything too optimistic regarding vaccinations
     \item Social structure / conditional block testing in families important (?)
     \item Trump-effect: More testing = more cases true for how long?
 \end{itemize}
