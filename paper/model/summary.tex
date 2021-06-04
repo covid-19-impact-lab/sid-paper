@@ -9,13 +9,6 @@ go to school, live in a household and enjoy leisure activities.
 
 The structure of the model is depicted in Figure~\ref{fig:model_graph}.
 
-\begin{figure}[!tp]
-    \centering
-    \includegraphics[width=\textwidth]{../figures/model_detailed.png}
-    \caption{Simplified graph of the model.}
-    \label{fig:model_graph}
-\end{figure}
-
 The background characteristics include age, county and occupation of each simulated
 individual. Contact models are functions that map individual characteristics into a
 predicted number of contacts. Currently, we distinguish between eight types of contact
@@ -36,7 +29,7 @@ be moved to an outside location in summer (such as leisure contacts) and smaller
 contacts that take place inside even in summer (e.g. work contacts).
 
 Once a person is infected, the disease progresses in a fairly standard way which is
-depicted in Figure~\ref{fig:course_of_disease}. Asymptomatic cases and cases with mild
+depicted in Figure~\ref{fig:disease_progression}. Asymptomatic cases and cases with mild
 symptoms are infectious for some time and recover eventually. Cases with severe symptoms
 additionally require hospitalization and lead to either recovery or death.
 

@@ -7,7 +7,7 @@
 \begin{itemize}
     \item Pattern: Large 2nd/3rd waves, B.1.1.7 dominant variant, steep fall in spring
     \item Many policies and developments at once: Seasonality, NPIs (private / school closures / workplace restrictions), , vaccinations, tests.
-    \item Model that makes the most of many available data sources to gauge the relative effects in this transition period -- see joint distribution of infections with age, geography. But contacts with age, geography, occupations. 
+    \item Model that makes the most of many available data sources to gauge the relative effects in this transition period -- see joint distribution of infections with age, geography. But contacts with age, geography, occupations.
     \item Intuitive -- directly work with primitives
     \item Very general approach: Limited only by size of computer and availability of data
     \item Too many policies at once for SEIR extensions
@@ -20,61 +20,83 @@
 
 \clearpage
 
-Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity on many dimensions. The development of highly effective vaccines holds the promise of containment in the medium term. However, most countries find themselves many months---and often years---away from reaching vaccination-induced herd immunity.\comment[id=HM]{Cite some paper on herd immunity, maybe vaccine data} It is thus 
+Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity on many dimensions. The development of highly effective vaccines holds the promise of containment in the medium term. However, most countries find themselves many months---and often years---away from reaching vaccination-induced herd immunity.\comment[id=HM]{Cite some paper on herd immunity, maybe vaccine data} In the meantime, it is of utmost importance to employ an effective mix of strategies for containing the virus. The most frequent initial response was a set of non-pharmaceutical interventions (NPIs) to reduce contacts between individuals. While this has allowed some countries to sustain equilibria with very low infection numbers\comment[id=HM]{Cite Priesemann paper or other}, most have seen large ups and downs in their infection rates. Containment measures have become increasingly diverse and included testing, more nuanced NPIs, and contact tracing. In quantitative terms, neither these policies' effect nor the influence of seasonal patterns or more infectious virus strains are well understood. This paper develops a model incorporating all these influences. The framework allows to combines a wide variety of data in a timely fashion and to predict the effects of various interventions. We apply the model to Germany and show that rapid testing had the largest impact on the reduction in infections by XXX\% during the A weeks between X April and Y May.\comment[id=HM]{insert something useful}
 
-\begin{itemize}
-    \item Important what they do in the meantime
-    \item Measures initially hard lockdown, but always crept back and not sustainable in long run. Hardly helpful on their own for more infectious strains
-    \item Measures become increasingly diverse: Testing, Vaccination, ...
-    \item Effect of seasonality unclear.
-    \item Striking patterns in Europe. 
-    \item Important to have models explaining the spread, which take advantage of data in a timely fashion and predict effects of interventions
-\end{itemize}
+At the core of our agent-based model are physical contacts between heterogeneous agents (See Figure~\ref{fig:model_graph}a).\footnote{We provide a detailed comparison to other approaches in \ref{sec:literature_review}, where we also review other approaches. The model most closely related to ours is described in \citet{Hinch2020}.} Each contact between an infectious indvidual and somebody susceptible to the disease bears the risk of transmitting the virus. Contacts occur in the household, at work, at school, or in other settings (leisure activities, grocery shopping, medical appointments, etc.).\comment[id=HM]{Systemic relevance of work?} Some contacts recur regularly, others occur at random. Random contacts are typically assortative in age and geographical location. Empirical applications can take the population structure from census data and the types and frequency of contacts from diary data measuring contacts before the pandemic \citep[e.g.][]{Mossong2008}.\comment[id=HM]{cite other stuff, too?} The dimensions are chosen so that the most common NPIs can be modelled in great detail by reducing the number of contacts in a particular setting or the risk of transmitting the disease for a type of contact. For example, a mandate to work from home will reduce the number of work contacts to zero for a fraction of the working population. Schools and daycare can be closed entirely, operate at reduced capacity including an alternating schedule, or implement mitigation measures like masking requirements or air filters.\comment[id=HM]{cite \url{https://science.sciencemag.org/content/early/2021/04/28/science.abh2939}} Curfews may reduce the number of contacts in non-work/non-school settings. In any setting, measures like masking requirements would reduce the probability of infection associated with a contact.
 
-\paragraph{Standard approaches }
-\begin{itemize}
-    \item Most common class of models: SEIR
-    \item Not well suited at rapid developments, multiple changes at once, gauging effects
-\end{itemize}
+\begin{figure}[!tp]
+    \centering
 
-\paragraph{Broad description of our model}
-\begin{itemize}
-    \item Agent-based models promising alternative
-    \item So far high level of abstraction
-    \item Put interactions between heterogeneous people at center
-    \item Core innovations: Recurrent contacts and assortative matching
-    \item Various settings: Home, social, school, work
-\end{itemize}
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/model_detailed.png}
+        \caption{{\small Model description}}
+        \label{fig:change_working_hours_by_edu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/disease_progression.png}
+        \caption{Disease progression}
+        \label{fig:disease_progression}
+    \end{subfigure}
 
-\paragraph{Further important features }
-\begin{itemize}
-    \item Vaccinations including vaccination priority according to age and systemic relevance of work
-    \item Tests including false positives / negatives
-    \item Various strains
-    \item Age dependent susceptibility and progression of CoViD-19
-    \item Detailed schooling models (A/B classes, full closures, hygiene multipliers,...)
-    \item Detailed work models (work from home, work contact priority, daily, weekly and non-recurrent work contacts)
-    \item Model for undetected infections to make publicly disclosed data usable (only thing that requires bespoke tailoring for other countries?)
-\end{itemize}
+    \vskip3ex
 
-\paragraph{Advantages of our model}
-\begin{itemize}
-    \item Very intuitive, yet easy to extend. Curse of Dimensionality / Computing power are the only restrictions
-    \item Allows to use wide array of data (contacts, census, mobility, infection rates, prevalence of strains, vaccination rates, test rates, vaccination / test efficacy, NPIs, ...)
-\end{itemize}    
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+
+        PCR tests: quarantine (?)
+
+        Antigen tests: subsequent PCR tests, quarantine, work/school
+
+        Effects on other people (tracing)
+
+        % \includegraphics[width=\textwidth]{../figures/model_detailed.png}
+        \caption{{\small PCR and antigen tests}}
+        \label{fig:pcr_antigen_tests}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+
+        Model for detected/undetected cases
+
+        % \includegraphics[width=\textwidth]{../figures/model_detailed.png}
+        \caption{{\small Model for translating simulated number to officially recorded cases}}
+        \label{fig:model_for_official_cases}
+    \end{subfigure}
+
+    \caption{Model description}
+\end{figure}
+
+
+Susceptibility to contracting CoViD-19 is dependent on age and so is the progression of the disease. We differentiate between an inital period of infection without being infectious or showing symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring intensive care, and recovery or death. The probabilities of transitioning between these states depend on age; their duration is random within intervals calibrated to medical literature.\comment[id=HM]{Cite}. Conditional on the type of contact, infectiousness independent of ages.\comment[id=HM]{Cite current Drosten paper}
+
+The model includes several other features, which are crucial to describe the evolution of the pandemic in 2020-2021. New virus strains with different profiles regarding infectiousness and disease progress can be introduced. Vaccinations induce immunity; vaccinated agents do not transmit the virus.\footnote{All of these approximations could be easily relaxed at the cost of a higher computational burden.} While vaccines are rolled out, priority may depend on age and occupation. Agents may demand two types of tests as described in Figure~\ref{fig:pcr_antigen_tests}. First, polymerase chain reaction (PCR) tests directly reveal whether an individual is infected or not. PCR tests require some time to be processed and there are always aggregate capacity constraints. Second, rapid antigen tests yield immediate results. Specificity and sensitivity of these tests is set according to the XXX data.\comment[id=HM]{subsequent PCR tests, quarantine, work/school}. Demand for rapid tests will depend on policy, e.g., prices, testing requirements before work, attending school, or visiting restaurants and shops.
+
+Modelling a population of agents according to actual demographic characterists means that we can use a wide array of data to estimate the model parameters. Mobility data is used to inform reductions in work and social contacts.\comment[id=HM]{check} School and daycare policies can be incorporated directly from official directives. Infection rates by age and geographical region are matched to officially recorded numbers, so is the prevalence of virus strains. In order to translate simulated cases in our model to officially recorded cases, we use the model depicted in Figure~\ref{fig:model_for_official_cases}. 
+
 
 \paragraph{Example: Germany}
 \begin{itemize}
-    \item Good first response
+    \item Good first response, relatively lax (no curfew, few business closures, ... )
     \item Then relaxed over the summer at low incidence rates
     \item Cross-country mobility planted the seeds for fall wave
+    \item We start our analysis at this point because modelling undetected cases would require a very different approach than in spting
 \end{itemize}
+
+
 
 \paragraph{Story by Figures}
 \begin{itemize}
-    \item Fig 1: Model fit and measures
-    \item Fig 2: Scenarios, Shapley
-    \item Fig 3: Schooling scenarios? Including vacation effects in fall? Similar for Easter?
+    \item Fig 2: Model fit and measures
+
+          Aggregate. Refer to appendix for fits by age group and geographical region.
+
+    \item Fig 3: Scenarios, Shapley. Why testing so effective. Form of TTI.
+
+    \item Fig 4: Schooling scenarios? Including vacation effects in fall? Similar for Easter?
+
 \end{itemize}
 
 \paragraph{Points to mention}
