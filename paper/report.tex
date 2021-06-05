@@ -55,6 +55,7 @@ At the core of our agent-based model are physical contacts between heterogeneous
         \caption{{\small PCR and antigen tests}}
         \label{fig:pcr_antigen_tests}
     \end{subfigure}
+    \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
 
@@ -75,14 +76,26 @@ The model includes several other features, which are crucial to describe the evo
 
 Modelling a population of agents according to actual demographic characterists means that we can use a wide array of data to identify and estimate the model's many parameters.\footnote{See section S.X of the supplementary materials for an overview.}\comment[id=HM]{Need to make a list including symbols, maybe you can fetch the parameters from the model and then we brainstorm re notation?} Mobility data is used to model the reductions in work contacts. School and daycare policies are incorporated directly from official directives. Infection rates by age and geographical region are estimated to match to officially recorded numbers; so is the prevalence of virus strains. In order to translate simulated cases in our model to officially recorded cases, we use the model depicted in Figure~\ref{fig:model_for_official_cases}. \comment[id=HM]{Add a sentence.} A further advantage is that the simulated data have a structure that resembles datasets used for regression models, which allows additional plausibility checks by re-running the same models on the model-generated data.\comment[id=HM]{Only keep if we actually do something like that.}
 
-We apply this model to Germany. In March and April 2020, the country broke the first wave of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We start our analysis in mid-September for two reasons. First, we do not include the first wave because the environment was very different (e.g., aggregate PCR test capacity was much lower and we would require a very different model for calculating the share of known cases) and some data was not recorded yet.\comment[id=HM]{True?}. Many cases during the summer of 2020 were traced to international travellers; our model is not very helpful in explaining this.
+We apply this model to Germany. In March and April 2020, the country broke the first wave of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We start our analysis in mid-September for two reasons. First, we do not include the first wave because the environment was very different (e.g., aggregate PCR test capacity was much lower and we would require a very different model for calculating the share of known cases) and some data was not recorded yet.\comment[id=HM]{True?}. Second, a large fraction cases during summer of 2020 were traced to international travel,\comment[id=HM]{citation?} which is not part of this model. 
+
+We describe the evolution of the pandemic and of its drivers in Figure~\ref{fig:pandemic_drivers_model_fit}. The black line in Figure~\ref{fig:aggregated_fit} shows the officially recorded cases; the \replace[id=HM]{color} line in 
 
 
-In late summer and early fall, restrictions were few. A distance of 1.5m had to be kept and masking requirements were enforced in public locations.\comment[id=HM]{pls double-check, add if I am missing important stuff}. Figure~\ref{fig:pandemic_drivers_model_fit} describes the background for our analysis. Figure~\ref{fig:stringency_index} Important to remember that multipliers are relative to that period
+The setting in our analysis 
+In late summer and early fall, restrictions were few. A distance of 1.5m had to be kept and masking requirements were enforced in public locations.\comment[id=HM]{pls double-check, add if I am missing important stuff}. 
+ Figure~\ref{fig:stringency_index} Important to remember that multipliers are relative to that period
 
 \begin{figure}[!tp]
     \centering
+    
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
 
+        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case}
+        \caption{{\small Recorded cases: Empirical and simulated}}
+        \label{fig:aggregated_fit}
+    \end{subfigure}
+    \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/data/work_multiplier_since_sep}
@@ -102,7 +115,10 @@ In late summer and early fall, restrictions were few. A distance of 1.5m had to 
         \caption{{\small Contact reductions}}
         \label{fig:stringency_index}
     \end{subfigure}
-    \hfill
+    
+    \vskip3ex
+        
+
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
 
@@ -121,8 +137,7 @@ In late summer and early fall, restrictions were few. A distance of 1.5m had to 
         \caption{{\small Tests and vaccinations}}
         \label{fig:pcr_antigen_tests_vaccinations}
     \end{subfigure}
-    \vskip3ex
-    
+    \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/data/share_of_b117_acc_to_rki}
@@ -134,15 +149,8 @@ In late summer and early fall, restrictions were few. A distance of 1.5m had to 
         \caption{Share of known cases and fraction of B.1.1.7 strain}
         \label{fig:share_known_cases_b117}
     \end{subfigure}
-    \begin{subfigure}[b]{0.475\textwidth}
-        \centering
 
-        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case}
-        \caption{{\small Recorded cases: Empirical and simulated}}
-        \label{fig:aggregated_fit}
-    \end{subfigure}
-
-    \caption{Drivers of the pandemic and model fit, September 2020 to May 2021}
+    \caption{Evolution of the pandemic, its drivers, and model fit, September 2020 to May 2021}
     \label{fig:pandemic_drivers_model_fit}
 
     Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
@@ -180,6 +188,7 @@ In late summer and early fall, restrictions were few. A distance of 1.5m had to 
         \caption{Decomposition of effects for Figure~\ref{fig:full_newly_infected_cropped}}
         \label{fig:decompisition total cases}
     \end{subfigure}
+    \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
 
