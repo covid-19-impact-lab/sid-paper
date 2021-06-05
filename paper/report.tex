@@ -6,51 +6,9 @@
 
 % \clearpage
 
-Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity
-on many dimensions. The development of highly effective vaccines holds the promise of
-containment in the medium term. However, most countries find themselves many months---and
-often years---away from reaching vaccination-induced herd immunity.\comment[id=HM]{Cite
-some paper on herd immunity, maybe vaccine data} In the meantime, it is of utmost
-importance to employ an effective mix of strategies for containing the virus. The most
-frequent initial response was a set of non-pharmaceutical interventions (NPIs) to reduce
-contacts between individuals. While this has allowed some countries to sustain equilibria
-with very low infection numbers\comment[id=HM]{Cite Priesemann paper or other}, most have
-seen large ups and downs in their infection rates. Containment measures have become
-increasingly diverse and included testing, more nuanced NPIs, and contact tracing.
-Neither these policies' effect nor the influence of seasonal patterns or more infectious
-virus strains are well understood in quantitative terms. This paper develops a model
-incorporating all these factors. The framework allows to combine a wide variety of data
-in a timely fashion, making it useful to predict the effects of various interventions. We
-apply the model to Germany and show that rapid testing had the largest impact on the
-reduction in infections by XXX\% during the A weeks between X April and Y
-May.\comment[id=HM]{insert some useful numbers}. We conclude that rapid tests should play
-a large role...
+Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity on many dimensions. The development of highly effective vaccines holds the promise of containment in the medium term. However, most countries find themselves many months---and often years---away from reaching vaccination-induced herd immunity.\comment[id=HM]{Cite some paper on herd immunity, maybe vaccine data} In the meantime, it is of utmost importance to employ an effective mix of strategies for containing the virus. The most frequent initial response was a set of non-pharmaceutical interventions (NPIs) to reduce contacts between individuals. While this has allowed some countries to sustain equilibria with very low infection numbers\comment[id=HM]{Cite Priesemann paper or other}, most have seen large ups and downs in their infection rates. Containment measures have become increasingly diverse and included testing, more nuanced NPIs, and contact tracing. Neither these policies' effect nor the influence of seasonal patterns or more infectious virus strains are well understood in quantitative terms. This paper develops a model incorporating all these factors. The framework allows to combine a wide variety of data in a timely fashion, making it useful to predict the effects of various interventions. We apply the model to Germany and show that rapid testing had the largest impact on the reduction in infections by XXX\% during the A weeks between X April and Y May.\comment[id=HM]{insert some useful numbers}. We conclude that rapid tests should play a large role...
 
-At the core of our agent-based model are physical contacts between heterogeneous agents
-(Figure~\ref{fig:broad_model_description}).\footnote{We provide a detailed comparison to
-other approaches in \ref{sec:literature_review}. The model most closely related to ours
-is described in \citet{Hinch2020}.} Each contact between an infectious indvidual and
-somebody susceptible to the disease bears the risk of transmitting the virus. Contacts
-occur in the household, at work, at school, or in other settings (leisure activities,
-grocery shopping, medical appointments, etc.).\comment[id=HM]{Systemic relevance of
-work?} Some contacts take place regularly, others occur at random. Random contacts are
-typically assortative in age and geographical location. Empirical applications can take
-the population structure from census data and the types and frequency of contacts from
-diary data measuring contacts before the pandemic
-\citep[e.g.][]{Mossong2008}.\comment[id=HM]{cite other stuff, too?} The dimensions are
-chosen so that the most common NPIs can be modeled in great detail by reducing the
-number of contacts in a particular setting or the risk of transmitting the disease for a
-type of contact. For example, a mandate to work from home will reduce the number of work
-contacts to zero for a fraction of the working population. Schools and daycare can be
-closed entirely, operate at reduced capacity including an alternating schedule, or
-implement mitigation measures like masking requirements or air
-filters.\comment[id=HM]{cite
-\url{https://science.sciencemag.org/content/early/2021/04/28/science.abh2939}} Curfews
-may reduce the number of contacts in non-work/non-school settings. In any setting,
-measures like masking requirements would reduce the probability of infection associated
-with a contact.
-
-
+At the core of our agent-based model are physical contacts between heterogeneous agents (Figure~\ref{fig:broad_model_description}).\footnote{We provide a detailed comparison to other approaches in \ref{sec:literature_review}. The model most closely related to ours is described in \citet{Hinch2020}.} Each contact between an infectious indvidual and somebody susceptible to the disease bears the risk of transmitting the virus. Contacts occur in the household, at work, at school, or in other settings (leisure activities, grocery shopping, medical appointments, etc.).\comment[id=HM]{Systemic relevance of work?} Some contacts recur regularly, others occur at random. Random contacts are typically assortative in age and geographical location. Empirical applications can take the population structure from census data and the types and frequency of contacts from diary data measuring contacts before the pandemic \citep[e.g.][]{Mossong2008}.\comment[id=HM]{cite other stuff, too?} The dimensions are chosen so that the most common NPIs can be modelled in great detail by reducing the number of contacts in a particular setting or the risk of transmitting the disease for a type of contact. For example, a mandate to work from home will reduce the number of work contacts to zero for a fraction of the working population. Schools and daycare can be closed entirely, operate at reduced capacity including an alternating schedule, or implement mitigation measures like masking requirements or air filters.\comment[id=HM]{cite \url{https://science.sciencemag.org/content/early/2021/04/28/science.abh2939}} Curfews may reduce the number of contacts in non-work/non-school settings. In any setting, measures like masking requirements would reduce the probability of infection associated with a contact.
 
 \begin{figure}[!tp]
     \centering
@@ -99,83 +57,17 @@ with a contact.
 \end{figure}
 
 
-Susceptibility to contracting the SARS-CoV-2 virus is dependent on age; so is the
-progression of a possible infection. We differentiate between an initial period of
-infection without being infectious or showing symptoms, being infectious (presymptomatic
-or asymptomatic), showing symptoms, requiring intensive care, and recovery or death. The
-probabilities of transitioning between these states depend on age; their duration is
-random within intervals calibrated to medical literature (for a detailed description see
-Section~\ref{sec:medical_params}. Conditional on the type of contact, infectiousness  is
-independent of ages.\comment[id=HM]{Cite current Drosten paper}
+Susceptibility to contracting the SARS-CoV-2 virus is dependent on age; so is the progression of a possible infection. We differentiate between an inital period of infection without being infectious or showing symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring intensive care, and recovery or death. The probabilities of transitioning between these states depend on age; their duration is random within intervals calibrated to medical literature.\comment[id=HM]{Cite}. Conditional on the type of contact, infectiousness independent of ages.\comment[id=HM]{Cite current Drosten paper}
 
-The model includes several other features, which are crucial to describe the evolution of
-the pandemic in 2020-2021. New virus strains with different profiles regarding
-infectiousness and disease progress can be introduced. With a probability calibrated to
-\cite{Hunter2021}, vaccinated agents become immune and they do not transmit the virus
-\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.% the sources only report reduced viral shedding and reduced risk of infection.
-% Lauterbach calculated that taking the risk of infection * reduced infectiousness given
-% infection based on theses studies suggest that given exposure the risk that fully
-% vaccinated individuals pose is <10% of an unvaccinated person.
-While vaccines are rolled out, priority may depend on age and occupation. Agents may
-demand two types of tests as described in Figure~\ref{fig:pcr_antigen_tests}. First,
-polymerase chain reaction (PCR) tests directly reveal whether an individual is infected
-or not. PCR tests require some time to be processed and there are always aggregate
-capacity constraints. Second, rapid antigen tests yield immediate results. Specificity
-and sensitivity of these tests is set according to data by \cite{Bruemmer2021, Smith2021}
-. The sensitivity of the rapid antigen tests depends on the timing of the test relative
-to the start of infectiousness.\comment[id=HM]{subsequent PCR tests, quarantine,
-work/school}. Demand for rapid tests will depend on policy, e.g., prices, testing
-requirements before work, attending school, or visiting restaurants and shops.
+The model includes several other features, which are crucial to describe the evolution of the pandemic in 2020-2021. New virus strains with different profiles regarding infectiousness and disease progress can be introduced. With a probability calibrated to XXX\comment[id=HM]{Klara, please add citatiion}, vaccinated agents become immune and they do not transmit the virus. While vaccines are rolled out, priority may depend on age and occupation. Agents may demand two types of tests as described in Figure~\ref{fig:pcr_antigen_tests}. First, polymerase chain reaction (PCR) tests directly reveal whether an individual is infected or not. PCR tests require some time to be processed and there are always aggregate capacity constraints. Second, rapid antigen tests yield immediate results. Specificity and sensitivity of these tests is set according to the XXX data.\comment[id=HM]{subsequent PCR tests, quarantine, work/school}. Demand for rapid tests will depend on policy, e.g., prices, testing requirements before work, attending school, or visiting restaurants and shops.
 
-Modelling a population of agents according to actual demographic characteristics means
-that we can use a wide array of data to identify and estimate the model's many
-parameters.\footnote{See section S.X of the supplementary materials for an
-overview.}\comment[id=HM]{Need to make a list including symbols, maybe you can fetch the
-parameters from the model and then we brainstorm re notation?} Mobility data is used to
-model the reductions in work contacts. School and daycare policies are incorporated
-directly from official directives. Infection rates by age and geographical region are
-estimated to match to officially recorded numbers; so is the prevalence of virus strains.
-In order to translate simulated cases in our model to officially recorded cases, we use
-the model depicted in Figure~\ref{fig:model_for_official_cases}. \comment[id=HM]{Add a
-sentence.} A further advantage is that the simulated data have a structure that resembles
-datasets used for regression models, which allows additional plausibility checks by
-re-running the same models on the model-generated data.\comment[id=HM]{Only keep if we
-actually do something like that.}
+Modelling a population of agents according to actual demographic characterists means that we can use a wide array of data to identify and estimate the model's many parameters.\footnote{See section S.X of the supplementary materials for an overview.}\comment[id=HM]{Need to make a list including symbols, maybe you can fetch the parameters from the model and then we brainstorm re notation?} Mobility data is used to model the reductions in work contacts. School and daycare policies are incorporated directly from official directives. Infection rates by age and geographical region are estimated to match to officially recorded numbers; so is the prevalence of virus strains. In order to translate simulated cases in our model to officially recorded cases, we use the model depicted in Figure~\ref{fig:model_for_official_cases}. \comment[id=HM]{Add a sentence.} A further advantage is that the simulated data have a structure that resembles datasets used for regression models, which allows additional plausibility checks by re-running the same models on the model-generated data.\comment[id=HM]{Only keep if we actually do something like that.}
 
 Model that makes the most of many available data sources to gauge the relative effects in this transition period -- see joint distribution of infections with age, geography. But contacts with age, geography, occupations.
 
-We apply this model to Germany. In March and April 2020, the country broke the first wave
-of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections
-were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We model the
-period mid-September 2020 to the end of May 2020. We pick the starting date for two
-reasons. First, we do not include the first wave because the environment was very
-different (e.g., aggregate PCR test capacity was much lower and we would require a very
-different model for calculating the share of known cases) and some data was not recorded
-yet.\comment[id=HM]{True?}\comment[id=Klara]{ We would definitely need to model national
-and international travel which you mention below. Datawise I think everything would be
-available. The low numbers during summer in our sample size might also be a problem
-because Covid might go extinct in our model when case numbers are so low. } Second,
-a large fraction cases during summer of 2020 were traced to international
-travel,\comment[id=HM]{citation?}\comment[id=Klara]{There was a comment by minister Spahn
-that half of cases during the summer months were due to travel to the Baltic
-(\url{https://twitter.com/krstorevic/status/1396516025181556737}) but I know of no data.
-We should probably check the RKI reports of July, Aug and Sep} but the precise number is
-difficult to model.}
+We apply this model to Germany. In March and April 2020, the country broke the first wave of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We model the period mid-September 2020 to the end of May 2020. We pick the starting date for two reasons. First, we do not include the first wave because the environment was very different (e.g., aggregate PCR test capacity was much lower and we would require a very different model for calculating the share of known cases) and some data was not recorded yet.\comment[id=HM]{True?}. Second, a large fraction cases during summer of 2020 were traced to international travel,\comment[id=HM]{citation?}, but the precise number is difficult to model.
 
-Figure~{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and of
-its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially recorded
-cases; the \replaced[id=HM]{color}{blue?} line in Figure~\ref{fig:stringency_index} the
-Oxford Response Stringency Index\cite{Hale2020}, which tracks the tightness of
-non-pharmaceutical interventions. We transform the index so that lower values represent
-higher levels of restrictions. A value of zero means all measures incorporated in the
-index are turned on. The value 1 represents the situation of mid-September, where half of
-all restrictions incorporated in the index are active.\comment[id=HM]{Need to find
-version of index with a couple of measures, probably need the API access...}. In the six
-weeks between mid September and mid October, cases increased by a factor of
-\replaced[id=HM]{X}{10? Do we have RKI numbers as table somewhere?}. Restrictions were
-somewhat tightened in mid-October and again in early November. New infections remained
-constant throughout November, before rising again in December. In mid December, other
-lockdown. So far, traditional measures only
+Figure~{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially recorded cases; the \replaced[id=HM]{color}{blue?} line in Figure~\ref{fig:stringency_index} the Oxford Response Stringency Index\cite{Hale2020}, which tracks the tightness of non-pharmaceutical interventions. We transform the index so that lower values represent higher levels of restrictions. A value of zero means all measures incorporated in the index are turned on. The value 1 represents the situation of mid-September, where half of all restrictions incorporated in the index are active.\comment[id=HM]{Need to find version of index with a couple of measures, probably need the API access...}. In the six weeks between mid September and mid October, cases increased by a factor of \replaced[id=HM]{X}{10? Do we have RKI numbers as table somewhere?}. Restrictions were somewhat tightened in mid-October and again in early November. New infections remained constant throughout November, before rising again in December. In mid December, other lockdown. So far, traditional measures only
 
 Starting in January,  becomes relevant.
 \begin{itemize}
@@ -220,8 +112,9 @@ Our model:
 
         \includegraphics[width=\textwidth]{../figures/results/figures/data/testing/rapid_test_demand_shares}
 
-        \textcolor{red}{Number of PCR tests}\comment[id=K]{I think this is not available.
-        Only a subsection of laboratories report negative PCR tests if I remember right}
+        \includegraphics[width=\textwidth]{../figures/results/figures/data/share_of_individuals_with_first_vaccine}
+
+        \textcolor{red}{Number of PCR tests}
 
         \vskip2ex
 
@@ -250,7 +143,7 @@ Our model:
 
 Reassured by good fit and a couple of external checks (fall vacation regression?), we consider the relative effects of different measures in 2021
 \begin{itemize}
-    \item Rapid tests, 
+    \item Rapid tests,
     \item seasonality
     \item vaccines
 \end{itemize}
@@ -276,7 +169,7 @@ lessons learned
     \end{subfigure}
 
     \vskip3ex
-    
+
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         % \includegraphics[width=\textwidth]{../figures/disease_progression.png}
@@ -316,16 +209,16 @@ Screening effect: ...
 
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/school_scenarios/full_new_known_case}
-        \caption{{\small Recorded Cases: Different schooling scenarios after Easter}}
-        \label{fig:schooling_scenarios_easter_new_known_case}
+        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/one_off_and_combined/full_new_known_case_cropped}
+        \caption{{\small Effects of different schooling scenarios after Easter}}
+        \label{fig:schooling_scenarios_easter}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/school_scenarios/full_newly_infected}
-        \caption{{\small Total Cases: Different schooling scenarios after Easter}}
-        \label{fig:schooling_scenarios_easter_newly_infected}
+        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/one_off_and_combined/full_newly_infected_cropped}
+        \caption{{\small TBD}}
+        \label{fig:to_be_determined}
     \end{subfigure}
     \vskip3ex    
 
