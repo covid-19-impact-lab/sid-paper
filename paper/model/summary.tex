@@ -7,14 +7,14 @@ model inherits many features from prototypical agent-based simulation models but
 replaces the contacts between moving particles by contacts between individuals who work,
 go to school, live in a household and enjoy leisure activities.
 
-The structure of the model is depicted in Figure~\ref{fig:model_graph}.
+The structure of the model is depicted in Figure~\ref{fig:broad_model_description}.
 
 The background characteristics include age, county and occupation of each simulated
 individual. Contact models are functions that map individual characteristics into a
 predicted number of contacts. Currently, we distinguish between eight types of contact
-models which are all listed in Figure~\ref{fig:model_graph}: households, recurrent and
-random work contacts, recurrent and random leisure contacts, and nursery, preschool, and
-school contacts.
+models which are all listed in Figure~\ref{fig:broad_model_description}: households,
+recurrent and random work contacts, recurrent and random leisure contacts, and nursery,
+preschool, and school contacts.
 
 The predicted number of contacts is translated into infections by a matching algorithm.
 There are different matching algorithms for recurrent contacts (e.g. classmates, family
