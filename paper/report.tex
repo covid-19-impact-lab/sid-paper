@@ -1,18 +1,5 @@
 % Reports (up to ~2500 words including references, notes and captions–corresponds to ~3 printed pages in the journal) present important new research results of broad significance. Reports should include an abstract, an introductory paragraph, up to four figures or tables, and about 30 references. Materials and Methods should be included in supplementary materials, which should also include information needed to support the paper's conclusions.
 
-
-\section{Main contributions}
-
-\begin{itemize}
-    \item Pattern: Large 2nd/3rd waves, B.1.1.7 dominant variant, steep fall in spring
-    \item Many policies and developments at once: Seasonality, NPIs (private / school closures / workplace restrictions), , vaccinations, tests.
-    \item Model that makes the most of many available data sources to gauge the relative effects in this transition period -- see joint distribution of infections with age, geography. But contacts with age, geography, occupations.
-    \item Intuitive -- directly work with primitives
-    \item Very general approach: Limited only by size of computer and availability of data
-    \item Too many policies at once for SEIR extensions
-\end{itemize}
-
-
 % Main Text is not divided into sub-headings for Reports. 
 
 % The manuscript should start with a brief introduction describing the paper’s significance. The introduction should provide sufficient background information to make the article intelligible to readers in other disciplines, and sufficient context that the significance of the experimental findings is clear. 
@@ -76,10 +63,18 @@ The model includes several other features, which are crucial to describe the evo
 
 Modelling a population of agents according to actual demographic characterists means that we can use a wide array of data to identify and estimate the model's many parameters.\footnote{See section S.X of the supplementary materials for an overview.}\comment[id=HM]{Need to make a list including symbols, maybe you can fetch the parameters from the model and then we brainstorm re notation?} Mobility data is used to model the reductions in work contacts. School and daycare policies are incorporated directly from official directives. Infection rates by age and geographical region are estimated to match to officially recorded numbers; so is the prevalence of virus strains. In order to translate simulated cases in our model to officially recorded cases, we use the model depicted in Figure~\ref{fig:model_for_official_cases}. \comment[id=HM]{Add a sentence.} A further advantage is that the simulated data have a structure that resembles datasets used for regression models, which allows additional plausibility checks by re-running the same models on the model-generated data.\comment[id=HM]{Only keep if we actually do something like that.}
 
-We apply this model to Germany. In March and April 2020, the country broke the first wave of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We start our analysis in mid-September for two reasons. First, we do not include the first wave because the environment was very different (e.g., aggregate PCR test capacity was much lower and we would require a very different model for calculating the share of known cases) and some data was not recorded yet.\comment[id=HM]{True?}. Second, a large fraction cases during summer of 2020 were traced to international travel,\comment[id=HM]{citation?} which is not part of this model. 
+Model that makes the most of many available data sources to gauge the relative effects in this transition period -- see joint distribution of infections with age, geography. But contacts with age, geography, occupations.
 
-We describe the evolution of the pandemic and of its drivers in Figure~\ref{fig:pandemic_drivers_model_fit}. The black line in Figure~\ref{fig:aggregated_fit} shows the officially recorded cases; the \replace[id=HM]{color} line in 
+We apply this model to Germany. In March and April 2020, the country broke the first wave of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We start our analysis in mid-September for two reasons. First, we do not include the first wave because the environment was very different (e.g., aggregate PCR test capacity was much lower and we would require a very different model for calculating the share of known cases) and some data was not recorded yet.\comment[id=HM]{True?}. Second, a large fraction cases during summer of 2020 were traced to international travel,\comment[id=HM]{citation?}, but the precise number is difficult to model. 
 
+At the starting point of our analysis, the 
+
+The \replaced[id=HM]{color}{blue?} line in Figure~\ref{fig:stringency_index} the Oxford Response Stringency Index\cite{Hale2020}. The Figure~\ref{fig:stringency_index}
+
+
+We describe the evolution of the pandemic and of its drivers in Figure~\ref{fig:pandemic_drivers_model_fit}. The black line in Figure~\ref{fig:aggregated_fit} shows the officially recorded cases; 
+
+We transform the index so that 1 represents the situation in mid-September and 0 represents that all restrictions incorporated in the index are in place. The six weeks between  was a steep rise in infections in 
 
 The setting in our analysis 
 In late summer and early fall, restrictions were few. A distance of 1.5m had to be kept and masking requirements were enforced in public locations.\comment[id=HM]{pls double-check, add if I am missing important stuff}. 
