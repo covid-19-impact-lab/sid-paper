@@ -40,13 +40,18 @@ At the core of our agent-based model are physical contacts between heterogeneous
 
         Model for detected/undetected cases
 
-        \includegraphics[width=\textwidth]{../figures/model_detailed.png}
+        % \includegraphics[width=\textwidth]{../figures/model_detailed.png}
         \caption{{\small Model for translating simulated number to officially recorded cases}}
         \label{fig:model_for_official_cases}
     \end{subfigure}
 
     \caption{Model description}
     \label{fig:model-description}
+
+    \floatfoot{
+        Note: ...
+    }
+
 \end{figure}
 
 Susceptibility to contracting the SARS-CoV-2 virus is dependent on age; so is the progression of a possible infection. We differentiate between an inital period of infection without being infectious or showing symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring intensive care, and recovery or death. The probabilities of transitioning between these states depend on age; their duration is random within intervals calibrated to medical literature.\comment[id=HM]{Cite}. Conditional on the type of contact, infectiousness independent of ages.\comment[id=HM]{Cite current Drosten paper}
@@ -103,35 +108,18 @@ Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pande
 
     \floatfoot{
         Note: All aggregates; See S.XXX for statistics by age group and by geographical region. Also more disaggregated data.
-    
-        Sources: ... 
+
+        Sources: ...
     }
 
 \end{figure}
 
 Quickly rising rates in December prompted the most stringent lockdown to this date. Schools and daycare centers were closed again, so were customer-facing businesses except for grocery and drug stores. Shortly afterwards, more factors become relevant. Just after Christmas, the first people were vaccinated with a focus on older age groups and medical personnel (Figure~\ref{fig:antigen_tests_vaccinations}. By the end of May, just over 40\% had received at least one dose of a vaccine. Starting in January, rapid tests \dots These had to be administered by medical doctors or in pharmacies. At-home tests approved by authorities were ... in March.\comment[id=HM]{update precise timeline}
-From the peak of the second wave just before Christmas until the trough in mid-February, newly detected cases decreased by almost three quarters. The third wave in the spring of 2021 is associated with a rise in the share of the B.1.1.7 variant among all infections, depicted in Figure~\ref{fig:share_b117}, reaching more than 80\% in April\comment[id=HM]{Do we have the table somewhere?}. In early March, some NPIs were being relaxed; e.g., hairdressers and home improvement stores were allowed to open again to the public. In some cases, customers were only allowed to enter with a recent negative rapid test result. 
+From the peak of the second wave just before Christmas until the trough in mid-February, newly detected cases decreased by almost three quarters. The third wave in the spring of 2021 is associated with a rise in the share of the B.1.1.7 variant among all infections, depicted in Figure~\ref{fig:share_b117}, reaching more than 80\% in April\comment[id=HM]{Do we have the table somewhere?}. In early March, some NPIs were being relaxed; e.g., hairdressers and home improvement stores were allowed to open again to the public. In some cases, customers were only allowed to enter with a recent negative rapid test result.
 
-The blue line in Figure~\ref{fig:aggregated_fit} shows the simulated infections based on our model.
+These developments are characteristic of many countries: The inititial focus on NPIs to slow the spread of the disease has been accompanied by vaccines and a growing acceptance and use of rapid tests. At broadly similar points in time, novel strains of the virus have started to pose additional challenges. The blue line in Figure~\ref{fig:aggregated_fit} shows that our model tracks the simulated infections extremely well. This is also true for infections by age and geographical region, which are shown in the supplementary materials (S.\comment[id=HM]{reference}). We can disentangle various mechanisms due to the distinct temporal variation in the drivers of the pandemic. Next to the stringency index, the three lines in Figure~\ref{fig:stringency_index} summarize how contact reductions, increased hygiene regulations, and seasonality evolved since early September for each of the three broad contact networks. For example, a value of 0.75 for the work multiplier means that if the environment was the same as in September (levels of infection rates, no rapid tests or vaccinations, only the wildtype virus present), infections at the workplace would be reduced by 25\%. This reduction is the product of the effect of contact reductions, increased hygiene regulations, and seasonality. Along with the levels of infections, these measures completely determine the spread of SARS-CoV-2 in 2020.\comment[id=HM]{True?} See Appendix~\comment[id=HM]{Reference} for their individual contributions. Two things are particularly interesting. First, all lines broadly follow the stringency index and they would do so even more if we left out seasonality. Second, the most stringent regulations are associated with the period of strong decreases in new infection beteen late December 2020 and mid-February 2021. The measures were not enough, however, to stop the B.1.1.7 variant from spreading in the subsequent period. The steep drop in recorded cases during May 2021 is associated with rapid tests to X-Y~percent of the population, a vaccination rate that rose from 25\% to 4X\%, and mostly seasonality impacting a fall in the relative infectiousness of contacts.
 
-Our model:
-\begin{itemize}
-    \item Fit is great
-    \item Multipliers for three categories (how calculated precisely, refer to appendix for breakdown)
-    \item Tests fit well
-    \item Share known cases, how calculated
-\end{itemize}
-
-
-
-Reassured by good fit and a couple of external checks (fall vacation regression?), we consider the relative effects of different measures in 2021
-\begin{itemize}
-    \item Rapid tests,
-    \item seasonality
-    \item vaccines
-\end{itemize}
-
-lessons learned
+Reassured by good fit and a couple of external checks (fall vacation regression?), Figure~\ref{fig:2021_scenarios_broad} consider the relative effects of rapid tests, vaccinations, and of seasonality during 2021, assuming NPIs to be the same as in the baseline scenario. Figure~\ref{fig:2021_scenarios_recorded} shows the model fit (blue line, same as in Figure~\ref{fig:aggregated_fit}), a scenario without any of the three factors (x line), and three scenarios turning these factors off one by one.
 
 
 \begin{figure}[!tp]
@@ -141,14 +129,14 @@ lessons learned
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/one_off_and_combined/full_new_known_case_cropped}
         \caption{{\small Recorded cases: 2021 scenarios}}
-        \label{fig:full_new_known_case_cropped}
+        \label{fig:2021_scenarios_recorded}
     \end{subfigure}
-    %
+    \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/one_off_and_combined/full_newly_infected_cropped}
         \caption{{\small Total cases: 2021 scenarios}}
-        \label{fig:full_newly_infected_cropped}
+        \label{fig:2021_scenarios_newly_infected}
     \end{subfigure}
 
     \begin{subfigure}[b]{0.475\textwidth}
@@ -157,22 +145,21 @@ lessons learned
 
         \vskip2ex
 
-        \caption{Decomposition of effects for Figure~\ref{fig:full_newly_infected_cropped}.}
-
-        \label{fig:decomposition_scenarios_total_cases}
+        \caption{Decomposition of effects for Figure~\ref{fig:2021_scenarios_newly_infected}.}
+        \label{fig:2021_scenarios_decomposition}
     \end{subfigure}
-    %
+    \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-        
+
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/effect_of_rapid_tests/full_newly_infected}
         \caption{{\small Effects of different types of testing}}
-        \label{fig:decomposition_tests}
+        \label{fig:2021_scenarios_decomposition_tests}
     \end{subfigure}
-    
+
     \caption{The effect of different interventions on recorded and actual infections}
-    \label{fig:interventions_broad}
-    
+    \label{fig:2021_scenarios_broad}
+
     \floatfoot{
         Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
     
@@ -203,12 +190,14 @@ Screening effect: ...
         \caption{{\small TBD}}
         \label{fig:to_be_determined}
     \end{subfigure}
-    \vskip3ex    
+    \vskip3ex
 
     \caption{Schooling / maybe home office}
     \label{fig:interventions_school}
 
-    Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
+    \floatfoot{
+        Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
+    }
 
 \end{figure}
 
