@@ -30,12 +30,6 @@ At the core of our agent-based model are physical contacts between heterogeneous
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
 
-        PCR tests: quarantine (?)
-
-        Antigen tests: subsequent PCR tests, quarantine, work/school
-
-        Effects on other people (tracing)
-
         \includegraphics[width=\textwidth]{../figures/model-graph-bottom-left}
         \caption{{\small PCR and antigen tests}}
         \label{fig:pcr_antigen_tests}
@@ -46,7 +40,7 @@ At the core of our agent-based model are physical contacts between heterogeneous
 
         Model for detected/undetected cases
 
-        % \includegraphics[width=\textwidth]{../figures/model_detailed.png}
+        \includegraphics[width=\textwidth]{../figures/model_detailed.png}
         \caption{{\small Model for translating simulated number to officially recorded cases}}
         \label{fig:model_for_official_cases}
     \end{subfigure}
@@ -54,7 +48,6 @@ At the core of our agent-based model are physical contacts between heterogeneous
     \caption{Model description}
     \label{fig:model-description}
 \end{figure}
-
 
 Susceptibility to contracting the SARS-CoV-2 virus is dependent on age; so is the progression of a possible infection. We differentiate between an inital period of infection without being infectious or showing symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring intensive care, and recovery or death. The probabilities of transitioning between these states depend on age; their duration is random within intervals calibrated to medical literature.\comment[id=HM]{Cite}. Conditional on the type of contact, infectiousness independent of ages.\comment[id=HM]{Cite current Drosten paper}
 
@@ -66,23 +59,7 @@ Model that makes the most of many available data sources to gauge the relative e
 
 We apply this model to Germany. In March and April 2020, the country broke the first wave of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We model the period mid-September 2020 to the end of May 2020. We pick the starting date for two reasons. First, we do not include the first wave because the environment was very different (e.g., aggregate PCR test capacity was much lower and we would require a very different model for calculating the share of known cases) and some data was not recorded yet.\comment[id=HM]{True?}. Second, a large fraction cases during summer of 2020 were traced to international travel,\comment[id=HM]{citation?}, but the precise number is difficult to model.
 
-Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially recorded cases; the \replaced[id=HM]{color}{blue?} line in Figure~\ref{fig:stringency_index} the Oxford Response Stringency Index\cite{Hale2020}, which tracks the tightness of non-pharmaceutical interventions. We transform the index so that lower values represent higher levels of restrictions. A value of zero means all measures incorporated in the index are turned on. The value 1 represents the situation of mid-September, where half of all restrictions incorporated in the index are active.\comment[id=HM]{Need to find version of index with a couple of measures, probably need the API access...}. In the six weeks between mid September and mid October, cases increased by a factor of \replaced[id=HM]{X}{10? Do we have RKI numbers as table somewhere?}. Restrictions were somewhat tightened in mid-October and again in early November. New infections remained constant throughout November, before rising again in December. In mid December, other lockdown. So far, traditional measures only
-
-Starting in January,  becomes relevant.
-\begin{itemize}
-    \item Vaccines
-    \item Tests
-    \item Seasonality March onwards.
-    \item B.1.1.7 February onwards
-\end{itemize}
-
-Our model:
-\begin{itemize}
-    \item Fit is great
-    \item Multipliers for three categories (how calculated precisely, refer to appendix for breakdown)
-    \item Tests fit well
-    \item Share known cases, how calculated
-\end{itemize}
+Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially recorded cases; the \replaced[id=HM]{color}{blue?} line in Figure~\ref{fig:stringency_index} the Oxford Response Stringency Index\cite{Hale2020}, which tracks the tightness of non-pharmaceutical interventions. We transform the index so that lower values represent higher levels of restrictions. A value of zero means all measures incorporated in the index are turned on. The value 1 represents the situation of mid-September, where half of all restrictions incorporated in the index are active.\comment[id=HM]{Need to find version of index with a couple of measures, probably need the API access...}. In the six weeks between mid September and mid October, cases increased by a factor of \replaced[id=HM]{X}{10? Do we have RKI numbers as table somewhere?}. Restrictions were somewhat tightened in mid-October and again in early November. New infections remained constant throughout November, before rising again in December.
 
 \begin{figure}[!tp]
     \centering
@@ -96,47 +73,56 @@ Our model:
     \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/results/figures/data/stringency}
+        \includegraphics[width=\textwidth]{../figures/results/figures/data/stringency2}
 
-        \textcolor{red}{Where to put seasonality?}
-        \caption{{\small Contact reductions}}
+        \caption{{\small Stringency of NPIs and changes in infectious contacts by type}}
         \label{fig:stringency_index}
     \end{subfigure}
 
     \vskip3ex
-
 
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
 
         \includegraphics[width=\textwidth]{../figures/results/figures/data/testing/rapid_test_demand_shares}
 
-        \includegraphics[width=\textwidth]{../figures/results/figures/data/share_of_individuals_with_first_vaccine}
-
-        \vskip2ex
-
         \caption{{\small Tests and vaccinations}}
-        \label{fig:pcr_antigen_tests_vaccinations}
+        \label{fig:antigen_tests_vaccinations}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/data/share_of_b117_acc_to_rki}
 
-        \includegraphics[width=\textwidth]{../figures/results/figures/data/testing/assumed_overall_share_known_cases}
-
-        \vskip2ex
-
-        \caption{Share of known cases and fraction of B.1.1.7 strain}
-        \label{fig:share_known_cases_b117}
+        \caption{Fraction of B.1.1.7 strain among measured infections}
+        \label{fig:share_b117}
     \end{subfigure}
 
     \caption{Evolution of the pandemic, its drivers, and model fit, September 2020 to May 2021}
     \label{fig:pandemic_drivers_model_fit}
 
-    Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
+    \floatfoot{
+        Note: All aggregates; See S.XXX for statistics by age group and by geographical region. Also more disaggregated data.
+    
+        Sources: ... 
+    }
 
 \end{figure}
+
+Quickly rising rates in December prompted the most stringent lockdown to this date. Schools and daycare centers were closed again, so were customer-facing businesses except for grocery and drug stores. Shortly afterwards, more factors become relevant. Just after Christmas, the first people were vaccinated with a focus on older age groups and medical personnel (Figure~\ref{fig:antigen_tests_vaccinations}. By the end of May, just over 40\% had received at least one dose of a vaccine. Starting in January, rapid tests \dots These had to be administered by medical doctors or in pharmacies. At-home tests approved by authorities were ... in March.\comment[id=HM]{update precise timeline}
+From the peak of the second wave just before Christmas until the trough in mid-February, newly detected cases decreased by almost three quarters. The third wave in the spring of 2021 is associated with a rise in the share of the B.1.1.7 variant among all infections, depicted in Figure~\ref{fig:share_b117}, reaching more than 80\% in April\comment[id=HM]{Do we have the table somewhere?}. In early March, some NPIs were being relaxed; e.g., hairdressers and home improvement stores were allowed to open again to the public. In some cases, customers were only allowed to enter with a recent negative rapid test result. 
+
+The blue line in Figure~\ref{fig:aggregated_fit} shows the simulated infections based on our model.
+
+Our model:
+\begin{itemize}
+    \item Fit is great
+    \item Multipliers for three categories (how calculated precisely, refer to appendix for breakdown)
+    \item Tests fit well
+    \item Share known cases, how calculated
+\end{itemize}
+
+
 
 Reassured by good fit and a couple of external checks (fall vacation regression?), we consider the relative effects of different measures in 2021
 \begin{itemize}
@@ -168,23 +154,30 @@ lessons learned
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/full_decomposition}
-        \caption{Decomposition of effects for Figure~\ref{fig:full_newly_infected_cropped}. The decomposition is based on Shapley values where the individual contribution of an intervention is its average contribution over different sizes of coalitions (combinations with other interventions). The individual contribution to a coalition is the difference between the effect size of the coalition with the particular intervention and without.}
-        \label{fig:decompisition total cases}
+
+        \vskip2ex
+
+        \caption{Decomposition of effects for Figure~\ref{fig:full_newly_infected_cropped}.}
+
+        \label{fig:decomposition_scenarios_total_cases}
     \end{subfigure}
     %
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-
+        
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/effect_of_rapid_tests/full_newly_infected}
         \caption{{\small Effects of different types of testing}}
         \label{fig:decomposition_tests}
     \end{subfigure}
-
+    
     \caption{The effect of different interventions on recorded and actual infections}
     \label{fig:interventions_broad}
-
-    Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
-
+    
+    \floatfoot{
+        Note: All aggregates; See S.XXX for statistics by age group and by geographical region.
+    
+        The decomposition is based on Shapley values where the individual contribution of an intervention is its average contribution over different sizes of coalitions (combinations with other interventions). The individual contribution to a coalition is the difference between the effect size of the coalition with the particular intervention and without.
+    }
 \end{figure}
 
 Schooling very contentious. Likely damage to child development.
