@@ -69,3 +69,6 @@ ergebnisse.tex
 *.loc
 *.soc
 _minted-*/
+*.pyg
+*.upa
+*.upb
