@@ -65,7 +65,7 @@ todo.txt
 tex2pdf*
 ergebnisse.tex
 *.pdf
-!figures/*.pdf
+!figures/**/*.pdf
 *.loc
 *.soc
 _minted-*/

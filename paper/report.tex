@@ -157,7 +157,7 @@ lessons learned
         \caption{{\small Recorded cases: 2021 scenarios}}
         \label{fig:full_new_known_case_cropped}
     \end{subfigure}
-    \hfill
+    %
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/one_off_and_combined/full_newly_infected_cropped}
@@ -165,26 +165,13 @@ lessons learned
         \label{fig:full_newly_infected_cropped}
     \end{subfigure}
 
-    \vskip3ex
-
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/full_decomposition}
-
-        \vskip2ex
-
-        \caption{
-            Decomposition of effects for Figure~\ref{fig:full_newly_infected_cropped}.
-
-            The decomposition is based on Shapley values where the individual
-            contribution of an intervention is its average contribution over different
-            sizes of coalitions (combinations with other interventions). The individual
-            contribution to a coalition is the difference between the effect size of the
-            coalition with the particular intervention and without.
-        }
+        \caption{Decomposition of effects for Figure~\ref{fig:full_newly_infected_cropped}. The decomposition is based on Shapley values where the individual contribution of an intervention is its average contribution over different sizes of coalitions (combinations with other interventions). The individual contribution to a coalition is the difference between the effect size of the coalition with the particular intervention and without.}
         \label{fig:decompisition total cases}
     \end{subfigure}
-    \hfill
+    %
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
 
