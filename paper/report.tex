@@ -125,8 +125,8 @@ to the start of infectiousness.\comment[id=HM]{subsequent PCR tests, quarantine,
 work/school}. Demand for rapid tests will depend on policy, e.g., prices, testing
 requirements before work, attending school, or visiting restaurants and shops.
 
-Modelling a population of agents according to actual demographic characterists means that
-we can use a wide array of data to identify and estimate the model's many
+Modelling a population of agents according to actual demographic characteristics means
+that we can use a wide array of data to identify and estimate the model's many
 parameters.\footnote{See section S.X of the supplementary materials for an
 overview.}\comment[id=HM]{Need to make a list including symbols, maybe you can fetch the
 parameters from the model and then we brainstorm re notation?} Mobility data is used to
@@ -151,9 +151,15 @@ period mid-September 2020 to the end of May 2020. We pick the starting date for 
 reasons. First, we do not include the first wave because the environment was very
 different (e.g., aggregate PCR test capacity was much lower and we would require a very
 different model for calculating the share of known cases) and some data was not recorded
-yet.\comment[id=HM]{True?}. Second, a large fraction cases during summer of 2020 were
-traced to international travel,\comment[id=HM]{citation?}, but the precise number is
-difficult to model.
+yet.\comment[id=HM]{True?}\comment[id=Klara]{We would definitely need to model national
+and international travel which you mention below. Regarding data I think everything would
+be available. The low numbers during summer in our sample size might also be a problem
+because Covid might go extinct in our model when case numbers are so low.}. Second, a
+large fraction cases during summer of 2020 were traced to international
+travel,\comment[id=HM]{citation?}\comment[id=Klara]{There was a comment by minister Spahn
+that half of cases during the summer months were due to travel to the Baltic
+(\url{https://twitter.com/krstorevic/status/1396516025181556737}) but I know of no data.
+We should probably check the RKI reports of July, Aug and Sep}, but the precise number is difficult to model.
 
 Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and
 of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
@@ -182,7 +188,7 @@ December.
     \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/results/figures/data/stringency2}
+        \includegraphics[width=\textwidth]{../figures/results/figures/data/stringency_with_seasonality}
 
         \caption{{\small Stringency of NPIs and changes in infectious contacts by type}}
         \label{fig:stringency_index}
@@ -201,7 +207,7 @@ December.
     \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/results/figures/data/share_of_b117_acc_to_rki}
+        \includegraphics[width=\textwidth]{../figures/results/figures/data/testing/assumed_overall_share_known_cases}
 
         \caption{Fraction of B.1.1.7 strain among measured infections}
         \label{fig:share_b117}
