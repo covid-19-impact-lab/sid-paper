@@ -97,26 +97,33 @@ with a contact.
 \end{figure}
 
 Susceptibility to contracting the SARS-CoV-2 virus is dependent on age; so is the
-progression of a possible infection. We differentiate between an inital period of
+progression of a possible infection. We differentiate between an initial period of
 infection without being infectious or showing symptoms, being infectious (presymptomatic
 or asymptomatic), showing symptoms, requiring intensive care, and recovery or death. The
 probabilities of transitioning between these states depend on age; their duration is
-random within intervals calibrated to medical literature.\comment[id=HM]{Cite}.
+random within intervals calibrated to medical literature (for a detailed description see
+Section~\ref{sec:medical_params}).
 Conditional on the type of contact, infectiousness independent of ages \citep{Jones2021}.
 
 The model includes several other features, which are crucial to describe the evolution of
 the pandemic in 2020-2021. New virus strains with different profiles regarding
 infectiousness and disease progress can be introduced. With a probability calibrated to
-XXX\comment[id=HM]{Klara, please add citatiion}, vaccinated agents become immune and they
-do not transmit the virus. While vaccines are rolled out, priority may depend on age and
-occupation. Agents may demand two types of tests as described in
-Figure~\ref{fig:pcr_antigen_tests}. First, polymerase chain reaction (PCR) tests directly
-reveal whether an individual is infected or not. PCR tests require some time to be
-processed and there are always aggregate capacity constraints. Second, rapid antigen
-tests yield immediate results. Specificity and sensitivity of these tests is set
-according to the XXX data.\comment[id=HM]{subsequent PCR tests, quarantine, work/school}.
-Demand for rapid tests will depend on policy, e.g., prices, testing requirements before
-work, attending school, or visiting restaurants and shops.
+\cite{Hunter2021}, vaccinated agents become immune and they do not
+transmit the virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.
+% the sources only report reduced viral shedding and reduced risk of infection.
+% Lauterbach calculated that taking the risk of infection * reduced infectiousness given
+% infection based on theses studies suggest that given exposure the risk that fully
+% vaccinated individuals pose is <10% of an unvaccinated person.
+While vaccines are rolled out, priority may depend on age and occupation. Agents may
+demand two types of tests as described in Figure~\ref{fig:pcr_antigen_tests}. First,
+polymerase chain reaction (PCR) tests directly reveal whether an individual is infected
+or not. PCR tests require some time to be processed and there are always aggregate
+capacity constraints. Second, rapid antigen tests yield immediate results. Specificity
+and sensitivity of these tests is set according to data by \cite{Bruemmer2021, Smith2021}
+. The sensitivity of the rapid antigen tests depends on the timing of the test relative
+to the start of infectiousness.\comment[id=HM]{subsequent PCR tests, quarantine,
+work/school}. Demand for rapid tests will depend on policy, e.g., prices, testing
+requirements before work, attending school, or visiting restaurants and shops.
 
 Modelling a population of agents according to actual demographic characterists means that
 we can use a wide array of data to identify and estimate the model's many
