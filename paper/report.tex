@@ -286,15 +286,15 @@ Figure~\ref{fig:2021_scenarios_broad} consider the relative effects of rapid tes
     }
 \end{figure}
 
-The effect of the vaccination campaign is surprisingly small at first sight. The reasons
-for this are the slow start---10\% of the population had received their first vaccination
-by the end of March, % 2021-03-24
-20\% by April 19th ---and the focus on older individuals. These groups contribute less to
-the spread of the disease than others due to a lower number of contacts,
-see~\ref{fig:assortativity}. It is important to note that the initial focus of the
-campaign was to prevent deaths and severe disease; the case fatality was rate
-considerably lower during the third wave when compared to the second (4.4\% between
-October and February and 1.4\% between March and June).
+Until mid-March, there is no visible difference between the different scenarios. Seasonality hardly changes, vaccinations  
+The effect of the vaccination campaign is surprisingly small at first sight. Whether considering recorded or total infections, the final level is always the highest in case the vaccination campaign had been running in isolation (red lines). The Shapley value decomposition shows that vaccinations contribute about 15\%\comment[id=HM]{check!} to the difference between scenarios. Reasons for the slow this are the slow start---10\% of the population was vaccinated in XX date, 20\% in mid-April\comment[id=HM]{(check!)}---and the focus on older individuals. These groups contribute less to the spread of the disease than others due to a lower number of contacts, see~\ref{fig:assortativity}. It is important to note that the initial focus of the campaign was to prevent deaths and severe disease; the case fatality was rate considerably lower during the third wave when compared to the second.\comment[id=HM]{Calculate N deaths / N cases, for RKI data 1 October - 31 Jan vs. 1 Mar - 31 May}. It is important to note that by the end of our study period, when first-dose vaccination rates reached around 40\% of the population, the numbers of new cases would have started to decline.
+
+Seasonality has a large effect in slowing the spread of SARS-CoV-2. By May 31, both observed and recorded cases would be reduced by a factor of four if only seasonality mattered. However, in this period, cases would have kept on rising throughout, just at a much lower pace. Nevertheless, we estimate it to be a quantitatively important factor determining the evolution of the pandemic, explaining most of the early changes and almost 40\% of the cumulative difference by the end of May.
+
+The largest effect---almost one half when considering the decompositions---comes from rapid testing. Here, it is crucial to differentiate between recorded cases and actual cases. Additional testing means that infections become known which would otherwise remain undetected. Figure~\ref{fig:2021_scenarios_recorded} shows that this means that until late April, recorded cases are higher than in the scenario where none of the three mechanisms is turned on. Compared to the scenario with vaccinations only, this point is reached only around mid May and it would be June for the comparison with the seasonality-only scenario. The effect on total cases, however, kicks in immediately and strongly. Despite the fact that only a small fraction of the population performed weekly rapid tests in March (X\%\comment[id=HM]{Put in}), the rise in new infections would be limited by XXX\% relative to the scenario without vaccinations, tests, or seasonality.
+
+Tests 
+
 
 
 \clearpage
@@ -313,20 +313,20 @@ Screening effect: ...
 
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/effect_of_channels_on_pessimistic_scenario/full_new_known_case}
+        \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/school_scenarios/full_new_known_case}
         \caption{{\small Effects of different schooling scenarios after Easter}}
         \label{fig:schooling_scenarios_easter}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/effect_of_channels_on_pessimistic_scenario/full_newly_infected}
+        \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/school_scenarios/full_newly_infected}
         \caption{{\small TBD}}
         \label{fig:to_be_determined}
     \end{subfigure}
     \vskip3ex
 
-    \caption{Schooling / maybe home office}
+    \caption{Effects of different scenarios for schooling and work from home}
     \label{fig:interventions_school}
 
     \floatfoot{\noindent
