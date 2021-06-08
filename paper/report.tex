@@ -23,8 +23,8 @@ meantime, it is of utmost importance to employ an effective mix of strategies fo
 containing the virus. The most frequent initial response was a set of non-pharmaceutical
 interventions (NPIs) to reduce contacts between individuals. While this has allowed some
 countries to sustain equilibria with very low infection numbers\footnote{See
-\citet{Contreras2021} for a theoretical equilibrium at low case numbers which is
-sustained with test-trace-and-isolate policies.}, most have seen large fluctuations of
+    \citet{Contreras2021} for a theoretical equilibrium at low case numbers which is
+    sustained with test-trace-and-isolate policies.}, most have seen large fluctuations of
 infection rates. Containment measures have become increasingly diverse and now include
 testing, more nuanced NPIs, and contact tracing. Neither these policies' effect nor the
 influence of seasonal patterns or more infectious virus strains are well understood in
@@ -37,8 +37,8 @@ least as long as vaccinations have not been offered to an entire population.
 
 At the core of our agent-based model are physical contacts between heterogeneous agents
 (Figure~\ref{fig:broad_model_description}).\footnote{We provide a detailed comparison to
-other approaches in \ref{sec:literature_review}. The model most closely related to ours
-is described in \citet{Hinch2020}.} Each contact between an infectious individual and
+    other approaches in \ref{sec:literature_review}. The model most closely related to ours
+    is described in \citet{Hinch2020}.} Each contact between an infectious individual and
 somebody susceptible to the disease bears the risk of transmitting the virus. Contacts
 occur in the household, at work, at school, or in other settings (leisure activities,
 grocery shopping, medical appointments, etc.). Some contacts recur regularly, others
@@ -46,9 +46,9 @@ occur at random. Random contacts are typically assortative in age and geographic
 location. Empirical applications can take the population structure from census data and
 the types and frequency of contacts from diary data measuring contacts before the
 pandemic \citep[e.g.][]{Mossong2008}.\footnote{\citet{Hoang2019} provide access to
-multiple data sets on contact types and frequencies at
-\url{http://www.socialcontactdata.org/} covering countries from all continents except
-North America and Australia.} The dimensions are chosen so that the most common NPIs can
+    multiple data sets on contact types and frequencies at
+    \url{http://www.socialcontactdata.org/} covering countries from all continents except
+    North America and Australia.} The dimensions are chosen so that the most common NPIs can
 be modeled in great detail by reducing the number of contacts in a particular setting or
 the risk of transmitting the disease for a type of contact. For example, a mandate to
 work from home will reduce the number of work contacts to zero for a fraction of the
@@ -114,10 +114,10 @@ of the pandemic in 2020-2021. New virus strains with different profiles regardin
 infectiousness can be introduced. Agents may receive a vaccination. With a probability
 of 75\% \citep{Hunter2021}, vaccinated agents become immune and they do not transmit the
 virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\footnote{75\% is lower
-than what is usually reported for after the second dose of the Biontech/Pfizer vaccine,
-which is most commonly used in Germany. We choose it because our model neither includes
-booster shots, nor does it allow vaccinated individuals who became immune to transmit
-the disease\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.} During the vaccine
+    than what is usually reported for after the second dose of the Biontech/Pfizer vaccine,
+    which is most commonly used in Germany. We choose it because our model neither includes
+    booster shots, nor does it allow vaccinated individuals who became immune to transmit
+    the disease\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.} During the vaccine
 roll-out, priority may depend on age and occupation.
 
 We include two types of tests. Polymerase chain reaction (PCR) tests directly reveal
@@ -129,8 +129,8 @@ the test relative to the start of infectiousness. Figure~\ref{fig:antigen_tests}
 our model for rapid test demand. Schools may require students to be tested regularly.
 Rapid tests may be offered by employers for on-site workers. Individuals may demand
 tests for private reasons, which include having plans to meet other people\footnote{A
-positive test will make them reduce their contacts; this is why tests impact the actual
-contacts in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and
+    positive test will make them reduce their contacts; this is why tests impact the actual
+    contacts in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and
 because a household member tested positively for the virus. We endow each agent with an
 individual compliance parameter. This parameter determines whether she takes up rapid
 tests offered by employers or follows up on private reasons. Thresholds differ across
@@ -140,7 +140,7 @@ highest for meeting other people.\comment[id=HM]{True?}.
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
 parameters.\footnote{See section S.X of the supplementary materials for an
-overview.}\comment[id=HM]{Need to make a list including symbols, maybe you can fetch the
+    overview.}\comment[id=HM]{Need to make a list including symbols, maybe you can fetch the
 parameters from the model and then we brainstorm re notation?} Mobility data is used to
 model the reductions in work contacts. School and daycare policies are incorporated
 directly from official directives. Infection rates by age and geographical region are
@@ -160,9 +160,9 @@ Figure~\ref{fig:model_for_official_cases}.\comment[id=HM]{Add a sentence.}
     \end{align*}
     where untested means that individuals are not waiting on the result of a previously
     administered rapid test.} A further advantage is that the simulated data have a
-    structure that resembles datasets used for regression models, which allows
-    additional plausibility checks by re-running the same models on the model-generated
-    data.\comment[id=HM]{Only keep if we actually do something like that.}
+structure that resembles datasets used for regression models, which allows
+additional plausibility checks by re-running the same models on the model-generated
+data.\comment[id=HM]{Only keep if we actually do something like that.}
 
 We apply this model to Germany. In March and April 2020, the country broke the first
 wave of the pandemic fairly quickly. Between mid-May and mid-September, daily new
@@ -257,7 +257,7 @@ allowed to enter certain stores with a recent negative rapid test result. These
 developments are characteristic of many countries: The initial focus on NPIs to slow the
 spread of the disease has been accompanied by vaccines and a growing acceptance and use
 of rapid tests. At broadly similar points in time, novel strains of the virus have
-started to pose additional challenges. 
+started to pose additional challenges.
 
 Our model is able to track these developments very well. The blue line in
 Figure~\ref{fig:aggregated_fit} shows our model's predictions are very close to
@@ -442,7 +442,7 @@ Results
     \item Social structure / conditional block testing in families important (?)
     \item Trump-effect: More testing = more cases true for how long?
     \item Towards the end, total tests go down: Preferences for tests remain the same,
-    but infection rates lower \comment[id=HM]{Janos, please fill up}
+          but infection rates lower \comment[id=HM]{Janos, please fill up}
 \end{itemize}
 
 % Technical terms should be defined. 
