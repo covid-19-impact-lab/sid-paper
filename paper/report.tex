@@ -123,16 +123,20 @@ random within intervals calibrated to medical literature (for a detailed descrip
 Section~\ref{sec:medical_params}). Conditional on the type of contact, infectiousness
 independent of ages \citep{Jones2021}.
 
-The model includes several other features, which are crucial to describe the evolution
-of the pandemic in 2020-2021. New virus strains with different profiles regarding
-infectiousness and disease progress can be introduced. With a probability calibrated to
-\cite{Hunter2021}, vaccinated agents become immune and they do not transmit the virus
-\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.
-% the sources only report reduced viral shedding and reduced risk of infection.
+The model includes several other features, which are crucial to describe the evolution of
+the pandemic in 2020-2021. New virus strains with different profiles regarding
+infectiousness \replaced[id=K]{and disease progress}{}\comment[id=K]{sid only supports
+differing infectiousness between variants at the moment} can be introduced. With a
+probability of 75\% \citep{Hunter2021}, vaccinated agents become immune and they do not
+transmit the virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\footnote{75\%
+is lower than what is usually reported for after the second dose. We choose it because in
+our model does not include booster shots and does not allow for vaccinated individuals to
+become infected and transmit the disease which is the case for Covid-19
+\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.}% the sources only report reduced viral shedding and reduced risk of infection.
 % Lauterbach calculated that taking the risk of infection * reduced infectiousness given
 % infection based on theses studies suggest that given exposure the risk that fully
 % vaccinated individuals pose is <10% of an unvaccinated person.
-While vaccines are rolled out, priority may depend on age and occupation. Agents may
+While vaccines are rolled out, priority depends on age and occupation. Agents may
 demand two types of tests as described in Figure~\ref{fig:pcr_antigen_tests}. First,
 polymerase chain reaction (PCR) tests directly reveal whether an individual is infected
 or not. PCR tests require some time to be processed and there are always aggregate
