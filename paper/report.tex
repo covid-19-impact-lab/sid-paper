@@ -106,8 +106,8 @@ EQUATIONS FOR THE FOURTH PICTURE (find names!):
 The probabilities for Figure~\subref{fig:model_for_official_cases} are the following:
 
 \begin{align*}
-    x &= \frac{nnewlyinfected \times shareknowncases \times P(PCR | S)}{nsymptomaticanduntested} \\
-    y &= \frac{nnewlyinfected \times shareknowncases \times P(PCR | S)}{nasymptoptomaticandinfectedanduntested} \\
+    x &= \frac{n\_newly\_infected \times share\_known\_cases \times P(PCR | S)}{n\_symptomatic\_and\_untested} \\
+    y &= \frac{n\_newly\_infected \times share\_known\_cases \times P(PCR | S)}{n\_asymptoptomatic\_and\_infected\_and\_untested} \\
     z &= \frac{P(PCR | RT)}{survey}
 \end{align*}
 
@@ -150,13 +150,13 @@ overview.}\comment[id=HM]{Need to make a list including symbols, maybe you can f
 parameters from the model and then we brainstorm re notation?} Mobility data is used to
 model the reductions in work contacts. School and daycare policies are incorporated
 directly from official directives. Infection rates by age and geographical region are
-estimated to match to officially recorded numbers; so is the prevalence of virus
-strains. In order to translate simulated cases in our model to officially recorded
-cases, we use the model depicted in Figure~\ref{fig:model_for_official_cases}.
-\comment[id=HM]{Add a sentence.} A further advantage is that the simulated data have a
-structure that resembles datasets used for regression models, which allows additional
-plausibility checks by re-running the same models on the model-generated
-data.\comment[id=HM]{Only keep if we actually do something like that.}
+estimated to match to officially recorded numbers; so is the prevalence of virus strains.
+In order to translate simulated cases in our model to officially recorded cases, we use
+the model depicted in Figure~\ref{fig:model_for_official_cases}.\comment[id=HM]{Add a
+sentence.} A further advantage is that the simulated data have a structure that resembles
+datasets used for regression models, which allows additional plausibility checks by
+re-running the same models on the model-generated data.\comment[id=HM]{Only keep if we
+actually do something like that.}
 
 Model that makes the most of many available data sources to gauge the relative effects
 in this transition period -- see joint distribution of infections with age, geography.
