@@ -3,7 +3,6 @@ sid:
     - return last states as pandas DataFrame (not dask)
 
 sid-germany:
-    - e7b4741daefa4b33f46b0b6787c8a53b0241815d for results/figures/data
-    - 6363dc1105fd2908593b8b150afd1c8299b24a31 for the rest
-    - fix vaccination group. fix test after Easter scenario. Add multiplier plot.
+    - fb94fe83a3d757ad0c7cf057343ba2b711eb6a4b
+    - home office summer scenarios and save more tables with plot data
 
