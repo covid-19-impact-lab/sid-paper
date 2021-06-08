@@ -12,21 +12,19 @@ also analyze the model fit for age groups.
 \subsection{Observed Infections}
 \label{sub:in_sample_fit}
 
-% Despite fitting only four infection probabilities, the in-sample fit is very good.
-% The best fit is achieved in the largest age groups.
-% This is so mechanically, because we weigh the
-% deviations between simulated and observed infection rates by group sizes. The worst fit
-% is achieved for the 80 to 100 years old.
-% There are three reasons for this: Firstly, we only model private households at
-% the moment, meaning that nursing homes are not part of the synthetic population we
-% simulate. Since community housing residents are part of the German Mikrozensus
-% \citep{FDSAeDBUDL2018} which forms the basis for our synthetic population, we can and
-% plan to include community housing residents in the near future.
-% Secondly, the elderly, especially nursing home residents, are tested more often than
-% the general population leading to more cases being detected in this age group.
-% We are currently working to include age-variant testing strategies,
-% using \href{https://ars.rki.de/Content/COVID19/Main.aspx}{data by the RKI}
-% \citep{Seifried2020}.
+% Despite fitting only four infection probabilities, the in-sample fit is very good. The
+% best fit is achieved in the largest age groups. This is so mechanically, because we
+% weigh the deviations between simulated and observed infection rates by group sizes.
+% The worst fit is achieved for the 80 to 100 years old. There are three reasons for
+% this: Firstly, we only model private households at the moment, meaning that nursing
+% homes are not part of the synthetic population we simulate. Since community housing
+% residents are part of the German Mikrozensus \citep{FDSAeDBUDL2018} which forms the
+% basis for our synthetic population, we can and plan to include community housing
+% residents in the near future. Secondly, the elderly, especially nursing home
+% residents, are tested more often than the general population leading to more cases
+% being detected in this age group. We are currently working to include age-variant
+% testing strategies, using \href{https://ars.rki.de/Content/COVID19/Main.aspx}{data by
+% the RKI} \citep{Seifried2020}.
 
 
 
@@ -75,8 +73,8 @@ also analyze the model fit for age groups.
 \label{sub:out_of_sample_fit}
 
 We can assess the out-of-sample fit by projecting the effect of the lockdown light and
-comparing it to case numbers until mid of November. It is important to note that this
-is not just a simple extrapolation of a time trend because the lockdown light only started
+comparing it to case numbers until mid of November. It is important to note that this is
+not just a simple extrapolation of a time trend because the lockdown light only started
 after the estimation period. The out-of-sample fit can be assessed in
 Figure~\ref{fig:out-of-sample-fit}.
 
@@ -85,14 +83,13 @@ Figure~\ref{fig:out-of-sample-fit}.
     \includegraphics[width=\textwidth]{../figures/out_of_sample_validation}
     \caption{Predicted effect of the "Lockdown Light" on infection rates.}
     \label{fig:out-of-sample-fit}
-    \figurenotes{
-        For the time period until the beginning of November, the figure shows the weekly
-        incidence rates of infections per 100,000 people from reported (black) versus
-        simulated (blue) data. With the start of November, the projections of the three
-        scenarios, optimistic (blue), neutral (red), and pessimistic (mint green), are
-        shown until the beginning of the Christmas holidays. The actual incidence rates
-        (black) are reported until the 24th November.
-    }
+    \figurenotes{For the time period until the beginning of November, the figure shows
+        the weekly incidence rates of infections per 100,000 people from reported
+        (black) versus simulated (blue) data. With the start of November, the
+        projections of the three scenarios, optimistic (blue), neutral (red), and
+        pessimistic (mint green), are shown until the beginning of the Christmas
+        holidays. The actual incidence rates (black) are reported until the 24th
+        November.}
 \end{figure}
 
 The model correctly predicts the effect of the lockdown light with reasonable accuracy.
