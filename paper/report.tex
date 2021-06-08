@@ -125,7 +125,7 @@ independent of ages \citep{Jones2021}.
 
 The model includes several other features, which are crucial to describe the evolution of
 the pandemic in 2020-2021. New virus strains with different profiles regarding
-infectiousness \replaced[id=K]{and disease progress}{}\comment[id=K]{sid only supports
+infectiousness \replaced[id=K]{}{and disease progress}\comment[id=K]{sid only supports
 differing infectiousness between variants at the moment} can be introduced. With a
 probability of 75\% \citep{Hunter2021}, vaccinated agents become immune and they do not
 transmit the virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\footnote{75\%
@@ -184,15 +184,13 @@ Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pande
 of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
 recorded cases; the \replaced[id=HM]{color}{blue?} line in
 Figure~\ref{fig:stringency_index} the Oxford Response Stringency Index \citep{Hale2020},
-which tracks the tightness of non-pharmaceutical interventions. We transform the index
-so that lower values represent higher levels of restrictions. A value of zero means all
-measures incorporated in the index are turned on. The value 1 represents the situation
-of mid-September, where half of all restrictions incorporated in the index are
+which tracks the tightness of non-pharmaceutical interventions. We transform the index so
+that lower values represent higher levels of restrictions. A value of zero means all
+measures incorporated in the index are turned on. The value 1 represents the situation of
+mid-September, where half of all restrictions incorporated in the index are
 active.\comment[id=HM]{Need to find version of index with a couple of measures, probably
 need the API access...}. In the six weeks between mid September and late October, cases
-increased by a factor of XX.\comment[id=K]{In the next iteration all empirical data is
-in the figures/results/tables/empirical\_analogues.csv}
-% the week of Sep 13 had an incidence of 12.4, the week of Oct 18 had 51.
+increased by a factor of 4.% the week of Sep 13 had an incidence of 12.4, the week of Oct 18 had 51.
 Restrictions were somewhat tightened in mid-October and again in early November. New
 infections remained constant throughout November, before rising again in December.
 
@@ -219,7 +217,7 @@ infections remained constant throughout November, before rising again in Decembe
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
 
-        \includegraphics[width=\textwidth]{../figures/results/figures/data/testing/rapid_test_demand_shares}
+        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week_and_vaccinated}
 
         \caption{{\small Tests and vaccinations}}
         \label{fig:antigen_tests_vaccinations}
@@ -261,11 +259,10 @@ From the peak of the second wave just before Christmas until the trough in mid-F
 newly detected cases decreased by almost three quarters. The third wave in the spring of
 2021 is associated with a rise in the share of the B.1.1.7 variant among all infections,
 depicted in Figure~\ref{fig:share_b117}, reaching more than 80\% in
-April\comment[id=HM]{Do we have the table somewhere?}\comment[id=K]{Will be part of the
-empirical analogues table}. In early March, some NPIs were being relaxed; e.g.,
-hairdressers and home improvement stores were allowed to open again to the public. In
-some cases, customers were only allowed to enter with a recent negative rapid test
-result.
+April\comment[id=HM]{Do we have the table somewhere?}\comment[id=K]{is in the empirical
+analogues table}. In early March, some NPIs were being relaxed; e.g., hairdressers and
+home improvement stores were allowed to open again to the public. In some cases,
+customers were only allowed to enter with a recent negative rapid test result.
 
 These developments are characteristic of many countries: The initial focus on NPIs to
 slow the spread of the disease has been accompanied by vaccines and a growing acceptance
