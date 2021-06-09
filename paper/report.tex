@@ -163,15 +163,15 @@ structure that resembles datasets used for regression models, which allows
 additional plausibility checks by re-running the same models on the model-generated
 data.\comment[id=HM]{Only keep if we actually do something like that.}
 
-We apply this model to Germany. In March and April 2020, the country broke the first wave
-of the pandemic fairly quickly. Between May and mid-September, daily new infections
-were below 20 per Million and day \citep{MaxRoser2020}. We model the
-period mid-September 2020 to the end of May 2021. We pick the starting date for two
-reasons. First, we do not include the first wave because the environment was very
-different (e.g., aggregate PCR test capacity was much lower and we would require a very
-different model for calculating the share of known cases) Second, a large fraction cases
-during summer of 2020 were traced to international travel
-\citep{KochInstitut2021,Hodcroft2021} but the precise number is difficult to model.
+We apply this model to Germany. In March and April 2020, the country broke the first
+wave of the pandemic fairly quickly. Between May and mid-September, daily new infections
+were below 20 per Million and day \citep{owidcoronavirus}. We model the period
+mid-September 2020 to the end of May 2021. We pick the starting date for two reasons.
+First, we do not include the first wave because the environment was very different
+(e.g., aggregate PCR test capacity was much lower and we would require a very different
+model for calculating the share of known cases) Second, a large fraction cases during
+summer of 2020 were traced to international travel \citep{KochInstitut2021,Hodcroft2021}
+but the precise number is difficult to model.
 
 Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the
 pandemic and of its drivers. The black line in Figure~\ref{fig:aggregated_fit}
