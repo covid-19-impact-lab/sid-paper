@@ -3,6 +3,5 @@ sid:
     - return last states as pandas DataFrame (not dask)
 
 sid-germany:
-    - efbe05b70237e60f37df645b53ba2cfff86a3725
-    - new plots for figures 2 and 3 and add R effective by the RKI
-
+    - 3b896ad
+    - both shapley decompositions and (old) work scenarios in spring
