@@ -12,35 +12,32 @@
 % make the article intelligible to readers in other disciplines, and sufficient context
 % that the significance of the experimental findings is clear.
 
-% \clearpage
-
-
 Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity
 on many dimensions. The development of highly effective vaccines holds the promise of
 containment in the medium term. However, most countries find themselves many
 months---and often years---away from reaching vaccination-induced herd immunity
 \citep{Swaminathan2021}.\comment[id=K]{WHO Press Conference saying we won't reach herd
-immunity in 2021} In the meantime, it is of utmost importance to employ an effective mix
-of strategies for containing the virus. The most frequent initial response was a set of
-non-pharmaceutical interventions (NPIs) to reduce contacts between individuals. While
-this has allowed some countries to sustain equilibria with very low infection
-numbers\footnote{See \citet{Contreras2021} for a theoretical equilibrium at low case
-numbers which is sustained with test-trace-and-isolate policies.}, most have seen large
-fluctuations of infection rates. Containment measures have become increasingly diverse
-and now include testing, more nuanced NPIs, and contact tracing. Neither these policies'
-effect nor the influence of seasonal patterns or more infectious virus strains are well
-understood in quantitative terms. This paper develops a model incorporating all these
-factors. The framework allows to combine a wide variety of data in a timely fashion,
-making it useful to predict the effects of various interventions. We apply the model to
-Germany and show that rapid testing had the largest impact on the reduction in
-infections by almost 80\% during the month of May 2021. We conclude that rapid tests
-have a large role to play at least as long as vaccinations have not been offered to an
-entire population.
+immunity in 2021}\comment[id=HM]{If we find a paper (s)he cites, would be even better}
+In the meantime, it is of utmost importance to employ an effective mix of strategies for
+containing the virus. The most frequent initial response was a set of non-pharmaceutical
+interventions (NPIs) to reduce contacts between individuals. While this has allowed some
+countries to sustain equilibria with very low infection numbers\footnote{See
+    \citet{Contreras2021} for a theoretical equilibrium at low case numbers which is
+    sustained with test-trace-and-isolate policies.}, most have seen large fluctuations of
+infection rates. Containment measures have become increasingly diverse and now include
+testing, more nuanced NPIs, and contact tracing. Neither these policies' effect nor the
+influence of seasonal patterns or more infectious virus strains are well understood in
+quantitative terms. This paper develops a model incorporating all these factors. The
+framework allows to combine a wide variety of data in a timely fashion, making it useful
+to predict the effects of various interventions. We apply the model to Germany and show
+that rapid testing had the largest impact on the reduction in infections by almost 80\%
+during the month of May 2021. We conclude that rapid tests have a large role to play at
+least as long as vaccinations have not been offered to an entire population.
 
 At the core of our agent-based model are physical contacts between heterogeneous agents
 (Figure~\ref{fig:broad_model_description}).\footnote{We provide a detailed comparison to
-other approaches in \ref{sec:literature_review}. The model most closely related to ours
-is described in \citet{Hinch2020}.} Each contact between an infectious individual and
+    other approaches in \ref{sec:literature_review}. The model most closely related to ours
+    is described in \citet{Hinch2020}.} Each contact between an infectious individual and
 somebody susceptible to the disease bears the risk of transmitting the virus. Contacts
 occur in the household, at work, at school, or in other settings (leisure activities,
 grocery shopping, medical appointments, etc.). Some contacts recur regularly, others
@@ -48,9 +45,9 @@ occur at random. Random contacts are typically assortative in age and geographic
 location. Empirical applications can take the population structure from census data and
 the types and frequency of contacts from diary data measuring contacts before the
 pandemic \citep[e.g.][]{Mossong2008}.\footnote{\citet{Hoang2019} provide access to
-multiple data sets on contact types and frequencies at
-\url{http://www.socialcontactdata.org/} covering countries from all continents except
-North America and Australia.} The dimensions are chosen so that the most common NPIs can
+    multiple data sets on contact types and frequencies at
+    \url{http://www.socialcontactdata.org/} covering countries from all continents except
+    North America and Australia.} The dimensions are chosen so that the most common NPIs can
 be modeled in great detail by reducing the number of contacts in a particular setting or
 the risk of transmitting the disease for a type of contact. For example, a mandate to
 work from home will reduce the number of work contacts to zero for a fraction of the
@@ -117,11 +114,14 @@ infectiousness can be introduced. Agents may receive a vaccination. With a proba
 of 75\% \citep{Hunter2021}, vaccinated agents become immune and they do not transmit the
 virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\comment[id=T]{Maybe add
 that 35\% reach immunity after two weeks and 40\% after three weeks.}\footnote{75\% is
-lower than what is usually reported for after the second dose of the Biontech/Pfizer
-vaccine, which is most commonly used in Germany. We choose it because our model neither
-includes booster shots, nor does it allow vaccinated individuals who became immune to
-transmit the disease \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.} During
-the vaccine roll-out, priority may depend on age and occupation.
+    lower than what is usually reported for after the second dose of the Biontech/Pfizer
+    vaccine, which is most commonly used in Germany. We choose it because our model neither
+    includes booster shots, nor does it allow vaccinated individuals who became immune to
+    transmit the disease\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}. If
+    anything, these assumptions would overstate the effect of vaccines for our study period.
+    This would be different if a large fraction of vaccinated individuals had received a
+    second dose already.} During the vaccine roll-out, priority may depend on age and
+occupation.
 
 We include two types of tests. Polymerase chain reaction (PCR) tests directly reveal
 whether an individual is infected or not. PCR tests require some days to be processed
@@ -132,8 +132,8 @@ the test relative to the start of infectiousness. Figure~\ref{fig:antigen_tests}
 our model for rapid test demand. Schools may require students to be tested regularly.
 Rapid tests may be offered by employers for on-site workers. Individuals may demand
 tests for private reasons, which include having plans to meet other people\footnote{A
-positive test will make them reduce their contacts; this is why tests impact the actual
-contacts in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and
+    positive test will make them reduce their contacts; this is why tests impact the actual
+    contacts in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and
 because a household member tested positively for the virus. We endow each agent with an
 individual compliance parameter. This parameter determines whether she takes up rapid
 tests offered by employers or follows up on private reasons. The thresholds are lower
@@ -316,21 +316,19 @@ three factors and our main specification.
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_channels_area}
-        \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_channels_bar}
-
-        \vskip2ex
-
-        \caption{Decomposition of effects for
+        % \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_channels_bar}
+        \caption{Decomposition of the difference between the scenario without any of the
+            three factors and the main scenario in
             Figure~\ref{fig:2021_scenarios_newly_infected}.}
         \label{fig:2021_scenarios_decomposition}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
-
         \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_rapid_tests_area}
-        \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_rapid_tests_bar}
-        \caption{{Effects of different types of testing}}
+        % \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_rapid_tests_bar}
+        \caption{Decomposition of the difference between the scenario without rapid
+            tests and the main scenario in Figure~\ref{fig:2021_scenarios_newly_infected}.}
         \label{fig:2021_scenarios_decomposition_tests}
     \end{subfigure}
 
@@ -382,24 +380,63 @@ reached around mid-May and it would be June for the comparison with the seasonal
 scenario. The effect on total cases, however, is visible immediately. Despite the fact
 that only a small fraction of the population performed weekly rapid tests in
 March\footnote{X\% in the model; 27\% of respondents to the COSMO study reported in
-early March that they \textit{ever} did a rapid test)}\comment[id=HM]{Put in}, new
-infections on April 1 would be rise in new infections would be reduced by 53\% relative
-to the scenario without vaccinations, rapid tests, or seasonality.
+    early March that they \textit{ever} did a rapid test)}\comment[id=HM]{Put in}, new
+infections on April 1 would be reduced by 53\% relative to the scenario without
+vaccinations, rapid tests, or seasonality.
 
+So why is rapid testing so effective? In order to shed more light on this question,
+Figure~\ref{fig:2021_scenarios_decomposition_tests} decomposes the difference in the
+scenario without rapid tests only (purple line in
+Figure~\ref{fig:2021_scenarios_newly_infected}) and the main specification into the
+three channels for rapid tests. Tests for pupils have the smallest effect, which is
+largely explained by the relatively small number of students (XXM vs. YYM workers) and
+the fact that schools did not operate at full capacity during our period of study.
+Almost 40\% come from tests at the workplace. Despite the fact that we phase rapid tests
+for private reasons are phased in only late, they make up for more than half of the total effect.
+
+\comment[id=HM]{How many tests are actually performed along each of the three dimensions? Could this be a quantity story rather than the directed testing story I am making up here as wishful thinking?}
+
+The reason lies in the fact that a substantial share of these tests is driven by an
+elevated probability to carry the virus, i.e., showing symptoms of CoViD-19 or following
+up on a positive test of a household member. The latter is essentially a form of contact
+tracing, which has been shown to be very effective.\comment[id=HM]{cite Priesemann
+paper, others?} This is also the reason for why the number of tests performed fall at
+the very end of our study period. Falling infection rates mean that there are fewer
+events triggering private test demand.
+\comment[id=HM]{Positive rates along the three channels might be nice here, if previous comment is not a quant story}
+\comment[id=HM]{I think there is a story in here about risk conditional on past exposure vs. prospective risk in gatherings, but it is too late to work through it. We might just want to calculate the probabilities.}
 
 Two of the most contentious NPIs concern schools and mandates to work from home. In many
 countries, schools switched to remote instruction during the first wave, so did Germany.
-They were kept fully open until Two particularly important areas:
+After the summer break, they were operating at full capacity with increased hygiene
+measures, before being closed again from mid-December on. Some states started opening
+them gradually in late February, but usual operaton was not back until the beginning of
+June. In light of the large negative effects school closures have on children and
+parents\comment[id=HM]{need to cite a couple of poor learning outcomes / mental health
+papers. There must be well-published ones}---and in particular on those with low
+socio-economic status---
+
+Effects:
 \begin{itemize}
-    \item Schooling: large costs to pupils, ... social inequalities
-    \item Work: Q2 / 2020 saw the largest drop in GDP in a long time;
+    \item Schools were essentially closed
+    \item What are the different $R_t$-values? In no-test scenario and $R_t>1$, might be
+          worth chopping off 0.05 or whatever that might be?
+    \item With tests it is really hard to make a case for that
+\end{itemize}
+
+Alternative:
+\begin{itemize}
+    \item Germany quite lenient on home office relative to other countries (employer had
+          to allow)
+    \item Testing: Rapid tests are cheap (less than 1\euro), just a nuisance.
 \end{itemize}
 
 Results
 \begin{itemize}
     \item Advantage of testing in both cases: Recurrent. Small cost relative to other
           stuff. Certain publicness.
-    \item Mandatory tests: Screening effect: ...
+    \item Mandatory tests: Screening effect for hard-to-reach populations (do not
+          consider in this paper, also due to poor data in DE)
 \end{itemize}
 
 
@@ -429,49 +466,3 @@ Results
         by geographical region.}
 
 \end{figure}
-
-
-
-
-\paragraph{Points to mention}
-\begin{itemize}
-    \item If anything too optimistic regarding vaccinations
-    \item Social structure / conditional block testing in families important (?)
-    \item Trump-effect: More testing = more cases true for how long?
-    \item Towards the end, total tests go down: Preferences for tests remain the same,
-          but infection rates lower \comment[id=HM]{Janos, please fill up}
-    \item Actually performed tests increase until May, stay constant during May and then
-    start to drop
-    \item This is the combination of the following things:
-          \begin{itemize}
-              \item time constant willingness to take tests
-              \item monotonically increasing availability of tests
-              \item endogenous number of situations in which a test should be taken
-              (mainly positive tests of household members)
-          \end{itemize}
-    \item This is a classic way of modeling in economics: Preferences stay constant (and
-          can thus be elicited in just one survey) but outcomes change because
-          circumstances change.
-
-\end{itemize}
-
-
-An important feature of the way we model rapid tests is that the number of actually
-performed test is determined endogenously. The number of weekly tests increases until
-the end of May and then starts to drop. This is because many  It is determined by the
-availability of tests, the individual compliance with testing recommendations and the
-occurrence of situations in which a test should be taken.
-
-% Technical terms should be defined.
-
-% Symbols, abbreviations, and acronyms should be defined the first time they are used.
-
-% All tables and figures should be cited in numerical order.
-
-% All data must be shown either in the main text or in the Supplementary Materials or
-% must be available in an established database with accession details provided in the
-% acknowledgements section.
-
-% References to unpublished materials are not allowed to substantiate significant
-% conclusions of the paper.
-
