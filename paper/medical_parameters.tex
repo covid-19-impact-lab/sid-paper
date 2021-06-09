@@ -12,35 +12,32 @@ documentation}.}
 \subsubsection{Duration until Infectiousness and Symptoms}
 
 % Latency Period
-The first medical parameter we need is the length of the period between infection and
-the start of infectiousness, the so called latent period.
-We infer it from two other measures that are more common in the medical literature:
-Firstly, the time between infection and the onset of symptoms, the incubation period.
-Secondly, the time between the start of infectiousness and the onset of symptoms.
-We assume that the latency period is the same for symptomatic and asymptomatic individuals.
+The first medical parameter we need is the length of the period between infection and the
+start of infectiousness, the so called latent period. We infer it from two other measures
+that are more common in the medical literature: Firstly, the time between infection and
+the onset of symptoms, the incubation period. Secondly, the time between the start of
+infectiousness and the onset of symptoms. We assume that the latency period is the same
+for symptomatic and asymptomatic individuals.
 
 % Asymptomatic Share
 Once individuals become infectious a share of them goes on to develop symptoms while
-others remain asymptomatic.
-We rely on data by \cite{Davies2020} for the age-dependent probability to develop
-symptoms. It varies from 25\% for children and young adults to nearly 70\% for the
-elderly.
+others remain asymptomatic. We rely on data by \cite{Davies2020} for the age-dependent
+probability to develop symptoms. It varies from 25\% for children and young adults to
+nearly 70\% for the elderly.
 
 % Incubation Period
-The incubation period is usually estimated to be two to twelve days.
-A meta analysis by \citet{McAloon2020} comes to the conclusion that
-``The incubation period distribution may be modeled with a lognormal distribution with
-pooled $\mu$ and $\sigma$ parameters (95\% CIs) of 1.63 (95\% CI 1.51 to 1.75) and 0.50
-(95\% CI 0.46 to 0.55), respectively.''
-For simplicity we discretize this distribution into four bins.
+The incubation period is usually estimated to be two to twelve days. A meta analysis by
+\citet{McAloon2020} comes to the conclusion that ``The incubation period distribution may
+be modeled with a lognormal distribution with pooled $\mu$ and $\sigma$ parameters (95\%
+CIs) of 1.63 (95\% CI 1.51 to 1.75) and 0.50 (95\% CI 0.46 to 0.55), respectively.'' For
+simplicity we discretize this distribution into four bins.
 
 % Length of the presymptomatic stage
-The \href{European Centre for Disease Prevention and Control}{https://bit.ly/3pi18Ax}
-reports that people become infectious between one and two days before symptoms start.\footnotemark
+The \href{https://bit.ly/3pi18Ax}{European Centre for Disease Prevention and Control}
+reports that people become infectious between one and two days before symptoms
+start.\footnotemark
 
-\footnotetext{
-This is similar to \citet{He2020} and in line with
-\citet{Peak2020}.}
+\footnotetext{This is similar to \citet{He2020} and in line with \citet{Peak2020}.}
 
 Taking these estimates together, we arrive at a latent period of one to five days.
 
@@ -54,20 +51,14 @@ individuals are similar (\citet{Zou2020}, \citet{Byrne2020}, \citet{Singanayagam
 
 Our distribution of the duration of infectiousness is based on \citet{Byrne2020}.
 
-For symptomatic cases they arrive at 0-5 days before symptom onset (figure 2) and 3-8
-days of infectiousness afterwards.\footnotemark Thus, we arrive at 0 to 13 days as the
-range for infectiousness among individuals who become symptomatic (see also figure 5).
-This duration range is very much in line with the meta-analysis’ reported evidence for
-asymptomatic individuals (see their figure 1).
+For symptomatic cases they arrive at zero to five days before symptom onset (figure 2)
+and three to eight days of infectiousness afterwards.\footnotemark Thus, we arrive at 0
+to 13 days as the range for infectiousness among individuals who become symptomatic (see
+also figure 5).
 
-\footnotetext{
-    Viral loads may be detected much later but 8 days seems to be the time after which
-    most people are culture negative, as also reported by \citet{Singanayagam2020}.
-}
-
-Following this evidence we assume the following discretized distribution of the
-infectiousness period: 10\% of individuals are infectious for three days, 25\% for five
-days, another 25\% for seven days, 20\% for nine days and 20\% for eleven days.
+\footnotetext{Viral loads may be detected much later but eight days seems to be the time
+    after which most people are culture negative, as also reported by
+    \citet{Singanayagam2020}.}
 
 
 \subsubsection{Duration of Symptoms}
@@ -75,9 +66,6 @@ days, another 25\% for seven days, 20\% for nine days and 20\% for eleven days.
 We use the duration to recovery of mild and moderate cases reported by \cite[Figure~S3,
 Panel~2]{Bi2020} for the duration of symptoms for asymptomatic and non-ICU requiring
 symptomatic cases.
-
-We collapse the data to the following distribution: 10\% recover after 15 days and 30\%
-require 18, 22 or 27 days respectively.
 
 These numbers are only used for mild cases. We do not disaggregate by age. Note that the
 length of symptoms is not very important in our model given that individuals stop being
