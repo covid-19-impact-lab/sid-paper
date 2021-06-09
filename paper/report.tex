@@ -16,24 +16,25 @@
 
 Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity
 on many dimensions. The development of highly effective vaccines holds the promise of
-containment in the medium term. However, most countries find themselves many
-months---and often years---away from reaching vaccination-induced herd
-immunity.\comment[id=HM]{Cite some paper on herd immunity, maybe vaccine data} In the
-meantime, it is of utmost importance to employ an effective mix of strategies for
-containing the virus. The most frequent initial response was a set of non-pharmaceutical
-interventions (NPIs) to reduce contacts between individuals. While this has allowed some
-countries to sustain equilibria with very low infection numbers\footnote{See
-    \citet{Contreras2021} for a theoretical equilibrium at low case numbers which is
-    sustained with test-trace-and-isolate policies.}, most have seen large fluctuations of
-infection rates. Containment measures have become increasingly diverse and now include
-testing, more nuanced NPIs, and contact tracing. Neither these policies' effect nor the
-influence of seasonal patterns or more infectious virus strains are well understood in
-quantitative terms. This paper develops a model incorporating all these factors. The
-framework allows to combine a wide variety of data in a timely fashion, making it useful
-to predict the effects of various interventions. We apply the model to Germany and show
-that rapid testing had the largest impact on the reduction in infections by almost 80\%
-during the month of May 2021. We conclude that rapid tests have a large role to play at
-least as long as vaccinations have not been offered to an entire population.
+containment in the medium term. However, most countries find themselves many months---and
+often years---away from reaching vaccination-induced herd immunity
+\citep{Swaminathan2021}.\comment[id=K]{WHO Press Conference saying we won't reach herd
+immunity in 2021} In the meantime, it is of utmost importance to employ an effective mix
+of strategies for containing the virus. The most frequent initial response was a set of
+non-pharmaceutical interventions (NPIs) to reduce contacts between individuals. While
+this has allowed some countries to sustain equilibria with very low infection
+numbers\footnote{See \citet{Contreras2021} for a theoretical equilibrium at low case
+numbers which is sustained with test-trace-and-isolate policies.}, most have seen large
+fluctuations of infection rates. Containment measures have become increasingly diverse
+and now include testing, more nuanced NPIs, and contact tracing. Neither these policies'
+effect nor the influence of seasonal patterns or more infectious virus strains are well
+understood in quantitative terms. This paper develops a model incorporating all these
+factors. The framework allows to combine a wide variety of data in a timely fashion,
+making it useful to predict the effects of various interventions. We apply the model to
+Germany and show that rapid testing had the largest impact on the reduction in infections
+by almost 80\% during the month of May 2021. We conclude that rapid tests have a large
+role to play at least as long as vaccinations have not been offered to an entire
+population.
 
 At the core of our agent-based model are physical contacts between heterogeneous agents
 (Figure~\ref{fig:broad_model_description}).\footnote{We provide a detailed comparison to
@@ -99,16 +100,15 @@ requirements would reduce the probability of infection associated with a contact
     \floatfoot{\noindent Note: ...}
 \end{figure}
 
-In our model, susceptibility to contracting the SARS-CoV-2 virus is dependent on
-age. A possible infection progresses as shown in
-Figure~\ref{fig:disease_progression}. We differentiate between an initial period
-of infection without being infectious or showing symptoms, being infectious
-(presymptomatic or asymptomatic), showing symptoms, requiring intensive care,
-and recovery or death.\comment[id=HM]{Seems broadly standard, can we cite
-someone?} The probabilities of transitioning between these states depend on age;
-their duration is random within intervals calibrated to medical literature (for
-a detailed description see Section~\ref{sec:medical_params}). Conditional on the
-type of contact, infectiousness is independent of age \citep{Jones2021}.
+In our model, susceptibility to contracting the SARS-CoV-2 virus is dependent on age. A
+possible infection progresses as shown in Figure~\ref{fig:disease_progression}. We
+differentiate between an initial period of infection without being infectious or showing
+symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring
+intensive care, and recovery or death as for example also modeled in \cite{Grimm2021}.
+The probabilities of transitioning between these states depend on age; their duration is
+random within intervals calibrated to medical literature (for a detailed description see
+Section~\ref{sec:medical_params}). Conditional on the type of contact, infectiousness is
+independent of age \citep{Jones2021}.
 
 The model includes several other features, which are crucial to describe the evolution
 of the pandemic in 2020-2021. New virus strains with different profiles regarding
@@ -164,8 +164,8 @@ additional plausibility checks by re-running the same models on the model-genera
 data.\comment[id=HM]{Only keep if we actually do something like that.}
 
 We apply this model to Germany. In March and April 2020, the country broke the first wave
-of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections
-were below 20 per Million and day.\comment[id=HM]{Cite our world in data/RKI} We model the
+of the pandemic fairly quickly. Between May and mid-September, daily new infections
+were below 20 per Million and day \citep{MaxRoser2020}. We model the
 period mid-September 2020 to the end of May 2021. We pick the starting date for two
 reasons. First, we do not include the first wave because the environment was very
 different (e.g., aggregate PCR test capacity was much lower and we would require a very
