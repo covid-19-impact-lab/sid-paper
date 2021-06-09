@@ -99,15 +99,16 @@ requirements would reduce the probability of infection associated with a contact
     \floatfoot{\noindent Note: ...}
 \end{figure}
 
-In our model, susceptibility to contracting the SARS-CoV-2 virus is dependent on age. A
-possible infection progresses as shown in Figure~\ref{fig:disease_progression}. We
-differentiate between an initial period of infection without being infectious or showing
-symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring
-intensive care, and recovery or death. The probabilities of transitioning between these
-states depend on age; their duration is random within intervals calibrated to medical
-literature (for a detailed description see Section~\ref{sec:medical_params}).
-Conditional on the type of contact, infectiousness independent of ages
-\citep{Jones2021}.\comment[id=HM]{Seems broadly standard, can we cite someone?}
+In our model, susceptibility to contracting the SARS-CoV-2 virus is dependent on
+age. A possible infection progresses as shown in
+Figure~\ref{fig:disease_progression}. We differentiate between an initial period
+of infection without being infectious or showing symptoms, being infectious
+(presymptomatic or asymptomatic), showing symptoms, requiring intensive care,
+and recovery or death.\comment[id=HM]{Seems broadly standard, can we cite
+someone?} The probabilities of transitioning between these states depend on age;
+their duration is random within intervals calibrated to medical literature (for
+a detailed description see Section~\ref{sec:medical_params}). Conditional on the
+type of contact, infectiousness is independent of age \citep{Jones2021}.
 
 The model includes several other features, which are crucial to describe the evolution
 of the pandemic in 2020-2021. New virus strains with different profiles regarding
@@ -133,15 +134,13 @@ tests for private reasons, which include having plans to meet other people\footn
     contacts in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and
 because a household member tested positively for the virus. We endow each agent with an
 individual compliance parameter. This parameter determines whether she takes up rapid
-tests offered by employers or follows up on private reasons. Thresholds differ across
-reasons triggering rapid test demand; they are lowest for infected household members and
-highest for meeting other people.\comment[id=HM]{True?}\comment[id=K]{FALSE. We only have one private demand threshold (over time) which is the same for own symptoms and no PCR test, household member with symptoms or positive test and for having a weekly meeting with friends.}.
+tests offered by employers or follows up on private reasons. The thresholds are lower for
+tests in a private setting than for tests at the workplace.\comment[id=HM]{True? @Janos}
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
-parameters.\footnote{See section S.X of the supplementary materials for an
-    overview.}\comment[id=HM]{Need to make a list including symbols, maybe you can fetch the
-parameters from the model and then we brainstorm re notation?} Mobility data is used to
+parameters.\footnote{See section S.XXX of the supplementary materials for an
+    overview.} Mobility data is used to
 model the reductions in work contacts. School and daycare policies are incorporated
 directly from official directives. Infection rates by age and geographical region are
 estimated to match to officially recorded numbers; so is the prevalence of virus
@@ -166,7 +165,7 @@ data.\comment[id=HM]{Only keep if we actually do something like that.}
 
 We apply this model to Germany. In March and April 2020, the country broke the first wave
 of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections
-were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We model the
+were below 20 per Million and day.\comment[id=HM]{Cite our world in data/RKI} We model the
 period mid-September 2020 to the end of May 2021. We pick the starting date for two
 reasons. First, we do not include the first wave because the environment was very
 different (e.g., aggregate PCR test capacity was much lower and we would require a very
@@ -174,25 +173,28 @@ different model for calculating the share of known cases) Second, a large fracti
 during summer of 2020 were traced to international travel
 \citep{KochInstitut2021,Hodcroft2021} but the precise number is difficult to model.
 
-Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and
-of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
-recorded cases; the \replaced[id=HM]{color}{blue?} line in
-Figure~\ref{fig:stringency_index} the Oxford Response Stringency Index \citep{Hale2020},
-which tracks the tightness of non-pharmaceutical interventions. We transform the index
-so that lower values represent higher levels of restrictions. A value of zero means all
-measures incorporated in the index are turned on. The value 1 represents the situation
-in mid-September, with restrictions on gatherings and public events, masking
-requirements, but open schools and workplaces (the raw value of the index at that point
-is 49.5). In the seven weeks between mid September and early November, cases increased
-by a factor of 10. Restrictions were somewhat tightened in mid-October and again in
-early November. New infections remained constant throughout November, before rising
-again in December, which prompted the most stringent lockdown to this date. Schools and
-daycare centers were closed again, so were customer-facing businesses except for grocery
-and drug stores. From the peak of the second wave just before Christmas until the trough
-in mid-February, newly detected cases decreased by almost three quarters. The third wave
-in the spring of 2021 is associated with the B.1.1.7 strain, which became dominant in
-March. See Figure~\ref{fig:share_b117}. In early March, some NPIs were being relaxed;
-e.g., hairdressers and home improvement stores were allowed to open again to the public.
+Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the
+pandemic and of its drivers. The black line in Figure~\ref{fig:aggregated_fit}
+shows officially recorded cases; the black line in
+Figure~\ref{fig:stringency_index} the Oxford Response Stringency Index
+\citep{Hale2020}, which tracks the tightness of non-pharmaceutical
+interventions. We transform the index so that lower values represent higher
+levels of restrictions. A value of zero means all measures incorporated in the
+index are turned on. The value 1 represents the situation in mid-September, with
+restrictions on gatherings and public events, masking requirements, but open
+schools and workplaces (the raw value of the index at that point is 49.5). In
+the seven weeks between mid September and early November, cases increased by a
+factor of 10. Restrictions were somewhat tightened in mid-October and again in
+early November. New infections remained constant throughout November, before
+rising again in December, which prompted the most stringent lockdown to this
+date. Schools and daycare centers were closed again, so were customer-facing
+businesses except for grocery and drug stores. From the peak of the second wave
+just before Christmas until the trough in mid-February, newly detected cases
+decreased by almost three quarters. The third wave in the spring of 2021 is
+associated with the B.1.1.7 strain, which became dominant in March. See
+Figure~\ref{fig:share_b117}. In early March, some NPIs were being relaxed; e.g.,
+hairdressers and home improvement stores were allowed to open again to the
+public.
 
 
 \begin{figure}[!tp]
@@ -259,44 +261,43 @@ started to pose additional challenges.
 
 Our model is able to track these developments very well. The blue line in
 Figure~\ref{fig:aggregated_fit} shows our model's predictions are very close to
-officially recorded cases in the aggregate. This is also true for infections by age and
-geographical region, which are shown in the supplementary materials
+officially recorded cases in the aggregate. This is also true for infections by
+age and geographical region, which are shown in the supplementary materials
 (Figures~\ref{fig:age_group_fit} and \ref{fig:state_fit}, respectively). We can
-disentangle various mechanisms due to the distinct temporal variation in the drivers of
-the pandemic. Next to the stringency index, the three lines in
-Figure~\ref{fig:stringency_index} summarize how contact reductions, increased hygiene
-regulations, and seasonality evolved since early September for each of the three broad
-contact networks. For example, a value of 0.75 for the work multiplier means that if the
-environment was the same as in September (levels of infection rates, no rapid tests or
-vaccinations, only the wildtype virus present), infections at the workplace would be
-reduced by 25\%. This reduction is the product of the effect of contact reductions,
-increased hygiene regulations, and seasonality. Along with the levels of infections,
-these measures completely determine the spread of SARS-CoV-2 in
-2020.\comment[id=HM]{True?} See Appendix~\comment[id=HM]{Reference}
-\comment[id=K]{We have not done the decomposition for 2020 yet. Is on my todo list}
-\comment[id=HM]{I guess my question was whether I was missing any factors.}
-for their individual contributions. Two things are particularly interesting. First, all
-lines broadly follow the stringency index and they would do so even more if we left out
-seasonality and school vacations (roughly the last two weeks of October, two weeks each
-around Christmas and Easter, and some days in late May). Second, the most stringent
-regulations are associated with the period of strong decreases in new infection between
-late December 2020 and mid-February 2021. The measures were not enough, however, to stop
-the B.1.1.7 variant from spreading in the subsequent period. The steep drop in recorded
-cases during May 2021 is associated with at least weekly rapid tests to around
-42~percent of the population, a vaccination rate that rose from 28\% to 43\%, and mostly
-seasonality impacting a fall in the relative infectiousness of contacts outside of work
-and school.
+disentangle various mechanisms due to the distinct temporal variation in the
+drivers of the pandemic. Next to the stringency index, the three lines in
+Figure~\ref{fig:stringency_index} summarize how contact reductions, increased
+hygiene regulations, and seasonality evolved since early September for each of
+the three broad contact networks. For example, a value of 0.75 for the work
+multiplier means that if the environment was the same as in September (levels of
+infection rates, no rapid tests or vaccinations, only the wildtype virus
+present), infections at the workplace would be reduced by 25\%. This reduction
+is the product of the effect of contact reductions, increased hygiene
+regulations, and seasonality. Along with the levels of infections, these
+measures determine the spread of SARS-CoV-2 in 2020. See
+Appendix~\comment[id=HM]{Reference} for separate plots of the three factors. Two
+aspects are particularly interesting. First, all lines broadly follow the
+stringency index and they would do so even more if we left out seasonality and
+school vacations (roughly the last two weeks of October, two weeks each around
+Christmas and Easter, and some days in late May). Second, the most stringent
+regulations are associated with the period of strong decreases in new infection
+between late December 2020 and mid-February 2021. The measures were not enough,
+however, to stop the B.1.1.7 variant from spreading in the subsequent period.
+The steep drop in recorded cases during May 2021 is associated with at least
+weekly rapid tests to around 42~percent of the population, a vaccination rate
+that rose from 28\% to 43\%, and mostly seasonality impacting a fall in the
+relative infectiousness of contacts outside of work and school.
 
-Figure~\ref{fig:2021_scenarios_broad} consider the relative effects of rapid tests,
-vaccinations, and of seasonality during 2021, assuming NPIs to have evolved the same way
-as in the baseline scenario. Figure~\ref{fig:2021_scenarios_recorded} shows the model
-fit (the bold blue line\comment[id=HM]{Make sure this is the case}, same as in
-Figure~\ref{fig:aggregated_fit}), a scenario without any of the three factors (x line),
-and three scenarios turning these factors off one by one.
-Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total infections in the
-model. Figure~\ref{fig:2021_scenarios_decomposition} employs Shapley values to decompose
-the difference in total infections between the scenario without any of the three factors
-and our main specification.
+Figure~\ref{fig:2021_scenarios_broad} consider the relative effects of rapid
+tests, vaccinations, and of seasonality during 2021, assuming NPIs to have
+evolved the same way as in the baseline scenario.
+Figure~\ref{fig:2021_scenarios_recorded} shows the model fit (the blue line,
+same as in Figure~\ref{fig:aggregated_fit}), a scenario without any of the three
+factors (red line), and three scenarios turning these factors off one by one.
+Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total
+infections in the model. Figure~\ref{fig:2021_scenarios_decomposition} employs
+Shapley values to decompose the difference in total infections between the
+scenario without any of the three factors and our main specification.
 
 \begin{figure}[!tp]
     \centering
