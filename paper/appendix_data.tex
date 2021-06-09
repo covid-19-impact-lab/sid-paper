@@ -1,10 +1,10 @@
 \section{Data and Parameters}
 \label{sec:calibration_and_estimation}
 
-The model is described by a large number of parameters that govern the number of contacts
-a person has, the likelihood of becoming infected on each contact, the likelihood of
-developing light or strong symptoms or even dying from the disease as well as the
-duration each stage of the disease takes.
+The model is described by a large number of parameters that govern the number of
+contacts a person has, the likelihood of becoming infected on each contact, the
+likelihood of developing light or strong symptoms or even dying from the disease as well
+as the duration each stage of the disease takes.
 
 Most of these parameters can be calibrated from existing datasets or the medical
 literature or calibrated from surveys and empirical datasets.
@@ -15,13 +15,13 @@ literature or calibrated from surveys and empirical datasets.
 \subsection{Number of Contacts}
 \label{sub:number_of_contacts}
 
-We calibrate the parameters for the predicted numbers of contacts from contact diaries of
-over 2000 individuals from Germany, Belgium, the Netherlands and Luxembourg
+We calibrate the parameters for the predicted numbers of contacts from contact diaries
+of over 2000 individuals from Germany, Belgium, the Netherlands and Luxembourg
 \citep{Mossong2008}. Each contact diary contains all contacts an individual had
 throughout one day, including information on the other person (such as age and gender)
 and information on the contact. Importantly, for each contact individuals entered of
-which type the contact (school, leisure, work etc.) was and how frequent the contact with
-the other person is.
+which type the contact (school, leisure, work etc.) was and how frequent the contact
+with the other person is.
 
 Thus, we can use the empirical distributions from this data as pre-pandemic number of
 contacts.
@@ -36,25 +36,25 @@ As mentioned in section \ref{sec:matching}, the probability that two individuals
 matched can depend on background characteristics. In particular, we allow this
 probability to depend on age and county of residence. While we do not have good data on
 geographical assortativity and just roughly calibrate it such that 80\% of contacts are
-within the same county, we can calibrate the assortative mixing by age from the same data
-we use to calibrate the number of contacts.
+within the same county, we can calibrate the assortative mixing by age from the same
+data we use to calibrate the number of contacts.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9 \textwidth]{../figures/assortative_matching_probability_example}
     \caption{Distribution of random non-work contacts by age of participants.}
     \label{fig:assortativity}
-    \figurenotes{
-        The figure shows the distribution of random non-work contacts by age groups. A
-        row shows the share of contacts a certain age group has with all other age
-        groups. Higher values are colored in darker red tones. The diagonal represents
-        the share of contacts with individuals from the same age group.
-    }
+    \figurenotes{The figure shows the distribution of random non-work contacts by age
+        groups. A row shows the share of contacts a certain age group has with all other
+        age groups. Higher values are colored in darker red tones. The diagonal
+        represents the share of contacts with individuals from the same age group.}
 \end{figure}
 
-Figure~\ref{fig:assortativity}\comment[id=HM]{So no work in here? How about school? Can we add a column with marginals and another one with work / (school?), too?} shows that assortativity by age is especially strong for
-children and younger adults. For older people, the pattern becomes more dispersed around
-their own age group, but within-age-group contacts are still the most common contacts.
+Figure~\ref{fig:assortativity}\comment[id=HM]{So no work in here? How about school? Can
+we add a column with marginals and another one with work / (school?), too?} shows that
+assortativity by age is especially strong for children and younger adults. For older
+people, the pattern becomes more dispersed around their own age group, but
+within-age-group contacts are still the most common contacts.
 
 \FloatBarrier
 
@@ -92,18 +92,18 @@ lack of childcare leads working parents to stay home.
 % http://www.iab-forum.de/schul-und-kitaschliessungen-krankheit-quarantaene-die-coronabedingten-arbeitsausfaelle-der-erwerbstaetigen-steigen-auf-592-millionen-arbeitstage/
 %
 %
-% https://www.sueddeutsche.de/politik/schulschliessung-lockdown-bildung-1.5190377:
-% In allen Ländern geht trotz des Lockdowns ein erheblicher Anteil der Schülerinnen und
+% https://www.sueddeutsche.de/politik/schulschliessung-lockdown-bildung-1.5190377: In
+% allen Ländern geht trotz des Lockdowns ein erheblicher Anteil der Schülerinnen und
 % Schüler in die Schule.
 % https://gfx.sueddeutsche.de/apps/e525337/www/_image_desktopw1840q70-1e2e2bf78b7d4430
 % 18% der Grundschüler in Notbetreuung in BW
 %
 For our work models\footnotemark we use the reductions in work mobility reported in the
-Google Mobility Data \citep{Google2021} to calibrate our work policies.
-Reductions in work contacts are not random but governed through a work contact priority
-where the policy changes the threshold below which workers stay home.
-Figure \ref{fig:work_multiplier} shows the share of workers that go to work in our model
-over time.
+Google Mobility Data \citep{Google2021} to calibrate our work policies. Reductions in
+work contacts are not random but governed through a work contact priority where the
+policy changes the threshold below which workers stay home. Figure
+\ref{fig:work_multiplier} shows the share of workers that go to work in our model over
+time.
 
 \begin{figure}[ht]
     \centering
@@ -111,20 +111,20 @@ over time.
     \caption{Share of Workers with Work Contacts}
     \label{fig:work_multiplier}
     \figurenotes{The figure shows the work mobility as reported by \cite{Google2021}. We
-    take this as a proxy of the share of workers who are not in home office, i.e. who
-    still have physical work contacts. The figure interpolates over weekends as we handle
-    weekend effects through information on work on weekends in the German census data we
-    use.}
+        take this as a proxy of the share of workers who are not in home office, i.e.
+        who still have physical work contacts. The figure interpolates over weekends as
+        we handle weekend effects through information on work on weekends in the German
+        census data we use.}
 \end{figure}
 
 \footnotetext{We distinguish non-recurrent work contacts, daily work contacts and weekly work contacts.}
 
 For the last group of contacts which cover things like leisure activities, grocery
-shopping etc. we have no reliable data by how much policies reduce them.
-In addition, they are likely to be affected by social and psychological factors such as
-pandemic fatigue and vacations. Because of this we estimate them like the infection
-probabilities to fit the time series data. We use very few change points and tie them to
-particular events such as policy announcements or particular holidays.
+shopping etc. we have no reliable data by how much policies reduce them. In addition,
+they are likely to be affected by social and psychological factors such as pandemic
+fatigue and vacations. Because of this we estimate them like the infection probabilities
+to fit the time series data. We use very few change points and tie them to particular
+events such as policy announcements or particular holidays.
 
 \FloatBarrier
 
@@ -132,49 +132,59 @@ particular events such as policy announcements or particular holidays.
 
 
 \begin{figure}
-\centering
-\includegraphics[width=\textwidth]{../figures/results/figures/data/testing/rapid_test_demand_shares}
-\caption{\textbf{Share of Individuals that do a Rapid Test.} \textcolor{red}{Talk about the interpretation of each line.}}
-\label{fig:rapid_test_demand}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/data/testing/rapid_test_demand_shares}
+    \caption{\textbf{Share of Individuals that do a Rapid Test.} \comment[id=J]{Talk
+        about the interpretation of each line.}}
+    \label{fig:rapid_test_demand}
 \end{figure}
 
 In our model, there are five reasons why rapid tests are done:
 \begin{enumerate}
     \item someone plans to have work contacts
     \item someone is an employees of an educational facility or school pupil
-    \item someone lives in a household where someone has tested positive or developed symptoms
+    \item someone lives in a household where someone has tested positive or developed
+          symptoms
     \item someone has developed symptoms but has not received a PCR test
     \item someone plans to participate in a weekly non-work meeting
 \end{enumerate}
 
 % work rapid tests
 
-For work contacts, we know from the COSMO study (\cite{Betsch2021}, 20th/21st of April) that 60\% of workers who receive a test offer by their employer regularly use it. We assume this to be time constant.
+For work contacts, we know from the COSMO study (\cite{Betsch2021}, 20th/21st of April)
+that 60\% of workers who receive a test offer by their employer regularly use it. We
+assume this to be time constant.
 
-In addition, there are some surveys that allow us to trace the expansion of employers who
-offer tests to their employees. Mid march, 20\% of employers offered tests to their
-employees \citep{DIHK2021}. In the second half of March, 23\% of employees reported being
-offered weekly rapid tests by their employer \citep{Ahlers2021}. This share increased to
-60\% until the first days of April \cite{ZDF2021}. Until mid April 70\% of workers were
-expected to receive a weekly test offer \citep{AerzteZeitung2021}. However, according to
-surveys conducted in mid April \citep{Betsch2021}, less than two thirds of individuals
-with work contacts receive a test offer. Starting on April 19th employers were required by law to provide two weekly tests to their employees \citep{Bundesanzeiger2021}.
-We assume that compliance is incomplete and only 80\% of employers actually offer tests.
+In addition, there are some surveys that allow us to trace the expansion of employers
+who offer tests to their employees. Mid march, 20\% of employers offered tests to their
+employees \citep{DIHK2021}. In the second half of March, 23\% of employees reported
+being offered weekly rapid tests by their employer \citep{Ahlers2021}. This share
+increased to 60\% until the first days of April \cite{ZDF2021}. Until mid April 70\% of
+workers were expected to receive a weekly test offer \citep{AerzteZeitung2021}. However,
+according to surveys conducted in mid April \citep{Betsch2021}, less than two thirds of
+individuals with work contacts receive a test offer. Starting on April 19th employers
+were required by law to provide two weekly tests to their employees
+\citep{Bundesanzeiger2021}. We assume that compliance is incomplete and only 80\% of
+employers actually offer tests.
 
 % educ rapid tests
 
-\textcolor{red}{Sources still missing below this}
+\comment[id=J]{Sources still missing below this}
 
 We assume that employees in educational facilities start getting tested in 2021 and that
-by March 1st 30\% of them are tested weekly. The share increases to 90\% for the week before Easter. At that time both Bavaria and Baden-Württemberg were offering tests to teachers and North-Rhine Westphalia and Lower Saxony were already testing students and tests for students and teachers were already mandatory in Saxony. After Easter we assume that 95\% of teachers get tested twice per week.
+by March 1st 30\% of them are tested weekly. The share increases to 90\% for the week
+before Easter. At that time both Bavaria and Baden-Württemberg were offering tests to
+teachers and North-Rhine Westphalia and Lower Saxony were already testing students and
+tests for students and teachers were already mandatory in Saxony. After Easter we assume
+that 95\% of teachers get tested twice per week.
 
 Tests for students started later so we assume that they only start in February and only
 10\% of students get tested by March 1st. Relying on the same sources as above we
 approximate that by the week before Easter this share had increased to 40\%.
 
-After Easter we assume the share of students receiving twice weekly tests to
-based on tests already being mandatory in North-Rhine Westphalia and Bavaria while still
-being voluntary in Baden-Württemberg. There tests become mandatory on April 19th.
+After Easter we assume the share of students receiving twice weekly tests to based on
+tests already being mandatory in North-Rhine Westphalia and Bavaria while still being
+voluntary in Baden-Württemberg. There tests become mandatory on April 19th.
 
 
 % household member rapid tests
@@ -189,11 +199,9 @@ being voluntary in Baden-Württemberg. There tests become mandatory on April 19t
 
 
 
-\textcolor{red}{
-    Add a section on how we calibrate rapid test demand; Mainly describe the
-    datapoints we have and say that we usually interpolate linearly in between data
-    points. (Only exception to that is private rapid test demand, which we fit to data)
-}
+\comment[id=J]{Add a section on how we calibrate rapid test demand; Mainly describe the
+datapoints we have and say that we usually interpolate linearly in between data points.
+(Only exception to that is private rapid test demand, which we fit to data)}
 
 
 \begin{figure}[ht]
@@ -201,14 +209,24 @@ being voluntary in Baden-Württemberg. There tests become mandatory on April 19t
     \caption{Share of Individuals With Rapid Tests}
     \label{fig:share_ever_rapid_test}
     \begin{subfigure}{.55\textwidth}
-      \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_share_ever_rapid_test}
+        \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_share_ever_rapid_test}
     \end{subfigure}%
     \begin{subfigure}{.55\textwidth}
-      \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week}
-    %   \caption{Share of Individuals Having Done a Rapid Test in the Last Week}
+        \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week}
+        %   \caption{Share of Individuals Having Done a Rapid Test in the Last Week}
     \end{subfigure}
     \label{fig:share_rapid_test_last_week}
-    \figurenotes{The figure compares the share of individuals who have ever done a rapid test or done a rapid test within the last week in our simulations to the shares reported in the \href{https://projekte.uni-erfurt.de/cosmo2020/web/topic/wissen-verhalten/80-schnelltests/}{COVID-19 Snapshot Monitoring survey}. The
-    left panel compares the share of individuals who have ever done a rapid test. The right panel compares the share of individuals who have done a rapid test within the last seven days in our simulation compared to the share reporting to have done at least weekly rapid tests in the last four weeks in the COSMO survey. Overall our calibration of rapid tests are slightly conservative. The overall share is below that in the study. We fit the share of weekly tests quite exactly. However, the study only covers adults while our share also includes children who are tested very regularly when attending school.
-    }
+    \figurenotes{The figure compares the share of individuals who have ever done a rapid
+        test or done a rapid test within the last week in our simulations to the shares
+        reported in the
+        \href{https://projekte.uni-erfurt.de/cosmo2020/web/topic/wissen-verhalten/80-schnelltests/}{COVID-19
+            Snapshot Monitoring survey}. The left panel compares the share of individuals
+        who have ever done a rapid test. The right panel compares the share of
+        individuals who have done a rapid test within the last seven days in our
+        simulation compared to the share reporting to have done at least weekly rapid
+        tests in the last four weeks in the COSMO survey. Overall our calibration of
+        rapid tests are slightly conservative. The overall share is below that in the
+        study. We fit the share of weekly tests quite exactly. However, the study only
+        covers adults while our share also includes children who are tested very
+        regularly when attending school.}
 \end{figure}
