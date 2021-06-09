@@ -30,8 +30,8 @@
 
 Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity
 on many dimensions. The development of highly effective vaccines holds the promise of
-containment in the medium term. However, most countries find themselves many months---and
-often years---away from reaching vaccination-induced herd immunity
+containment in the medium term. However, most countries find themselves many
+months---and often years---away from reaching vaccination-induced herd immunity
 \citep{Swaminathan2021}.\comment[id=K]{WHO Press Conference saying we won't reach herd
 immunity in 2021} In the meantime, it is of utmost importance to employ an effective mix
 of strategies for containing the virus. The most frequent initial response was a set of
@@ -45,15 +45,15 @@ effect nor the influence of seasonal patterns or more infectious virus strains a
 understood in quantitative terms. This paper develops a model incorporating all these
 factors. The framework allows to combine a wide variety of data in a timely fashion,
 making it useful to predict the effects of various interventions. We apply the model to
-Germany and show that rapid testing had the largest impact on the reduction in infections
-by almost 80\% during the month of May 2021. We conclude that rapid tests have a large
-role to play at least as long as vaccinations have not been offered to an entire
-population.
+Germany and show that rapid testing had the largest impact on the reduction in
+infections by almost 80\% during the month of May 2021. We conclude that rapid tests
+have a large role to play at least as long as vaccinations have not been offered to an
+entire population.
 
 At the core of our agent-based model are physical contacts between heterogeneous agents
 (Figure~\ref{fig:broad_model_description}).\footnote{We provide a detailed comparison to
-    other approaches in \ref{sec:literature_review}. The model most closely related to ours
-    is described in \citet{Hinch2020}.} Each contact between an infectious individual and
+other approaches in \ref{sec:literature_review}. The model most closely related to ours
+is described in \citet{Hinch2020}.} Each contact between an infectious individual and
 somebody susceptible to the disease bears the risk of transmitting the virus. Contacts
 occur in the household, at work, at school, or in other settings (leisure activities,
 grocery shopping, medical appointments, etc.). Some contacts recur regularly, others
@@ -61,9 +61,9 @@ occur at random. Random contacts are typically assortative in age and geographic
 location. Empirical applications can take the population structure from census data and
 the types and frequency of contacts from diary data measuring contacts before the
 pandemic \citep[e.g.][]{Mossong2008}.\footnote{\citet{Hoang2019} provide access to
-    multiple data sets on contact types and frequencies at
-    \url{http://www.socialcontactdata.org/} covering countries from all continents except
-    North America and Australia.} The dimensions are chosen so that the most common NPIs can
+multiple data sets on contact types and frequencies at
+\url{http://www.socialcontactdata.org/} covering countries from all continents except
+North America and Australia.} The dimensions are chosen so that the most common NPIs can
 be modeled in great detail by reducing the number of contacts in a particular setting or
 the risk of transmitting the disease for a type of contact. For example, a mandate to
 work from home will reduce the number of work contacts to zero for a fraction of the
@@ -79,7 +79,7 @@ requirements would reduce the probability of infection associated with a contact
     \begin{subfigure}[b]{0.425\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/model-graph-top-left}
-        \caption{{\small Model description}}
+        \caption{{Model description}}
         \label{fig:broad_model_description}
     \end{subfigure}
     \hfill
@@ -97,14 +97,14 @@ requirements would reduce the probability of infection associated with a contact
         \centering
 
         \includegraphics[width=\textwidth]{../figures/model-graph-bottom-left}
-        \caption{{\small Model for antigen tests}}
+        \caption{{Model for antigen tests}}
         \label{fig:antigen_tests}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.425\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/model-graph-bottom-right}
-        \caption{{\small Model for undetected cases}}
+        \caption{{Model for undetected cases}}
         \label{fig:model_for_official_cases}
     \end{subfigure}
 
@@ -129,10 +129,10 @@ of the pandemic in 2020-2021. New virus strains with different profiles regardin
 infectiousness can be introduced. Agents may receive a vaccination. With a probability
 of 75\% \citep{Hunter2021}, vaccinated agents become immune and they do not transmit the
 virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\footnote{75\% is lower
-    than what is usually reported for after the second dose of the Biontech/Pfizer vaccine,
-    which is most commonly used in Germany. We choose it because our model neither includes
-    booster shots, nor does it allow vaccinated individuals who became immune to transmit
-    the disease\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.} During the vaccine
+than what is usually reported for after the second dose of the Biontech/Pfizer vaccine,
+which is most commonly used in Germany. We choose it because our model neither includes
+booster shots, nor does it allow vaccinated individuals who became immune to transmit
+the disease\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.} During the vaccine
 roll-out, priority may depend on age and occupation.
 
 We include two types of tests. Polymerase chain reaction (PCR) tests directly reveal
@@ -144,38 +144,39 @@ the test relative to the start of infectiousness. Figure~\ref{fig:antigen_tests}
 our model for rapid test demand. Schools may require students to be tested regularly.
 Rapid tests may be offered by employers for on-site workers. Individuals may demand
 tests for private reasons, which include having plans to meet other people\footnote{A
-    positive test will make them reduce their contacts; this is why tests impact the actual
-    contacts in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and
+positive test will make them reduce their contacts; this is why tests impact the actual
+contacts in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and
 because a household member tested positively for the virus. We endow each agent with an
 individual compliance parameter. This parameter determines whether she takes up rapid
-tests offered by employers or follows up on private reasons. The thresholds are lower for
-tests in a private setting than for tests at the workplace.\comment[id=HM]{True? @Janos}
+tests offered by employers or follows up on private reasons. The thresholds are lower
+for tests in a private setting than for tests at the workplace.\comment[id=HM]{True?
+@Janos}
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
-parameters.\footnote{See section S.XXX of the supplementary materials for an
-    overview.} Mobility data is used to
-model the reductions in work contacts. School and daycare policies are incorporated
-directly from official directives. Infection rates by age and geographical region are
-estimated to match to officially recorded numbers; so is the prevalence of virus
-strains. The model yields total infections, but only a fraction of those will be
-officially recorded. We model the fraction of known cases as depicted in
+parameters.\footnote{See section S.XXX of the supplementary materials for an overview.}
+Mobility data is used to model the reductions in work contacts. School and daycare
+policies are incorporated directly from official directives. Infection rates by age and
+geographical region are estimated to match to officially recorded numbers; so is the
+prevalence of virus strains. The model yields total infections, but only a fraction of
+those will be officially recorded. We model the fraction of known cases as depicted in
 Figure~\ref{fig:model_for_official_cases}.\comment[id=HM]{Add a sentence.}
-\footnote{EQUATIONS FOR THE FOURTH PICTURE (find names!):
+% \footnote{EQUATIONS FOR THE FOURTH PICTURE (find names!):
 
-    The probabilities for Figure~\subref{fig:model_for_official_cases} are the
-    following:
+%     The probabilities for Figure~\subref{fig:model_for_official_cases} are the
+%     following:
 
-    \begin{align*}
-        x & = \frac{n\_newly\_infected \times share\_known\_cases \times P(PCR | S)}{n\_symptomatic\_and\_untested}                    \\
-        y & = \frac{n\_newly\_infected \times share\_known\_cases \times P(PCR | S)}{n\_asymptoptomatic\_and\_infected\_and\_untested} \\
-        z & = \frac{P(PCR | RT)}{survey}
-    \end{align*}
-    where untested means that individuals are not waiting on the result of a previously
-    administered rapid test.} A further advantage is that the simulated data have a
-structure that resembles datasets used for regression models, which allows
-additional plausibility checks by re-running the same models on the model-generated
-data.\comment[id=HM]{Only keep if we actually do something like that.}
+%     \begin{align*} x & = \frac{n\_newly\_infected \times share\_known\_cases \times
+%         P(PCR | S)}{n\_symptomatic\_and\_untested}                    \\
+%         y & = \frac{n\_newly\_infected \times share\_known\_cases \times P(PCR |
+%         S)}{n\_asymptoptomatic\_and\_infected\_and\_untested} \\
+%         z & = \frac{P(PCR | RT)}{survey} \end{align*} where untested means that
+%     individuals are not waiting on the result of a previously administered rapid
+%     test.} 
+A further advantage is that the simulated data have a structure that resembles datasets
+used for regression models, which allows additional plausibility checks by re-running
+the same models on the model-generated data.\comment[id=HM]{Only keep if we actually do
+something like that.}
 
 We apply this model to Germany. In March and April 2020, the country broke the first
 wave of the pandemic fairly quickly. Between May and mid-September, daily new infections
@@ -187,28 +188,25 @@ model for calculating the share of known cases) Second, a large fraction cases d
 summer of 2020 were traced to international travel \citep{KochInstitut2021,Hodcroft2021}
 but the precise number is difficult to model.
 
-Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the
-pandemic and of its drivers. The black line in Figure~\ref{fig:aggregated_fit}
-shows officially recorded cases; the black line in
-Figure~\ref{fig:stringency_index} the Oxford Response Stringency Index
-\citep{Hale2020}, which tracks the tightness of non-pharmaceutical
-interventions. We transform the index so that lower values represent higher
-levels of restrictions. A value of zero means all measures incorporated in the
-index are turned on. The value 1 represents the situation in mid-September, with
-restrictions on gatherings and public events, masking requirements, but open
-schools and workplaces (the raw value of the index at that point is 49.5). In
-the seven weeks between mid September and early November, cases increased by a
-factor of 10. Restrictions were somewhat tightened in mid-October and again in
-early November. New infections remained constant throughout November, before
-rising again in December, which prompted the most stringent lockdown to this
-date. Schools and daycare centers were closed again, so were customer-facing
-businesses except for grocery and drug stores. From the peak of the second wave
-just before Christmas until the trough in mid-February, newly detected cases
-decreased by almost three quarters. The third wave in the spring of 2021 is
-associated with the B.1.1.7 strain, which became dominant in March. See
+Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and
+of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
+recorded cases; the black line in Figure~\ref{fig:stringency_index} the Oxford Response
+Stringency Index \citep{Hale2020}, which tracks the tightness of non-pharmaceutical
+interventions. We transform the index so that lower values represent higher levels of
+restrictions. A value of zero means all measures incorporated in the index are turned
+on. The value 1 represents the situation in mid-September, with restrictions on
+gatherings and public events, masking requirements, but open schools and workplaces (the
+raw value of the index at that point is 49.5). In the seven weeks between mid September
+and early November, cases increased by a factor of 10. Restrictions were somewhat
+tightened in mid-October and again in early November. New infections remained constant
+throughout November, before rising again in December, which prompted the most stringent
+lockdown to this date. Schools and daycare centers were closed again, so were
+customer-facing businesses except for grocery and drug stores. From the peak of the
+second wave just before Christmas until the trough in mid-February, newly detected cases
+decreased by almost three quarters. The third wave in the spring of 2021 is associated
+with the B.1.1.7 strain, which became dominant in March. See
 Figure~\ref{fig:share_b117}. In early March, some NPIs were being relaxed; e.g.,
-hairdressers and home improvement stores were allowed to open again to the
-public.
+hairdressers and home improvement stores were allowed to open again to the public.
 
 
 \begin{figure}[!tp]
@@ -217,7 +215,7 @@ public.
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case}
-        \caption{{\small Recorded cases: Empirical and simulated}}
+        \caption{{Recorded cases: Empirical and simulated}}
         \label{fig:aggregated_fit}
     \end{subfigure}
     \hfill
@@ -225,7 +223,7 @@ public.
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/data/stringency2_with_seasonality}
 
-        \caption{{\small Stringency of NPIs and changes in infectious contacts by type}}
+        \caption{{Stringency of NPIs and infectious contacts}}
         \label{fig:stringency_index}
     \end{subfigure}
 
@@ -236,7 +234,7 @@ public.
 
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week_and_vaccinated}
 
-        \caption{{\small Tests and vaccinations}}
+        \caption{{Tests and vaccinations}}
         \label{fig:antigen_tests_vaccinations}
     \end{subfigure}
     \hfill
@@ -245,7 +243,7 @@ public.
 
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_share_b117}
 
-        \caption{Fraction of B.1.1.7 strain among measured infections}
+        \caption{Fraction of B.1.1.7 strain}
         \label{fig:share_b117}
     \end{subfigure}
 
@@ -275,43 +273,40 @@ started to pose additional challenges.
 
 Our model is able to track these developments very well. The blue line in
 Figure~\ref{fig:aggregated_fit} shows our model's predictions are very close to
-officially recorded cases in the aggregate. This is also true for infections by
-age and geographical region, which are shown in the supplementary materials
+officially recorded cases in the aggregate. This is also true for infections by age and
+geographical region, which are shown in the supplementary materials
 (Figures~\ref{fig:age_group_fit} and \ref{fig:state_fit}, respectively). We can
-disentangle various mechanisms due to the distinct temporal variation in the
-drivers of the pandemic. Next to the stringency index, the three lines in
-Figure~\ref{fig:stringency_index} summarize how contact reductions, increased
-hygiene regulations, and seasonality evolved since early September for each of
-the three broad contact networks. For example, a value of 0.75 for the work
-multiplier means that if the environment was the same as in September (levels of
-infection rates, no rapid tests or vaccinations, only the wildtype virus
-present), infections at the workplace would be reduced by 25\%. This reduction
-is the product of the effect of contact reductions, increased hygiene
-regulations, and seasonality. Along with the levels of infections, these
-measures determine the spread of SARS-CoV-2 in 2020. See
-Appendix~\comment[id=HM]{Reference} for separate plots of the three factors. Two
-aspects are particularly interesting. First, all lines broadly follow the
-stringency index and they would do so even more if we left out seasonality and
-school vacations (roughly the last two weeks of October, two weeks each around
-Christmas and Easter, and some days in late May). Second, the most stringent
-regulations are associated with the period of strong decreases in new infection
-between late December 2020 and mid-February 2021. The measures were not enough,
-however, to stop the B.1.1.7 variant from spreading in the subsequent period.
-The steep drop in recorded cases during May 2021 is associated with at least
-weekly rapid tests to around 42~percent of the population, a vaccination rate
-that rose from 28\% to 43\%, and mostly seasonality impacting a fall in the
-relative infectiousness of contacts outside of work and school.
+disentangle various mechanisms due to the distinct temporal variation in the drivers of
+the pandemic. Next to the stringency index, the three lines in
+Figure~\ref{fig:stringency_index} summarize how contact reductions, increased hygiene
+regulations, and seasonality evolved since early September for each of the three broad
+contact networks. For example, a value of 0.75 for the work multiplier means that if the
+environment was the same as in September (levels of infection rates, no rapid tests or
+vaccinations, only the wildtype virus present), infections at the workplace would be
+reduced by 25\%. This reduction is the product of the effect of contact reductions,
+increased hygiene regulations, and seasonality. Along with the levels of infections,
+these measures determine the spread of SARS-CoV-2 in 2020. See
+Appendix~\comment[id=HM]{Reference} for separate plots of the three factors. Two aspects
+are particularly interesting. First, all lines broadly follow the stringency index and
+they would do so even more if we left out seasonality and school vacations (roughly the
+last two weeks of October, two weeks each around Christmas and Easter, and some days in
+late May). Second, the most stringent regulations are associated with the period of
+strong decreases in new infection between late December 2020 and mid-February 2021. The
+measures were not enough, however, to stop the B.1.1.7 variant from spreading in the
+subsequent period. The steep drop in recorded cases during May 2021 is associated with
+at least weekly rapid tests to around 42~percent of the population, a vaccination rate
+that rose from 28\% to 43\%, and mostly seasonality impacting a fall in the relative
+infectiousness of contacts outside of work and school.
 
-Figure~\ref{fig:2021_scenarios_broad} consider the relative effects of rapid
-tests, vaccinations, and of seasonality during 2021, assuming NPIs to have
-evolved the same way as in the baseline scenario.
-Figure~\ref{fig:2021_scenarios_recorded} shows the model fit (the blue line,
-same as in Figure~\ref{fig:aggregated_fit}), a scenario without any of the three
-factors (red line), and three scenarios turning these factors off one by one.
-Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total
-infections in the model. Figure~\ref{fig:2021_scenarios_decomposition} employs
-Shapley values to decompose the difference in total infections between the
-scenario without any of the three factors and our main specification.
+Figure~\ref{fig:2021_scenarios_broad} consider the relative effects of rapid tests,
+vaccinations, and of seasonality during 2021, assuming NPIs to have evolved the same way
+as in the baseline scenario. Figure~\ref{fig:2021_scenarios_recorded} shows the model
+fit (the blue line, same as in Figure~\ref{fig:aggregated_fit}), a scenario without any
+of the three factors (red line), and three scenarios turning these factors off one by
+one. Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total infections
+in the model. Figure~\ref{fig:2021_scenarios_decomposition} employs Shapley values to
+decompose the difference in total infections between the scenario without any of the
+three factors and our main specification.
 
 \begin{figure}[!tp]
     \centering
@@ -319,14 +314,14 @@ scenario without any of the three factors and our main specification.
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/effect_of_channels_on_pessimistic_scenario/full_new_known_case}
-        \caption{{\small Recorded cases: 2021 scenarios}}
+        \caption{{Recorded cases: 2021 scenarios}}
         \label{fig:2021_scenarios_recorded}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/effect_of_channels_on_pessimistic_scenario/full_newly_infected}
-        \caption{{\small Total cases: 2021 scenarios}}
+        \caption{{Total cases: 2021 scenarios}}
         \label{fig:2021_scenarios_newly_infected}
     \end{subfigure}
 
@@ -345,8 +340,9 @@ scenario without any of the three factors and our main specification.
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
 
-        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/effect_of_rapid_tests/full_newly_infected}
-        \caption{{\small Effects of different types of testing}}
+        \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_rapid_tests_area}
+        \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_rapid_tests_bar}
+        \caption{{Effects of different types of testing}}
         \label{fig:2021_scenarios_decomposition_tests}
     \end{subfigure}
 
@@ -394,19 +390,18 @@ cases. Additional testing means that infections become known which would otherwi
 remain undetected. Figure~\ref{fig:2021_scenarios_recorded} shows that this means that
 until late April, recorded cases are higher than in the scenario where none of the three
 mechanisms is turned on. Compared to the scenario with vaccinations only, this point is
-reached only around mid May and it would be June for the comparison with the
-seasonality-only scenario. The effect on total cases, however, kicks in immediately and
-strongly. Despite the fact that only a small fraction of the population performed weekly
-rapid tests in March (X\%\comment[id=HM]{Put in}), the rise in new infections would be
-limited by XXX\% relative to the scenario without vaccinations, tests, or seasonality.
+reached around mid-May and it would be June for the comparison with the seasonality-only
+scenario. The effect on total cases, however, is visible immediately. Despite the fact
+that only a small fraction of the population performed weekly rapid tests in
+March\footnote{X\% in the model; 27\% of respondents to the COSMO study reported in
+early March that they \textit{ever} did a rapid test)}\comment[id=HM]{Put in}, new
+infections on April 1 would be rise in new infections would be reduced by 53\% relative
+to the scenario without vaccinations, rapid tests, or seasonality.
 
-Tests
 
-
-
-\clearpage
-
-Two particularly important areas:
+Two of the most contentious NPIs concern schools and mandates to work from home. In many
+countries, schools switched to remote instruction during the first wave, so did Germany.
+They were kept fully open until Two particularly important areas:
 \begin{itemize}
     \item Schooling: large costs to pupils, ... social inequalities
     \item Work: Q2 / 2020 saw the largest drop in GDP in a long time;
@@ -426,7 +421,7 @@ Results
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/school_scenarios/full_newly_infected}
-        \caption{{\small Effects of different schooling scenarios after Easter}}
+        \caption{{Effects of different schooling scenarios after Easter}}
         \label{fig:schooling_scenarios_easter}
     \end{subfigure}
     \hfill
@@ -434,7 +429,7 @@ Results
         \centering
         % \includegraphics[width=0.9
         % \textwidth]{../figures/results/figures/scenario_comparisons/}
-        \caption{{\small Effects of different work scenarios after Easter}}
+        \caption{{Effects of different work scenarios after Easter}}
         \label{fig:to_be_determined}
     \end{subfigure}
     \vskip3ex
@@ -457,15 +452,17 @@ Results
     \item Trump-effect: More testing = more cases true for how long?
     \item Towards the end, total tests go down: Preferences for tests remain the same,
           but infection rates lower \comment[id=HM]{Janos, please fill up}
-    \item Actually performed tests increase until May, stay constant during May and then start to drop
+    \item Actually performed tests increase until May, stay constant during May and then
+    start to drop
     \item This is the combination of the following things:
-    \begin{itemize}
-        \item time constant willingness to take tests
-        \item monotonically increasing availability of tests
-        \item endogenous number of situations in which a test should be taken (mainly positive tests of household members)
-    \end{itemize}
-    \item This is a classic way of modeling in economics: Preferences stay constant
-          (and can thus be elicited in just one survey) but outcomes change because
+          \begin{itemize}
+              \item time constant willingness to take tests
+              \item monotonically increasing availability of tests
+              \item endogenous number of situations in which a test should be taken
+              (mainly positive tests of household members)
+          \end{itemize}
+    \item This is a classic way of modeling in economics: Preferences stay constant (and
+          can thus be elicited in just one survey) but outcomes change because
           circumstances change.
 
 \end{itemize}
@@ -473,9 +470,9 @@ Results
 
 An important feature of the way we model rapid tests is that the number of actually
 performed test is determined endogenously. The number of weekly tests increases until
-the end of May and then starts to drop. This is because many  It is determined by the availability of tests,
-the individual compliance with testing recommendations and the occurrence of situations
-in which a test should be taken.
+the end of May and then starts to drop. This is because many  It is determined by the
+availability of tests, the individual compliance with testing recommendations and the
+occurrence of situations in which a test should be taken.
 
 % Technical terms should be defined.
 
