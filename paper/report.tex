@@ -115,18 +115,19 @@ The model includes several other features, which are crucial to describe the evo
 of the pandemic in 2020-2021. New virus strains with different profiles regarding
 infectiousness can be introduced. Agents may receive a vaccination. With a probability
 of 75\% \citep{Hunter2021}, vaccinated agents become immune and they do not transmit the
-virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\footnote{75\% is lower
-than what is usually reported for after the second dose of the Biontech/Pfizer vaccine,
-which is most commonly used in Germany. We choose it because our model neither includes
-booster shots, nor does it allow vaccinated individuals who became immune to transmit
-the disease\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.} During the vaccine
-roll-out, priority may depend on age and occupation.
+virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\comment[id=T]{Maybe add
+that 35\% reach immunity after two weeks and 40\% after three weeks.}\footnote{75\% is
+lower than what is usually reported for after the second dose of the Biontech/Pfizer
+vaccine, which is most commonly used in Germany. We choose it because our model neither
+includes booster shots, nor does it allow vaccinated individuals who became immune to
+transmit the disease \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.} During
+the vaccine roll-out, priority may depend on age and occupation.
 
 We include two types of tests. Polymerase chain reaction (PCR) tests directly reveal
 whether an individual is infected or not. PCR tests require some days to be processed
 and there are always aggregate capacity constraints. In contrast, rapid antigen tests
 yield immediate results. Specificity and sensitivity of these tests is set according to
-data analysed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of
+data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of
 the test relative to the start of infectiousness. Figure~\ref{fig:antigen_tests} shows
 our model for rapid test demand. Schools may require students to be tested regularly.
 Rapid tests may be offered by employers for on-site workers. Individuals may demand
@@ -171,9 +172,9 @@ were below 20 per Million and day \citep{owidcoronavirus}. We model the period
 mid-September 2020 to the end of May 2021. We pick the starting date for two reasons.
 First, we do not include the first wave because the environment was very different
 (e.g., aggregate PCR test capacity was much lower and we would require a very different
-model for calculating the share of known cases) Second, a large fraction cases during
-summer of 2020 were traced to international travel \citep{KochInstitut2021,Hodcroft2021}
-but the precise number is difficult to model.
+model for calculating the share of known cases). Second, a large fraction of cases
+during summer of 2020 were traced to international travel
+\citep{KochInstitut2021,Hodcroft2021} but the precise number is difficult to model.
 
 Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and
 of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
