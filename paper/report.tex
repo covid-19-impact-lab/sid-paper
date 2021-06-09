@@ -135,7 +135,7 @@ because a household member tested positively for the virus. We endow each agent 
 individual compliance parameter. This parameter determines whether she takes up rapid
 tests offered by employers or follows up on private reasons. Thresholds differ across
 reasons triggering rapid test demand; they are lowest for infected household members and
-highest for meeting other people.\comment[id=HM]{True?}.
+highest for meeting other people.\comment[id=HM]{True?}\comment[id=K]{FALSE. We only have one private demand threshold (over time) which is the same for own symptoms and no PCR test, household member with symptoms or positive test and for having a weekly meeting with friends.}.
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
@@ -164,17 +164,15 @@ structure that resembles datasets used for regression models, which allows
 additional plausibility checks by re-running the same models on the model-generated
 data.\comment[id=HM]{Only keep if we actually do something like that.}
 
-We apply this model to Germany. In March and April 2020, the country broke the first
-wave of the pandemic fairly quickly. Between mid-May and mid-September, daily new
-infections were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We
-model the period mid-September 2020 to the end of May 2021. We pick the starting date
-for two reasons. First, we do not include the first wave because the environment was
-very different (e.g., aggregate PCR test capacity was much lower and we would require a
-very different model for calculating the share of known cases) Second, a large fraction
-cases during summer of 2020 were traced to international travel
-\citep{KochInstitut2021}\comment[id=HM]{Include
-\url{https://www.nature.com/articles/s41586-021-03677-y} in citation}, but the precise
-number is difficult to model.
+We apply this model to Germany. In March and April 2020, the country broke the first wave
+of the pandemic fairly quickly. Between mid-May and mid-September, daily new infections
+were below 20 per Million and day.\comment[id=HM]{Cite our world in data} We model the
+period mid-September 2020 to the end of May 2021. We pick the starting date for two
+reasons. First, we do not include the first wave because the environment was very
+different (e.g., aggregate PCR test capacity was much lower and we would require a very
+different model for calculating the share of known cases) Second, a large fraction cases
+during summer of 2020 were traced to international travel
+\citep{KochInstitut2021,Hodcroft2021} but the precise number is difficult to model.
 
 Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and
 of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
