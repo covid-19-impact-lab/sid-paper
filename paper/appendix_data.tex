@@ -106,7 +106,7 @@ numbers of contacts by contact type.
     \includegraphics[width=\textwidth]{../figures/results/figures/data/distributions_of_the_number_of_contacts/work_recurrent_weekly}
     \caption{Number of Weekly Recurrent Work Contacts}
     \label{n_contacts_work_weekly_recurrent}
-    \floatfoot{\noindent Working individuals are assigned to up to 14 groups that are time
+    \floatfoot{\noindent  Working individuals are assigned to up to 14 groups that are time
     constant and meet weekly. Groups are scheduled to meet on separate days of the work
     week. These contact models cover weekly team meetings etc. The share of individuals
     that attend in a way that has transmission potential is reduced by policies,
@@ -130,19 +130,42 @@ data we use to calibrate the number of contacts.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9 \textwidth]{../figures/results/figures/data/assortativity_other_non_recurrent}
-    \caption{Distribution of Random Other Contacts by Age Group}
-    \label{fig:assortativity}
-    \figurenotes{The figure shows the distribution of random non-work contacts by age
-        groups. A row shows the share of contacts a certain age group has with all other
+    \caption{Distribution of Non Recurrent Other Contacts by Age Group}
+    \label{fig:assortativity_other}
+    \floatfoot{\noindent The figure shows the distribution of non recurrent other contacts by age
+        group. A row shows the share of contacts a certain age group has with all other
         age groups. Higher values are colored in darker red tones. The diagonal
         represents the share of contacts with individuals from the same age group.}
 \end{figure}
 
-Figure~\ref{fig:assortativity}\comment[id=HM]{So no work in here? How about school? Can
-we add a column with marginals and another one with work / (school?), too?} shows that
-assortativity by age is especially strong for children and younger adults. For older
-people, the pattern becomes more dispersed around their own age group, but
-within-age-group contacts are still the most common contacts.
+
+Figure~\ref{fig:assortativity_other} shows that assortativity by age is especially strong
+for children and younger adults. For older people, the pattern becomes more dispersed
+around their own age group, but within-age-group contacts are still the most common
+contacts.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9 \textwidth]{../figures/results/figures/data/assortativity_work_non_recurrent}
+    \caption{Distribution of Random Work Contacts by Age Group}
+    \label{fig:assortativity_work}
+    \floatfoot{\noindent The figure shows the distribution of non recurrent work contacts by age
+        group. A row shows the share of contacts a certain age group has with all other
+        age groups. Higher values are colored in darker red tones. The diagonal
+        represents the share of contacts with individuals from the same age group. We
+        only show age groups that have a significant fraction of working individuals.}
+\end{figure}
+
+Figure~\ref{fig:assortativity_work} shows that assortativity by age is also important
+among work contacts.
+
+Our other two types of contacts, households and schools, get their assortativity by
+construction. Schools are groups where the same children of the mostly same age group and
+county meet with teachers every day. Household composition follows directly from the
+German microcensus data we use to construct our synthetic population.\comment[id=HM]{So
+no work in here? How about school? Can we add a column with marginals and another one
+with work / (school?), too?}\comment[id=K]{I hope adding work and writing about school and
+households addresses all questions. I think marginals would be confusing because they may not add up to one given that age groups have different group sizes.}
 
 \FloatBarrier
 
@@ -198,7 +221,7 @@ time.
     \includegraphics[width=\textwidth]{../figures/results/figures/data/work_multiplier_since_sep}
     \caption{Share of Workers with Work Contacts}
     \label{fig:work_multiplier}
-    \figurenotes{The figure shows the work mobility as reported by \cite{Google2021}. We
+    \floatfoot{\noindent The figure shows the work mobility as reported by \cite{Google2021}. We
         take this as a proxy of the share of workers who are not in home office, i.e.
         who still have physical work contacts. The figure interpolates over weekends as
         we handle weekend effects through information on work on weekends in the German
@@ -223,7 +246,7 @@ events such as policy announcements or particular holidays.
     \centering
     \includegraphics[width=\textwidth]{../figures/results/figures/data/testing/rapid_test_demand_shares}
     \caption{\textbf{Share of Individuals that do a Rapid Test.}}
-    \figurenotes{\textcolor{red}{J: Talk about the interpretation of each line.}}
+    \floatfoot{\noindent \textcolor{red}{J: Talk about the interpretation of each line.}}
     \label{fig:rapid_test_demand}
 \end{figure}
 
@@ -304,7 +327,7 @@ datapoints we have and say that we usually interpolate linearly in between data 
         %   \caption{Share of Individuals Having Done a Rapid Test in the Last Week}
     \end{subfigure}
     \label{fig:share_rapid_test_last_week}
-    \figurenotes{The figure compares the share of individuals who have ever done a rapid
+    \floatfoot{\noindent The figure compares the share of individuals who have ever done a rapid
         test or done a rapid test within the last week in our simulations to the shares
         reported in the
         \href{https://projekte.uni-erfurt.de/cosmo2020/web/topic/wissen-verhalten/80-schnelltests/}{COVID-19
