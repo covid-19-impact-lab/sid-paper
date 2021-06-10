@@ -214,12 +214,25 @@ infection probability is 0.5\%. Work contacts carry a risk of 14.5\% and other a
 \FloatBarrier
 
 In our empirical application we distinguish four groups of contact types: households,
-education, work and other contacts. For households we assume that the individuals'
-contacts in their households do not change over our estimation period. For nurseries,
-preschools and schools we implement vacations as announced by the German federal states
-as well as school closures, emergency care and A / B schooling where only one half of
-students attends every other week or day. For the moment we ignore that lack of childcare
-leads working parents to stay home.
+education, work and other contacts.
+% households
+For households we assume that the individuals'
+contacts in their households do not change over our estimation period.
+% educ models
+For nurseries, preschools and schools we implement vacations as announced by the German
+federal states as well as school closures, emergency care and A / B schooling where only
+one half of students attends every other week or day. For the moment we ignore that lack
+of childcare leads working parents to stay home. An approximation of the share of contacts still taking place with the different school regulations can be found in Figure~\ref{fig:school_multiplier}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/data/school_multiplier_comparison}
+    \caption{School Multiplier With and Without Vacations Factored In}
+    \floatfoot{\noindent}
+    \label{fig:school_multiplier}
+\end{figure}
+
+
 %
 % Schließung von Kindertagesstätten und Schulen: 37,4 Millionen ausgefallene Arbeitstage
 % http://www.iab-forum.de/schul-und-kitaschliessungen-krankheit-quarantaene-die-coronabedingten-arbeitsausfaelle-der-erwerbstaetigen-steigen-auf-592-millionen-arbeitstage/
@@ -231,6 +244,8 @@ leads working parents to stay home.
 % https://gfx.sueddeutsche.de/apps/e525337/www/_image_desktopw1840q70-1e2e2bf78b7d4430
 % 18% der Grundschüler in Notbetreuung in BW
 %
+
+% work models
 For our work models\footnote{We distinguish non-recurrent work contacts, daily work
 contacts and weekly work contacts.} we use the reductions in work mobility reported in
 the Google Mobility Data \citep{Google2021} to calibrate our work policies. Reductions in
@@ -258,12 +273,41 @@ For both work and school contacts we assume that starting November with the lock
 light in Germany, hygiene measures (such as masks, ventilation and hand washing) became
 more strict and more conscientiously observed, leading to a reduction of 33\% in the number of contacts with the potential to transmit Covid-19.
 
+% other contacts
 For the last group of contacts which cover things like leisure activities, grocery
 shopping etc. we have no reliable data by how much policies reduce them. In addition,
 they are likely to be affected by social and psychological factors such as pandemic
 fatigue and vacations. Because of this we estimate them like the infection probabilities
 to fit the time series data. We use very few change points and tie them to particular
-events such as policy announcements or particular holidays.\comment[id=K]{@Janos should we already add in numbers in here?}
+events such as policy announcements or particular holidays. Because of the scarce data situation we cannot distinguish between a hygiene factor (such as mask wearing) during meetings and physical distancing (such as virtual meetings with friends).
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{../figures/results/figures/data/other_multiplier}
+\caption{Share of Other Contacts Still Taking Place}
+\label{fig:other_multiplier}
+\floatfoot{\noindent}
+\end{figure}
+
+% seasonality
+Another important factor in the potential for a contact to lead to an infection is the
+seasonality.\comment[id=K]{Reference missing} There are two channels through which
+seasonality affects the infectiousness of contacts. One has to do with the physical
+conditions like UV radiation and the humidity. The other has to do with where people
+meet. Especially leisure contacts are more likely to take place outdoors and individuals
+are more likely to have windows open when the weather is nicer. To capture both channels
+we allow for other contacts to have a higher seasonality than our other contact models.
+Figure~\ref{fig:seasonality} shows our seasonality factors.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{../figures/results/figures/data/seasonality}
+\caption{Seasonality for Other Contacts and Other Contact Models}
+\label{fig:seasonality}
+\floatfoot{\noindent}
+\end{figure}
+
+
 
 \FloatBarrier
 
