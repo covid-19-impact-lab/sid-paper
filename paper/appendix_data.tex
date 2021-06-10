@@ -23,8 +23,96 @@ and information on the contact. Importantly, for each contact individuals entere
 which type the contact (school, leisure, work etc.) was and how frequent the contact
 with the other person is.
 
-Thus, we can use the empirical distributions from this data as pre-pandemic number of
-contacts.
+Simplifying the number of contacts, we arrive at the following distributions of the
+numbers of contacts by contact type.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/data/distributions_of_the_number_of_contacts/other_non_recurrent}
+    \caption{Number of Non Recurrent Other Contacts}
+    \label{n_contacts_other_non_recurrent}
+    \floatfoot{\noindent In the model it is sampled every day which of these numbers of
+    contacts a person is planned to have. Note that the contact diaries include such high
+    values that super spreading events are well possible in our model. The planned number
+    of contacts is reduced by policies, seasonality and individual responses to events
+    such as receiving a positive rapid test to the number of actual contacts with
+    transmission potential. Other contacts include all contacts that are not household
+    members, school contacts or work contacts, for example leisure contacts or contacts
+    during grocery shopping.}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/data/distributions_of_the_number_of_contacts/other_recurrent_daily}
+    \caption{Number of Daily Recurrent Other Contacts}
+    \label{n_contacts_other_daily_recurrent}
+    \floatfoot{\noindent Individuals are assigned to groups that are time constant and
+    that meet daily. The share of individuals that attend in a way that has transmission
+    potential is reduced by policies, seasonality and individual responses to events such
+    as receiving a positive rapid test. Other contacts include all contacts that are not
+    household members, school contacts or work contacts, for example leisure contacts or
+    contacts during grocery shopping.}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/data/distributions_of_the_number_of_contacts/other_recurrent_weekly}
+    \caption{Number of Weekly Recurrent Other Contacts}
+    \label{n_contacts_other_weekly_recurrent}
+    \floatfoot{\noindent Individuals are assigned to up to four groups that are time
+    constant and that meet weekly. The share of individuals that attend in a way that has
+    transmission potential is reduced by policies, seasonality and individual responses
+    to events such as receiving a positive rapid test. Other contacts include all
+    contacts that are not household members, school contacts or work contacts, for
+    example leisure contacts or contacts during grocery shopping.}
+\end{figure}
+
+% work contacts
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/data/distributions_of_the_number_of_contacts/work_non_recurrent}
+    \caption{Number of Non Recurrent Work Contacts}
+    \label{n_contacts_work_non_recurrent}
+    \floatfoot{\noindent In the model it is sampled every day which of these numbers of
+    contacts a working person is planned to have. Note that the contact diaries include
+    such high values that super spreading events are well possible in our model. The
+    planned number of contacts is reduced by policies, seasonality and individual
+    responses to events such as receiving a positive rapid test to the number of actual
+    contacts with transmission potential. Work contacts only take place between working
+    individuals.}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/data/distributions_of_the_number_of_contacts/work_recurrent_daily}
+    \caption{Number of Daily Recurrent Work Contacts}
+    \label{n_contacts_work_daily_recurrent}
+    \floatfoot{\noindent Working individuals are assigned to groups that are time
+    constant and that meet daily to match the given distribution of daily work contacts.
+    You can think of these as for example colleagues with which one shares an office
+    space. The share of individuals that attend in a way that has transmission potential
+    is reduced by policies (such as a work from home mandate), seasonality and individual
+    responses to events such as receiving a positive rapid test. Work contacts only take
+    place between working individuals.}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/data/distributions_of_the_number_of_contacts/work_recurrent_weekly}
+    \caption{Number of Weekly Recurrent Work Contacts}
+    \label{n_contacts_work_weekly_recurrent}
+    \floatfoot{\noindent Working individuals are assigned to up to 14 groups that are time
+    constant and meet weekly. Groups are scheduled to meet on separate days of the work
+    week. These contact models cover weekly team meetings etc. The share of individuals
+    that attend in a way that has transmission potential is reduced by policies,
+    seasonality and individual responses to events such as receiving a positive rapid
+    test. Work contacts only take place between working individuals.}
+\end{figure}
 
 
 \FloatBarrier
@@ -41,8 +129,8 @@ data we use to calibrate the number of contacts.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9 \textwidth]{../figures/assortative_matching_probability_example}
-    \caption{Distribution of random non-work contacts by age of participants.}
+    \includegraphics[width=0.9 \textwidth]{../figures/results/figures/data/assortativity_other_non_recurrent}
+    \caption{Distribution of Random Other Contacts by Age Group}
     \label{fig:assortativity}
     \figurenotes{The figure shows the distribution of random non-work contacts by age
         groups. A row shows the share of contacts a certain age group has with all other
