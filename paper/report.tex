@@ -16,18 +16,17 @@ Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to h
 on many dimensions. The development of highly effective vaccines holds the promise of
 containment in the medium term. However, most countries find themselves many
 months---and often years---away from reaching vaccination-induced herd immunity
-\citep{Swaminathan2021}.\comment[id=K]{WHO Press Conference saying we won't reach herd
-immunity in 2021. She cites no source.}\comment[id=HM]{If we find a paper (s)he cites, would be even better}
-In the meantime, it is of utmost importance to employ an effective mix of strategies for
-containing the virus. The most frequent initial response was a set of non-pharmaceutical
-interventions (NPIs) to reduce contacts between individuals. While this has allowed some
-countries to sustain equilibria with very low infection numbers\footnote{See
-    \citet{Contreras2021} for a theoretical equilibrium at low case numbers which is
-    sustained with test-trace-and-isolate policies.}, most have seen large fluctuations of
-infection rates. Containment measures have become increasingly diverse and now include
-testing, more nuanced NPIs, and contact tracing. Neither these policies' effect nor the
-influence of seasonal patterns or more infectious virus strains are well understood in
-quantitative terms.
+\citep{Swaminathan2021}.\comment[id=HM]{Need to find some more scientific citation
+before submission} In the meantime, it is of utmost importance to employ an effective
+mix of strategies for containing the virus. The most frequent initial response was a set
+of non-pharmaceutical interventions (NPIs) to reduce contacts between individuals. While
+this has allowed some countries to sustain equilibria with very low infection
+numbers\footnote{See \citet{Contreras2021} for a theoretical equilibrium at low case
+    numbers which is sustained with test-trace-and-isolate policies.}, most have seen large
+fluctuations of infection rates. Containment measures have become increasingly diverse
+and now include testing, more nuanced NPIs, and contact tracing. Neither these policies'
+effect nor the influence of seasonal patterns or more infectious virus strains are well
+understood in quantitative terms.
 
 This paper develops a quantitative model incorporating all these factors. The framework
 allows to combine a wide variety of data and mechanisms in a timely fashion, making it
@@ -92,7 +91,7 @@ probability of infection associated with a contact.
     \begin{subfigure}[b]{0.425\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/model-graph-bottom-right}
-        \caption{{Model for undetected cases}}
+        \caption{{Translating all infections to recorded ones}}
         \label{fig:model_for_official_cases}
     \end{subfigure}
 
@@ -116,54 +115,56 @@ The model includes several other features, which are crucial to describe the evo
 of the pandemic in 2020-2021. New virus strains with different profiles regarding
 infectiousness can be introduced. Agents may receive a vaccination. With a probability
 of 75\% \citep{Hunter2021}, vaccinated agents become immune and they do not transmit the
-virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\footnote{75\% is
-    lower than what is usually reported for after the second dose of the Biontech/Pfizer
-    vaccine, which is most commonly used in Germany. We choose it because our model neither
-    includes booster shots, nor does it allow vaccinated individuals who became immune to
-    transmit the disease\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}. If
-    anything, these assumptions would overstate the effect of vaccines for our study period.
-    This would be different if a large fraction of vaccinated individuals had received a
-    second dose already.} During the vaccine roll-out, priority may depend on age and
-occupation.
+virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\footnote{75\% is lower
+    than what is usually reported for after the second dose of the Biontech/Pfizer vaccine,
+    which is most commonly used in Germany. We choose it because our model neither includes
+    booster shots, nor does it allow vaccinated individuals who became immune to transmit
+    the disease\citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}. If anything, these
+    assumptions would overstate the effect of vaccines for our study period. This would be
+    different if a large fraction of vaccinated individuals had received a second dose
+    already.} During the vaccine roll-out, priority may depend on age and occupation.
 
 We include two types of tests. Polymerase chain reaction (PCR) tests directly reveal
-whether an individual is infected or not. PCR tests require some days to be processed and
-there are aggregate capacity constraints throughout. In contrast, rapid antigen tests
-yield immediate results; after a phase-in period, all tests that are demanded will be
-performed. Specificity and sensitivity of these tests is set according to data analyzed
-in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the test relative
-to the start of infectiousness. Figure~\ref{fig:antigen_tests} shows our model for rapid
-test demand. Schools may require students to be tested regularly. Rapid tests may be
-offered by employers for on-site workers. Individuals may demand tests for private
-reasons, which include having plans to meet other people\footnote{A positive test will
-make them reduce their contacts; this is why tests impact the actual contacts in
-Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and because a
+whether an individual is infected or not. PCR tests require some days to be processed
+and there are aggregate capacity constraints throughout. In contrast, rapid antigen
+tests yield immediate results; after a phase-in period, all tests that are demanded will
+be performed. Specificity and sensitivity of these tests is set according to data
+analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the
+test relative to the start of infectiousness. Figure~\ref{fig:antigen_tests} shows our
+model for rapid test demand. Schools may require students to be tested regularly. Rapid
+tests may be offered by employers for on-site workers. Individuals may demand tests for
+private reasons, which include having plans to meet other people\footnote{A positive
+    test will make them reduce their contacts; this is why tests impact the actual contacts
+    in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and because a
 household member tested positively for the virus. We endow each agent with an individual
 compliance parameter. This parameter determines whether she takes up rapid tests offered
-by employers or follows up on private reasons and whether she reduces her contacts if she
-tests positive or develops symptoms. The thresholds are higher for tests in a private
-setting than for tests at the workplace until mid April and then compliance because of
-private reasons becomes higher than compliance at the workplace.
+by employers or follows up on private reasons and whether she reduces her contacts if
+she tests positive or develops symptoms. The thresholds are higher for tests in a
+private setting than for tests at the workplace until mid April and then compliance
+because of private reasons becomes higher than compliance at the workplace.
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
 parameters.\footnote{See section~\ref{sec:data_and_parameters} of the supplementary
-materials for an overview.} We can rely on contact diaries to get pre-pandemic
-distributions of contacts for different contact types and their assortativity by age
-group. Mobility data is used to model the reductions in work contacts. School and daycare
-policies can be incorporated directly from official directives. Aggregate tests,
-vaccinations and the prevalence of virus strains can be taken from official records. The
-likelihood to receive a test offer or to take up a test offer and the share of
-individuals that have ever taken a test or done weekly tests in the last month can be
-calibrated from survey data.\comment[id=HM]{Anything else we need to
-mention?}\comment[id=K]{I added some more that I think are worth mentioning.} We estimate
-the infection probabilities\comment[id=HM]{need to be more precise here, cannot find in
-Appendix}\comment[id=K]{I added \ref{subsec:infection_probs}.} that the simulated new
-infections predict age- and region-specific time series.\comment[id=K]{We never directly
-targeted the federal states if I remember it right. How large was their weight in the
-criterion function @Janos?} However, the two sets of time series are not comparable
-directly because not all cases will be recorded. We model the fraction of recorded cases
-as depicted in Figure~\ref{fig:model_for_official_cases}.\comment[id=HM]{Add a sentence.}
+    materials for an overview.} Contact diaries yield pre-pandemic distributions of contacts
+for different contact types and their assortativity by age group. Mobility data is used
+to model the reductions in work contacts. School and daycare policies can be
+incorporated directly from official directives. Administrative records on the number of
+tests, vaccinations by age and region, and the prevalence of virus strains are generally
+available. Surveys may ask about test offers, propensities to take them up, and past
+tests.
+
+The free parameters are the infection probabilities by contact type, see Supplementary
+Material~\ref{subsec:infection_probs}. We estimate these parameters so that  simulated
+infections by age predict the corresponding time series in the data \citep[See][for the
+    general method]{McFadden1989}. However, the two sets of time series are not comparable
+directly because not all cases will be recorded. We thus model recorded cases as
+depicted in Figure~\ref{fig:model_for_official_cases}. We take aggregate estimates of
+the share of recorded cases and use data on whether the reason for a PCR test were
+symptoms of CoViD-19 to get age-specific shares. For example,
+\comment[id=HM]{@Janos, please correct if necessary and insert reference} estimate
+unknown cases to be twice as high for children as for adults. Confirmation of a positive
+rapid test result is another reason for PCR tests, once these become available.
 
 The model is applied to the second and third wave of the CoViD-19 pandemic in Germany,
 covering the period mid-September 2020 to the end of May 2021.
@@ -322,7 +323,8 @@ of the three factors and our main specification.
         \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_rapid_tests_area}
         % \includegraphics[width=\textwidth]{../figures/results/figures/full_decomposition_rapid_tests_bar}
         \caption{Decomposition of the difference between the scenario without rapid
-            tests and the main scenario in Figure~\ref{fig:2021_scenarios_newly_infected}.}
+            tests and the main scenario in
+            Figure~\ref{fig:2021_scenarios_newly_infected}.}
         \label{fig:2021_scenarios_decomposition_tests}
     \end{subfigure}
 
@@ -423,30 +425,6 @@ opening schools combined with a testing strategy would have been beneficial. In 
 situations, and particular when no test strategy is available, trade-offs may well be
 different.
 
-Effects:
-\begin{itemize}
-    \item Schools were essentially closed
-    \item What are the different $R_t$-values? In no-test scenario and $R_t>1$, might be
-          worth chopping off 0.05 or whatever that might be?
-    \item With tests it is really hard to make a case for that
-\end{itemize}
-
-Alternative:
-\begin{itemize}
-    \item Germany quite lenient on home office relative to other countries (employer had
-          to allow)
-    \item Testing: Rapid tests are cheap (less than 1\euro), just a nuisance.
-\end{itemize}
-
-Results
-\begin{itemize}
-    \item Advantage of testing in both cases: Recurrent. Small cost relative to other
-          stuff. Certain publicness.
-    \item Mandatory tests: Screening effect for hard-to-reach populations (do not
-          consider in this paper, also due to poor data in DE)
-\end{itemize}
-
-
 \begin{figure}[!tp]
     \centering
 
@@ -472,3 +450,18 @@ Results
         capacity constraints for rapid tests afterwards.}
 
 \end{figure}
+
+Alternative:
+\begin{itemize}
+    \item Germany quite lenient on home office relative to other countries (employer had
+          to allow)
+    \item Testing: Rapid tests are cheap (less than 1\euro), just a nuisance.
+\end{itemize}
+
+Results
+\begin{itemize}
+    \item Advantage of testing in both cases: Recurrent. Small cost relative to other
+          stuff. Certain publicness.
+    \item Mandatory tests: Screening effect for hard-to-reach populations (do not
+          consider in this paper, also due to poor data in DE)
+\end{itemize}
