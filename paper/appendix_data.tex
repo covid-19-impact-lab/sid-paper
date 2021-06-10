@@ -175,18 +175,34 @@ households addresses all questions. I think marginals would be confusing because
 
 To calibrate infection probabilities outside of the model, it would be important to know
 the exact duration and distance of each contact type as well as viral loads. Since this
-is not available in any dataset, we estimate those parameters inside the model with the
+is not available in any data set, we estimate those parameters inside the model with the
 method of simulated moments \citep{McFadden1989} by minimizing the distance between
 simulated and observed infection rates. Since our model includes a lot of randomness, we
 average simulated infection rates over several model runs.
 
-Currently, we use data for Germany from August until November. We do not use earlier
-periods to save computational time. Moreover, we would be worried that the there are
-seasonal effects that we currently do not model.
+Currently, we use data for Germany from October 2020 until June 2021. We do not use
+earlier periods for three reasons. Firstly, in the beginning PCR tests were highly
+limited and therefore it would be difficult to find good initial conditions for our
+simulations. In addition during the summer the case numbers were extremely low. This
+could lead to the epidemic going extinct in our simulation. Additionally, our model does
+not include international travel or other imports of cases. These would be important but
+difficult to model during the summer months.
 
-To avoid overfitting and simplify the numerical optimization problem, we only allow for
-four different probabilities: 1) for contacts in schools, preschools and nurseries. 2)
-for work contacts. 3) for households. 4) for leisure activities.
+To avoid over-fitting and simplify the numerical optimization problem, we only allow for
+five different probabilities: 1) for contacts in schools 2) contacts in preschools and
+nurseries. 3) for work contacts. 4) for households. 5) for other contacts.
+
+The infection probabilities estimated from our model are as follows: For household
+contacts (each individual meets all his or her household members every day) the infection
+probability is 10\%, for school contacts (all students and teachers meet all other
+students and teachers that attend school that day and there are three classes taking
+place each day) the probability of infection is 1.2\%, for preschools and nurseries that
+infection probability is 0.5\%. Work contacts carry a risk of 14.5\% and other activities
+(including leisure activities such as meeting friends) carry the highest risk with
+15.875\%.
+
+
+
 
 \subsection{Policies}
 
