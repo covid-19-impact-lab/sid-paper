@@ -3,5 +3,6 @@ sid:
     - return last states as pandas DataFrame (not dask)
 
 sid-germany:
-    - eedea6d
+    - most scenarios are from eedea6d, new work scenarios from 3781518
     - new work scenarios after comments
+
