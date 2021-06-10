@@ -249,13 +249,16 @@ time.
         workers go to work depending on the state they live in.}
 \end{figure}
 
+For both work and school contacts we assume that starting November with the lockdown
+light in Germany, hygiene measures (such as masks, ventilation and hand washing) became
+more strict and more conscientiously observed, leading to a reduction of 33\% in the number of contacts with the potential to transmit Covid-19.
 
 For the last group of contacts which cover things like leisure activities, grocery
 shopping etc. we have no reliable data by how much policies reduce them. In addition,
 they are likely to be affected by social and psychological factors such as pandemic
 fatigue and vacations. Because of this we estimate them like the infection probabilities
 to fit the time series data. We use very few change points and tie them to particular
-events such as policy announcements or particular holidays.
+events such as policy announcements or particular holidays.\comment[id=K]{@Janos should we already add in numbers in here?}
 
 \FloatBarrier
 
@@ -284,31 +287,112 @@ In our model, there are five reasons why rapid tests are done:
 
 For work contacts, we know from the COSMO study (\cite{Betsch2021}, 20th/21st of April)
 that 60\% of workers who receive a test offer by their employer regularly use it. We
-assume this to be time constant.
+assume this share to be time constant.
 
-In addition, there are some surveys that allow us to trace the expansion of employers
-who offer tests to their employees. Mid march, 20\% of employers offered tests to their
-employees \citep{DIHK2021}. In the second half of March, 23\% of employees reported
-being offered weekly rapid tests by their employer \citep{Ahlers2021}. This share
-increased to 60\% until the first days of April \cite{ZDF2021}. Until mid April 70\% of
-workers were expected to receive a weekly test offer \citep{AerzteZeitung2021}. However,
-according to surveys conducted in mid April \citep{Betsch2021}, less than two thirds of
-individuals with work contacts receive a test offer. Starting on April 19th employers
-were required by law to provide two weekly tests to their employees
-\citep{Bundesanzeiger2021}. We assume that compliance is incomplete and only 80\% of
-employers actually offer tests.\comment[id=HM]{Can we use the IZA/BMAS survey? Not sur
-about citing evening news in scientific papers.}
+In addition, there are some surveys that allow us to trace the expansion of employers who
+offer tests to their employees. Mid march, 20\% of employers offered tests to their
+employees \citep{DIHK2021}. In the second half of March, 23\% of employees reported being
+offered weekly rapid tests by their employer \citep{Ahlers2021}. This share increased to
+60\% until the first days of April \cite{ZDF2021}. Until mid April 70\% of workers were
+expected to receive a weekly test offer \citep{AerzteZeitung2021}. However, according to
+surveys conducted in mid April \citep{Betsch2021}, less than two thirds of individuals
+with work contacts receive a test offer. Starting on April 19th employers were required
+by law to provide two weekly tests to their employees \citep{Bundesanzeiger2021}. We
+assume that compliance is incomplete and only 80\% of employers actually offer
+tests.\comment[id=HM]{Can we use the IZA/BMAS survey? Not sur about citing evening news
+in scientific papers.}\comment[id=K]{I am not aware of any survey looking at compliance.
+If you know of some, that would be great. Updating this might change our results but it
+would definitely be an improvement!}
 
 % educ rapid tests
 
-\comment[id=J]{Sources still missing below this}
-
 We assume that employees in educational facilities start getting tested in 2021 and that
-by March 1st 30\% of them are tested weekly. The share increases to 90\% for the week
-before Easter. At that time both Bavaria and Baden-Württemberg were offering tests to
-teachers and North-Rhine Westphalia and Lower Saxony were already testing students and
-tests for students and teachers were already mandatory in Saxony. After Easter we assume
-that 95\% of teachers get tested twice per week.
+by March 1st 30\% of them are tested weekly.
+
+The share increases to 90\% for the week before Easter. At that time both Bavaria
+\citep{BayrischerRundfunk2021} and Baden-Württemberg \citep{MinisteriumKultus2021} were
+offering tests to teachers and North-Rhine Westphalia \cite{DPA2021} and Lower Saxony
+\citep{SueddeutscheZeitung2021} were already testing students and tests for students and
+teachers were already mandatory in Saxony \citep{SueddeutscheZeitung2021a}. After Easter
+we assume that 95\% of teachers get tested twice per week.\comment[id=K]{Mostly newspaper
+articles and one KuMi press communication. I have more sources for the smaller federal
+states but they are extremely time consuming to enter into the references.}
+
+
+% --------------------------------------------------------------------------------------
+%
+%def _add_educ_rapid_test_fade_in_params(params):
+%    """Add the shares how many people with educ contacts get a rapid test.
+%
+%    Sources:
+%        - 17-24 of March 2021 (Mon, 2021-03-22):
+%            - NRW had 80% tests for students before Easter (https://bit.ly/3u7z8Rx)
+%            - BY: test offers to educ_workers (https://bit.ly/3tbVX5u)
+%            - BW: only tests for educ workers (https://bit.ly/2S7251M)
+%
+%            - federal level:
+%                "In Kitas und Schulen sollen die Testmöglichkeiten "mit der
+%                steigenden Verfügbarkeit von Schnell- und Selbsttests"
+%                ausgebaut werden" (https://bit.ly/3nuCSKi)
+%            - Some KiTa workers are being tested (https://bit.ly/3nyGyus)
+%            - Self tests for students in Berlin (https://bit.ly/2ScGu8m)
+%            - Schleswig-Holstein: test offer (https://bit.ly/3eVfkuv)
+%            - mandatory tests in Saxony (https://bit.ly/3eEQGhn)
+%            - no tests yet for students in Hessia, but already ordered
+%              (https://bit.ly/3gMGJB4)
+%            - Niedersachsen had one test week before Easter (https://bit.ly/3gOOC96)
+%
+%            => assume 90% of teachers and 40% of students do rapid tests
+%
+%        - After Easter (2021-04-07):
+%            - NRW: tests are mandatory for all
+%            - Bavaria: tests are mandatory for all (https://bit.ly/3nz5fXS,
+%              https://bit.ly/2QHilX3)
+%            - BW: voluntary tests for students (https://bit.ly/3vuetaD)
+%            - Brandenburg starts with tests (https://bit.ly/3xAihZB)
+%            - Schleswig-Holstein: mandatory tests (https://bit.ly/3eVfkuv)
+%
+%            => assume 95% of teachers and 75% of students get tested
+%
+%        - BW: tests mandatory starting 2021-04-19 (https://bit.ly/3vuetaD)
+%
+%            => assume 95% of teachers and 95% of students get tested
+%
+%    """
+%    params = params.copy(deep=True)
+%
+%    loc = ("rapid_test_demand", "educ_worker_shares")
+%    params.loc[(*loc, "2020-01-01"), "value"] = 0.0
+%    params.loc[(*loc, "2021-01-01"), "value"] = 0.0
+%    # this is arbitrary to have a more convex shape
+%    params.loc[(*loc, "2021-03-01"), "value"] = 0.3
+%    params.loc[(*loc, "2021-03-22"), "value"] = 0.9
+%    params.loc[(*loc, "2021-04-07"), "value"] = 0.95
+%    params.loc[(*loc, "2021-04-19"), "value"] = 0.95
+%    params.loc[(*loc, "2021-06-01"), "value"] = 0.95
+%    params.loc[(*loc, "2025-12-31"), "value"] = 0.95
+%
+%    loc = ("rapid_test_demand", "student_shares")
+%    params.loc[(*loc, "2020-01-01"), "value"] = 0.0
+%    params.loc[(*loc, "2021-02-01"), "value"] = 0.0
+%    params.loc[(*loc, "2021-03-01"), "value"] = 0.1
+%    params.loc[(*loc, "2021-03-22"), "value"] = 0.4
+%    params.loc[(*loc, "2021-04-07"), "value"] = 0.75
+%    params.loc[(*loc, "2021-04-19"), "value"] = 0.95
+%    params.loc[(*loc, "2021-06-01"), "value"] = 1.0
+%    params.loc[(*loc, "2025-12-31"), "value"] = 1.0
+%
+%    # Assume weekly tests before Easter and twice weekly tests after Easter
+%    # We should get a fade-in through different ends of Easter vaccation
+%    params.loc[("rapid_test_demand", "educ_frequency", "before_easter"), "value"] = 7
+%    params.loc[("rapid_test_demand", "educ_frequency", "after_easter"), "value"] = 3
+%
+%    return params
+%
+% --------------------------------------------------------------------------------------
+
+
+\comment[id=J]{Sources still missing below this}
 
 Tests for students started later so we assume that they only start in February and only
 10\% of students get tested by March 1st. Relying on the same sources as above we
