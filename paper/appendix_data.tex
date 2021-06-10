@@ -12,7 +12,7 @@ literature or calibrated from surveys and empirical datasets.
 \input{medical_parameters}
 
 
-\subsection{Number of Contacts}
+\subsection{Number of Contacts\comment[id=HM]{Histograms seem like the way to go here. Also add household contacts, i.e., distribution of (household size minus 1).}}
 \label{sub:number_of_contacts}
 
 We calibrate the parameters for the predicted numbers of contacts from contact diaries
@@ -177,8 +177,9 @@ households addresses all questions. I think marginals would be confusing because
 \FloatBarrier
 
 
-\subsection{Infection Probabilities}
+\subsection{Infection Probabilities\comment[id=HM]{Is the data section the right place?}}
 \label{subsec:infection_probs}
+
 
 To calibrate infection probabilities outside of the model, it would be important to know
 the exact duration and distance of each contact type as well as viral loads. Since this
@@ -187,7 +188,7 @@ method of simulated moments \citep{McFadden1989} by minimizing the distance betw
 simulated and observed infection rates. Since our model includes a lot of randomness, we
 average simulated infection rates over several model runs.
 
-Currently, we use data for Germany from October 2020 until June 2021. We do not use
+We use data for Germany from October 2020 until June 2021. We do not use
 earlier periods for three reasons. Firstly, in the beginning PCR tests were highly
 limited and therefore it would be difficult to find good initial conditions for our
 simulations. In addition during the summer the case numbers were extremely low. This
@@ -206,7 +207,7 @@ students and teachers that attend school that day and there are three classes ta
 place each day) the probability of infection is 1.2\%, for preschools and nurseries that
 infection probability is 0.5\%. Work contacts carry a risk of 14.5\% and other activities
 (including leisure activities such as meeting friends) carry the highest risk with
-15.875\%.
+15.875\%.\comment[id=HM]{Are these numbers current? In any case, a table would substitute for this and the previous paragraph. Need to mention B.1.1.7 alongside.}
 
 \subsection{Policies}
 \label{subsec:policies}
