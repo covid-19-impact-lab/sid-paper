@@ -47,8 +47,8 @@ occur at random. Random contacts are typically assortative in age and geographic
 location. Empirical applications can take the population structure from census data and
 the types and frequency of contacts from diary data measuring contacts before the
 pandemic \citep[e.g.][]{Mossong2008}.\footnote{\citet{Hoang2019} provide access to
-multiple data sets on contact types and frequencies covering countries from four
-continents.}
+    multiple data sets on contact types and frequencies covering countries from four
+    continents.}
 
 The three dimensions of contact types are chosen so that the most common NPIs can be
 modeled in great detail. NPIs affect the number of contacts or the risk of transmitting
@@ -137,8 +137,8 @@ test relative to the start of infectiousness. Figure~\ref{fig:antigen_tests} sho
 model for rapid test demand. Schools may require students to be tested regularly. Rapid
 tests may be offered by employers for on-site workers. Individuals may demand tests for
 private reasons, which include having plans to meet other people\footnote{A positive
-test will make them reduce their contacts; this is why tests impact the actual contacts
-in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and because a
+    test will make them reduce their contacts; this is why tests impact the actual contacts
+    in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and because a
 household member tested positively for the virus. We endow each agent with an individual
 compliance parameter. This parameter determines whether she takes up rapid tests offered
 by employers or follows up on private reasons. The thresholds are lower for tests in a
@@ -182,7 +182,6 @@ Figure~\ref{fig:share_b117}. In early March, some NPIs were being relaxed; e.g.,
 hairdressers and home improvement stores were allowed to open again to the public. There
 were many changes in details of regulations afterwards, but they did not change the
 stringency index.
-
 
 \begin{figure}[!tp]
     \centering
@@ -253,7 +252,7 @@ for detailed descriptions of the data and the model, respectively. The blue line
 Figure~\ref{fig:aggregated_fit} shows our model's predictions are very close to
 officially recorded cases in the aggregate. This is also true for infections by age and
 geographical region, which are shown in the supplementary materials
-(Figures~\ref{fig:age_group_fit} and \ref{fig:state_fit}, respectively). 
+(Figures~\ref{fig:age_group_fit} and \ref{fig:state_fit}, respectively).
 
 The effects of various mechanisms can be disentangled due to the distinct temporal
 variation in the drivers of the pandemic. Next to the stringency index, the three lines
@@ -338,20 +337,20 @@ of the three factors and our main specification.
 Until mid-March, there is no visible difference between the different scenarios.
 Seasonality hardly changes, and only few vaccinations or rapid tests were administered.
 Even thereafter, the effect of the vaccination campaign is surprisingly small at first
-sight. Whether considering recorded or total infections, the final level is always the
-highest in case the vaccination campaign had been running in isolation (red lines). The
-Shapley value decomposition shows that vaccinations contribute about
-15\%\comment[id=HM]{check!} to the cumulative difference between scenarios. Reasons for
-this are the slow start---it took until 24~March until 10\% of the population had
-received their first vaccination, the 20\% mark was reached on April 19th ---and the
-focus on older individuals. These groups contribute less to the spread of the disease
-than others due to a lower number of contacts, see~\ref{fig:assortativity}. It is
-important to note that the initial focus of the campaign was to prevent deaths and
-severe disease; the case fatality was rate considerably lower during the third wave when
-compared to the second (4.4\% between October and February and 1.4\% between March and
-June). It is important to note that by the end of our study period, when first-dose
-vaccination rates reached around 40\% of the population, the numbers of new cases would
-have started to decline.
+sight. Whether considering recorded or total infections with only one channel active,
+the final level is always the highest in case of the vaccination campaign (orange
+lines). The Shapley value decomposition shows that vaccinations contribute about 15\% to
+the cumulative difference between scenarios. Reasons for this are the slow start---it
+took until March~24th until 10\% of the population had received their first vaccination,
+the 20\% mark was reached on April 19th---and the focus on older individuals. These
+groups contribute less to the spread of the disease than others due to a lower number of
+contacts, see Supplementary Material~\ref{subsec:contacts_by_age}. It is important to
+note that the initial focus of the campaign was to prevent deaths and severe disease;
+the case fatality was rate considerably lower during the third wave when compared to the
+second (4.4\% between October and February and 1.4\% between March and June). It is
+important to note that by the end of our study period, when first-dose vaccination rates
+reached around 40\% of the population, the numbers of new cases would have started to
+decline.
 
 Seasonality has a large effect in slowing the spread of SARS-CoV-2. By May 31, both
 observed and recorded cases would be reduced by a factor of four if only seasonality
@@ -362,7 +361,7 @@ almost 40\% of the cumulative difference by the end of May.
 
 The largest effect---almost one half when considering the decompositions---comes from
 rapid testing. Here, it is crucial to differentiate between recorded cases and actual
-cases. Additional testing means that infections become known which would otherwise
+cases. Additional testing means that infections become known, which would otherwise
 remain undetected. Figure~\ref{fig:2021_scenarios_recorded} shows that this means that
 until late April, recorded cases are higher than in the scenario where none of the three
 mechanisms is turned on. Compared to the scenario with vaccinations only, this point is
@@ -379,10 +378,11 @@ Figure~\ref{fig:2021_scenarios_decomposition_tests} decomposes the difference in
 scenario without rapid tests only (purple line in
 Figure~\ref{fig:2021_scenarios_newly_infected}) and the main specification into the
 three channels for rapid tests. Tests for pupils have the smallest effect, which is
-largely explained by the relatively small number of students (XXM vs. YYM workers) and
-the fact that schools did not operate at full capacity during our period of study.
-Almost 40\% come from tests at the workplace. Despite the fact that we phase rapid tests
-for private reasons are phased in only late, they make up for more than half of the total effect.
+largely explained by the relatively small number of students (XXM pupils vs. YYM
+workers)\comment[id=HM]{fill in} and the fact that schools did not operate at full
+capacity during our period of study. Almost 40\% come from tests at the workplace.
+Despite the fact that we phase rapid tests for private reasons are phased in only late,
+they make up for more than half of the total effect.
 
 \comment[id=HM]{How many tests are actually performed along each of the three dimensions? Could this be a quantity story rather than the directed testing story I am making up here as wishful thinking?}
 
@@ -401,10 +401,12 @@ countries, schools switched to remote instruction during the first wave, so did 
 After the summer break, they were operating at full capacity with increased hygiene
 measures, before being closed again from mid-December on. Some states started opening
 them gradually in late February, but usual operaton was not back until the beginning of
-June. In light of the large negative effects school closures have on children and
+June. Figure~\ref{fig:school_scenarios} shows the effects of different policies regarding school starting at Easter, a point where rapid tests had become widely available. 
+
+In light of the large negative effects school closures have on children and
 parents\comment[id=HM]{need to cite a couple of poor learning outcomes / mental health
 papers. There must be well-published ones}---and in particular on those with low
-socio-economic status---
+socio-economic status---the results in
 
 Effects:
 \begin{itemize}
@@ -436,22 +438,22 @@ Results
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/school_scenarios/full_newly_infected}
-        \caption{{Effects of different schooling scenarios after Easter}}
-        \label{fig:schooling_scenarios_easter}
+        \caption{{Effects of different schooling scenarios}}
+        \label{fig:school_scenarios}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
         \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/new_work_scenarios/full_newly_infected}
-        \caption{{Effects of different work scenarios after Easter}}
-        \label{fig:to_be_determined}
+        \caption{{Effects of different work scenarios}}
+        \label{fig:workplace_scenarios}
     \end{subfigure}
     \vskip3ex
 
-    \caption{Effects of different scenarios for schooling and working from home}
-    \label{fig:interventions_school}
+    \caption{Effects of different scenarios for policies regarding schools and workplaces.}
+    \label{fig:school_workplace_scenarios}
 
-    \floatfoot{\noindent Note: All aggregates; See S.XXX for statistics by age group and
-        by geographical region.}
+    \floatfoot{\noindent Note: Interventions start at Easter because there were no
+        capacity constraints for rapid tests afterwards.}
 
 \end{figure}
