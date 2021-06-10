@@ -38,7 +38,10 @@ numbers of contacts by contact type.
     such as receiving a positive rapid test to the number of actual contacts with
     transmission potential. Other contacts include all contacts that are not household
     members, school contacts or work contacts, for example leisure contacts or contacts
-    during grocery shopping.}
+    during grocery shopping. We assume that individuals in households with children or
+    teachers or retired individuals have additional contacts during school vacations to
+    cover things like family visits or travel during vacations. We estimate this to be on
+    average 0.5 additional contacts per vacation day.}
 \end{figure}
 
 
@@ -201,9 +204,6 @@ infection probability is 0.5\%. Work contacts carry a risk of 14.5\% and other a
 (including leisure activities such as meeting friends) carry the highest risk with
 15.875\%.
 
-
-
-
 \subsection{Policies}
 
 \FloatBarrier
@@ -212,8 +212,9 @@ In our empirical application we distinguish four groups of contact types: househ
 education, work and other contacts. For households we assume that the individuals'
 contacts in their households do not change over our estimation period. For nurseries,
 preschools and schools we implement vacations as announced by the German federal states
-as well as school closures. For the moment we ignore both emergency childcare and that
-lack of childcare leads working parents to stay home.
+as well as school closures, emergency care and A / B schooling where only one half of
+students attends every other week or day. For the moment we ignore that lack of childcare
+leads working parents to stay home.
 %
 % Schließung von Kindertagesstätten und Schulen: 37,4 Millionen ausgefallene Arbeitstage
 % http://www.iab-forum.de/schul-und-kitaschliessungen-krankheit-quarantaene-die-coronabedingten-arbeitsausfaelle-der-erwerbstaetigen-steigen-auf-592-millionen-arbeitstage/
@@ -225,8 +226,9 @@ lack of childcare leads working parents to stay home.
 % https://gfx.sueddeutsche.de/apps/e525337/www/_image_desktopw1840q70-1e2e2bf78b7d4430
 % 18% der Grundschüler in Notbetreuung in BW
 %
-For our work models\footnotemark we use the reductions in work mobility reported in the
-Google Mobility Data \citep{Google2021} to calibrate our work policies. Reductions in
+For our work models\footnote{We distinguish non-recurrent work contacts, daily work
+contacts and weekly work contacts.} we use the reductions in work mobility reported in
+the Google Mobility Data \citep{Google2021} to calibrate our work policies. Reductions in
 work contacts are not random but governed through a work contact priority where the
 policy changes the threshold below which workers stay home. Figure
 \ref{fig:work_multiplier} shows the share of workers that go to work in our model over
@@ -238,13 +240,15 @@ time.
     \caption{Share of Workers with Work Contacts}
     \label{fig:work_multiplier}
     \floatfoot{\noindent The figure shows the work mobility as reported by \cite{Google2021}. We
-        take this as a proxy of the share of workers who are not in home office, i.e.
-        who still have physical work contacts. The figure interpolates over weekends as
-        we handle weekend effects through information on work on weekends in the German
-        census data we use.}
+        take this as a proxy of the share of workers who are not in home office, i.e. who
+        still have physical work contacts. The figure interpolates over weekends as we
+        handle weekend effects through information on work on weekends in the German
+        census data we use. The figure shows the share aggregated over Germany as a
+        whole. To capture the effect that local policies, school vacations and public
+        policies have on work contacts we use the data by German state to determine which
+        workers go to work depending on the state they live in.}
 \end{figure}
 
-\footnotetext{We distinguish non-recurrent work contacts, daily work contacts and weekly work contacts.}
 
 For the last group of contacts which cover things like leisure activities, grocery
 shopping etc. we have no reliable data by how much policies reduce them. In addition,
