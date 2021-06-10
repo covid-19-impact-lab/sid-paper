@@ -375,10 +375,11 @@ mechanisms are turned on. Compared to the scenario with vaccinations only, this 
 reached around mid-May and it would be June for the comparison with the seasonality-only
 scenario. The effect on total cases, however, is visible immediately. Despite the fact
 that only a small fraction of the population performed weekly rapid tests in
-March\footnote{8\% in the model; 27\% of respondents to the COSMO study reported in
-    early March that they \textit{ever} did a rapid test)}, new
-infections on April 1 would be reduced by 53\% relative to the scenario without
-vaccinations, rapid tests, or seasonality.
+March\footnote{4\% to 6\% have done a rapid test within the last seven days in the first
+week of March. 8\% in the model have ever done a rapid test at that point; 27\% of
+respondents to the COSMO study reported in early March that they \textit{ever} did a
+rapid test)}, new infections on April 1 would be reduced by 53\% relative to the scenario
+without vaccinations, rapid tests, or seasonality.
 
 So why is rapid testing so effective? In order to shed more light on this question,
 Figure~\ref{fig:2021_scenarios_decomposition_tests} decomposes the difference in the
@@ -398,8 +399,15 @@ tracing, which has been shown to be very effective \citep{Contreras2021,
 Kretzschmar2020}. This is also the reason for why the number of tests performed fall at
 the very end of our study period. Falling infection rates mean that there are fewer
 events triggering private test demand.
-\comment[id=HM]{Positive rates along the three channels might be nice here, if previous comment is not a quant story}
-\comment[id=HM]{I think there is a story in here about risk conditional on past exposure vs. prospective risk in gatherings, but it is too late to work through it. We might just want to calculate the probabilities.}
+\comment[id=HM]{Positive rates along the three channels might be nice here, if previous
+comment is not a quant story}\comment[id=K]{Working on it}
+\comment[id=HM]{I think there is a story in here about risk conditional on past exposure
+vs. prospective risk in gatherings, but it is too late to work through it. We might just
+want to calculate the probabilities.}\comment[id=K]{Yes, we have both in the private
+reasons. Retrospective after a case in the household and prospective in anticipation of
+participation in a weekly meeting with friends. However, we cannot easily turn these
+separately on and off at the moment as they use the same multiplier. We could do,
+however, do this in the future.}
 
 Two of the most contentious NPIs concern schools and mandates to work from home. In many
 countries, schools switched to remote instruction during the first wave, so did Germany.
