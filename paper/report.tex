@@ -59,7 +59,7 @@ schedule---,or implement mitigation measures like masking requirements or air fi
 \citep{Lessler2021}. Curfews may reduce the number of contacts in non-work/non-school
 settings. In any setting, measures like masking requirements would reduce the
 probability of infection associated with a contact
-\citep{Cheng2021}\comment[id=HM]{https://science.sciencemag.org/content/early/2021/05/19/science.abg6296}
+\citep{Cheng2021}.
 
 \begin{figure}
     \centering
@@ -158,14 +158,14 @@ tests.
 The free parameters are the infection probabilities by contact type, see Supplementary
 Material~\ref{subsec:infection_probs}. We estimate these parameters so that  simulated
 infections by age predict the corresponding time series in the data \citep[See][for the
-    general method]{McFadden1989}. However, the two sets of time series are not comparable
-directly because not all cases will be recorded. We thus model recorded cases as
-depicted in Figure~\ref{fig:model_for_official_cases}. We take aggregate estimates of
-the share of recorded cases and use data on whether the reason for a PCR test were
-symptoms of CoViD-19 to get age-specific shares. For example,
-\comment[id=HM]{@Janos, please correct if necessary and insert reference} estimate
-unknown cases to be twice as high for children as for adults. Confirmation of a positive
-rapid test result is another reason for PCR tests, once these become available.
+general method]{McFadden1989}. However, the two sets of time series are not comparable
+directly because not all cases will be recorded. We thus model recorded cases as depicted
+in Figure~\ref{fig:model_for_official_cases}. We take aggregate estimates of the share of
+recorded cases and use data on whether the reason for a PCR test were symptoms of
+CoViD-19 to get age-specific shares. For example,\comment[id=HM]{@Janos, please correct
+if necessary and insert reference} estimate unknown cases to be twice as high for
+children as for adults. Confirmation of a positive rapid test result is another reason
+for PCR tests, once these become available.
 
 The model is applied to the second and third wave of the CoViD-19 pandemic in Germany,
 covering the period mid-September 2020 to the end of May 2021.
@@ -355,10 +355,9 @@ groups contribute less to the spread of the disease than others due to a lower n
 contacts, see Supplementary Material~\ref{subsec:contacts_by_age}. It is important to
 note that the initial focus of the campaign was to prevent deaths and severe disease;
 the case fatality was rate considerably lower during the third wave when compared to the
-second (4.4\% between October and February and 1.4\% between March and June). It is
-important to note that by the end of our study period, when first-dose vaccination rates
-reached around 40\% of the population, the numbers of new cases would have started to
-decline.
+second (4.4\% between October and February and 1.4\% between March and June). By the end
+of our study period, when first-dose vaccination rates reached around 40\% of the
+population, the numbers of new cases would have started to decline.
 
 Seasonality has a large effect in slowing the spread of SARS-CoV-2. By May 31, both
 observed and recorded cases would be reduced by a factor of four if only seasonality
@@ -399,38 +398,36 @@ up on a positive test of a household member. The latter is essentially a form of
 tracing, which has been shown to be very effective \citep{Contreras2021,
 Kretzschmar2020}. This is also the reason for why the number of tests performed fall at
 the very end of our study period. Falling infection rates mean that there are fewer
-events triggering private test demand.
-\comment[id=HM]{Positive rates along the three channels might be nice here, if previous
-comment is not a quant story}\comment[id=K]{Working on it}
-\comment[id=HM]{I think there is a story in here about risk conditional on past exposure
-vs. prospective risk in gatherings, but it is too late to work through it. We might just
-want to calculate the probabilities.}\comment[id=K]{Yes, we have both in the private
-reasons. Retrospective after a case in the household and prospective in anticipation of
-participation in a weekly meeting with friends. However, we cannot easily turn these
-separately on and off at the moment as they use the same multiplier. We could do,
-however, do this in the future.}
+events triggering private test demand.\comment[id=HM]{Positive rates along the three
+channels might be nice here, if previous comment is not a quant
+story}\comment[id=K]{Working on it}\comment[id=HM]{I think there is a story in here about
+risk conditional on past exposure vs. prospective risk in gatherings, but it is too late
+to work through it. We might just want to calculate the
+probabilities.}\comment[id=K]{Yes, we have both in the private reasons. Retrospective
+after a case in the household and prospective in anticipation of participation in a
+weekly meeting with friends. However, we cannot easily turn these separately on and off
+at the moment as they use the same multiplier. We could do, however, do this in the
+future.}
 
 Two of the most contentious NPIs concern schools and mandates to work from home. In many
 countries, schools switched to remote instruction during the first wave, so did Germany.
 After the summer break, they were operating at full capacity with increased hygiene
 measures, before being closed again from mid-December on. Some states started opening
-them gradually in late February, but usual operaton was not back until the beginning of
-June. Figure~\ref{fig:school_scenarios} shows the effects of different policies
-regarding school starting at Easter, at which point rapid tests had become widely
-available. We estimate the realized scenario to have essentially the same effect as a
-situation with closed schools. Under fully opened schools with mandatory tests, total
-infections would have been 7\% higher; this number rises to 20\% without tests. These
-effect sizes are broadly in line with emprical studies, e.g., \citet{Vlachos2021}
-\comment[id=HM]{\url{https://www.pnas.org/content/118/9/e2020834118}}
-\comment[id=HM]{Need a back-of the envelope calculation} To use another metric, the
-effective weekly reproduction number differs by $0.017$ and $0.045$, respectively. In
-light of the large negative effects school closures have on children and
-parents\comment[id=HM]{need to cite a couple of poor learning outcomes / mental health
-papers. There must be well-published ones}---and in particular on those with low
-socio-economic status---these results in conjunction with hindsight bias suggest that
-opening schools combined with a testing strategy would have been beneficial. In other
-situations, and particular when no test strategy is available, trade-offs may well be
-different.
+them gradually in late February, but usual operation was not back until the beginning of
+June. Figure~\ref{fig:school_scenarios} shows the effects of different policies regarding
+school starting at Easter, at which point rapid tests had become widely available. We
+estimate the realized scenario to have essentially the same effect as a situation with
+closed schools. Under fully opened schools with mandatory tests, total infections would
+have been 7\% higher; this number rises to 20\% without tests. These effect sizes are
+broadly in line with empirical studies, e.g., \citet{Vlachos2021}\comment[id=HM]{Need a
+back-of the envelope calculation} To use another metric, the effective weekly
+reproduction number differs by $0.017$ and $0.045$, respectively. In light of the large
+negative effects school closures have on children and parents\comment[id=HM]{need to cite
+a couple of poor learning outcomes / mental health papers. There must be well-published
+ones}---and in particular on those with low socio-economic status---these results in
+conjunction with hindsight bias suggest that opening schools combined with a testing
+strategy would have been beneficial. In other situations, and particular when no test
+strategy is available, trade-offs may well be different.
 
 \begin{figure}[!tp]
     \centering
