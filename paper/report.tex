@@ -12,7 +12,16 @@
 % make the article intelligible to readers in other disciplines, and sufficient context
 % that the significance of the experimental findings is clear.
 
-Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity
+Since early 2020,\comment[id=J]{\textbf{Features that are not highlighted enough:}
+
+\begin{itemize}
+    \item Low sensitivity of rapid tests before and on day of infectiousness onset
+    \item Different seasonalities for different contact types (and quite strong for other contacts)
+    \item Low number of breakpoints in parameters / policies compared to breakpoints in
+    cases / reproduction rate
+\end{itemize}
+
+} the CoViD-19 pandemic has presented an enormous challenge to humanity
 on many dimensions. The development of highly effective vaccines holds the promise of
 containment in the medium term. However, most countries find themselves many
 months---and often years---away from reaching vaccination-induced herd immunity
@@ -141,38 +150,40 @@ virus \citep{Petter2021, LevineTiefenbrun2021, Pritchard2021}.\footnote{75\% is 
     different if a large fraction of vaccinated individuals had received a second dose
     already.} During the vaccine roll-out, priority may depend on age and occupation.
 
-We include two types of tests. Polymerase chain reaction (PCR) tests directly reveal
-whether an individual is infected or not. PCR tests require some days to be processed
-and there are aggregate capacity constraints throughout. In contrast, rapid antigen
-tests yield immediate results; after a phase-in period, all tests that are demanded will
-be performed. Specificity and sensitivity of these tests is set according to data
-analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the
-test relative to the start of infectiousness. Figure~\ref{fig:antigen_tests} shows our
-model for rapid test demand. Schools may require students to be tested regularly. Rapid
-tests may be offered by employers for on-site workers. Individuals may demand tests for
-private reasons, which include having plans to meet other people\footnote{A positive
-    test will make them reduce their contacts; this is why tests impact the actual contacts
-    in Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and because a
+We include two types of tests. Polymerase chain reaction (PCR) tests
+directly\comment[id=J]{It is not clear what "directly" means} reveal whether an
+individual is infected or not. PCR tests require some days to be processed and there are
+aggregate capacity constraints throughout. In contrast, rapid antigen tests yield
+immediate results; after a phase-in period, all tests that are demanded will be
+performed. Specificity and sensitivity of these tests is set according to data analyzed
+in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the test relative
+to the start of infectiousness. Figure~\ref{fig:antigen_tests} shows our model for rapid
+test demand. Schools may require students to be tested regularly. Rapid tests may be
+offered by employers for on-site workers. Individuals may demand tests for private
+reasons, which include having plans to meet other people\footnote{A positive test will
+make them reduce their contacts; this is why tests impact the actual contacts in
+Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and because a
 household member tested positively for the virus. We endow each agent with an individual
 compliance parameter. This parameter determines whether she takes up rapid tests offered
-by employers or follows up on private reasons and whether she reduces her contacts if
-she tests positive or develops symptoms. The thresholds are higher for tests in a
-private setting than for tests at the workplace until mid April and then compliance
-because of private reasons becomes higher than compliance at the workplace.
+by employers or follows up on private reasons and whether she reduces her contacts if she
+tests positive or develops symptoms. The thresholds are higher for tests in a private
+setting than for tests at the workplace until mid April and then compliance because of
+private reasons becomes higher than compliance at the workplace.\comment[id=J]{Shouldn't
+we mention that this is because of availability / high costs?}
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
 parameters.\footnote{See section~\ref{sec:data_and_parameters} of the supplementary
-    materials for an overview.} Contact diaries yield pre-pandemic distributions of contacts
+materials for an overview.} Contact diaries yield pre-pandemic distributions of contacts
 for different contact types and their assortativity by age group. Mobility data is used
-to model the reductions in work contacts. School and daycare policies can be
-incorporated directly from official directives. Administrative records on the number of
-tests, vaccinations by age and region, and the prevalence of virus strains are generally
+to model the reductions in work contacts. School and daycare policies can be incorporated
+directly from official directives. Administrative records on the number of tests,
+vaccinations by age and region, and the prevalence of virus strains are generally
 available. Surveys may ask about test offers, propensities to take them up, and past
 tests.
 
 The free parameters are the infection probabilities by contact type, see Supplementary
-Material~\ref{subsec:infection_probs}. We estimate these parameters so that  simulated
+Material~\ref{subsec:infection_probs}. We estimate these parameters so that simulated
 infections by age predict the corresponding time series in the data \citep[See][for the
 general method]{McFadden1989}. However, the two sets of time series are not comparable
 directly because not all cases will be recorded. We thus model recorded cases as depicted
@@ -181,7 +192,15 @@ recorded cases and use data on whether the reason for a PCR test were symptoms o
 CoViD-19 to get age-specific shares. For example,\comment[id=HM]{@Janos, please correct
 if necessary and insert reference} estimate unknown cases to be twice as high for
 children as for adults. Confirmation of a positive rapid test result is another reason
-for PCR tests, once these become available.
+for PCR tests, once these become available.\comment[id=J]{Free parameters also include:
+
+- One hygiene multiplier for school an work contacts after November 2
+- A few "other" multipliers including two lockdown fatigue effects
+- Number of extra contacts during holidays
+
+Strictly speaking also:
+- The fade in speed of the rapid tests
+- Share known cases around holidays }
 
 The model is applied to the second and third wave of the CoViD-19 pandemic in Germany,
 covering the period mid-September 2020 to the end of May 2021.
@@ -276,13 +295,14 @@ acceptance and use of rapid tests. At broadly similar points in time, novel stra
 the virus have started to pose additional challenges.
 
 We draw simulated samples of agents from the distribution of recorded infections in
-September 2020 and use the model to predict recorded infection rates until the end of
-May 2021. See Supplementary Materials~\ref{sec:data_and_parameters} and \ref{sec:model}
-for detailed descriptions of the data and the model, respectively. The blue line in
-Figure~\ref{fig:aggregated_fit} shows our model's predictions are very close to
-officially recorded cases in the aggregate. This is also true for infections by age and
-geographical region, which are shown in the supplementary materials
-(Figures~\ref{fig:age_group_fit} and \ref{fig:state_fit}, respectively).
+September 2020 and use the model to predict recorded infection rates until the end of May
+2021.\comment[id=J]{I do not understand} See Supplementary
+Materials~\ref{sec:data_and_parameters} and \ref{sec:model} for detailed descriptions of
+the data and the model, respectively. The blue line in Figure~\ref{fig:aggregated_fit}
+shows our model's predictions are very close to officially recorded cases in the
+aggregate. This is also true for infections by age and geographical region, which are
+shown in the supplementary materials (Figures~\ref{fig:age_group_fit} and
+\ref{fig:state_fit}, respectively).
 
 The effects of various mechanisms can be disentangled due to the distinct temporal
 variation in the drivers of the pandemic. Next to the stringency index, the three lines
@@ -304,15 +324,19 @@ the population, a vaccination rate that rose from 28\% to 43\%, and mostly seaso
 impacting a fall in the relative infectiousness of contacts outside of work and school.
 
 In order to better understand the contributions  of rapid tests, vaccinations, and of
-seasonality on the evolution of infections in 2021,
-Figure~\ref{fig:2021_scenarios_broad} considers various scenarios. NPIs are always the
-same as in the baseline scenario. Figure~\ref{fig:2021_scenarios_recorded} shows the
-model fit (the blue line, same as in Figure~\ref{fig:aggregated_fit}), a scenario
-without any of the three factors (red line), and three scenarios turning these factors
-off one by one. Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total
-infections in the model. Figure~\ref{fig:2021_scenarios_decomposition} employs Shapley
-values \citep{Shapley2016} to decompose the difference in total infections
-between the scenario without any of the three factors and our main specification.
+seasonality on the evolution of infections in 2021, Figure~\ref{fig:2021_scenarios_broad}
+considers various scenarios. NPIs are always the same as in the baseline scenario.
+Figure~\ref{fig:2021_scenarios_recorded} shows the model fit (the blue line, same as in
+Figure~\ref{fig:aggregated_fit}), a scenario without any of the three factors (red line),
+and three scenarios turning these factors off one by one.
+Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total infections in the
+model. Figure~\ref{fig:2021_scenarios_decomposition} employs Shapley values
+\citep{Shapley2016} to decompose the difference in total infections between the scenario
+without any of the three factors and our main specification.\comment[id=J]{I would not
+mention the word "coalition" in the notes to the figure on the Shapley values.
+Combination with other channels is better. I think I would prefer to have a short section
+on shapley values in the appendix (why use them, how do they work) and just link to that
+in the figure note}
 
 \begin{figure}[!tp]
     \centering
@@ -359,11 +383,10 @@ between the scenario without any of the three factors and our main specification
         Figure~\ref{fig:aggregated_fit} and refers to our baseline scenario, so does the
         blue line in Figure~\ref{fig:2021_scenarios_newly_infected}. The red lines refer
         to a situation where NPIs evolve as in the baseline scenario and the B.1.1.7
-        variant is introduced in the same way; vaccinations, rapid tests, and
-        seasonality remain at their January levels. The other scenarios turn these three
-        factors on one-by-one. The decompositions in
-        Figures~\ref{fig:2021_scenarios_decomposition} and
-        \ref{fig:2021_scenarios_decomposition_tests} are based on Shapley values
+        variant is introduced in the same way; vaccinations, rapid tests, and seasonality
+        remain at their January levels. The other scenarios turn these three factors on
+        one-by-one. The decompositions in Figures~\ref{fig:2021_scenarios_decomposition}
+        and \ref{fig:2021_scenarios_decomposition_tests} are based on Shapley values
         where the individual contribution of a channel is its average contribution over
         different sizes of coalitions (combinations with other channels). The individual
         contribution to a coalition is the difference between the effect size of the
@@ -493,15 +516,17 @@ campaigns;\comment[id=HM]{seems obvious, but I did not find anything. COSMO data
 should get the raw data, btw.} at the same time they have a higher risk to contract
 CoViD-19.\citet{KochInstitut2021a} Mandatory tests at school and at the workplace will
 extend more into these groups. The same goes for individuals who exhibit a low level of
-compliance with CoViD-19-related regulations. Our analysis has shown that in the
-transition path to high levels of vaccination and possibly thereafter, large-scale rapid
-testing can substitute for some NPIs. This comes at a fraction of the cost. A day of the
-winter lockdown in Germany is estimated to have cost 6.25~billion~Euros
-\citep{Dorn2020b}.\comment[id=K]{This is a prediction by the ifo Instute back from March
-2020 assuming a 2 month lockdown. I did not find anything citable that is more recent. I did
-find
+compliance with CoViD-19-related regulations.
+
+Our analysis\comment[id=J]{The conclusion should be slightly longer and more separated from the rest} has shown that in the transition path to high levels of vaccination and
+possibly thereafter, large-scale rapid testing can substitute for some NPIs. This comes
+at a fraction of the cost. A day of the winter lockdown in Germany is estimated to have
+cost 6.25~billion~Euros \citep{Dorn2020b}.\comment[id=K]{This is a prediction by the ifo
+Instute back from March 2020 assuming a 2 month lockdown. I did not find anything citable
+that is more recent. I did find
 \href{https://www.merkur.de/wirtschaft/lockdown-coronavirus-kosten-deutschland-milliarden-euro-wirtschaft-krise-zr-90231189.html}{A
 quote from ifo's Timo Wollmershäuser: „Wir liegen zwischen zwei bis zweieinhalb
-Milliarden Euro pro Woche“} for the winter lockdown. That would be much less than calculated in March.} In early June 2021, retail prices
-for self-administered rapid tests are frequently less than 1.5~Euro.\footnote{Cheapest on
-\href{https://amazon.de}{Amazon} on June 11th, 2021.}
+Milliarden Euro pro Woche“} for the winter lockdown. That would be much less than
+calculated in March.} In early June 2021, retail prices for self-administered rapid tests
+are frequently less than 1.5~Euro.\footnote{Cheapest on \href{https://amazon.de}{Amazon}
+on June 11th, 2021.}
