@@ -152,26 +152,27 @@ assumptions would overstate the effect of vaccines for our study period. This wo
 different if a large fraction of vaccinated individuals had received a second dose
 already.} During the vaccine roll-out, priority may depend on age and occupation.
 
-We include two types of tests. Polymerase chain reaction (PCR) tests
-directly\comment[id=J]{It is not clear what "directly" means} reveal whether an
-individual is infected or not. PCR tests require some days to be processed and there are
-aggregate capacity constraints throughout. In contrast, rapid antigen tests yield
-immediate results; after a phase-in period, all tests that are demanded will be
-performed. Specificity and sensitivity of these tests is set according to data analyzed
-in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the test relative
-to the start of infectiousness. Figure~\ref{fig:antigen_tests} shows our model for rapid
-test demand. Schools may require students to be tested regularly. Rapid tests may be
-offered by employers for on-site workers. Individuals may demand tests for private
-reasons, which include having plans to meet other people\footnote{A positive test will
-make them reduce their contacts; this is why tests impact the actual contacts in
+We include two types of tests. Polymerase chain reaction (PCR) tests reveal whether an
+individual is infected or not; there is no uncertainty to the result. PCR tests require
+some days to be processed and there are aggregate capacity constraints throughout. In
+contrast, rapid antigen tests yield immediate results; after a phase-in period, all
+tests that are demanded will be performed. Specificity and sensitivity of these tests is
+set according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on
+the timing of the test relative to the start of infectiousness.
+Figure~\ref{fig:antigen_tests} shows our model for rapid test demand. Schools may
+require students to be tested regularly. Rapid tests may be offered by employers for
+on-site workers. Individuals may demand tests for private reasons, which include having
+plans to meet other people\footnote{A positive test will make them reduce their
+contacts; this is why tests impact the actual contacts in
 Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and because a
 household member tested positively for the virus. We endow each agent with an individual
 compliance parameter. This parameter determines whether she takes up rapid tests offered
-by employers or follows up on private reasons and whether she reduces her contacts if she
-tests positive or develops symptoms. The thresholds are higher for tests in a private
-setting than for tests at the workplace until mid April and then compliance because of
-private reasons becomes higher than compliance at the workplace.\comment[id=J]{Shouldn't
-we mention that this is because of availability / high costs?}
+by employers or follows up on private reasons and whether she reduces her contacts if
+she tests positive or develops symptoms. The thresholds are higher for tests in a
+private setting than for tests at the workplace until mid April and then compliance
+because of private reasons becomes higher than compliance at the
+workplace.\comment[id=J]{Shouldn't we mention that this is because of availability /
+high costs?}
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
@@ -185,13 +186,13 @@ available. Surveys may ask about test offers, propensities to take them up, and 
 tests.
 
 The free parameters are the infection probabilities by contact type, see Supplementary
-Material~\ref{subsec:infection_probs}. We estimate these parameters so that simulated
-infections by age predict the corresponding time series in the data \citep[See][for the
-general method]{McFadden1989}. However, the two sets of time series are not comparable
-directly because not all cases will be recorded. We thus model recorded cases as depicted
-in Figure~\ref{fig:model_for_official_cases}. We take aggregate estimates of the share of
-recorded cases and use data on whether the reason for a PCR test were symptoms of
-CoViD-19 to get age-specific shares. For example,\comment[id=HM]{@Janos, please correct
+Material~\ref{subsec:infection_probs}. We estimate these parameters so that age-specific
+simulated infections predict the corresponding time series in the data \citep[see][for
+the general method]{McFadden1989}. However, the two sets of time series are not
+comparable directly because not all cases will be recorded. We thus model recorded cases
+as depicted in Figure~\ref{fig:model_for_official_cases}. We take aggregate estimates of
+the share of recorded cases and use data on whether CoViD-19 symptoms led to a PCR test
+in order to get age-specific shares. For example,\comment[id=HM]{@Janos, please correct
 if necessary and insert reference} estimate unknown cases to be twice as high for
 children as for adults. Confirmation of a positive rapid test result is another reason
 for PCR tests, once these become available.\comment[id=J]{Free parameters also include:
@@ -528,14 +529,16 @@ CoViD-19.\citet{KochInstitut2021a} Mandatory tests at school and at the workplac
 extend more into these groups. The same goes for individuals who exhibit a low level of
 compliance with CoViD-19-related regulations.
 
-Our analysis\comment[id=J]{The conclusion should be slightly longer and more separated from the rest} has shown that in the transition path to high levels of vaccination and
+Our analysis\comment[id=J]{The conclusion should be slightly longer and more separated
+from the rest} has shown that in the transition path to high levels of vaccination and
 possibly thereafter, large-scale rapid testing can substitute for some NPIs. This comes
 at a fraction of the cost. A day of the winter lockdown in Germany is estimated to have
 cost 6.25~billion~Euros \citep{Dorn2020b}.\comment[id=K]{This is a prediction by the ifo
-Instute back from March 2020 assuming a 2 month lockdown. I did not find anything citable
-that is more recent. I did find
+Instute back from March 2020 assuming a 2 month lockdown. I did not find anything
+citable that is more recent. I did find
 \href{https://www.merkur.de/wirtschaft/lockdown-coronavirus-kosten-deutschland-milliarden-euro-wirtschaft-krise-zr-90231189.html}{A
 quote from ifo's Timo Wollmershäuser: „Wir liegen zwischen zwei bis zweieinhalb
 Milliarden Euro pro Woche“} for the winter lockdown} In early June 2021, retail prices
-for self-administered rapid tests are frequently less than 1~Euro.\comment[id=HM]{Cheapest on
-\href{https://amazon.de}{Amazon} on June 11th, 2021. --- DM 95ct}
+for self-administered rapid tests are frequently less than
+1~Euro.\comment[id=HM]{Cheapest on \href{https://amazon.de}{Amazon} on June 11th, 2021.
+--- DM 95ct}
