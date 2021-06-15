@@ -7,10 +7,10 @@
 This compares simulated data from our model with empirical data from Germany. We look at
 observed infections, fatality rates, the spread of the B117 mutation, vaccinations and
 rapid test demands. Where available we do not only look at aggregated statistics but
-also analyze the model fit for age groups.
-
-\comment[id=J]{summarize the fit; Some of this needs to go in the appendix. I suggest the age group and federal state fit goes there???}
-\comment[id=HM]{Also need to show simulated total infections somewhere. So far only shown for 2021.}
+also analyze the model fit for age groups.\comment[id=J]{summarize the fit; Some of this
+needs to go in the appendix. I suggest the age group and federal state fit goes
+there???} \comment[id=HM]{Also need to show simulated total infections somewhere. So far
+only ever shown for 2021.}
 
 
 \begin{figure}[ht]
@@ -43,13 +43,46 @@ also analyze the model fit for age groups.
 \FloatBarrier
 
 
+\subsection{Share of Cases that are Detected}
+\label{subsec:appendix_share_known_cases}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/results/figures/share_known_cases/full_combined_baseline_by_age_group_rki}
+  \caption{Share of Detected Cases by Age Group in the Main Prediction}
+  \label{fig:share_known_cases_by_age_group}
+  \floatfoot{\noindent \textcolor{red}{\ldots}}
+\end{figure}
+
+It's noteworthy that the share of detected cases increases rapidly in May for the five to fourteen year olds. This is a direct result of the mandatory tests in school.\comment[id=K]{We don't do this at the moment but we could also create plots showing the share of detected cases between scenarios - either for the full population or for a age group of interest.}
+
+\subsection{Rapid Tests}
+\label{subsec:appendix_rapid_tests}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/demand_shares}
+  \caption{Share of the Population Demanding a Rapid Test for a Particular Reason}
+  \label{fig:rapid_tests_by_reason}
+  \floatfoot{\noindent Note that the lower three (household demand, symptomatic without PCR demand and other contact demand together form the private demand category. Also note that these do not add up to the total share of demanded rapid tests as individuals may have more than one reason to demand a rapid test on any given day. \textcolor{red}{\ldots}}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/share_infected_among_demand}
+  \caption{Share of Individuals that Demand a Rapid Test for a Particular Reason that are Actually Infected}
+  \label{fig:share_of_rapid_tests_by_reason_by_infected}
+  \floatfoot{\noindent Note that the lower three (household demand, symptomatic without PCR demand and other contact demand together form the private demand category. Also note that this is not the same as individuals getting a positive rapid test. The sensitivity is quite low before individuals become infectious. Therefore, if individuals are still in the latent period of their infection they are likely to get a false positive rapid test. \textcolor{red}{\ldots}}
+\end{figure}
+
+\FloatBarrier
+
+
 \subsection{Scenarios}
 \label{subsec:appendix_scenarios}
 
-This is the results section.
-
-\comment[id=K]{The results can be found in `figures/results`. This includes both figures
-and tables for lookup of numbers and summary tables.}
+This is the results section.\comment[id=K]{The results can be found in `figures/results`.
+This includes both figures and tables for lookup of numbers and summary tables.}
 
 
 \begin{figure}[ht]
@@ -76,7 +109,7 @@ and tables for lookup of numbers and summary tables.}
     \includegraphics[width=0.9 \textwidth]{../figures/results/figures/scenario_comparisons/school_scenarios/full_newly_infected}
   \end{subfigure}
   \caption{The Effect of Different School Scenarios on Observed and Unobserved Cases}
-  \label{fig:school_scenarios}
+  \label{fig:school_scenarios_detailed}
 \end{figure}
 
 
