@@ -1,0 +1,83 @@
+
+In our model, there are five reasons why rapid tests are done:\comment[id=J]{Add a
+section on how we calibrate rapid test demand; Mainly describe the datapoints we have and
+say that we usually interpolate linearly in between data points. (Only exception to that
+is private rapid test demand, which we fit to data)}
+
+\begin{enumerate}
+    \item someone plans to have work contacts
+    \item someone is an employee of an educational facility or a school pupil
+    \item a household member has tested positive or developed symptoms
+    \item someone has developed symptoms but has not received a PCR test
+    \item someone plans to participate in a weekly non-work meeting
+\end{enumerate}
+
+\subsubsection{work rapid tests}
+
+For work contacts, we know from the COSMO study (\cite{Betsch2021}, 20th/21st of April)
+that 60\% of workers who receive a test offer by their employer regularly use it. We
+assume this share to be time constant.
+
+In addition, there are some surveys that allow us to trace the expansion of employers who
+offer tests to their employees. Mid march, 20\% of employers offered tests to their
+employees \citep{DIHK2021}. In the second half of March, 23\% of employees reported being
+offered weekly rapid tests by their employer \citep{Ahlers2021}. This share increased to
+60\% until the first days of April \cite{ZDF2021}.
+
+\textcolor{red}{ToDo: Find the survey that the ZDF is citing here}
+
+Until mid April 70\% of workers were expected to receive a
+weekly test offer \citep{AerzteZeitung2021}. However, according to surveys conducted in
+mid April \citep{Betsch2021}, less than two thirds of individuals with work contacts
+receive a test offer. Starting on April 19th employers were required by law to provide
+two weekly tests to their employees \citep{Bundesanzeiger2021}. We assume that compliance
+is incomplete and only 80\% of employers actually offer tests.
+
+\subsubsection{educ rapid tests}
+
+We assume that employees in educational facilities start getting tested in 2021 and that
+by March 1st 30\% of them are tested weekly. The share increases to 90\% for the week
+before Easter. At that time both Bavaria \citep{BayrischerRundfunk2021} and
+Baden-Württemberg \citep{MinisteriumKultus2021} were offering tests to teachers and
+North-Rhine
+Westphalia\footnote{\url{https://www.land.nrw/de/pressemitteilung/umfassende-informationen-fuer-die-schulen-zu-corona-selbsttests-fuer-schuelerinnen}}
+\cite{DPA2021} and Lower Saxony \citep{SueddeutscheZeitung2021} were already testing
+students and tests for students and teachers were already mandatory in Saxony
+\citep{SueddeutscheZeitung2021a}. After Easter we assume that 95\% of teachers get tested
+twice per week.
+
+Tests for students started
+later\footnote{\url{https://www.land.nrw/de/pressemitteilung/umfassende-informationen-fuer-die-schulen-zu-corona-selbsttests-fuer-schuelerinnen}}
+\citep{MinisteriumKultus2021} so we assume that they only start in February and only 10\%
+of students get tested by March 1st. Relying on the same sources as above we approximate
+that by the week before Easter this share had increased to 40\%.\footnote{\url{https://www.land.nrw/de/pressemitteilung/umfassende-informationen-fuer-die-schulen-zu-corona-selbsttests-fuer-schuelerinnen}, }
+
+After Easter the share of students receiving twice weekly tests is set to 75\%. This as
+based on tests becoming mandatory becoming mandatory in Bavaria after Easter
+break\footnote{Bavaria\footnote{\url{https://bit.ly/3nz5fXS}}, in North-Rhine Westphalia
+on April
+12th\footnote{https://www.schulministerium.nrw/ministerium/schulverwaltung/schulmail-archiv/14042021-schulbetrieb-im-wechselunterricht-ab-montag},
+\url{https://bit.ly/2QHilX3}} and on the 19th in
+Baden-Württemberg\footnote{https://bit.ly/3vuetaD, https://bit.ly/3vuetaD}.
+
+
+To limit our degrees of freedom, we only have one parameter that governs how many
+individuals do a rapid test because of any of the private demand reasons (own symptoms
+but no PCR test, planned weekly leisure meeting or a symptomatic or positively tested
+household member).
+
+We assume that there is no private rapid test demand until March when both the citizens'
+tests and rapid tests for lay people started to become available
+\footnote{\url{https://bit.ly/3ehmGcj}, \url{https://bit.ly/3xJCIn8}} and other access to
+rapid tests was very limited.
+
+According to the COSMO study\footnote{\url{https://bit.ly/2QSFAgR}} 63\% would have been
+willing to take a test in the round of 23rd of February 2021 when an acquaintance would
+have tested positive. Since this is only asking for willingness not actual behavior and
+the demand when meeting with friends is very likely lower, we take this as the upper
+bound of private rapid test demand which is reached on May 4th. To cover that many people
+are likely to have sought and done their first rapid test before the Easter holidays to
+meet friends or family, we let the share of individuals doing rapid tests in that time
+increase more rapidly than before and after. By end of March 25\% of individuals would do
+a rapid test due to a private reason.
+
