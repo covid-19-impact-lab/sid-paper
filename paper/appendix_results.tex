@@ -6,18 +6,18 @@
 
 This compares simulated data from our model with empirical data from Germany. We look at
 observed infections, fatality rates, the spread of the B117 mutation, vaccinations and
-rapid test demands. Where available we do not only look at aggregated statistics but
-also analyze the model fit for age groups.\comment[id=J]{summarize the fit; Some of this
-needs to go in the appendix. I suggest the age group and federal state fit goes
-there???} \comment[id=HM]{Also need to show simulated total infections somewhere. So far
-only ever shown for 2021.}
+rapid test demands. Where available we do not only look at aggregated statistics but also
+analyze the model fit for age groups.\comment[id=J]{summarize the
+fit}\comment[id=HM]{Also need to show simulated total infections somewhere. So far only
+ever shown for 2021.}
 
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case_with_single_runs}
   \caption{Simulated and Empirical Infections}
-  \figurenotes{The figure shows the weekly incidence rates per 100,000 people for the reported versus the simulated infections rates.}
+  \figurenotes{The figure shows the weekly incidence rates per 100,000 people for the
+  reported versus the simulated infections rates.}
   \label{fig:aggregated_fit2}
 \end{figure}
 
@@ -26,7 +26,8 @@ only ever shown for 2021.}
   \centering
   \includegraphics[width=\textwidth]{../figures/results/figures/incidences_by_group/age_group_rki/full_combined_baseline_new_known_case}
   \caption{Simulated and Empirical Infections by Age Group}
-  \figurenotes{The figure shows the weekly incidence rates per 100,000 people for the reported versus the simulated infections rates for different age groups.}
+  \figurenotes{The figure shows the weekly incidence rates per 100,000 people for the
+  reported versus the simulated infections rates for different age groups.}
   \label{fig:age_group_fit}
 \end{figure}
 
@@ -35,7 +36,8 @@ only ever shown for 2021.}
   \centering
   \includegraphics[width=\textwidth]{../figures/results/figures/incidences_by_group/state/full_combined_baseline_new_known_case}
   \caption{Simulated and Empirical Infections by Federal State}
-  \figurenotes{The figure shows the weekly incidence rates per 100,000 people for the reported versus the simulated infections rates for different federal states.}
+  \figurenotes{The figure shows the weekly incidence rates per 100,000 people for the
+  reported versus the simulated infections rates for different federal states.}
   \label{fig:state_fit}
 \end{figure}
 
@@ -43,7 +45,7 @@ only ever shown for 2021.}
 \FloatBarrier
 
 
-\subsection{Share of Cases that are Detected}
+\subsection{Share of Cases that are Detected  \comment[id=K]{Figure notes missing}}
 \label{subsec:appendix_share_known_cases}
 
 \begin{figure}[ht]
@@ -51,12 +53,14 @@ only ever shown for 2021.}
   \includegraphics[width=\textwidth]{../figures/results/figures/share_known_cases/full_combined_baseline_by_age_group_rki}
   \caption{Share of Detected Cases by Age Group in the Main Prediction}
   \label{fig:share_known_cases_by_age_group}
-  \floatfoot{\noindent \textcolor{red}{\ldots}}
+  \floatfoot{\noindent}
 \end{figure}
 
-It's noteworthy that the share of detected cases increases rapidly in May for the five to fourteen year olds. This is a direct result of the mandatory tests in school.\comment[id=K]{We don't do this at the moment but we could also create plots showing the share of detected cases between scenarios - either for the full population or for a age group of interest.}
+It's noteworthy that the share of detected cases increases rapidly in May for the five to
+fourteen year olds. This is a direct result of the mandatory tests in
+school.
 
-\subsection{Rapid Tests}
+\subsection{Rapid Tests \comment[id=K]{The figures will likely change layout later}}
 \label{subsec:appendix_rapid_tests}
 
 \begin{figure}[ht]
@@ -64,7 +68,10 @@ It's noteworthy that the share of detected cases increases rapidly in May for th
   \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/demand_shares}
   \caption{Share of the Population Demanding a Rapid Test for a Particular Reason}
   \label{fig:rapid_tests_by_reason}
-  \floatfoot{\noindent Note that the lower three (household demand, symptomatic without PCR demand and other contact demand together form the private demand category. Also note that these do not add up to the total share of demanded rapid tests as individuals may have more than one reason to demand a rapid test on any given day. \textcolor{red}{\ldots}}
+  \floatfoot{\noindent Note that the lower three (household demand, symptomatic without
+  PCR demand and other contact demand together form the private demand category. Also
+  note that these do not add up to the total share of demanded rapid tests as individuals
+  may have more than one reason to demand a rapid test on any given day. }
 \end{figure}
 
 \begin{figure}[ht]
@@ -72,7 +79,12 @@ It's noteworthy that the share of detected cases increases rapidly in May for th
   \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/share_infected_among_demand}
   \caption{Share of Individuals that Demand a Rapid Test for a Particular Reason that are Actually Infected}
   \label{fig:share_of_rapid_tests_by_reason_by_infected}
-  \floatfoot{\noindent Note that the lower three (household demand, symptomatic without PCR demand and other contact demand together form the private demand category. Also note that this is not the same as individuals getting a positive rapid test. The sensitivity is quite low before individuals become infectious. Therefore, if individuals are still in the latent period of their infection they are likely to get a false positive rapid test. \textcolor{red}{\ldots}}
+  \floatfoot{\noindent Note that the lower three (household demand, symptomatic without
+  PCR demand and other contact demand together form the private demand category. Also
+  note that this is not the same as individuals getting a positive rapid test. The
+  sensitivity is quite low before individuals become infectious. Therefore, if
+  individuals are still in the latent period of their infection they are likely to get a
+  false positive rapid test.}
 \end{figure}
 
 \FloatBarrier

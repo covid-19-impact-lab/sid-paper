@@ -12,30 +12,22 @@
 % make the article intelligible to readers in other disciplines, and sufficient context
 % that the significance of the experimental findings is clear.
 
-Since early 2020,\comment[id=J]{\textbf{Features that are not highlighted enough:}
-
-\begin{itemize}
-    \item Low sensitivity of rapid tests before and on day of infectiousness onset
-    \item Different seasonalities for different contact types (and quite strong for other contacts)
-    \item Low number of breakpoints in parameters / policies compared to breakpoints in
-    cases / reproduction rate
-\end{itemize}
-
-} the CoViD-19 pandemic has presented an enormous challenge to humanity
-on many dimensions. The development of highly effective vaccines holds the promise of
-containment in the medium term. However, most countries find themselves many
-months---and often years---away from reaching vaccination-induced herd immunity
-\citep{Swaminathan2021}.\comment[id=HM]{Need to find some more scientific citation
-before submission} In the meantime, it is of utmost importance to employ an effective
-mix of strategies for containing the virus. The most frequent initial response was a set
-of non-pharmaceutical interventions (NPIs) to reduce contacts between individuals. While
-this has allowed some countries to sustain equilibria with very low infection
-numbers\footnote{See \citet{Contreras2021} for a theoretical equilibrium at low case
-numbers which is sustained with test-trace-and-isolate policies.}, most have seen large
-fluctuations of infection rates over time. Containment measures have become increasingly
-diverse and now include testing, more nuanced NPIs, and contact tracing. Neither these
-policies' effect nor the influence of seasonal patterns or more infectious virus strains
-are well understood in quantitative terms.
+Since early 2020,\comment[id=J]{Put stronger focus on time dependent rapid test
+sensitivity (30\% before day of onset of infectiousness)} the CoViD-19 pandemic has
+presented an enormous challenge to humanity on many dimensions. The development of highly
+effective vaccines holds the promise of containment in the medium term. However, most
+countries find themselves many months---and often years---away from reaching
+vaccination-induced herd immunity \citep{Swaminathan2021}.\comment[id=HM]{Need to find
+some more scientific citation before submission} In the meantime, it is of utmost
+importance to employ an effective mix of strategies for containing the virus. The most
+frequent initial response was a set of non-pharmaceutical interventions (NPIs) to reduce
+contacts between individuals. While this has allowed some countries to sustain equilibria
+with very low infection numbers\footnote{See \citet{Contreras2021} for a theoretical
+equilibrium at low case numbers which is sustained with test-trace-and-isolate
+policies.}, most have seen large fluctuations of infection rates over time. Containment
+measures have become increasingly diverse and now include testing, more nuanced NPIs, and
+contact tracing. Neither these policies' effect nor the influence of seasonal patterns or
+more infectious virus strains are well understood in quantitative terms.
 
 This paper develops a quantitative model incorporating all these factors. The framework
 allows to combine a wide variety of data and mechanisms in a timely fashion, making it
@@ -155,24 +147,24 @@ already.} During the vaccine roll-out, priority may depend on age and occupation
 We include two types of tests. Polymerase chain reaction (PCR) tests reveal whether an
 individual is infected or not; there is no uncertainty to the result. PCR tests require
 some days to be processed and there are aggregate capacity constraints throughout. In
-contrast, rapid antigen tests yield immediate results; after a phase-in period, all
-tests that are demanded will be performed. Specificity and sensitivity of these tests is
-set according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on
-the timing of the test relative to the start of infectiousness.
-Figure~\ref{fig:antigen_tests} shows our model for rapid test demand. Schools may
-require students to be tested regularly. Rapid tests may be offered by employers for
-on-site workers. Individuals may demand tests for private reasons, which include having
-plans to meet other people\footnote{A positive test will make them reduce their
-contacts; this is why tests impact the actual contacts in
-Figure~\ref{fig:model-description}.}, showing symptoms of CoViD-19, and because a
-household member tested positively for the virus. We endow each agent with an individual
-compliance parameter. This parameter determines whether she takes up rapid tests offered
-by employers or follows up on private reasons and whether she reduces her contacts if
-she tests positive or develops symptoms. The thresholds are higher for tests in a
-private setting than for tests at the workplace until mid April and then compliance
-because of private reasons becomes higher than compliance at the
-workplace.\comment[id=J]{Shouldn't we mention that this is because of availability /
-high costs?}
+contrast, rapid antigen tests yield immediate results; after a phase-in period, all tests
+that are demanded will be performed. Specificity and sensitivity of these tests is set
+according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the
+timing of the test relative to the start of infectiousness.
+Figure~\ref{fig:antigen_tests} shows our model for rapid test demand. Schools may require
+students to be tested regularly. Rapid tests may be offered by employers for on-site
+workers. Individuals may demand tests for private reasons, which include having plans to
+meet other people\footnote{A positive test will make them reduce their contacts; this is
+why tests impact the actual contacts in Figure~\ref{fig:model-description}.}, showing
+symptoms of CoViD-19, and because a household member tested positively for the virus. We
+endow each agent with an individual compliance parameter. This parameter determines
+whether she takes up rapid tests offered by employers or follows up on private reasons
+and whether she reduces her contacts if she tests positive or develops symptoms. The
+thresholds fall over time and are calibrated to survey data where possible (see
+Supplementary Materials~\ref{subsec:rapid_test_demand}).
+% The thresholds are higher for tests in a private setting than for tests at the
+% workplace until mid April and then compliance because of private reasons becomes higher
+% than compliance at the workplace.
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
@@ -185,25 +177,26 @@ vaccinations by age and region, and the prevalence of virus strains are generall
 available. Surveys may ask about test offers, propensities to take them up, and past
 tests.
 
-The free parameters are the infection probabilities by contact type, see Supplementary
-Material~\ref{subsec:infection_probs}. We estimate these parameters so that age-specific
-simulated infections predict the corresponding time series in the data \citep[see][for
-the general method]{McFadden1989}. However, the two sets of time series are not
-comparable directly because not all cases will be recorded. We thus model recorded cases
-as depicted in Figure~\ref{fig:model_for_official_cases}. We take aggregate estimates of
-the share of recorded cases and use data on whether CoViD-19 symptoms led to a PCR test
-in order to get age-specific shares. For example,\comment[id=HM]{@Janos, please correct
-if necessary and insert reference} estimate unknown cases to be twice as high for
-children as for adults. Confirmation of a positive rapid test result is another reason
-for PCR tests, once these become available.\comment[id=J]{Free parameters also include:
+The free parameters are the infection probabilities by contact category, one hygiene
+multiplier for school and work contacts after November 2nd 2020, approx. ten parameters
+that govern the reduction of other contacts\comment[id=K]{Must be updated when the
+estimation is finished.}, the number of extra contacts during holidays, the share of
+detected cases around holidays and the fade in speed of the rapid tests as well as one
+parameter that governs the import of B.1.1.7 cases in January 2021. For details, see
+Supplementary Material~\ref{subsec:estimated_params},~\ref{subsec:rapid_test_demand}.
 
-- One hygiene multiplier for school an work contacts after November 2
-- A few "other" multipliers including two lockdown fatigue effects
-- Number of extra contacts during holidays
-
-Strictly speaking also:
-- The fade in speed of the rapid tests
-- Share known cases around holidays }
+We estimate these parameters such that the model matches the following empirical
+quantities: 1. official case numbers for each age group and region, 2. deaths, 3. share
+of B.1.1.7. \citep[See][for the general method]{McFadden1989}. However, only a fraction
+of infections actually enter the official case numbers. We thus model official cases as
+depicted in Figure~\ref{fig:model_for_official_cases}. We take aggregate estimates of the
+share of detected cases and use data on whether CoViD-19 symptoms led to a PCR test. As
+the share of asymptomatic individuals varies by age group, this gives us age-specific
+shares (see Figure~\ref{fig:share_known_cases_by_age_group} for the share of known cases
+by age group over time in our model). Our estimates suggest that only 18 to 28\% of cases
+are detected for school age children while the rate is 30 to 55\% for those above age
+80.\comment[id=K]{Must be verified once results are final.} Confirmation of a positive
+rapid test result is another reason for PCR tests, once these become available.
 
 The model is applied to the second and third wave of the CoViD-19 pandemic in Germany,
 covering the period mid-September 2020 to the end of May 2021.
@@ -216,17 +209,17 @@ higher levels of restrictions. A value of zero means all measures incorporated i
 index are turned on. The value 1 represents the situation in mid-September, with
 restrictions on gatherings and public events, masking requirements, but open schools and
 workplaces. In the seven weeks between mid September and early November, cases increased
-by a factor of 10. Restrictions were somewhat tightened in mid-October and again in
-early November. New infections remained constant throughout November, before rising
-again in December, which prompted the most stringent lockdown to this date. Schools and
-daycare centers were closed again, so were customer-facing businesses except for grocery
-and drug stores. From the peak of the second wave just before Christmas until the trough
-in mid-February, newly detected cases decreased by almost three quarters. The third wave
-in the spring of 2021 is associated with the B.1.1.7 strain, which became dominant in
-March. See Figure~\ref{fig:share_b117}. In early March, some NPIs were being relaxed;
-e.g., hairdressers and home improvement stores were allowed to open again to the public.
-There were many changes in details of regulations afterwards, but they did not change
-the stringency index.
+by a factor of 10. Restrictions were somewhat tightened in mid-October and again in early
+November. New infections remained constant throughout November, before rising again in
+December, which prompted the most stringent lockdown to this date. Schools and daycare
+centers were closed again, so were customer-facing businesses except for grocery and drug
+stores. From the peak of the second wave just before Christmas until the trough in
+mid-February, newly detected cases decreased by almost three quarters. The third wave in
+the spring of 2021 is associated with the B.1.1.7 strain, which became dominant in March.
+See Figure~\ref{fig:share_b117}. In early March, some NPIs were being relaxed; e.g.,
+hairdressers and home improvement stores were allowed to open again to the public. There
+were many changes in details of regulations afterwards, but they did not change the
+stringency index.
 
 \begin{figure}[!tp]   % Figure 2
     \centering
@@ -299,7 +292,7 @@ the virus have started to pose additional challenges.
 
 We draw simulated samples of agents from the distribution of recorded infections in
 September 2020 and use the model to predict recorded infection rates until the end of May
-2021.\comment[id=J]{I do not understand} See Supplementary
+2021.\comment[id=J]{This needs more explanation. I will rewrite this.} See Supplementary
 Materials~\ref{sec:data_and_parameters} and \ref{sec:model} for detailed descriptions of
 the data and the model, respectively. The blue line in Figure~\ref{fig:aggregated_fit}
 shows our model's predictions are very close to officially recorded cases in the
