@@ -3,5 +3,5 @@ sid:
     - return last states as pandas DataFrame (not dask)
 
 sid-germany:
-    - 1f5382
-    - rapid test statistics
+    - e33bf385
+    - fixed bug in mandatory work test scenario
