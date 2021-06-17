@@ -8,20 +8,17 @@ replaces the contacts between moving particles by contacts between individuals w
 go to school, live in a household and enjoy leisure activities.
 
 The structure of the model is depicted in Figure~\ref{fig:model_contacts_infections}.
-\comment[id=HM]{Mentioned by Tim in the course, just main paper: Modular structure may deserve a sentence}
 
-The background characteristics include age, county and occupation of each simulated
-individual. Contact models are functions that map individual characteristics into a
-predicted number of contacts. Currently, we distinguish between eight types of contact
+We distinguish between eight types of contact
 models which are all listed in Figure~\ref{fig:model_contacts_infections}: households,
 recurrent and random work contacts, recurrent and random leisure contacts, and nursery,
 preschool, and school contacts.
 
-The predicted number of contacts is translated into infections by a matching algorithm.
+The number of contacts is translated into infections by a matching algorithm.
 There are different matching algorithms for recurrent contacts (e.g. classmates, family
-members) and non-recurrent contacts (e.g. clients, contacts in supermarkets). The
-infection probability can differ for each contact type. All types of contacts can be
-assortative with respect to geographic and demographic characteristics.
+members) and non-recurrent contacts (e.g. clients, contacts in supermarkets).
+All types of contacts can be assortative with respect to geographic and demographic
+characteristics.
 
 The infection probabilities of contacts vary with contact type, age of the susceptible
 person, and the virus strain of the infected person. Moreover, they follow a seasonal
@@ -54,7 +51,7 @@ implies shutting down work contacts of all people who are not employed in a syst
 relevant sector. It is also possible to have more sophisticated policies that condition
 the number of contacts on observable characteristics, risk contacts or health states.
 
-Another key advantage of the model is that the number of contacts an individual has of
+An important feature of the model is that the number of contacts an individual has of
 each contact type can be calibrated from publicly available data \citep{Mossong2008}.
 This in turn allows us to estimate policy-invariant infection probabilities from time
 series of infection and death rates using the method of simulated moments
@@ -63,9 +60,7 @@ collected since the beginning of the pandemic can be used for estimation. Moreov
 since we model the testing strategies that were in place at each point in time, we can
 correct the estimates for the fact that not all infections are observed.
 
-Last but not least, performing simulations whose starting point is set amidst the
-pandemic requires special adjustments to arrive at a realistic distribution of courses
-of diseases. We solve the initial conditions problem by matching reported infections to
-individuals in our data while also correcting for reporting lag and undetected cases.
-
-In the following sections we describe each of the model components in more detail.
+The model has a very modular structure and can easily be extended to distinguish more
+contact types, add more stages to the disease progression, implement new policies
+or test demand models. The main bottleneck is not complexity or computational cost
+but the availability of data to calibrate the additional model features.
