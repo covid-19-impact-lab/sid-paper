@@ -22,40 +22,42 @@ some more scientific citation before submission} In the meantime, it is of utmos
 importance to employ an effective mix of strategies for containing the virus. The most
 frequent initial response was a set of non-pharmaceutical interventions (NPIs) to reduce
 contacts between individuals. While this has allowed some countries to sustain equilibria
-with very low infection numbers\footnote{See \citet{Contreras2021} for a theoretical
+with very low infection numbers,\footnote{See \citet{Contreras2021} for a theoretical
 equilibrium at low case numbers which is sustained with test-trace-and-isolate
-policies.}, most have seen large fluctuations of infection rates over time. Containment
+policies.} most have seen large fluctuations of infection rates over time. Containment
 measures have become increasingly diverse and now include testing, more nuanced NPIs, and
 contact tracing. Neither these policies' effect nor the influence of seasonal patterns or
 more infectious virus strains are well understood in quantitative terms.
 
-This paper develops a quantitative model incorporating all these factors. The framework
-allows to combine a wide variety of data and mechanisms in a timely fashion, making it
-useful to predict the effects of various interventions. We apply the model to Germany
-and show that rapid testing had the largest impact on the reduction in infections by
-almost 80\% during the month of May 2021. We conclude that rapid tests have a large role
-to play for at least as long as vaccinations have not been offered to an entire
-population.
+This paper develops a quantitative model incorporating these factors simultaneously. The
+framework allows to combine a wide variety of data and mechanisms in a timely fashion,
+making it useful to predict the effects of various interventions. We apply the model to
+Germany and show that rapid testing had the largest impact on the reduction in
+infections by almost 80\% during the month of May 2021. We conclude that rapid tests
+have a large role to play for at least as long as vaccinations have not been offered to
+an entire population.
 
 At the core of our agent-based model are physical contacts between heterogeneous agents
-(Figure~\ref{fig:broad_model_description}).\footnote{A detailed comparison with other
+(Figure~\ref{fig:model_contacts_infections}).\footnote{A detailed comparison with other
 approaches  is relegated to Supplementary Material~\ref{sec:literature_review}. The
 model most closely related to ours is described in \citet{Hinch2020}.} Each contact
 between an infectious individual and somebody susceptible to the disease bears the risk
-of transmitting the virus. Contacts occur in the household, at work, at school, or in
-other settings (leisure activities, grocery shopping, medical appointments, etc.). Some
-contacts recur regularly, others occur at random. Random contacts are typically
-assortative in age and geographical location. Empirical applications can take the
-population structure from census data and the types and frequency of contacts from diary
-data measuring contacts before the pandemic \citep[e.g.][]{Mossong2008,Hoang2019}.
+of transmitting the virus. Contacts occur in up to four networks: Within the household,
+at work, at school, or in other settings (leisure activities, grocery shopping, medical
+appointments, etc.). Some contacts recur regularly, others occur at random. Empirical
+applications can take the population and household structure from census data and the
+network-specific frequencies of contacts from diary data measuring contacts before the
+pandemic \citep[e.g.][]{Mossong2008,Hoang2019}. Within each network, contacts are
+differentiated by age and geographical location see Section~\ref{sub:number_of_contacts}
+of the Supplementary Material.
 
-The three dimensions of contact types are chosen so that the most common NPIs can be
+The four contact networks are chosen so that the most common NPIs can be
 modeled in great detail. NPIs affect the number of contacts or the risk of transmitting
 the disease upon having physical contact. The effect of different NPIs will generally
 vary across contact types. For example, a mandate to work from home will reduce the
 number of work contacts to zero for a fraction of the working population. Schools and
 daycare can be closed entirely, operate at reduced capacity---including an alternating
-schedule---,or implement mitigation measures like masking requirements or air filters
+schedule---, or implement mitigation measures like masking requirements or air filters
 \citep{Lessler2021}. Curfews may reduce the number of contacts in non-work/non-school
 settings. In any setting, measures like masking requirements would reduce the
 probability of infection associated with a contact \citep{Cheng2021}.
@@ -66,8 +68,8 @@ probability of infection associated with a contact \citep{Cheng2021}.
     \begin{subfigure}[b]{0.425\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/model-graph-top-left}
-        \caption{{Model description}}
-        \label{fig:broad_model_description}
+        \caption{{Model for contacts and infections}}
+        \label{fig:model_contacts_infections}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.425\textwidth}
@@ -76,15 +78,15 @@ probability of infection associated with a contact \citep{Cheng2021}.
         \vskip5ex
 
         \caption{Disease progression}
-        \label{fig:disease_progression}
+        \label{fig:model_disease_progression}
     \end{subfigure}
     \vskip3ex
     \begin{subfigure}[b]{0.425\textwidth}
         \centering
 
         \includegraphics[width=\textwidth]{../figures/model-graph-bottom-left}
-        \caption{{Model for antigen tests}}
-        \label{fig:antigen_tests}
+        \caption{{Model for rapid tests}}
+        \label{fig:model_rapid_tests}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.425\textwidth}
@@ -93,27 +95,27 @@ probability of infection associated with a contact \citep{Cheng2021}.
         \vskip5ex
 
         \caption{{Translating all infections to recorded ones}}
-        \label{fig:model_for_official_cases}
+        \label{fig:model_official_cases}
     \end{subfigure}
 
     \caption{Model description}
-    \label{fig:model-description}
+    \label{fig:model_description}
 
     \floatfoot{\noindent \textit{Note:}
         A
         % formal 
         description of the model can be found in Supplementary Material~\ref{sec:model}.
-        Figure~\ref{fig:broad_model_description} shows the influence on an agent's
+        Figure~\ref{fig:model_contacts_infections} shows the influence on an agent's
         contacts to other agents. Demographic characteristics set the baseline number of
         contacts in different networks. She may reduce the number of contacts due to
         NPIs, showing symptoms, or testing positively for SARS-CoV-2. Infections may
         occur when a susceptible agent meets an infectious agent; the probability
         depends on the type of contact, on seasonality, and on NPIs. If infected, the
-        infection progresses as depicted in Figure~\ref{fig:disease_progression}. If
+        infection progresses as depicted in Figure~\ref{fig:model_disease_progression}. If
         rapid tests are avaible, agents' demand is modeled as in
-        Figure~\ref{fig:antigen_tests}. All pupils are attending school are tested,
+        Figure~\ref{fig:model_rapid_tests}. All pupils are attending school are tested,
         other reasons trigger a test only for a fraction of individuals.
-        Figure~\ref{fig:model_for_official_cases} shows the model of translating all
+        Figure~\ref{fig:model_official_cases} shows the model of translating all
         infections in the simulated data to age-specific recorded infections. The model
         uses data on the aggregate share of recorded cases, on the share of positive PCR
         tests triggered by symptoms, and on the false positive rate of rapid tests. The
@@ -122,7 +124,7 @@ probability of infection associated with a contact \citep{Cheng2021}.
 \end{figure}
 
 In the model, susceptibility to contracting the SARS-CoV-2 virus is dependent on age. A
-possible infection progresses as shown in Figure~\ref{fig:disease_progression}. We
+possible infection progresses as shown in Figure~\ref{fig:model_disease_progression}. We
 differentiate between an initial period of infection without being infectious or showing
 symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring
 intensive care, and recovery or death as for example also modeled in \cite{Grimm2021}.
@@ -147,31 +149,36 @@ already.} During the vaccine roll-out, priority may depend on age and occupation
 We include two types of tests. Polymerase chain reaction (PCR) tests reveal whether an
 individual is infected or not; there is no uncertainty to the result. PCR tests require
 some days to be processed and there are aggregate capacity constraints throughout. In
-contrast, rapid antigen tests yield immediate results; after a phase-in period, all tests
-that are demanded will be performed. Specificity and sensitivity of these tests is set
-according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the
-timing of the test relative to the start of infectiousness.
-Figure~\ref{fig:antigen_tests} shows our model for rapid test demand. Schools may require
-students to be tested regularly. Rapid tests may be offered by employers for on-site
-workers. Individuals may demand tests for private reasons, which include having plans to
-meet other people\footnote{A positive test will make them reduce their contacts; this is
-why tests impact the actual contacts in Figure~\ref{fig:model-description}.}, showing
-symptoms of CoViD-19, and because a household member tested positively for the virus. We
-endow each agent with an individual compliance parameter. This parameter determines
-whether she takes up rapid tests offered by employers or follows up on private reasons
-and whether she reduces her contacts if she tests positive or develops symptoms. The
-thresholds fall over time and are calibrated to survey data where possible (see
-Supplementary Materials~\ref{subsec:rapid_test_demand}).
+contrast, rapid antigen tests yield immediate results; after a phase-in period, all
+tests that are demanded will be performed. Specificity and sensitivity of these tests is
+set according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on
+the timing of the test relative to the onset of infectiousness.
+Figure~\ref{fig:model_rapid_tests} shows our model for rapid test demand. Schools may
+require students to be tested regularly. Rapid tests may be offered by employers for
+on-site workers. Individuals may demand tests for private reasons, which include having
+plans to meet other people,\footnote{A positive test will make them reduce their
+contacts; this is why tests impact the actual contacts in
+Figure~\ref{fig:model_description}.} showing symptoms of CoViD-19, and because a
+household member tested positively for the virus. We endow each agent with an individual
+compliance parameter. This parameter determines whether she takes up rapid tests offered
+by employers or follows up on private reasons.\comment[id=HM]{Removed ``and whether she
+reduces her contacts if she tests positive or develops symptoms'' -- does not fit here.
+If anything, add footnote, but it seems like this is a detail that is just distracting
+right here. Make sure to describe clearly and at length in Appendix.} 
+
+% The thresholds fall over time and are calibrated to survey data where possible (see
+% Supplementary Materials~\ref{subsec:rapid_test_demand}). 
+
 % The thresholds are higher for tests in a private setting than for tests at the
-% workplace until mid April and then compliance because of private reasons becomes higher
-% than compliance at the workplace.
+% workplace until mid April and then compliance because of private reasons becomes
+% higher than compliance at the workplace.
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
 parameters.\footnote{See section~\ref{sec:data_and_parameters} of the supplementary
 materials for an overview.} Contact diaries yield pre-pandemic distributions of contacts
 for different contact types and their assortativity by age group. Mobility data is used
-to model the reductions in work contacts. School and daycare policies can be incorporated
+to model the evolution of work contacts. School and daycare policies can be incorporated
 directly from official directives. Administrative records on the number of tests,
 vaccinations by age and region, and the prevalence of virus strains are generally
 available. Surveys may ask about test offers, propensities to take them up, and past
@@ -189,7 +196,7 @@ We estimate these parameters such that the model matches the following empirical
 quantities: 1. official case numbers for each age group and region, 2. deaths, 3. share
 of B.1.1.7. \citep[See][for the general method]{McFadden1989}. However, only a fraction
 of infections actually enter the official case numbers. We thus model official cases as
-depicted in Figure~\ref{fig:model_for_official_cases}. We take aggregate estimates of the
+depicted in Figure~\ref{fig:model_official_cases}. We take aggregate estimates of the
 share of detected cases and use data on whether CoViD-19 symptoms led to a PCR test. As
 the share of asymptomatic individuals varies by age group, this gives us age-specific
 shares (see Figure~\ref{fig:share_known_cases_by_age_group} for the share of known cases
@@ -204,22 +211,22 @@ Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pande
 of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
 recorded cases; the black line in Figure~\ref{fig:stringency_infectious_contacts} the
 Oxford Response Stringency Index \citep{Hale2020}, which tracks the tightness of
-non-pharmaceutical interventions. We transform the index so that lower values represent
-higher levels of restrictions. A value of zero means all measures incorporated in the
-index are turned on. The value 1 represents the situation in mid-September, with
-restrictions on gatherings and public events, masking requirements, but open schools and
-workplaces. In the seven weeks between mid September and early November, cases increased
-by a factor of 10. Restrictions were somewhat tightened in mid-October and again in early
-November. New infections remained constant throughout November, before rising again in
-December, which prompted the most stringent lockdown to this date. Schools and daycare
-centers were closed again, so were customer-facing businesses except for grocery and drug
-stores. From the peak of the second wave just before Christmas until the trough in
-mid-February, newly detected cases decreased by almost three quarters. The third wave in
-the spring of 2021 is associated with the B.1.1.7 strain, which became dominant in March.
-See Figure~\ref{fig:share_b117}. In early March, some NPIs were being relaxed; e.g.,
-hairdressers and home improvement stores were allowed to open again to the public. There
-were many changes in details of regulations afterwards, but they did not change the
-stringency index.
+non-pharmaceutical interventions. For legibility, we transform the index so that lower
+values represent higher levels of restrictions. A value of zero means all measures
+incorporated in the index are turned on. The value 1 represents the situation in
+mid-September, with restrictions on gatherings and public events, masking requirements,
+but open schools and workplaces. In the seven weeks between mid September and early
+November, cases increased by a factor of 10. Restrictions were somewhat tightened in
+mid-October and again in early November. New infections remained constant throughout
+November, before rising again in December, which prompted the most stringent lockdown to
+this date. Schools and daycare centers were closed again, so were customer-facing
+businesses except for grocery and drug stores. From the peak of the second wave just
+before Christmas until the trough in mid-February, newly detected cases decreased by
+almost three quarters. The third wave in the spring of 2021 is associated with the
+B.1.1.7 strain, which became dominant in March. See Figure~\ref{fig:share_b117}. In
+early March, some NPIs were being relaxed; e.g., hairdressers and home improvement
+stores were allowed to open again to the public. There were many changes in details of
+regulations afterwards, but they did not change the stringency index.
 
 \begin{figure}[!tp]   % Figure 2
     \centering
@@ -422,10 +429,10 @@ mechanisms are turned on. Compared to the scenario with vaccinations only, this 
 reached around mid-May and it would be June for the comparison with the seasonality-only
 scenario. The effect on total cases, however, is visible immediately. Despite the fact
 that only a small fraction of the population performed weekly rapid tests in
-March\footnote{4\% to 6\% have done a rapid test within the last seven days in the first
+March,\footnote{4\% to 6\% have done a rapid test within the last seven days in the first
 week of March. 8\% in the model have ever done a rapid test at that point; 27\% of
 respondents to the COSMO study reported in early March that they \textit{ever} did a
-rapid test)}, new infections on April 1 would be reduced by 53\% relative to the
+rapid test)} new infections on April 1 would be reduced by 53\% relative to the
 scenario without vaccinations, rapid tests, or seasonality.
 
 So why is rapid testing so effective? In order to shed more light on this question,
