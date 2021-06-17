@@ -1,4 +1,4 @@
-\subsection{Reducing Numbers of Contacts Through Policies}
+\subsection{Reducing Numbers of Contacts via NPIs}
 \label{sec:policies}
 
 The main motivation of our model is to predict the effect of policies that affect the
@@ -18,7 +18,8 @@ On an abstract level, a policy is a functions that modifies the number of contac
 one contact type. For example, school closures simply set all school contacts to zero. A
 lockdown where only essential workers are allowed to work means that approximately two
 thirds of the working population have zero work contacts and the rest has the same
-number of contacts as before.
+number of contacts as before.\comment[id=HM]{Mention here or in results that school
+closures $\neq$ vacations because of additional contacts}
 
 This, in conjunction with our fine-grained contact types, allows us to easily implement
 a wide variety of policies. Allowing policies to depend on the health states of the
