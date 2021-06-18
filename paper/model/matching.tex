@@ -3,7 +3,7 @@
 
 The empirical data described above only allows to estimate the number of contacts each
 person has. In order to simulate transmissions of Covid-19, the numbers of contacts has
-to be translated into actual meetings between people. This is achieved by our matching
+to be translated into actual meetings between people. This is achieved by a matching
 algorithm:
 
 As described in section \ref{sec:number_of_contacts}, some contact types are recurrent
@@ -11,10 +11,8 @@ As described in section \ref{sec:number_of_contacts}, some contact types are rec
 by accident that two people meet twice). The matching process is different for recurrent
 and non recurrent contact models.
 
-Recurrent contacts are described by two components: 1) A variable in the background
-characteristics. An example would be a school class identifier which could come from
-actual data or be drawn randomly to achieve representative class sizes.
-2) A deterministic or random function that takes the value 0 (non-participating) and 1
+Recurrent contacts are described by two components: 1) A set of time invariant groups, such as school classes. The groups can be sampled from empirical data or created by
+randomly matching simulated individuals into groups. 2) A deterministic or random function that takes the value 0 (non-participating) and 1
 (participating) and can depend on the weekday, date and health state. This can be used
 to model vacations, weekends or symptomatic people who stay home (see section
 \ref{sec:endogenous_contact_reductions} for details).
@@ -22,9 +20,11 @@ to model vacations, weekends or symptomatic people who stay home (see section
 The matching process for recurrent contacts is then extremely simple: On each simulated
 day, every person who does not stay home meets all other group members who do not stay
 home. The assumption that all group members have contacts with all other group members
-is not fully realistic, but seems like a good approximation to reality, especially in
+is not fully realistic, but a good approximation to reality, especially in
 light of the suspected role of aerosol transmission for Covid-19 \citep{Morawska2020,
-Anderson2020}.
+Anderson2020}. Alternatively, the infection probability of recurrent contact types can
+be interpreted as being the product of a true infection probability and the probability
+that an actual contact takes place.
 
 The matching in non-recurrent contact models is more difficult and implemented in a two
 stage sampling procedure to allow for assortative matching. Currently most contact
@@ -35,44 +35,21 @@ influence matching probabilities introduce a discrete partition of the populatio
 groups. The first stage of the two stage sampling process samples on the group level.
 The second stage on the individual level.
 
-Below, we first show pseudo code for the non-recurrent matching algorithm and then
-describe how the algorithm works in words.
-
-\comment[id=HM]{From course: Remove "pseudo" code, replace by formulas.}
-\begin{listing}
-
-    \label{code:matching}
-    \begin{minted}{python}
-    while are_unmatched_contacts_left:
-
-        contact_type, i = draw_contact_type_and_individual()
-
-        for _ in remaining_contacts[i, contact_type]:
-
-            group_j = draw_group_of_other_person()
-            j = draw_other_person_from_that_group(group_j)
-
-            if infection_takes_place(i, j):
-                update_health_state_of_freshly_infected()
-
-            remaining_contacts[i, contact_type] -= 1
-            remaining_contacts[j, contact_type] -= 1
-    \end{minted}
-    \caption{Pseudo-code of the matching algorithm for non-recurrent contacts.}
-\end{listing}
-
-We first randomly draw a contact type and individual. For each contact of the drawn
-contact type that person has, we first draw the group of the other person (first stage).
+The algorithm works as follows: First we randomly draw a contact type and individual.
+For each contact of the drawn contact type that person has, we first draw the group of
+the other person (first stage).
 Next, we calculate the probability to be drawn for each member of the group, based on
 the number of remaining contacts, i.e. people who have more remaining contacts are drawn
-with a higher probability. This has to be re-calculated each time because with each
+with a higher probability. The probabilities have to be re-calculated each time because
+with each
 matched contact, the number of remaining contacts changes. We then draw the other
 individual, determine whether an infection takes place and if so update the health state
 of the newly infected person. Finally, we reduce the number of remaining contacts of the
-two matched individuals by one.
+two matched individuals by one.\comment[id=J]{Add formulae here.}
 
 The recalculation of matching probabilities in the second stage is computationally
 intensive because it requires summing up all remaining contacts in that group. Using a
 two stage sampling process where the first stage probabilities remain constant over time
 makes the matching computationally much more tractable because the number of
-computations increases quadratically in the second stage group size.
+computations only increases quadratically in the size of the second group and not
+quadratically in the size of the entire simulated population.
