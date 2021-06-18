@@ -1,7 +1,5 @@
-sid:
-    - b7236ec3291049ea4ccf59d4d066bbc2c1de4b93
-    - return last states as pandas DataFrame (not dask)
+sid: 0.0.10
 
 sid-germany:
-    - e33bf385
-    - fixed bug in mandatory work test scenario
+    - 2cd1209
+    - rapid test statistic tables and y labels everywhere
