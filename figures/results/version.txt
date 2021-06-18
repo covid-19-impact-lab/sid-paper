@@ -1,5 +1,5 @@
 sid: 0.0.10
 
 sid-germany:
-    - 1bc0945
-    - rapid test statistic tables and y labels everywhere
+    - 63ee2e2
+    - rapid test statistic tables and y labels everywhere, not a clean run!
