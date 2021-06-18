@@ -25,10 +25,10 @@ contacts between individuals. While this has allowed some countries to sustain
 equilibria with very low infection numbers,\footnote{See \citet{Contreras2021} for a
 theoretical equilibrium at low case numbers which is sustained with
 test-trace-and-isolate policies.} most have seen large fluctuations of infection rates
-over time. Containment measures have become increasingly diverse and now include
+over time. Containment measures have become increasingly diverse and now include rapid
 testing, more nuanced NPIs, and contact tracing. Neither these policies' effect nor the
-influence of seasonal patterns or more infectious virus strains are well understood in
-quantitative terms.
+influence of seasonal patterns or of more infectious virus strains are well understood
+in quantitative terms.
 
 This paper develops a quantitative model incorporating these factors simultaneously. The
 framework allows to combine a wide variety of data and mechanisms in a timely fashion,
@@ -50,8 +50,8 @@ appointments, etc.). Some contacts recur regularly, others occur at random. Empi
 applications can take the population and household structure from census data and the
 network-specific frequencies of contacts from diary data measuring contacts before the
 pandemic \citep[e.g.][]{Mossong2008,Hoang2019}. Within each network, contacts are
-differentiated by age and geographical location see Section~\ref{sub:number_of_contacts}
-of the Supplementary Material.
+differentiated by age and geographical location (see Section~\ref{sub:number_of_contacts}
+of the Supplementary Material).
 
 The four contact networks are chosen so that the most common NPIs can be modeled in
 great detail. NPIs affect the number of contacts or the risk of transmitting the disease
@@ -129,9 +129,10 @@ In the model, susceptibility to contracting the SARS-CoV-2 virus is dependent on
 possible infection progresses as shown in Figure~\ref{fig:model_disease_progression}. We
 differentiate between an initial period of infection without being infectious or showing
 symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring
-intensive care, and recovery or death as for example also modeled in \cite{Grimm2021}.
-The probabilities of transitioning between these states depend on age; their duration is
-random within intervals calibrated to medical literature (for a detailed description see
+intensive care, and recovery or death \citep[similar
+to][]{Grimm2021}.\comment[id=HM]{Need to look for non-economists} The probabilities of
+transitioning between these states depend on age; their duration is random within
+intervals calibrated to medical literature (for a detailed description see
 Section~\ref{sec:medical_params}). Conditional on the type of contact, infectiousness is
 independent of age \citep{Jones2021}.
 
@@ -183,9 +184,10 @@ by contact network and the effects of NPIs, see Supplementary
 Material~\ref{subsec:estimated_params}---will be chosen numerically so that the model
 matches features of the data \citep[see][for the general method, also described in
 Supplementary Material \ref{sec:model}]{McFadden1989}.\comment[id=HM]{Make reference
-more specific once Appendix has new structure}. We keep the number of free parameters
-low in order to avoid overfitting. In our application, these features include  official
-case numbers for each age group and region, deaths, and the share of the B.1.1.7 strain.
+more specific once Appendix has new structure} In our application, we keep the number of
+free parameters low in order to avoid overfitting. The data features to be matched
+include official case numbers for each age group and region, deaths, and the share of
+the B.1.1.7 strain.
 
 The main issue with official case numbers is that they will contain only a fraction of
 all infections. We thus model official cases as depicted in
@@ -284,18 +286,18 @@ medical personnel (Figure~\ref{fig:antigen_tests_vaccinations}). By the end of M
 over 40\% had received at least one dose of a vaccine. Around the same time, rapid tests
 started to replace regular PCR tests for staff in many medical and nursing facilities.
 These had to be administered by medical doctors or in pharmacies. At-home tests approved
-by authorities became available in mid-March, rapid test centers were opened and one
-test per person and week was made available free of charge. Depending on the state,
-customers were only allowed to enter certain stores with a recent negative rapid test
-result. These developments are characteristic of many countries: The initial focus on
-NPIs to slow the spread of the disease has been accompanied by vaccines and a growing
-acceptance and use of rapid tests. At broadly similar points in time, novel strains of
-the virus have started to pose additional challenges.
+by authorities became available in mid-March, rapid test centers were opened, and one
+test per person and week was made available free of charge. In several states, customers
+were only allowed to enter certain stores with a recent negative rapid test result.
+These developments are characteristic of many countries: The initial focus on NPIs to
+slow the spread of the disease has been accompanied by vaccines and a growing acceptance
+and use of rapid tests. At broadly similar points in time, novel strains of the virus
+have started to pose additional challenges.
 
 We draw simulated samples of agents from the population structure in September 2020 and
 use the model to predict recorded infection rates until the end of May 2021. See
 Supplementary Material~\ref{sub:initial_conditions} for a detailed description of this
-procedure. The blue line in Figure~\ref{fig:aggregated_fit} shows our model's
+procedure. The blue line in Figure~\ref{fig:aggregated_fit} shows that our model's
 predictions are very close to officially recorded cases in the aggregate. This is also
 true for infections by age and geographical region, which are shown in the supplementary
 materials (Figures~\ref{fig:age_group_fit} and \ref{fig:state_fit}, respectively).
@@ -379,7 +381,7 @@ scenario without any of the three factors and our main specification.
         seasonality remain at their January levels. The other scenarios turn these three
         factors on one-by-one. The decompositions in
         Figures~\ref{fig:2021_scenarios_decomposition} and
-        \ref{fig:2021_scenarios_decomposition_tests} are based on Shapley values which
+        \ref{fig:2021_scenarios_decomposition_tests} are based on Shapley values, which
         are explained more thoroughly in Appendix~\ref{sub:shapley_value}}
 \end{figure}
 
@@ -410,20 +412,17 @@ cumulative difference by the end of May.
 
 The largest effect---almost one half when considering the decompositions---comes from
 rapid testing. Here, it is crucial to differentiate between recorded cases and actual
-cases. Additional testing means that infections are recorded, which would otherwise
-remain undetected. Figure~\ref{fig:2021_scenarios_recorded} shows that this effect is
-large. Until late April, recorded cases are higher in the scenario with rapid testing
-alone when compared to the setting where none of the three mechanisms are turned on.
-Compared to the scenario with vaccinations only, this point is reached around mid-May
-and it would be June for the comparison with the seasonality-only scenario. The effect
-on total cases, however, is visible immediately in
-Figure~\ref{fig:2021_scenarios_newly_infected}. Despite the fact that only a small
-fraction of the population performed weekly rapid tests in March,\footnote{4\% to 6\% of
-respondents to the COSMO study report having done a rapid test during the first week of
-March; 8\% in the model have ever done a rapid test at that point.}\comment[id=HM]{would
-be great to have total tests performed in March, model vs. data is not important here.
-Just first week of March looks too small} new infections on April 1 would be reduced by
-53\% relative to the scenario without vaccinations, rapid tests, or seasonality.
+cases. Additional testing means that additional infections will be recorded which would
+otherwise remain undetected. Figure~\ref{fig:2021_scenarios_recorded} shows that this
+effect is large. Until late April, recorded cases are higher in the scenario with rapid
+testing alone when compared to the setting where none of the three mechanisms are turned
+on. Compared to the scenario with vaccinations only, this point is reached around
+mid-May and it would be June for the comparison with the seasonality-only scenario. The
+effect on total cases, however, is visible immediately in
+Figure~\ref{fig:2021_scenarios_newly_infected}. Despite the fact that only 10\%  of the
+population performed weekly rapid tests in March on average, new infections on April 1
+would be reduced by 53\% relative to the scenario without vaccinations, rapid tests, or
+seasonality.
 
 So why is rapid testing so effective? In order to shed more light on this question,
 Figure~\ref{fig:2021_scenarios_decomposition_tests} decomposes the difference in the
