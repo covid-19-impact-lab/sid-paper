@@ -1,18 +1,18 @@
 \subsection{Course of the Disease}
 \label{sub:disease_progression}
 
-The following medical parameters describing the progression of the disease are taken from
-systematic reviews (e.g. \citet{He2020}). After an infection occurs, the disease
-progresses in the way depicted in Figure~\ref{fig:model_disease_progression}.
+The disease progression in the model is fairly standard. It is depicted in
+Figure~\ref{fig:model_disease_progression} and the values and source of the relevant
+parameters are describes in Section~\ref{sec:medical_params}.
 
-
-First, infected individuals will become infectious after one to five days. About one
-third of people remain asymptomatic. The rest develop symptoms about one to two days
-after they become infectious. Modeling asymptomatic and pre-symptomatic cases is
-important because those people do not reduce their contacts or demand a test and can
-potentially infect many other people \citep{Donsimoni2020}. The probability to develop
+First, infected individuals will become infectious after one to five days. Overall,
+about one third of people remain asymptomatic. The rest develop symptoms about one to
+two days after they become infectious. Modeling asymptomatic and pre-symptomatic cases
+is important because those people do not reduce their contacts nor do they have an
+elevated probability to demand a test. Thus they can potentially infect many other
+people \citep{Donsimoni2020}. The probability to develop
 symptoms with Covid-19 is highly age dependent with 75\% of children not developing
-symptoms \citep{Davies2020}.
+clinical symptoms \citep{Davies2020}.
 
 A small share of symptomatic people will develop strong symptoms that require intensive
 care. The exact share and time span is age-dependent. An age-dependent share of intensive
@@ -32,6 +32,7 @@ remains in a state is drawn randomly. The parameters that govern these processes
 taken from the literature \footnote{ Detailed information on the calibration of the
 disease parameters is available as part of our
 \href{https://sid-dev.readthedocs.io/en/latest/reference_guides/epi_params.html}{online
-documentation}.} and age-dependent.
+documentation}.}.\comment[id=J]{Replace this by a link to the relevant table with
+parameters in the data appendix, once we have that table.}
 
 
