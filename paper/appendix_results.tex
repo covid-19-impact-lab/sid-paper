@@ -60,32 +60,91 @@ It's noteworthy that the share of detected cases increases rapidly in May for th
 fourteen year olds. This is a direct result of the mandatory tests in
 school.
 
-\subsection{Rapid Tests \comment[id=K]{The figures will likely change layout later}}
+\subsection{Rapid Tests}
 \label{subsec:appendix_rapid_tests}
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/demand_shares}
-  \caption{Share of the Population Demanding a Rapid Test for a Particular Reason}
-  \label{fig:rapid_tests_by_reason}
-  \floatfoot{\noindent Note that the lower three (household demand, symptomatic without
-  PCR demand and other contact demand together form the private demand category. Also
-  note that these do not add up to the total share of demanded rapid tests as individuals
-  may have more than one reason to demand a rapid test on any given day. }
+  \begin{subfigure}[b]{0.425\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/educ_demand_share}
+    \caption{Share of the Population Demanding a Rapid Test in an Education Setting}
+    \label{fig:educ_rapid_test_demand}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.425\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/work_demand_share}
+    \caption{Share of the Population Demanding a Rapid Test due to Work}
+    \label{fig:work_rapid_test_demand}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.425\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/private_demand_share}
+    \caption{Share of the Population Demanding a Rapid Test for Private Reasons}
+  \label{fig:private_rapid_test_demand}
+  \end{subfigure}
+  \caption{Rapid Test Demand by Reason}
+  \label{fig:rapid_test_demand_by_reason}
+  \floatfoot{\noindent \textit{Note:}
+    Rapid tests in the education setting are demanded by teachers (nursery, preschool and
+    school) as well as school pupils. After Easter the required frequency of tests is
+    increased from once per week to twice per week. Work rapid tests are demanded by
+    individuals that still have work contacts, i.e. do not work from home. The share of
+    employers offering rapid tests increases over the time frame and the frequency of
+    testing is also increased. Tests are demanded by individuals for one of three private
+    reasons: having developed symptoms without access to a PCR test, having a household
+    member that has tested positive or developed symptoms or having planned weekly
+    meeting with friends.
+  }
 \end{figure}
+
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/share_infected_among_demand}
-  \caption{Share of individuals who Demand a Rapid Test for a Particular Reason that are Actually Infected}
-  \label{fig:share_of_rapid_tests_by_reason_by_infected}
-  \floatfoot{\noindent Note that the lower three (household demand, symptomatic without
-  PCR demand and other contact demand together form the private demand category. Also
-  note that this is not the same as individuals getting a positive rapid test. The
-  sensitivity is quite low before individuals become infectious. Therefore, if
-  individuals are still in the latent period of their infection they are likely to get a
-  false positive rapid test.}
+  \begin{subfigure}[b]{0.425\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/share_infected_among_educ_demand}
+    \caption{Share of Rapid Tests in the Educational Setting Demanded by Infected
+    Individuals}
+    \label{fig:share_infected_among_educ_rapid_test_demand}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.425\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/share_infected_among_work_demand}
+    \caption{Share of Work Rapid Tests Demanded by Infected Individuals}
+    \label{fig:share_infected_among_work_rapid_test_demand}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.425\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/results/figures/rapid_test_statistics/share_infected_among_private_demand}
+    \caption{Share of Private Rapid Tests Demanded by Infected Individuals}
+  \label{fig:share_infected_among_private_rapid_test_demand}
+  \end{subfigure}
+  \caption{Share of Rapid Tests Demanded by Infected Individuals by Reason}
+  \label{fig:share_infected_among_rapid_test_demand_by_reason}
+  \floatfoot{\noindent \textit{Note:}
+    Rapid tests in the education setting are demanded by teachers (nursery, preschool and
+    school) as well as school pupils. After Easter the required frequency of tests is
+    increased from once per week to twice per week. Work rapid tests are demanded by
+    individuals that still have work contacts, i.e. do not work from home. The share of
+    employers offering rapid tests increases over the time frame and the frequency of
+    testing is also increased. Tests are demanded by individuals for one of three private
+    reasons: having developed symptoms without access to a PCR test, having a household
+    member that has tested positive or developed symptoms or having planned weekly
+    meeting with friends. Private rapid tests have a very high share of infected
+    individuals because they are mostly triggered by events that make infection likely.
+    Remember however, that one reason is that a household member has a positive rapid
+    test. This means that work and education rapid tests which have a low rate of
+    infected individuals trigger more targeted rapid tests. They also have a much higher
+    volume of tests. As can be seen in the decomposition (see
+    Figure~\ref{fig:2021_scenarios_decomposition_tests} every category of tests is
+    important for the overall effect.}
 \end{figure}
+
 
 \FloatBarrier
 
