@@ -1,0 +1,42 @@
+% To ``accept'' all changes in the document:
+\PassOptionsToPackage{final}{changes}
+
+\documentclass[a4paper, 10pt]{article}
+% fleqn: flush-left aligned equations
+
+\newcommand{\papertitle}{
+The Effectiveness of Strategies to Contain SARS-CoV-2: Testing, Vaccinations, and NPIs
+}
+
+\input{templates/Preamble_Fundamental_packages}
+\hypersetup{
+    pdftitle={\papertitle},
+    pdfauthor={Janoś Gabler, Tobias Raabe, Klara Röhrl, Hans-Martin von Gaudecker}
+}
+
+% packages ======================================================================
+
+\input{templates/Preamble_Page_layout_general}
+\input{templates/Preamble_Page_layout_paper}
+\subimport{templates/}{Preamble_Fonts_Charter_FiraSans}
+\input{templates/Preamble_Sansserif_math}
+\input{templates/Preamble_BibLaTeX_AER}
+%\input{templates/Preamble_BibLaTeX_APA}
+\input{templates/Preamble_Commenting_and_highlighting}
+\input{templates/Preamble_Miscellaneous}
+
+% Add global hyphenation rules to avoid unwelcome linebreaks:
+% \hyphenation{Bu-shong Della-Vigna}
+
+\bibliography{references.bib}
+
+
+\usepackage[newfloat, outputdir=../bld, cache=false]{minted}
+
+% Define environments to comment on the sidebar of the PDF.
+\definechangesauthor[name={Tobias}, color=alizarin]{T}
+\definechangesauthor[name={Janos}, color=internationalorange]{J}
+\definechangesauthor[name={Klara}, color=dartmouthgreen]{K}
+\definechangesauthor[name={HM}, color=blue]{HM}
+% Use \replace[id=T]{<to-be-replaced>}{<new>} or the same with \deleted to propose
+% changes.

@@ -18,7 +18,7 @@ BLD = ROOT / "bld"
         "-f",
     ]
 )
-@pytask.mark.depends_on(ROOT / "paper" / "paper.tex")
+@pytask.mark.depends_on(ROOT / "src" / "paper.tex")
 @pytask.mark.produces(BLD / "paper.pdf")
 def task_compile_documents():
     pass
