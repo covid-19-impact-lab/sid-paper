@@ -21,6 +21,25 @@ paper](https://www.iza.org/publications/dp/13899). Please cite it with
 The [latest version of the paper](paper.pdf) can be found in this repository.
 
 
+## Notes for Updating the Arxive Version
+
+1. Compile the document without comments, i.e. with `\PassOptionsToPackage{final}{changes}`.
+
+2. Save the resulting `paper.bbl` file in the src folder where `paper.tex` is.
+
+3. zip the src folder and upload it to archive.
+
+**Notes:**
+
+- the `comment` package should work
+- you can preview the resulting pdf.
+- if the run on arxive fails, the most likely culprits are:
+  - it used `tex` and not `pdflatex` in the command -> put `\pdfoutput=1` as first line
+    of `paper.tex`
+  - everything before `\begin{document}` must be in the main paper without input
+    statements.
+
+
 ## Related publications
 
 Here is a list of publications which rely on sid.

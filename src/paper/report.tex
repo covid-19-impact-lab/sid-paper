@@ -1,20 +1,19 @@
 Since early 2020,\comment[id=J]{Put stronger focus on time dependent rapid test
 sensitivity (30\% before day of onset of infectiousness)} the CoViD-19 pandemic has
-presented an enormous challenge to humanity on many dimensions. The development of
-highly effective vaccines holds the promise of containment in the medium term. However,
-most countries find themselves many months---and often years---away from reaching
+presented an enormous challenge to humanity on many dimensions. The development of highly
+effective vaccines holds the promise of containment in the medium term. However, most
+countries find themselves many months---and often years---away from reaching
 vaccination-induced herd immunity \citep{Swaminathan2021}.\comment[id=HM]{Need to find
 some more scientific citation before submission} In the meantime, it is of utmost
 importance to employ an effective mix of strategies for containing the virus. The most
 frequent initial response was a set of non-pharmaceutical interventions (NPIs) to reduce
-contacts between individuals. While this has allowed some countries to sustain
-equilibria with very low infection numbers,\footnote{See \citet{Contreras2021} for a
-theoretical equilibrium at low case numbers which is sustained with
-test-trace-and-isolate policies.} most have seen large fluctuations of infection rates
-over time. Containment measures have become increasingly diverse and now include rapid
-testing, more nuanced NPIs, and contact tracing. Neither these policies' effect nor the
-influence of seasonal patterns or of more infectious virus strains are well understood
-in quantitative terms.
+contacts between individuals. While this has allowed some countries to sustain equilibria
+with very low infection numbers,\footnote{See \citet{Contreras2021} for a theoretical
+equilibrium at low case numbers which is sustained with test-trace-and-isolate policies.}
+most have seen large fluctuations of infection rates over time. Containment measures have
+become increasingly diverse and now include rapid testing, more nuanced NPIs, and contact
+tracing. Neither these policies' effect nor the influence of seasonal patterns or of more
+infectious virus strains are well understood in quantitative terms.
 
 This paper develops a quantitative model incorporating these factors simultaneously. The
 framework allows to combine a wide variety of data and mechanisms in a timely fashion,
@@ -116,9 +115,9 @@ possible infection progresses as shown in Figure~\ref{fig:model_disease_progress
 differentiate between an initial period of infection without being infectious or showing
 symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring
 intensive care, and recovery or death \citep[similar
-to][]{Grimm2021}.\comment[id=HM]{Need to look for non-economists} The probabilities of
-transitioning between these states depend on age; their duration is random within
-intervals calibrated to medical literature (for a detailed description see
+to][]{Grimm2021}.\comment[id=HM]{Need to look for non-economists}
+The probabilities of transitioning between these states depend on age; their duration is
+random within intervals calibrated to medical literature (for a detailed description see
 Section~\ref{sec:medical_params}). Conditional on the type of contact, infectiousness is
 independent of age \citep{Jones2021}.
 
@@ -138,10 +137,10 @@ already.} During the vaccine roll-out, priority may depend on age and occupation
 We include two types of tests. Polymerase chain reaction (PCR) tests reveal whether an
 individual is infected or not; there is no uncertainty to the result. PCR tests require
 some days to be processed and there are aggregate capacity constraints throughout. In
-contrast, rapid antigen tests yield immediate results; after a phase-in period, all
-tests that are demanded will be performed. Specificity and sensitivity of these tests is
-set according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on
-the timing of the test relative to the onset of infectiousness.
+contrast, rapid antigen tests yield immediate results; after a phase-in period, all tests
+that are demanded will be performed. Specificity and sensitivity of these tests is set
+according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the
+timing of the test relative to the onset of infectiousness.
 Figure~\ref{fig:model_rapid_tests} shows our model for rapid test demand. Schools may
 require students to be tested regularly. Rapid tests may be offered by employers for
 on-site workers. Individuals may demand tests for private reasons, which include having
@@ -169,11 +168,11 @@ directly. The remaining parameters---most notably, these include infection proba
 by contact network and the effects of NPIs, see Supplementary
 Material~\ref{subsec:estimated_params}---will be chosen numerically so that the model
 matches features of the data \citep[see][for the general method, also described in
-Supplementary Material \ref{sec:model}]{McFadden1989}.\comment[id=HM]{Make reference
-more specific once Appendix has new structure} In our application, we keep the number of
-free parameters low in order to avoid overfitting. The data features to be matched
-include official case numbers for each age group and region, deaths, and the share of
-the B.1.1.7 strain.
+Supplementary Material \ref{sec:model}]{McFadden1989}.\comment[id=HM]{Make referencemore
+specific once Appendix has new structure} In our application, we keep the number of free
+parameters low in order to avoid overfitting. The data features to be matched include
+official case numbers for each age group and region, deaths, and the share of the B.1.1.7
+strain.
 
 The main issue with official case numbers is that they will contain only a fraction of
 all infections. We thus model official cases as depicted in
@@ -435,11 +434,11 @@ become widely available. We estimate the realized scenario to have essentially t
 effect as a situation with closed schools. Under fully opened schools with mandatory
 tests, total infections would have been 7\% higher; this number rises to 20\% without
 tests. These effect sizes are broadly in line with empirical studies, e.g.,
-\citep{Vlachos2021}\comment[id=HM]{Need a back-of the envelope calculation} To use
-another metric, the effective weekly reproduction number differs by $0.017$ and $0.045$,
-respectively. In light of the large negative effects school closures have on children
-and parents \citep{Luijten2021, Melegari2021}---and in particular on those with low
-socio-economic status---these results in conjunction with hindsight bias suggest that
+\citep{Vlachos2021}\comment[id=HM]{Need a back-of the envelope calculation}
+To use another metric, the effective weekly reproduction number differs by $0.017$ and
+$0.045$, respectively. In light of the large negative effects school closures have on
+children and parents \citep{Luijten2021, Melegari2021}---and in particular on those with
+low socio-economic status---these results in conjunction with hindsight bias suggest that
 opening schools combined with a testing strategy would have been beneficial. In other
 situations, and particular when rapid test are not available at scale, trade-offs may
 well be different.
