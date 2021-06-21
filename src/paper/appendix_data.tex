@@ -15,6 +15,15 @@ literature or calibrated from surveys and empirical datasets.
 
 \subsection{The Synthetic Population\comment[id=K]{To be written}}
 
+We build a synthetic population based on the German microcensus \citep{FDSAeDBUDL2018}.
+We only use private households, i.e. exclude living arrangements such as nursing homes as
+non-private households vary widely in size and it is very difficult to know which
+contacts take place in such households.
+
+We sample households to build our synthetic population of over one million households
+keeping for each individual their age, gender, occupation and whether they work on
+Saturdays and Sundays.
+
 \FloatBarrier
 
 
@@ -137,9 +146,9 @@ numbers of contacts by contact type.
 \end{figure}
 
 An exception where we do not rely on the data by \cite{Mossong2008} are the household
-contacts. Since household are included in the the German microcensus\comment[id=K]{Cite
-microcensus} on which we build our synthetic population we simply assume for the
-household contact model that individuals meet all other household members every day.
+contacts. Since household are included in the the German microcensus
+\citep{FDSAeDBUDL2018} on which we build our synthetic population we simply assume for
+the household contact model that individuals meet all other household members every day.
 
 
 \begin{figure}
