@@ -13,7 +13,7 @@ literature or calibrated from surveys and empirical datasets.
 
 \FloatBarrier
 
-\subsection{The Synthetic Population\comment[id=K]{To be written}}
+\subsection{The Synthetic Population} %&%&%&\comment[id=K]{To be written}}
 
 We build a synthetic population based on the German microcensus \citep{FDSAeDBUDL2018}.
 We only use private households, i.e. exclude living arrangements such as nursing homes as
@@ -176,10 +176,10 @@ matched can depend on background characteristics. In particular, we allow this
 probability to depend on age and county of residence. While we do not have good data on
 geographical assortativity and just roughly calibrate it such that 80\% of contacts are
 within the same county, we can calibrate the assortative mixing by age from the same
-data we use to calibrate the number of contacts.\comment[id=HM]{Redo
-\ref{fig:assortativity_other} /\ref{fig:assortativity_work} with total number of
-contacts or better add a similar figure showing total number of contacts by age in all
-networks}
+data we use to calibrate the number of contacts.
+%&%&%&\comment[id=HM]{Redo \ref{fig:assortativity_other} /\ref{fig:assortativity_work}
+%&%&%&with total number of contacts or better add a similar figure showing total number of
+%&%&%&contacts by age in all networks}
 
 \begin{figure}[ht]
     \centering
@@ -295,17 +295,16 @@ light in Germany, hygiene measures (such as masks, ventilation and hand washing)
 more strict and more conscientiously observed, leading to a reduction of 33\% in the
 number of contacts with the potential to transmit Covid-19.
 
-% other contacts
-For the last group of contacts which cover things like leisure activities, grocery
-shopping etc. we have no reliable data by how much policies reduce them. In addition,
-they are likely to be affected by social and psychological factors such as pandemic
-fatigue and vacations. Because of this we estimate them like the infection probabilities
-to fit the time series data. We use very few change points and tie them to particular
-events such as policy announcements or particular holidays. Because of the scarce data
-situation we cannot distinguish between a hygiene factor (such as mask wearing) during
-meetings and physical distancing (such as virtual meetings with
-friends).\comment[id=K]{@Janos: Maybe make more concrete when the estimation is finished
-which phases we have and why the switching points are where they are.}
+% other contacts For the last group of contacts which cover things like leisure
+activities, grocery shopping etc. we have no reliable data by how much policies reduce
+them. In addition, they are likely to be affected by social and psychological factors
+such as pandemic fatigue and vacations. Because of this we estimate them like the
+infection probabilities to fit the time series data. We use very few change points and
+tie them to particular events such as policy announcements or particular holidays.
+Because of the scarce data situation we cannot distinguish between a hygiene factor (such
+as mask wearing) during meetings and physical distancing (such as virtual meetings with
+friends).%&%&%&\comment[id=K]{@Janos: Maybe make more concrete when the estimation is
+%&%&%& finished which phases we have and why the switching points are where they are.}
 
 \begin{figure}
     \centering
@@ -352,8 +351,8 @@ Figure~\ref{fig:seasonality} shows our seasonality factors.
 \input{paper/rapid_test_params}
 
 All shares of individuals who would take a rapid test if the conditions were met can be
-seen in Figure~\ref{fig:rapid_test_demand}.\comment[id=J]{Talk about the interpretation
-of each line.}
+seen in Figure~\ref{fig:rapid_test_demand}.%&%&%&\comment[id=J]{Talk about the
+%&%&%& interpretation of each line.}
 
 \begin{figure}
     \centering
