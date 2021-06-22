@@ -95,5 +95,5 @@ Here are some useful things to know.
   ```latex
   \comment[id=T]{<some-comment>}
   \delete[id=T]{<comment>}{<to-be-deleted>}
-  \replace[id=T]{<comment>}{<to-be-replaced>}
+  \replaced[id=T]{<comment>}{<to-be-replaced>}
   ```

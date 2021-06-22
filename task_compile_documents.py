@@ -6,6 +6,8 @@ import pytask
 
 ROOT = Path(__file__).parent
 BLD = ROOT / "bld"
+SRC = ROOT / "src"
+_DEPENDENCIES = SRC.rglob("*.tex")
 
 
 @pytask.mark.latex(
@@ -18,7 +20,7 @@ BLD = ROOT / "bld"
         "-f",
     ]
 )
-@pytask.mark.depends_on(ROOT / "src" / "paper.tex")
+@pytask.mark.depends_on([SRC / "paper.tex", *_DEPENDENCIES])
 @pytask.mark.produces(BLD / "paper.pdf")
 def task_compile_documents():
     pass
