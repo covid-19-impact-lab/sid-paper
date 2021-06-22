@@ -8,8 +8,13 @@ preprint](https://arxiv.org/abs/2106.11129). Please cite it with
 
 ```
 @misc{Gabler2021,
-      title={The Effectiveness of Strategies to Contain SARS-CoV-2: Testing, Vaccinations, and NPIs},
-      author={Janoś Gabler and Tobias Raabe and Klara Röhrl and Hans-Martin von Gaudecker},
+      title={
+        The Effectiveness of Strategies to Contain SARS-CoV-2: Testing, Vaccinations,
+        and NPIs
+      },
+      author={
+        Janoś Gabler and Tobias Raabe and Klara Röhrl and Hans-Martin von Gaudecker
+      },
       year={2021},
       eprint={2106.11129},
       archivePrefix={arXiv},
