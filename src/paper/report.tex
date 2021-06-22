@@ -40,16 +40,16 @@ age and
 geographical location (see Section~\ref{sub:number_of_contacts} of the Supplementary
 Material).
 
-The four contact networks are chosen so that the most common NPIs can be modeled in
-great detail. NPIs affect the number of contacts or the risk of transmitting the disease
-upon having physical contact. The effect of different NPIs will generally vary across
-contact types. For example, a mandate to work from home will reduce the number of work
-contacts to zero for a fraction of the working population. Schools and daycare can be
-closed entirely, operate at reduced capacity---including an alternating schedule---, or
+The four contact networks are chosen so that the most common NPIs can be modeled in great
+detail. NPIs affect the number of contacts or the risk of transmitting the disease upon
+having physical contact. The effect of different NPIs will generally vary across contact
+types. For example, a mandate to work from home will reduce the number of work contacts
+to zero for a fraction of the working population. Schools and daycare can be closed
+entirely, operate at reduced capacity---including an alternating schedule---, or
 implement mitigation measures like masking requirements or air filters
-\citep{Lessler2021}. Curfews may reduce the number of contacts in non-work/non-school
-settings. In any setting, measures like masking requirements would reduce the
-probability of infection associated with a contact \citep{Cheng2021}.
+\citep{Lessler2021}. Curfews may reduce the number of contacts in
+non-work/non-school/non-work settings. In any setting, measures like masking requirements
+would reduce the probability of infection associated with a contact \citep{Cheng2021}.
 
 \begin{figure}   % Figure 1
     \centering
@@ -118,11 +118,12 @@ possible infection progresses as shown in Figure~\ref{fig:model_disease_progress
 differentiate between an initial period of infection without being infectious or showing
 symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring
 intensive care, and recovery or death \citep[similar
-to][]{Grimm2021}.\comment[id=HM]{Need to look for non-economists}
-The probabilities of transitioning between these states depend on age; their duration is
-random within intervals calibrated to medical literature (for a detailed description see
+to][]{Grimm2021}.\comment[id=HM]{Need to look for non-economists} The probabilities of
+transitioning between these states depend on age; their duration is random within
+intervals calibrated to medical literature (for a detailed description see
 Section~\ref{sec:medical_params}). Conditional on the type of contact, infectiousness is
-independent of age \citep{Jones2021}.
+independent of age \citep{Jones2021}.\comment[id=K]{This might be misleading because the
+susceptibility to catch the virus \textbf{is} age-dependent.}
 
 The model includes several other features, which are crucial to describe the evolution
 of the pandemic in 2020-2021. New virus strains with different profiles regarding
@@ -141,21 +142,24 @@ We include two types of tests. Polymerase chain reaction (PCR) tests reveal whet
 individual is infected or not; there is no uncertainty to the result. PCR tests require
 some days to be processed and there are aggregate capacity constraints throughout. In
 contrast, rapid antigen tests yield immediate results; after a phase-in period, all tests
-that are demanded will be performed. Specificity and sensitivity of these tests is set
-according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the
-timing of the test relative to the onset of infectiousness.
-Figure~\ref{fig:model_rapid_tests} shows our model for rapid test demand. Schools may
-require students to be tested regularly. Rapid tests may be offered by employers for
-on-site workers. Individuals may demand tests for private reasons, which include having
-plans to meet other people,\footnote{A positive test will make them reduce their
-contacts; this is why tests impact the actual contacts in
-Figure~\ref{fig:model_description}.} showing symptoms of CoViD-19, and because a
-household member tested positively for the virus. We endow each agent with an individual
-compliance parameter. This parameter determines whether she takes up rapid tests offered
-by employers or follows up on private reasons.\comment[id=HM]{Removed ``and whether she
-reduces her contacts if she tests positive or develops symptoms'' -- does not fit here.
-If anything, add footnote, but it seems like this is a detail that is just distracting
-right here. Make sure to describe clearly and at length in Appendix.}
+that are demanded will be performed.\comment[id=K]{Might be problematic to talk about
+supply and demand here. We don't have supply and demand (except for maybe employers and
+employees) and I would not interpret the increases in April as an easing of supply side
+constraints.} Specificity and sensitivity of these tests is set according to data
+analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the test
+relative to the onset of infectiousness. Figure~\ref{fig:model_rapid_tests} shows our
+model for rapid test demand. Schools may require staff and students to be tested
+regularly. Rapid tests may be offered by employers to on-site workers. Individuals may
+demand tests for private reasons, which include having plans to meet other people,
+showing symptoms of CoViD-19, and because a household member tested positively for the
+virus. We endow each agent with an individual compliance parameter. This parameter
+determines whether she takes up rapid tests\deleted[id=K]{offered by employers or
+follows up on private reasons} % compliance also determines who is tested in education settings
+.\footnote{A positive test result (of either kind), as well as symptoms leads most
+individuals to reduce their contacts; this is why tests impact the actual contacts in
+Figure~\ref{fig:model_description}.}
+
+%%% ===================================================================================
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
