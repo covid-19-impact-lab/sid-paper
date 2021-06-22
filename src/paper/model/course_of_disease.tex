@@ -1,0 +1,38 @@
+\subsection{Course of the Disease}
+\label{sub:disease_progression}
+
+The disease progression in the model is fairly standard. It is depicted in
+Figure~\ref{fig:model_disease_progression} and the values and source of the relevant
+parameters are describes in Section~\ref{sec:medical_params}.
+
+First, infected individuals will become infectious after one to five days. Overall,
+about one third of people remain asymptomatic. The rest develop symptoms about one to
+two days after they become infectious. Modeling asymptomatic and pre-symptomatic cases
+is important because those people do not reduce their contacts nor do they have an
+elevated probability to demand a test. Thus they can potentially infect many other
+people \citep{Donsimoni2020}. The probability to develop
+symptoms with Covid-19 is highly age dependent with 75\% of children not developing
+clinical symptoms \citep{Davies2020}.
+
+A small share of symptomatic people will develop strong symptoms that require intensive
+care. The exact share and time span is age-dependent. An age-dependent share of intensive
+care unit (ICU) patients will die after spending up to 32 days in intensive care.
+Moreover, if the ICU capacity was reached, all patients who require intensive care but do
+not receive it die.
+
+It would be easy to make the course of disease even more fine-grained. For example, we
+could model people who require hospitalization but not intensive care. So far we opted
+against that because only the intensive care capacities are feared to become a bottleneck
+in Germany.
+
+We allow the progression of the disease to be stochastic in two ways: Firstly, state
+changes only occur with a certain probability (e.g. only a fraction of infected
+individuals develops symptoms). Secondly, the number of periods for which an individual
+remains in a state is drawn randomly. The parameters that govern these processes are
+taken from the literature \footnote{ Detailed information on the calibration of the
+disease parameters is available as part of our
+\href{https://sid-dev.readthedocs.io/en/latest/reference_guides/epi_params.html}{online
+documentation}.}.\comment[id=J]{Replace this by a link to the relevant table with
+parameters in the data appendix, once we have that table.}
+
+

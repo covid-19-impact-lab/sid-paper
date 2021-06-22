@@ -1,0 +1,79 @@
+\subsection{Modeling Numbers of Contacts}
+\label{sec:number_of_contacts}
+
+Consider a hypothetical population of 1,000 individuals in which 50 were infected with a
+novel infectious disease. From this alone, it is impossible to say whether only
+those 50 people had contact with an infectious person and the disease has an infection
+probability of 1 per contact or whether everyone met an infectious person but the
+disease has an infection probability of only 5 percent per contact. SEIR models do not
+distinguish contact frequency from the infectiousness of each contact and
+combine the two in one parameter that is not invariant to social distancing policies.
+
+To model social distancing policies, we need to disentangle the effects of the number of
+contacts of each individual and the effect of policy-invariant infection probabilities
+specific to each contact type. Since not all contacts are equally infectious, we
+distinguish different contact types.
+
+The number and type of contacts in our model can be easily extended. Each type of
+contacts is described by a function that maps individual characteristics, health states
+and the date into a number of planned contacts for each individual. This allows to model
+a wide range of contact types.
+
+In our empirical application we distinguish the following  contact types that
+are depicted in Figure~\ref{fig:model_contacts_infections} and can be further grouped
+in the categories household, work, education and others.
+
+types of contacts:\comment[id=HM]{I started updating this to understand it better myself.
+In the end, I think it will be useful to group into HH / work / schools and add an
+introductory sentence for each group. E.g., that work is for everybody who is working ---
+except there is a different model for teachers (?), ...}
+
+\begin{itemize}
+    \item Households: Each household member meets all other household members every day.
+    % Household sizes and structures are calibrated to be representative for Germany.
+
+
+    \item Recurrent work contacts, capturing contacts with coworkers, repeating
+          clients and superiors. Some of these recurrent contacts take place on
+          every workday, others just once per week.
+
+    \item Random work contacts: Working adults have contacts with randomly drawn other
+          people, which are assortative in geographical location and age.
+
+
+    \item Schools: Each student meets all of his classmates every day. Class sizes are
+    calibrated to be representative for Germany and students have the same age. Schools
+    are closed on weekends and during vacations, which vary by states. School classes
+    also meet six teachers everyday and some of the teachers meet each other.
+
+    \item Preschools: Children who are at least three years old and younger than six may
+    attend preschool. Each group of nine children interacts with the same two adults
+    every day. The children in each group are of the same age. The remaining mechanics
+    are similar to schools.
+
+    \item Nurseries: Children younger than three years may attend a nursery and interact
+    with one adult. The age of the children varies within groups. The remaining
+    mechanics are similar to schools.
+
+    \item Random other contacts: Contacts with randomly drawn other
+    people, which are assortative with respect to geographic location and and age group.
+    This contact type reflects contacts during leisure activities, grocery shopping,
+    medical appointments, etc..
+
+    \item Recurrent other contacts representing contacts with friends neighbors or
+        family members who do not live in the same household. Some of these contacts
+        happen daily, others only once per week.
+
+
+\end{itemize}
+
+The number of random and recurrent contacts at the workplace, during leisure activities
+and at home is calibrated with data provided by \citet{Mossong2008}. For details see
+Section~\ref{sec:number_of_contacts}. In particular, we sample the number of contacts or
+group sizes from empirical distributions that sometimes depend on age. It would also be
+possible to use economic or other behavioral models to predict the number of contacts.
+
+% Theoretically, each contact type can have its own infection probability. However, to
+% reduce the number of free parameters and thus avoid a potential over-fitting we only
+% estimate different infection probabilities for the areas work, school, preschool and
+% nurseries, households and other contacts.

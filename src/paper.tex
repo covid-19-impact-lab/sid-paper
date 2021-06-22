@@ -1,0 +1,114 @@
+\pdfoutput=1
+
+
+% To ``accept'' all changes in the document:
+\PassOptionsToPackage{final}{changes}
+
+\documentclass[a4paper, 10pt]{article}
+% fleqn: flush-left aligned equations
+
+\newcommand{\papertitle}{
+The Effectiveness of Strategies to Contain SARS-CoV-2: Testing, Vaccinations, and NPIs
+}
+
+\input{templates/Preamble_Fundamental_packages}
+\hypersetup{
+    pdftitle={\papertitle},
+    pdfauthor={Janoś Gabler, Tobias Raabe, Klara Röhrl, Hans-Martin von Gaudecker}
+}
+
+% packages ======================================================================
+
+\input{templates/Preamble_Page_layout_general}
+\input{templates/Preamble_Page_layout_paper}
+\subimport{templates/}{Preamble_Fonts_Charter_FiraSans}
+\input{templates/Preamble_Sansserif_math}
+\input{templates/Preamble_BibLaTeX_AER}
+%\input{templates/Preamble_BibLaTeX_APA}
+\input{templates/Preamble_Commenting_and_highlighting}
+\input{templates/Preamble_Miscellaneous}
+
+% Add global hyphenation rules to avoid unwelcome linebreaks:
+% \hyphenation{Bu-shong Della-Vigna}
+
+\bibliography{references.bib}
+
+
+% \usepackage[newfloat, outputdir=../bld, cache=false]{minted}
+
+% Define environments to comment on the sidebar of the PDF.
+\definechangesauthor[name={Tobias}, color=alizarin]{T}
+\definechangesauthor[name={Janos}, color=internationalorange]{J}
+\definechangesauthor[name={Klara}, color=dartmouthgreen]{K}
+\definechangesauthor[name={HM}, color=blue]{HM}
+% Use \replaced[id=T]{<to-be-replaced>}{<new>} or the same with \deleted to propose
+% changes.
+
+
+
+
+
+\begin{document}
+
+\selectlanguage{USenglish}
+\frenchspacing
+
+\input{paper/titlepage}
+
+\maketitle
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\newpage
+
+\input{paper/report}
+
+\phantomsection % Needed for the bibliography bookmark to point to the correct page
+
+\begin{refcontext}[sorting=nyt]  % Sort BIBLIOGRAPHY by alphabet (while CITATIONS are sorted by year)
+\printbibliography[heading=bibintoc]
+\end{refcontext}
+
+\clearpage
+
+\begin{center}
+    {
+        \Large 
+        Supplementary Material for\\[2ex]
+    
+        \textbf{\papertitle}
+    }
+    \vskip4ex
+    {
+        \large
+        Janoś Gabler,
+        
+        Tobias Raabe,
+        
+        Klara Röhrl,
+        
+        Hans-Martin von Gaudecker
+
+    }
+\end{center}
+
+\clearpage
+
+\begin{appendices}
+    \begin{refsection}
+
+    \input{paper/appendix_data}
+
+    \FloatBarrier
+
+    \input{paper/appendix_model}
+
+    \input{paper/appendix_results}
+
+
+    \printbibliography[heading=bibintoc]
+
+    \end{refsection}
+\end{appendices}
+
+\end{document}

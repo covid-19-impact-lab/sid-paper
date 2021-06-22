@@ -1,0 +1,397 @@
+\section{Data and Parameters}
+\label{sec:data_and_parameters}
+
+The model is described by a large number of parameters that govern the number of
+contacts a person has, the likelihood of becoming infected on each contact, the
+likelihood of developing light or strong symptoms or even dying from the disease as well
+as the duration each stage of the disease takes.
+
+Most of these parameters can be calibrated from existing datasets or the medical
+literature or calibrated from surveys and empirical datasets.
+
+\input{paper/medical_parameters}
+
+\FloatBarrier
+
+\subsection{The Synthetic Population \comment[id=K]{To be written}}
+
+We build a synthetic population based on the German microcensus \citep{FDSAeDBUDL2018}.
+We only use private households, i.e. exclude living arrangements such as nursing homes as
+non-private households vary widely in size and it is very difficult to know which
+contacts take place in such households.
+
+We sample households to build our synthetic population of over one million households
+keeping for each individual their age, gender, occupation and whether they work on
+Saturdays and Sundays.
+
+\FloatBarrier
+
+
+\subsection{Number of Contacts}
+\label{sub:number_of_contacts}
+
+We calibrate the parameters for the predicted numbers of contacts from contact diaries
+of over 2000 individuals from Germany, Belgium, the Netherlands and Luxembourg
+\citep{Mossong2008}. Each contact diary contains all contacts an individual had
+throughout one day, including information on the other person (such as age and gender)
+and information on the contact. Importantly, for each contact individuals entered of
+which type the contact (school, leisure, work etc.) was and how frequent the contact
+with the other person is.
+
+Simplifying the number of contacts, we arrive at the following distributions of the
+numbers of contacts by contact type.
+
+\begin{figure}
+    \centering
+
+    \begin{subfigure}[b]{0.25\textwidth}
+        \centering
+
+        \includegraphics[width=\textwidth]{figures/results/figures/data/distributions_of_the_number_of_contacts/other_non_recurrent}
+        \caption{Number of Non Recurrent Other Contacts}
+        \label{n_contacts_other_non_recurrent}
+    \end{subfigure}
+
+    \hfill
+
+    \begin{subfigure}[b]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/data/distributions_of_the_number_of_contacts/other_recurrent_daily}
+        \caption{Number of Daily Recurrent Other Contacts}
+        \label{n_contacts_other_daily_recurrent}
+    \end{subfigure}
+
+    \hfill
+
+    \begin{subfigure}[b]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/data/distributions_of_the_number_of_contacts/other_recurrent_weekly}
+        \caption{Number of Weekly Recurrent Other Contacts}
+        \label{n_contacts_other_weekly_recurrent}
+    \end{subfigure}
+
+    \caption{Number of Contacts of the Other Contact Type}
+    \label{fig:n_contacts_other}
+
+    \floatfoot{\noindent
+        \textit{Note:} Other contacts include all contacts that are not household
+        members, school contacts or work contacts, for example leisure contacts or
+        contacts during grocery shopping. The planned number of contacts is reduced by
+        policies, seasonality and individual responses to events such as receiving a
+        positive rapid test to the number of actual contacts with transmission potential.        % non recurrent
+        In the model it is sampled every day which of the numbers of non recurrent
+        contacts a person is planned to have. Note that the contact diaries include such
+        high values that super spreading events are well possible in our model through
+        non recurrent other models. We assume that individuals in households with
+        children or teachers or retired individuals have additional non recurrent
+        contacts during school vacations to cover things like family visits or travel
+        during vacations. We estimate this to be on average 0.5 additional contacts per
+        vacation day.
+        % daily and weekly
+        For the recurrent other contacts, individuals are assigned to groups that are
+        time constant and that meet daily or weekly. The share of individuals who attend
+        in a way that has transmission potential is reduced by policies, seasonality and
+        individual responses to events such as receiving a positive rapid test. For
+        weekly contacts, individuals are assigned to up to four groups that are time
+        constant and that meet weekly. The day on which meetings take place varies
+        between groups but stays the same for each group.
+    }
+\end{figure}
+
+
+% work contacts
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/distributions_of_the_number_of_contacts/work_non_recurrent}
+    \caption{Number of Non Recurrent Work Contacts}
+    \label{n_contacts_work_non_recurrent}
+    \floatfoot{\noindent \textit{Note:} In the model it is sampled every day which of
+        these numbers of contacts a working person is planned to have. Note that the
+        contact diaries include such high values that super spreading events are well
+        possible in our model. The planned number of contacts is reduced by policies,
+        seasonality and individual responses to events such as receiving a positive rapid
+        test to the number of actual contacts with transmission potential. Work contacts
+        only take place between working individuals.}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/distributions_of_the_number_of_contacts/work_recurrent_daily}
+    \caption{Number of Daily Recurrent Work Contacts}
+    \label{n_contacts_work_daily_recurrent}
+    \floatfoot{\noindent \textit{Note:} Working individuals are assigned to groups that
+        are time constant and that meet daily to match the given distribution of daily
+        work contacts. You can think of these as for example colleagues with which one
+        shares an office space. The share of individuals who attend in a way that has
+        transmission potential is reduced by policies (such as a work from home mandate),
+        seasonality and individual responses to events such as receiving a positive rapid
+        test. Work contacts only take place between working individuals.}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/distributions_of_the_number_of_contacts/work_recurrent_weekly}
+    \caption{Number of Weekly Recurrent Work Contacts}
+    \label{n_contacts_work_weekly_recurrent}
+    \floatfoot{\noindent  \textit{Note:} Working individuals are assigned to up to 14
+        groups that are time constant and meet weekly. Groups are scheduled to meet on
+        separate days of the work week. These contact models cover weekly team meetings
+        etc. The share of individuals that attend in a way that has transmission
+        potential is reduced by policies, seasonality and individual responses to events
+        such as receiving a positive rapid test. Work contacts only take place between
+        working individuals.}
+\end{figure}
+
+An exception where we do not rely on the data by \cite{Mossong2008} are the household
+contacts. Since household are included in the the German microcensus
+\citep{FDSAeDBUDL2018} on which we build our synthetic population we simply assume for
+the household contact model that individuals meet all other household members every day.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/distributions_of_the_number_of_contacts/household}
+    \caption{Number of Household Contacts}
+    \label{n_contacts_hh}
+    \floatfoot{\noindent
+        \textit{Note:} Every individual meets all other household members every day. The
+        German microcensus sampled full households such that our synthetic population
+        automatically fits population characteristics such as size and age distribution.}
+\end{figure}
+
+
+
+
+\FloatBarrier
+
+
+\subsection{Contacts by age}
+\label{subsec:contacts_by_age}
+
+As mentioned in section \ref{sec:matching}, the probability that two individuals are
+matched can depend on background characteristics. In particular, we allow this
+probability to depend on age and county of residence. While we do not have good data on
+geographical assortativity and just roughly calibrate it such that 80\% of contacts are
+within the same county, we can calibrate the assortative mixing by age from the same data
+we use to calibrate the number of contacts.\comment[id=HM]{Redo
+\ref{fig:assortativity_other} /\ref{fig:assortativity_work} with total number of contacts
+or better add a similar figure showing total number of contacts by age in all networks}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9 \textwidth]{figures/results/figures/data/assortativity_other_non_recurrent}
+    \caption{Distribution of Non Recurrent Other Contacts by Age Group}
+    \label{fig:assortativity_other}
+    \floatfoot{\noindent \textit{Note:} The figure shows the distribution of non
+        recurrent other contacts by age group. A row shows the share of contacts a
+        certain age group has with all other age groups. Higher values are colored in
+        darker red tones. The diagonal represents the share of contacts with individuals
+        from the same age group.}
+\end{figure}
+
+
+Figure~\ref{fig:assortativity_other} shows that assortativity by age is especially strong
+for children and younger adults. For older people, the pattern becomes more dispersed
+around their own age group, but within-age-group contacts are still the most common
+contacts.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9 \textwidth]{figures/results/figures/data/assortativity_work_non_recurrent}
+    \caption{Distribution of Random Work Contacts by Age Group}
+    \label{fig:assortativity_work}
+    \floatfoot{\noindent \textit{Note:} The figure shows the distribution of non
+        recurrent work contacts by age group. A row shows the share of contacts a certain
+        age group has with all other age groups. Higher values are colored in darker red
+        tones. The diagonal represents the share of contacts with individuals from the
+        same age group. We only show age groups that have a significant fraction of
+        working individuals.}
+\end{figure}
+
+Figure~\ref{fig:assortativity_work} shows that assortativity by age is also important
+among work contacts.
+
+Our two other types of contacts, households and schools, get their assortativity by
+construction. Schools are groups where the same children of the mostly same age and
+county meet with teachers every day. Household composition follows directly from the
+German microcensus data we use to construct our synthetic population.
+
+\subsection{Policies and Seasonality}
+\label{subsec:policies_seasonality}
+
+\FloatBarrier
+
+In our empirical application we distinguish four groups of contact types: households,
+education, work and other contacts.
+% households
+For households we assume that the individuals'
+contacts in their households do not change over our estimation period.
+% educ models
+For nurseries, preschools and schools we implement vacations as announced by the German
+federal states as well as school closures, emergency care and A / B schooling where only
+one half of students attends every other week or day. For the moment we ignore that lack
+of childcare leads working parents to stay home. An approximation of the share of contacts still taking place with the different school regulations can be found in Figure~\ref{fig:school_multiplier}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/school_multiplier_comparison}
+    \caption{School Multiplier With and Without Vacations Factored In}
+    \floatfoot{\noindent \textit{Note:} The dates on which schools have vacation are
+    decided at the federal level. Vacations are directly implemented in our model with no
+    school contacts taking place on weekends and during vacations (by federal state) just
+    like the schooling mode (full operation, emergency care, rotating schemes with half
+    class sizes etc.). The figure is thus only an illustration that roughly shows the
+    share of contacts taking place compared to pre-pandemic level with and without
+    vacations. The difference between the lines show when vacations take place and to
+    what degree. For example all states have fall vacations but the timing varies
+    strongly between states.}
+    \label{fig:school_multiplier}
+\end{figure}
+
+
+%
+% Schließung von Kindertagesstätten und Schulen: 37,4 Millionen ausgefallene Arbeitstage
+% http://www.iab-forum.de/schul-und-kitaschliessungen-krankheit-quarantaene-die-coronabedingten-arbeitsausfaelle-der-erwerbstaetigen-steigen-auf-592-millionen-arbeitstage/
+%
+%
+% https://www.sueddeutsche.de/politik/schulschliessung-lockdown-bildung-1.5190377: In
+% allen Ländern geht trotz des Lockdowns ein erheblicher Anteil der Schülerinnen und
+% Schüler in die Schule.
+% https://gfx.sueddeutsche.de/apps/e525337/www/_image_desktopw1840q70-1e2e2bf78b7d4430
+% 18% der Grundschüler in Notbetreuung in BW
+%
+
+% work models
+For our work models\footnote{We distinguish non-recurrent work contacts, daily work
+    contacts and weekly work contacts.} we use the reductions in work mobility reported in
+the Google Mobility Data \citep{Google2021} to calibrate our work policies. Reductions in
+work contacts are not random but governed through a work contact priority where the
+policy changes the threshold below which workers stay home. Figure
+\ref{fig:work_multiplier} shows the share of workers that go to work in our model over
+time.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/work_multiplier_since_sep}
+    \caption{Share of Workers with Work Contacts}
+    \label{fig:work_multiplier}
+    \floatfoot{\noindent \textit{Note:} The figure shows the work mobility as reported by
+        \cite{Google2021}. We take this as a proxy of the share of workers who are not in
+        home office, i.e. who still have physical work contacts. The figure interpolates
+        over weekends as we handle weekend effects through information on work on
+        weekends in the German census data we use. The figure shows the share aggregated
+        over Germany as a whole. To capture the effect that local policies, school
+        vacations and public policies have on work contacts we use the data on the level
+        of the federal states to determine which workers go to work depending on the
+        state they live in.}
+\end{figure}
+
+For both work and school contacts we assume that starting November with the lockdown
+light in Germany, hygiene measures (such as masks, ventilation and hand washing) became
+more strict and more conscientiously observed, leading to a reduction of 33\% in the
+number of contacts with the potential to transmit Covid-19.
+
+For the last group of contacts, which cover things like leisure activities, grocery
+shopping, etc., we have no reliable data by how much policies reduce them. In addition,
+they are likely to be affected by social and psychological factors such as pandemic
+fatigue and vacations. Because of this we estimate them like the infection probabilities
+to fit the time series data. We use very few change points and tie them to particular
+events such as policy announcements or particular holidays. Because of the scarce data
+situation we cannot distinguish between a hygiene factor (such as mask wearing) during
+meetings and physical distancing (such as virtual meetings with
+friends).\comment[id=K]{@Janos: Maybe make more concrete when the estimation is finished
+which phases we have and why the switching points are where they are.}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/other_multiplier}
+    \caption{Share of Pre-Pandemic Other Contacts Taking Place with Infection Potential}
+    \label{fig:other_multiplier}
+    \floatfoot{\noindent \textit{Note:} All values are estimated. We try to use as little
+    switching points as possible and tie them to political events (such as lockdown
+    announcements) unless changes are used to capture anticipation or pandemic fatigue
+    (for example we model an anticipation of the November lockdown and model lockdown
+    fatigue in early March).}
+\end{figure}
+
+% seasonality
+Another potentially important factor for a contact to lead to an infection is the
+seasonality \citep{Kuehn2020, Carlson2020} There are two channels through which
+seasonality affects the infectiousness of contacts. One has to do with the physical
+conditions like the temperature and the humidity. The other has to do with where people
+meet. Especially leisure contacts are more likely to take place outdoors and individuals
+are more likely to have windows open when the weather is nicer. To capture both channels
+we allow for other contacts to have a higher seasonality than our other contact models.
+Figure~\ref{fig:seasonality} shows our seasonality factors.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/seasonality}
+    \caption{Seasonality by Type of Contact}
+    \label{fig:seasonality}
+    \floatfoot{\noindent \textit{Note:} We model seasonality as a factor that reduces the
+    probability of infection of all encounters. The factor depends on the day and is
+    calculated from a sinus shaped function with its maximum on January 1st. Since
+    seasonality can affect the transmission both through physical conditions such as
+    temperature and humidity as well as through the numbers of contacts that take place
+    outside we assume two seasonality factors. One for other contacts which we expect to
+    be strongly affected by fairer weather with a maximum reduction of 42\% in the
+    infection probability. The other seasonality only makes contacts up to 21\% less
+    infectious and is applied to household, work and school contacts.}
+\end{figure}
+
+
+
+\FloatBarrier
+
+\input{paper/rapid_test_params}
+
+All shares of individuals who would take a rapid test if the conditions were met can be
+seen in Figure~\ref{fig:rapid_test_demand}.\comment[id=J]{Talk about the interpretation
+of each line.}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/testing/rapid_test_demand_shares}
+    \caption{\textbf{Share of Individuals Doing a Rapid Test.}}
+    \floatfoot{\noindent \textit{Note:} Rapid test demand can be triggered by individuals
+    planning to have education contacts, work contacts, developing symptoms without
+    access to a PCR test, having a household member with a positive test or symptoms. In
+    each case whether a rapid test is done depends on how long it has been since the
+    individual's last rapid test and her individual compliance parameters. As an example,
+    take a worker in May. In that time workers are encouraged to test themselves twice
+    weekly but there is no general requirement to test themselves. If the worker has not
+    done a test within the last four days in our model she will demand a test if her
+    (time-constant) compliance parameter belongs to the upper 60\% in the population.}
+    \label{fig:rapid_test_demand}
+\end{figure}
+
+
+\begin{figure}[ht]
+    \centering
+    \caption{Share of Individuals With Rapid Tests}
+    \label{fig:share_ever_rapid_test}
+    \begin{subfigure}{.55\textwidth}
+        \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_ever_rapid_test}
+    \end{subfigure}%
+    \begin{subfigure}{.55\textwidth}
+        \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week}
+        %   \caption{Share of Individuals Having Done a Rapid Test in the Last Week}
+    \end{subfigure}
+    \label{fig:share_rapid_test_last_week}
+    \floatfoot{\noindent \textit{Note:} The figure compares the share of individuals who
+        have ever done a rapid test or done a rapid test within the last week in our
+        simulations to the shares reported in the
+        \href{https://projekte.uni-erfurt.de/cosmo2020/web/topic/wissen-verhalten/80-schnelltests/}{COVID-19
+        Snapshot Monitoring Survey}. The left panel compares the share of individuals who
+        have ever done a rapid test. The right panel compares the share of individuals
+        who have done a rapid test within the last seven days in our simulation compared
+        to the share reporting to have done at least weekly rapid tests in the last four
+        weeks in the COSMO survey. Overall our calibration of rapid tests are slightly
+        conservative. The overall share is below that in the study. We fit the share of
+        weekly tests quite exactly. However, the study only covers adults while our share
+        also includes children who are tested very regularly when attending school.}
+\end{figure}

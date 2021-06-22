@@ -1,40 +1,27 @@
 # Paper
 
-This repository contains the technical paper describing
-[sid](https://github.com/covid-19-impact-lab/sid).
+This repository contains the main paper accompanying
+[sid](https://github.com/covid-19-impact-lab/sid), an epidemiological model.
 
-The current published version is available as an [IZA discussion
-paper](https://www.iza.org/publications/dp/13899). Please cite it with
+The current published version is available as an [arXiv
+preprint](https://arxiv.org/abs/2106.11129). Please cite it with
 
 ```
-@article{Gabler2020,
-  title={
-    People Meet People: A Microlevel Approach to Predicting the Effect of Policies on
-    the Spread of COVID-19
-  },
-  author={Gabler, Janos and Raabe, Tobias and R{\"o}hrl, Klara},
-  year={2020},
-  publisher={IZA Discussion Paper}
+@misc{Gabler2021,
+      title={
+        The Effectiveness of Strategies to Contain SARS-CoV-2: Testing,
+        Vaccinations, and NPIs
+      },
+      author={
+        Janoś Gabler and Tobias Raabe and Klara Röhrl
+        and Hans-Martin von Gaudecker
+      },
+      year={2021},
+      eprint={2106.11129},
+      archivePrefix={arXiv},
+      primaryClass={q-bio.PE}
 }
 ```
-
-The [latest version of the paper](paper.pdf) can be found in this repository.
-
-
-## Related publications
-
-Here is a list of publications which rely on sid.
-
-- Dorn, F., Gabler, J., von Gaudecker, H. M., Peichl, A., Raabe, T., & Röhrl, K. (2020).
-  [Wenn Menschen (keine) Menschen treffen: Simulation der Auswirkungen von
-  Politikmaßnahmen zur Eindämmung der zweiten
-  Covid-19-Welle](https://www.ifo.de/publikationen/2020/aufsatz-zeitschrift/wenn-menschen-keine-menschen-treffen-simulation).
-  ifo Schnelldienst Digital, 1(15).
-
-- Gabler, J., Raabe, T., Röhrl, K. & von Gaudecker, H. M. (2020). [Die Bedeutung
-  individuellen Verhaltens über den Jahreswechsel für die Weiterentwicklung der
-  Covid-19- Pandemie in Deutschland](http://ftp.iza.org/sp99.pdf). IZA Standpunkte Nr.
-  99.
 
 
 ## Versions
@@ -51,6 +38,32 @@ Here is a list of publications which rely on sid.
 - v3 - 2021-02-09
 
   An updated version for the CRC Discussion Series.
+
+- v4 - 2021-02-09
+
+  The fourth version in this repository corresponds to the second version of the
+  preprint published on arXiv.
+
+
+## Related publications
+
+Here is a list of related publications.
+
+- Dorn, F., Gabler, J., von Gaudecker, H. M., Peichl, A., Raabe, T., & Röhrl, K. (2020).
+  [Wenn Menschen (keine) Menschen treffen: Simulation der Auswirkungen von
+  Politikmaßnahmen zur Eindämmung der zweiten
+  Covid-19-Welle](https://www.ifo.de/publikationen/2020/aufsatz-zeitschrift/wenn-menschen-keine-menschen-treffen-simulation).
+  ifo Schnelldienst Digital, 1(15).
+
+- Gabler, J., Raabe, T., Röhrl, K. & von Gaudecker, H. M. (2020). [Die Bedeutung
+  individuellen Verhaltens über den Jahreswechsel für die Weiterentwicklung der
+  Covid-19- Pandemie in Deutschland](http://ftp.iza.org/sp99.pdf). IZA Standpunkte Nr.
+  99.
+
+- Gabler, J., Raabe, T., Röhrl, K., & Gaudecker, H. M. V. (2021). [Der Effekt von
+  Heimarbeit auf die Entwicklung der Covid-19-Pandemie in
+  Deutschland](http://ftp.iza.org/sp100.pdf) (No. 100). Institute of Labor Economics
+  (IZA).
 
 
 ## Development
@@ -76,5 +89,24 @@ Here are some useful things to know.
   ```latex
   \comment[id=T]{<some-comment>}
   \delete[id=T]{<comment>}{<to-be-deleted>}
-  \replace[id=T]{<comment>}{<to-be-replaced>}
+  \replaced[id=T]{<comment>}{<to-be-replaced>}
   ```
+
+
+## Notes for Updating the arXiv Version
+
+1. Compile the document without comments, i.e. with `\PassOptionsToPackage{final}{changes}`.
+
+2. Save the resulting `paper.bbl` file in the src folder where `paper.tex` is.
+
+3. zip the src folder and upload it to archive.
+
+**Notes:**
+
+- the `comment` package should work
+- you can preview the resulting pdf.
+- if the run on arxive fails, the most likely culprits are:
+  - it used `tex` and not `pdflatex` in the command -> put `\pdfoutput=1` as first line
+    of `paper.tex`
+  - everything before `\begin{document}` must be in the main paper without input
+    statements.

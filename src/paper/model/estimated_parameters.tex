@@ -1,0 +1,75 @@
+\subsection{Estimated Parameters}
+\label{subsec:estimated_params}
+
+%%% The free parameters are the infection probabilities by contact category, one hygiene
+%%% multiplier for school and work contacts after November 2nd 2020, approx. ten parameters
+%%% that govern the reduction of other contacts\comment[id=K]{Must be updated when the
+%%% estimation is finished.}, the number of extra contacts during holidays, the share of
+%%% detected cases around holidays and the fade in speed of the rapid tests as well as one
+%%% parameter that governs the import of B.1.1.7 cases in January 2021.
+
+\FloatBarrier
+
+We estimate parameters that cannot be calibrated outside of the model with the
+method of simulated moments \citep{McFadden1989} by minimizing the distance between
+simulated and observed infection rates and fatality rates (disaggregated by region
+and age groups). Since our model includes a lot of randomness, we
+average simulated infection rates over several model runs.
+
+We fit our model to data for Germany from October 2020 until June 2021. We do not use
+earlier periods for three reasons. Firstly, in the beginning PCR tests were highly
+limited and therefore it would be difficult to find good initial conditions for our
+simulations. In addition during the summer the case numbers were extremely low. This
+could lead to the epidemic going extinct in our simulation. Additionally, our model does
+not include international travel or other imports of cases. These would be important but
+difficult to model during the summer months.
+
+% infection probabilities
+
+To avoid over-fitting and simplify the numerical optimization problem, we only allow for
+five different infection probabilities: 1) for contacts in schools 2) contacts in
+preschools and nurseries. 3) for work contacts. 4) for households. 5) for other
+contacts.\comment[id=J]{Write that the exact numbers are hard to interpret and show the
+infections by channel heatmap more prominently than the infection probabilities}
+
+% policies
+We also estimate a parameter that reflects the effect of hygiene measures
+after November 2020 at work and in educational facilities. This parameter reduces
+infectiousness of contacts by one third. In total those are 10 parameters. The
+breakpoints the contact reduction changes are not determined from data but from
+announcements of policy changes. Moreover, we constrain the estimated contact reduction
+to follow the shape of the stringency index. The resulting contact reduction can be
+seen in Figure~\ref{fig:other_multiplier}
+
+
+% b117 rate
+Finally we estimate one parameter that governs the introduction of the B.1.1.7 virus
+variant in January 2021. This parameter implies that at the end of January roughly one
+case per 100 000 individuals per day is imported. After January we do not model imported
+cases of B.1.1.7 anymore because they are negligible compared to the endogenous growth
+of that virus variant.
+
+% The infection probabilities estimated from our model are as shown in
+% Table~\ref{tab:infection_probs}.\comment[id=K]{Missing to add data for the other
+% estimated parameters (import of b117 etc)}\comment[id=K]{Update table after the new
+% estimation is finished}
+
+% \begin{table}[tb]
+%     \caption{Estimated Infection Probabilities}
+%     \label{tab:infection_probs}
+%     \centering
+%     \begin{tabular}{ll}
+%         \toprule
+%         Contact Type & Infection Probability \\
+%         \midrule
+%         preschool and nursery & 00.500\% \\
+%         school & 01.200\% \\
+%         household & 10.000\% \\
+%         work & 14.500\% \\
+%         other & 15.875\% \\
+%         \bottomrule
+%     \end{tabular}
+%     \tablenotes{}
+% \end{table}
+
+
