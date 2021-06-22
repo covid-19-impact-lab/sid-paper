@@ -100,17 +100,14 @@ would reduce the probability of infection associated with a contact \citep{Cheng
         on the type of contact, on seasonality, and on NPIs. If infected, the infection
         progresses as depicted in Figure~\ref{fig:model_disease_progression}. If rapid
         tests are available, agents' demand is modeled as in
-        Figure~\ref{fig:model_rapid_tests}. \textcolor{blue}{For each reason only a share
-        of eligible individuals receive a test. The share of eligible individuals that
-        get tested depends on the reason and changes over time (see
-        Figure~\ref{fig:rapid_test_demand}).} \textcolor{red}{All pupils are attending
-        school are tested, other reasons trigger a test only for a fraction of
-        individuals.} Figure~\ref{fig:model_official_cases} shows the model of
-        translating all infections in the simulated data to age-specific recorded
-        infections. The model uses data on the aggregate share of recorded cases, on the
-        share of positive PCR tests triggered by symptoms, \textcolor{red}{and on the
-        false positive rate of rapid tests}. The lower part of the graph is relevant only
-        for periods where rapid tests are available.}
+        Figure~\ref{fig:model_rapid_tests}. For each reason only a share of eligible
+        individuals receive a test depending on an individual compliance parameter.
+        Figure~\ref{fig:model_official_cases} shows the model of translating all
+        infections in the simulated data to age-specific recorded infections. The model
+        uses data on the aggregate share of recorded cases, on the share of positive PCR
+        tests triggered by symptoms, and on the false positive rate of rapid tests. The
+        lower part of the graph is relevant only for periods where rapid tests are
+        available.}
 \end{figure}
 
 In the model, susceptibility to contracting the SARS-CoV-2 virus is dependent on age. A
@@ -142,24 +139,19 @@ We include two types of tests. Polymerase chain reaction (PCR) tests reveal whet
 individual is infected or not; there is no uncertainty to the result. PCR tests require
 some days to be processed and there are aggregate capacity constraints throughout. In
 contrast, rapid antigen tests yield immediate results; after a phase-in period, all tests
-that are demanded will be performed.\comment[id=K]{Might be problematic to talk about
-supply and demand here. We don't have supply and demand (except for maybe employers and
-employees) and I would not interpret the increases in April as an easing of supply side
-constraints.} Specificity and sensitivity of these tests is set according to data
-analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the test
-relative to the onset of infectiousness. Figure~\ref{fig:model_rapid_tests} shows our
-model for rapid test demand. Schools may require staff and students to be tested
-regularly. Rapid tests may be offered by employers to on-site workers. Individuals may
-demand tests for private reasons, which include having plans to meet other people,
-showing symptoms of CoViD-19, and because a household member tested positively for the
-virus. We endow each agent with an individual compliance parameter. This parameter
-determines whether she takes up rapid tests\deleted[id=K]{offered by employers or
-follows up on private reasons} % compliance also determines who is tested in education settings
+that are demanded will be performed. Specificity and sensitivity of these tests is set
+according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the
+timing of the test relative to the onset of infectiousness.
+Figure~\ref{fig:model_rapid_tests} shows our model for rapid test demand. Schools may
+require staff and students to be tested regularly. Rapid tests may be offered by
+employers to on-site workers. Individuals may demand tests for private reasons, which
+include having plans to meet other people, showing symptoms of CoViD-19, and because a
+household member tested positively for the virus. We endow each agent with an individual
+compliance parameter. This parameter determines whether she takes up rapid
+tests\deleted[id=K]{offered by employers or follows up on private reasons}% compliance also determines who is tested in education settings
 .\footnote{A positive test result (of either kind), as well as symptoms leads most
 individuals to reduce their contacts; this is why tests impact the actual contacts in
 Figure~\ref{fig:model_description}.}
-
-%%% ===================================================================================
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and estimate the model's many
@@ -183,16 +175,15 @@ strain.
 
 The main issue with official case numbers is that they will contain only a fraction of
 all infections. We thus model official cases as depicted in
-Figure~\ref{fig:model_official_cases}.\comment[id=K]{I don't understand why we mention
-the false positive rates in the floatfoot of this. I would either mention rapid test
-sensitivity and specificity in general or not mention them at all.} We take aggregate
-estimates of the share of detected cases and use data on whether CoViD-19 symptoms led to
-a PCR test. As the share of asymptomatic individuals varies by age group, this gives us
-age-specific shares (see Figure~\ref{fig:share_known_cases_by_age_group} for the share of
-known cases by age group over time in our model). Our estimates suggest that---in the
-absence of rapid testing---the detection rate is on average 80\% higher for individuals
-above age 80 compared to school age children. Once rapid test become available,
-confirmation of a positive result is another reason leading to positive PCR tests.
+Figure~\ref{fig:model_official_cases}. We take aggregate estimates of the share of
+detected cases and use data on \replaced[id=K]{the share of PCR tests administered to
+people with CoViD-19 symptoms}{whether CoViD-19 symptoms led to a PCR test}. As the share
+of asymptomatic individuals varies by age group, this gives us age-specific shares (see
+Figure~\ref{fig:share_known_cases_by_age_group} for the share of known cases by age group
+over time in our model). Our estimates suggest that---in the absence of rapid
+testing---the detection rate is on average 80\% higher for individuals above age 80
+compared to school age children. Once rapid test become available, confirmation of a
+positive result is another reason leading to positive PCR tests.
 
 The model is applied to the second and third wave of the CoViD-19 pandemic in Germany,
 covering the period mid-September 2020 to the end of May 2021.
@@ -300,27 +291,28 @@ variation in the drivers of the pandemic. Next to the stringency index, the thre
 in Figure~\ref{fig:stringency_infectious_contacts} summarize how contact reductions,
 increased hygiene regulations, and seasonality evolved since early September for each of
 the three broad contact networks. For example, a value of 0.75 for the work multiplier
-means that if the environment was the same as in September (levels of infection rates,
-no rapid tests or vaccinations, only the wildtype virus present), infections at the
+means that if the environment was the same as in September (levels of infection rates, no
+rapid tests or vaccinations, only the wildtype virus present), infections at the
 workplace would be reduced by 25\%. The lines show the product of the effect of contact
 reductions, increased hygiene regulations, and seasonality. Two aspects are particularly
 interesting. First, all lines broadly follow the stringency index and they would do so
 even more if we left out seasonality and school vacations (roughly the last two weeks of
 October, two weeks each around Christmas and Easter, and some days in late May). Second,
 the most stringent regulations are associated with the period of strong decreases in new
-infections between late December 2020 and mid-February 2021. The reversal of the trend
-is associated with the spread of the B.1.1.7 variant. The steep drop in recorded cases
-during May 2021 is associated with at least weekly rapid tests to 42\% of the
-population, a vaccination rate that rose from 28\% to 43\%, and mostly seasonality
-impacting a fall in the relative infectiousness of contacts outside of work and school.
+infections between late December 2020 and mid-February 2021. The reversal of the trend is
+associated with the spread of the B.1.1.7 variant. The steep drop in recorded cases
+during May 2021 is associated with at least weekly rapid tests for 42\% of the
+population, a vaccination rate that rose from 28\% to 43\%, and \deleted[id=K]{mostly}
+seasonality \replaced[id=K]{further lowering}{impacting a fall in} the relative
+infectiousness of contacts \deleted[id=K]{outside of work and school.}
 
 In order to better understand the contributions  of rapid tests, vaccinations, and
-seasonality on the evolution of infections in 2021,
-Figure~\ref{fig:2021_scenarios_broad} considers various scenarios. NPIs are always the
-same as in the baseline scenario. Figure~\ref{fig:2021_scenarios_recorded} shows the
-model fit (the blue line, same as in Figure~\ref{fig:aggregated_fit}), a scenario
-without any of the three factors (red line), and three scenarios turning these factors
-off one by one. Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total
+seasonality on the evolution of infections in 2021, Figure~\ref{fig:2021_scenarios_broad}
+considers various scenarios. NPIs are always the same as in the baseline scenario.
+Figure~\ref{fig:2021_scenarios_recorded} shows the model fit (the blue line, same as in
+Figure~\ref{fig:aggregated_fit}), a scenario without any of the three factors (red line),
+and three scenarios turning \replaced[id=K]{each factor on individually}{these factors
+off one by one}. Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total
 infections in the model. Figure~\ref{fig:2021_scenarios_decomposition} employs Shapley
 values \citep{Shapley2016} to decompose the difference in total infections between the
 scenario without any of the three factors and our main specification.
@@ -377,7 +369,7 @@ scenario without any of the three factors and our main specification.
 \end{figure}
 
 Until mid-March, there is no visible difference between the different scenarios.
-Seasonality hardly changes, and only few vaccinations or rapid tests were administered.
+Seasonality hardly changes, and only few vaccinations and rapid tests were administered.
 Even thereafter, the effect of the vaccination campaign is surprisingly small at first
 sight. Whether considering recorded or total infections with only one channel active,
 the final level is always the highest in case of the vaccination campaign (orange
@@ -386,12 +378,15 @@ cumulative difference between scenarios. Reasons for this are the slow start---i
 until March~24th until 10\% of the population had received their first vaccination, the
 20\% mark was reached on April 19th---and the focus on older individuals. These groups
 contribute less to the spread of the disease than others due to a lower number of
-contacts, see Supplementary Material~\ref{subsec:contacts_by_age}. By the end of our
-study period, when first-dose vaccination rates reached around 40\% of the population,
-the numbers of new cases would have started to decline. It is important to note that the
-initial focus of the campaign was to prevent deaths and severe disease. Indeed, the case
-fatality was rate considerably lower during the third wave when compared to the second
-(4.4\% between October and February and 1.4\% between March and the end of May).
+contacts\replaced[id=K]{as they do not work, do not go to school and tend to live in small households}{, see Supplementary Material~\ref{subsec:contacts_by_age}}.
+% We don't draw age specific number of contacts because the sample sizes would be to
+% small.
+By the end of our study period, when first-dose vaccination rates reached around 40\% of
+the population, the numbers of new cases would have started to decline. It is important
+to note that the initial focus of the campaign was to prevent deaths and severe disease.
+Indeed, the case fatality was rate considerably lower during the third wave when compared
+to the second (4.4\% between October and February and 1.4\% between March and the end of
+May).\comment[id=K]{This needs a source.}
 
 Seasonality has a large effect in slowing the spread of SARS-CoV-2. By May 31, both
 observed and recorded cases would be reduced by a factor of four if only seasonality
