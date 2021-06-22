@@ -1,25 +1,21 @@
 # Paper
 
-This repository contains the technical paper describing
-[sid](https://github.com/covid-19-impact-lab/sid).
+This repository contains the main paper accompanying
+[sid](https://github.com/covid-19-impact-lab/sid), an epidemiological model.
 
-The current published version is available as an [IZA discussion
-paper](https://www.iza.org/publications/dp/13899). Please cite it with
+The current published version is available as an [arXiv
+preprint](https://arxiv.org/abs/2106.11129). Please cite it with
 
 ```
-@article{Gabler2020,
-  title={
-    People Meet People: A Microlevel Approach to Predicting the Effect of Policies on
-    the Spread of COVID-19
-  },
-  author={Gabler, Janos and Raabe, Tobias and R{\"o}hrl, Klara},
-  year={2020},
-  publisher={IZA Discussion Paper}
+@misc{Gabler2021,
+      title={The Effectiveness of Strategies to Contain SARS-CoV-2: Testing, Vaccinations, and NPIs},
+      author={Janoś Gabler and Tobias Raabe and Klara Röhrl and Hans-Martin von Gaudecker},
+      year={2021},
+      eprint={2106.11129},
+      archivePrefix={arXiv},
+      primaryClass={q-bio.PE}
 }
 ```
-
-The [latest version of the paper](paper.pdf) can be found in this repository.
-
 
 ## Notes for Updating the Arxive Version
 
@@ -42,7 +38,7 @@ The [latest version of the paper](paper.pdf) can be found in this repository.
 
 ## Related publications
 
-Here is a list of publications which rely on sid.
+Here is a list of related publications.
 
 - Dorn, F., Gabler, J., von Gaudecker, H. M., Peichl, A., Raabe, T., & Röhrl, K. (2020).
   [Wenn Menschen (keine) Menschen treffen: Simulation der Auswirkungen von
@@ -54,6 +50,11 @@ Here is a list of publications which rely on sid.
   individuellen Verhaltens über den Jahreswechsel für die Weiterentwicklung der
   Covid-19- Pandemie in Deutschland](http://ftp.iza.org/sp99.pdf). IZA Standpunkte Nr.
   99.
+
+- Gabler, J., Raabe, T., Röhrl, K., & Gaudecker, H. M. V. (2021). [Der Effekt von
+  Heimarbeit auf die Entwicklung der Covid-19-Pandemie in
+  Deutschland](http://ftp.iza.org/sp100.pdf) (No. 100). Institute of Labor Economics
+  (IZA).
 
 
 ## Versions
@@ -70,6 +71,11 @@ Here is a list of publications which rely on sid.
 - v3 - 2021-02-09
 
   An updated version for the CRC Discussion Series.
+
+- v4 - 2021-02-09
+
+  The fourth version in this repository corresponds to the second version of the
+  preprint published on arXiv.
 
 
 ## Development
