@@ -236,8 +236,56 @@ school.
     is important.}
 \end{figure}
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_doing_rapid_test_today}
+  \caption{Share of Individuals Doing a Rapid Test per Day}
+  \label{fig:fit_share_doing_rapid_test}
+  \floatfoot{\noindent \textit{Note:} The plateau in the end is the result of falling
+  case numbers that lead to less private rapid tests being demanded due to contact
+  tracing. The two biggest jumps are due to public holidays, i.e. the end of Easter
+  vacations in the first half of April and May 1st. These lead many individuals to not
+  test themselves (even though the threshold to be tested falls during the time) due to
+  vacations from school and work. As a result more individuals than usual are due to be
+  tested because of frequency requirements after public holidays. }
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_ever_rapid_test}
+  \caption{Share of Individuals That has Ever Done a Rapid Test}
+  \label{fig:fit_share_ever_rapid_test}
+  \floatfoot{\noindent \textit{Note:} This figure clearly shows that overall our
+  assumptions on rapid tests are conservative. In our model, the share of individuals who
+  have ever done a rapid test lies  consistently 10 percentage points below the share
+  reported in the COSMO study \citep{Betsch2021}. The main reason for this is that we
+  introduce rapid tests only at the start of 2021. However, using the available data to
+  calibrate our rapid test parameters and estimating the remaining parameters to fit the
+  official case numbers we arrive at a shape that is very similar to that implied by the
+  survey results. This together with fitting the share of Germans with weekly rapid tests
+  well (see Figure~\ref{fig:fit_share_rapid_test_within_last_week} makes us confident
+  that our rapid test model is a good -- and especially not over-confident --
+  representation of rapid testing in Germany.}
+\end{figure}
 
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week}
+  \caption{Share of Individuals Who Have Done a Rapid Test in the Last Week}
+  \label{fig:fit_share_rapid_test_within_last_week}
+  \floatfoot{\noindent \textit{Note:} The two lines are not perfectly compatible. The
+  COSMO study \citep{Betsch2021} only asked if individuals had done at least one
+  self-administered rapid test per week in the last four weeks. This means there are two
+  differences between the simulated line and the empirical data points. Firstly, the
+  simulated line encompasses all rapid tests since we do not differentiate between
+  self-administered and medically administered rapid tests. Secondly, in our model we
+  cannot verify the rhythm over the last four weeks but just observe the last time of a
+  rapid test. However, both work and school rapid tests which make up the largest share
+  of rapid tests (see Figure~\ref{fig:rapid_test_demand_by_reason}) are both required on
+  a weekly or twice weekly basis while the private rapid test demand which are partly
+  just triggered by events make up only a small fraction of tests. }
+\end{figure}
 
 
 
