@@ -2,7 +2,7 @@
 
 
 % To ``accept'' all changes in the document:
-\PassOptionsToPackage{final}{changes}
+% \PassOptionsToPackage{final}{changes}
 
 \documentclass[a4paper, 10pt]{article}
 % fleqn: flush-left aligned equations
@@ -96,6 +96,16 @@ The Effectiveness of Strategies to Contain SARS-CoV-2: Testing, Vaccinations, an
 
 \begin{appendices}
     \begin{refsection}
+
+    This paper aims to be completely reproducible. The code for the general model can be
+    found at
+    \href{https://github.com/covid-19-impact-lab/sid/}{https://github.com/covid-19-impact-lab/sid/}
+    and its documentation at
+    \href{https://sid-dev.readthedocs.io/en/latest/}{https://sid-dev.readthedocs.io/en/latest/}.
+    The code for the application to Germany can be found at
+    \href{https://github.com/covid-19-impact-lab/sid-germany/}{https://github.com/covid-19-impact-lab/sid-germany/}
+    with a very rudimentary documentation at
+    \href{https://sid-germany.readthedocs.io/en/latest/}{https://sid-germany.readthedocs.io/en/latest/}.
 
     \input{paper/appendix_data}
 
