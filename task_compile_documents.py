@@ -7,7 +7,7 @@ import pytask
 ROOT = Path(__file__).parent
 BLD = ROOT / "bld"
 SRC = ROOT / "src"
-_DEPENDENCIES = SRC.rglob("*.tex")
+_DEPENDENCIES = [*SRC.rglob("*.tex"), *(BLD / "param_tables").rglob("*.tex")]
 
 
 @pytask.mark.latex(

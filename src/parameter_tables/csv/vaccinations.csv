@@ -1,0 +1,7 @@
+name,notation,time active,source,description
+age\_group,$_a$,,,subscript for parameters whose value depends on the age group of the person
+date,$_t$,,,subscript for parameters whose value depends on the date
+federal region,$_f$,,,subscript for parameters whose value depends on the federal region (Bundesland)
+contact\_type,$_c$,,,subscript for parameters whose value depends on the type of the contact
+,,,,
+share\_refuser,$\xi$,always,\url{https://bit.ly/3c9mTgX},share of individuals refusing to be vaccinated

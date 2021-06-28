@@ -1,0 +1,8 @@
+name,notation,time active,source,description
+age\_group,$_a$,,,subscript for parameters whose value depends on the age group of the person
+date,$_t$,,,subscript for parameters whose value depends on the date
+federal region,$_f$,,,subscript for parameters whose value depends on the federal region (Bundesland)
+contact\_type,$_c$,,,subscript for parameters whose value depends on the type of the contact
+,,,,
+share\_of\_tests\_for\_symptomatics,$chi_{symptom}$,always,calibrated from RKI,share of PCR tests that is performed on individuals with Covid-19 symptoms
+share\_requesting\_PCR\_confirmation,$chi_{confirmation}$,2021,\cite{Betsch2021},share of individuals with positive rapid test that seek a PCR test
