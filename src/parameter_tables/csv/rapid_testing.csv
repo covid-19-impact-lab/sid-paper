@@ -2,7 +2,7 @@ name,notation,time active,source,description
 specificity,TNR,2021,\cite{Bruemmer2021},"true negative rate, i.e. the probability of a negative person to test negative."
 sensitivity,TPR,2021,\cite{Smith2021},"true positive rate, i.e. the probability of an infected person to test positive. This is time dependent on the timing of the test relative to the individual’s onset of infectiousness."
 ,,,,
-share\_accepting\_work\_offer,"$\pi_{w, d}$",2021,\cite{Betsch2021},share of workers that regularly pick up on rapid test offers by their employers when they do not work from home. In our baseline specification this is time constant.
+share\_accepting\_work\_offer,"$\pi_{w, d}$",2021,\cite{Betsch2021},share of workers that regularly pick up rapid test offers by their employers when they do not work from home. In our baseline specification this is time constant.
 share\_workers\_receiving\_offer,"$\pi_{w, s, t}$",2021,see~\ref{subsec:rapid_test_demand},share of workers that get a regular rapid test offer by their employer when they do not work from home on date $t$.
 share\_educ\_workers,"$\pi_{teacher, t}$",2021,see~\ref{subsec:rapid_test_demand},share of educational workers who test themselves as part of their work on date $t$
 share\_students,"$\pi_{students, t}$",2021,see~\ref{subsec:rapid_test_demand},share of school pupils that do rapid tests at school on date $t$.
