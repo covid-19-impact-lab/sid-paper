@@ -4,9 +4,4 @@ date,$_t$,,,subscript for parameters whose value depends on the date
 federal region,$_f$,,,subscript for parameters whose value depends on the federal region (Bundesland)
 contact\_type,$_c$,,,subscript for parameters whose value depends on the type of the contact
 ,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
 infection\_prob,$\beta_{c}$,always,estimated in the model,"Unadjusted infection probability of contact type `c`. Since the infection probability also depends on the seasonality, susceptibility of the contact and the virus strain these should not be interpreted directly. The ratio of the infection probabilities gives how risky a contact of one type (e.g. work) is compared to another (e.g. school) per contact with transmission potential."

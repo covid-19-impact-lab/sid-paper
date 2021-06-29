@@ -1,1 +1,3 @@
 name,notation,time active,source,description
+work\_attend\_multiplier,"$\rho_{w, attend}$",always,\cite{Google2021},"share of workers that continue to have work contacts, i.e. do not work from home. We use the reduction in work mobility reported by \cite{Google2021} as a proxy for the share of workers that work from home."
+work\_hygiene\_multiplier,"$\rho_{w, hygiene}$",always,,reduction in transmission due to increased hygiene such as wearing face masks.
