@@ -1,7 +1,9 @@
 name,notation,time active,source,description
-age\_group,$_a$,,,subscript for parameters whose value depends on the age group of the person
-date,$_t$,,,subscript for parameters whose value depends on the date
-federal region,$_f$,,,subscript for parameters whose value depends on the federal region (Bundesland)
-contact\_type,$_c$,,,subscript for parameters whose value depends on the type of the contact
-,,,,
-cd\_immune,$\gamma$,always,unknown yet,duration for which individuals stay immune after having contracted Covid-19
+cd\_immune,$\gamma_{immune}$,always,\url{https://bit.ly/3hicmRD},duration for which individuals stay immune after having contracted Covid-19
+cd\_infectious\_true,$\gamma_{infectious}$,always,see Section~\ref{sec:medical_params},time between infection and the onset of infectiousness
+cd\_infectious\_false,$\gamma_{~infectious}$,always,see Section~\ref{sec:medical_params},duration of infectiousness
+cd\_symptoms\_true,"$\gamma_{symptoms, a}$",always,see Section~\ref{sec:medical_params},"time until the onset of symptoms, can be indefinite, for individuals of age group $a$"
+cd\_symptoms\_false,$\gamma_{~symptoms}$,always,see Section~\ref{sec:medical_params},duration of symptoms for symptomatic cases
+cd\_needs\_icu\_true,"$\gamma_{icu, a}$",always,see Section~\ref{sec:medical_params},time until an individual requires intensive care (given she has developed symptoms). The probability of and duration until requiring intensive care depends on the individual’s age group $a$
+cd\_needs\_icu\_false,$\gamma_{~icu}$,always,see Section~\ref{sec:medical_params},time until an individual recovers from requiring intensive care
+cd\_dead\_true,"$\gamma_{dead, a}$",always,see Section~\ref{sec:medical_params},time until an individual dies in intensive care. The probability of and duration until death depends on the individual’s age group $a$

@@ -12,7 +12,7 @@ PARAMETRIZATION = [(p, BLD / "param_tables" / f"{p.stem}.tex") for p in SRC.iter
 @pytask.mark.parametrize("depends_on, produces", PARAMETRIZATION)
 def task_convert_csv_to_tex(depends_on, produces):
     df = pd.read_csv(depends_on)
-    df = df.dropna(axis=0)  # drop empty rows
+    df = df.dropna(axis=0, how="all")  # drop empty rows
     with open(produces, "w") as f:
         with pd.option_context("max_colwidth", 10000):
             table = df.to_latex(

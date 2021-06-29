@@ -1,7 +1,4 @@
 name,notation,time active,source,description
-age\_group,$_a$,,,subscript for parameters whose value depends on the age group of the person
-date,$_t$,,,subscript for parameters whose value depends on the date
-federal region,$_f$,,,subscript for parameters whose value depends on the federal region (Bundesland)
-contact\_type,$_c$,,,subscript for parameters whose value depends on the type of the contact
-,,,,
 share\_refuser,$\xi$,always,\url{https://bit.ly/3c9mTgX},share of individuals refusing to be vaccinated
+cd\_is\_immune\_by\_vaccine,$\gamma_{vacc}$,always,\cite{Pritchard2021},"time from being vaccinated until the development of immunity, including vaccine failures"
+vacc\_group\_size,"$\nu_{1, …, 6}$",always,\url{https://bit.ly/3cb5uUQ},size of the six vaccination groups (including refusers). There are four priority groups for adults. Groups five and six are for youths and children as the vaccines were only later admitted for them. See the \href{https://bit.ly/3qy2HL2}{code documentation} for details. 

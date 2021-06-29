@@ -1,7 +1,4 @@
 name,notation,time active,source,description
-age\_group,$_a$,,,subscript for parameters whose value depends on the age group of the person
-date,$_t$,,,subscript for parameters whose value depends on the date
-federal region,$_f$,,,subscript for parameters whose value depends on the federal region (Bundesland)
-contact\_type,$_c$,,,subscript for parameters whose value depends on the type of the contact
-,,,,
-symptomatic\_multiplier,$\tau$,always,??? (MISSING),share of contacts that still take place when individuals are symptomatic
+symptomatic\_multiplier,"$\tau_{symptoms, c}$",always,,share of symptomatic individuals that still have contacts of type $c$
+positive\_pcr\_multiplier,"$\tau_{positive PCR, c}$",always,,share of individuals with a positive PCR test that still have contacts of type $c$
+positive\_rapid\_test\_multiplier,"$\tau_{positive rapid test, c}$",always,\cite{Betsch2021},share of individuals with a recent positive rapid test that still have contacts of type $c$
