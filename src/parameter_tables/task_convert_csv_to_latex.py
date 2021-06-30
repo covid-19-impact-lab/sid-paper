@@ -21,6 +21,7 @@ def task_convert_csv_to_tex(depends_on, produces):
                 longtable=False,
                 index=False,
                 column_format=r"p{4cm}p{2cm}p{2cm}p{2cm}p{9cm}",
+                float_format="%.0f",
             )
         table = table.replace(r"\begin{tabular}", r"\begin{tabular*}{\textwidth}")
         table = table.replace(r"\end{tabular}", r"\end{tabular*}")
