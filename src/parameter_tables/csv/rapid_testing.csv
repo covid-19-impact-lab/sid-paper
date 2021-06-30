@@ -1,12 +1,12 @@
 name,notation,time active,source,description
-specificity,TNR,2021,\cite{Bruemmer2021},"true negative rate, i.e. the probability of a negative person to test negative."
-sensitivity,TPR,2021,\cite{Smith2021},"true positive rate, i.e. the probability of an infected person to test positive. This is time dependent on the timing of the test relative to the individual’s onset of infectiousness."
+specificity,$p_{negative|not\:infected}$,2021,\cite{Bruemmer2021},"the probability of an uninfected person to test negative."
+sensitivity,"$p_{positive|infected,\;i,\:t}$",2021,\cite{Smith2021},"the probability of an infected person to test positive. This is time dependent on the timing of the test relative to the individual’s onset of infectiousness."
 ,,,,
-share\_accepting\_work\_offer,"$\pi_{w, d}$",2021,\cite{Betsch2021},share of workers that regularly pick up rapid test offers by their employers when they do not work from home. In our baseline specification this is time constant.
-share\_workers\_receiving\_offer,"$\pi_{w, s, t}$",2021,see~\ref{subsec:rapid_test_demand},share of workers that get a regular rapid test offer by their employer when they do not work from home on date $t$.
-share\_educ\_workers,"$\pi_{teacher, t}$",2021,see~\ref{subsec:rapid_test_demand},share of educational workers who test themselves as part of their work on date $t$
-share\_students,"$\pi_{students, t}$",2021,see~\ref{subsec:rapid_test_demand},share of school pupils that do rapid tests at school on date $t$.
-share\_private\_test\_demand,"$\pi_{private, t}$",2021,see~\ref{subsec:rapid_test_demand},share of individuals that do a rapid test when any of the private reason events such as a household member testing positive occur on date $t$.
+share\_accepting\_work\_offer,"$\pi_{w,\:d}$",2021,\cite{Betsch2021},share of workers that regularly pick up rapid test offers by their employers when they do not work from home. In our baseline specification this is time constant.
+share\_workers\_receiving\_offer,"$\pi_{w,\:s,\:t}$",2021,see~\ref{subsec:rapid_test_demand},share of workers that get a regular rapid test offer by their employer when they do not work from home on date $t$.
+share\_educ\_workers,"$\pi_{teacher,\:t}$",2021,see~\ref{subsec:rapid_test_demand},share of educational workers who test themselves as part of their work on date $t$
+share\_students,"$\pi_{students,\:t}$",2021,see~\ref{subsec:rapid_test_demand},share of school pupils that do rapid tests at school on date $t$.
+share\_private\_test\_demand,"$\pi_{private,\:t}$",2021,see~\ref{subsec:rapid_test_demand},share of individuals that do a rapid test when any of the private reason events such as a household member testing positive occur on date $t$.
 ,,,,
 educ\_freq,educ\_freq$_t$,2021,,"Frequency with which individuals test themselves in educational settings. Weekly before Easter 2021, twice weekly after Easter 2021."
 work\_freq,work\_freq$_t$,2021,,Frequency with which complying workers test themselves. Weekly before April 2021. Then the frequency increases to twice weekly during April 2021.

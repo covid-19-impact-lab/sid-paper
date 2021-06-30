@@ -17,7 +17,8 @@ For simplicity we normalize the factor to reach one at its maximum. Thus the for
 the seasonality factor is given by:
 
 \begin{equation}
-    s_k(t) = 1 + 0.5 \kappa_k  sin \left ( \pi  \left (\frac{1}{2} + \frac{t}{182.5}\right ) \right ) - 0.5 \kappa_k
+\label{eq:seasonality}
+    s_{c, t} = 1 + 0.5 \kappa_c  sin \left ( \pi  \left (\frac{1}{2} + \frac{t}{182.5}\right ) \right ) - 0.5 \kappa_c
 \end{equation}
 
 Where $\kappa_k$ is difference in the seasonality factor between peak infectiousness

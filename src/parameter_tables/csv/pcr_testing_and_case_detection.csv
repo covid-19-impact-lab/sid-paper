@@ -1,5 +1,5 @@
 name,notation,time active,source,description
 cd\_received\_test\_result\_true,$\gamma_{PCR}$,always,\href{https://ars.rki.de/Content/COVID19/Main.aspx}{RKI ARS data},time between the performance of a PCR test and receiving the result.
-share\_of\_tests\_for\_symptomatics,$chi_{symptom}$,always,calibrated from RKI,share of PCR tests that is performed on individuals with Covid-19 symptoms
-share\_requesting\_PCR\_confirmation,$chi_{confirmation}$,2021,\cite{Betsch2021},share of individuals with positive rapid test that seek a PCR test
-share\_known\_cases,$\psi$,always,\href{https://covid19.dunkelzifferradar.de/}{Dunkelzifferradar},share of cases in the whole population that are detected. 
+share\_of\_tests\_for\_symptomatics,$chi_{symptom}$,always,calibrated from RKI,share of positive PCR tests that are performed on individuals because of Covid-19 symptoms
+share\_requesting\_PCR\_confir mation,$chi_{confirmation}$,2021,\cite{Betsch2021},share of individuals with positive rapid test that seek a PCR test
+share\_known\_cases\_ without\_rapid\_tests,$\psi$,always,\href{https://covid19.dunkelzifferradar.de/}{Dunkelzifferradar},share of cases that would be detected in the absence of rapid tests (see Section~\ref{sub:testing})
