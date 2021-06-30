@@ -1,4 +1,0 @@
-name,notation,time active,source,description
-symptomatic\_multiplier,"$\tau_{symptoms,\:c}$",always,,share of symptomatic individuals that still have contacts of type $c$
-positive\_pcr\_multiplier,"$\tau_{positive\:PCR,\:c}$",always,,share of individuals with a positive PCR test that still have contacts of type $c$
-positive\_rapid\_test\_multiplier,"$\tau_{positive\:rapid\:test,\:c}$",2021,\cite{Betsch2021},share of individuals with a recent positive rapid test that still have contacts of type $c$

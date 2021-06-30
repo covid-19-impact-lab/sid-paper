@@ -1,3 +1,0 @@
-name,notation,time active,source,description
-share\_vaccine\_refusers,$\xi$,always,\url{https://bit.ly/3c9mTgX},share of individuals refusing to be vaccinated
-cd\_is\_immune\_by\_vaccine,"$\gamma_{vacc,\:d}$",2021,\cite{Pritchard2021},probability to develop immunity $d$ days (possibly infinite) after being vaccinated
