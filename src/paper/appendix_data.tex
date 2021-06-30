@@ -13,7 +13,7 @@ literature or calibrated from surveys and empirical datasets.
 
 \FloatBarrier
 
-\subsection{The Synthetic Population \comment[id=K]{To be written}}
+\subsection{The Synthetic Population}
 
 We build a synthetic population based on the German microcensus \citep{FDSAeDBUDL2018}.
 We only use private households, i.e. exclude living arrangements such as nursing homes as
@@ -24,16 +24,16 @@ We sample households to build our synthetic population of over one million house
 keeping for each individual their age, gender, occupation and whether they work on
 Saturdays and Sundays. For each household we draw its county and set the corresponding
 federal state.% county is not part of the microcensus campus file
-We draw for young children whether they attend a nursery or not \citep{Destatis2020}.
-
-
-\begin{itemize}
-    \item \textcolor{red}{describe how we create the contact model group ids for school,
-    work and other}
-    \item \textcolor{red}{Describe work contact priority, educ contact priority and
-    rapid test compliance parameter and quarantine compliance.}
-    \item \textcolor{red}{vaccination rank creation}
-\end{itemize}
+We draw for young children whether they attend a nursery or not
+\citep{Destatis2020}.\comment[id=K]{Missing still:
+    \begin{itemize}
+        \item describe how we create the contact model group ids for school,
+        work and other
+        \item describe work contact priority, educ contact priority and
+        rapid test compliance parameter and quarantine compliance.
+        \item vaccination rank creation
+    \end{itemize}
+}
 
 \FloatBarrier
 
