@@ -1,28 +1,19 @@
-Since early 2020,\comment[id=J]{Put stronger focus on time dependent rapid test
-sensitivity (30\% before day of onset of infectiousness)} the CoViD-19 pandemic has
-presented an enormous challenge to humanity on many dimensions. The development of
-highly effective vaccines holds the promise of containment in the medium term. However,
-most countries find themselves many months---and often years---away from reaching
-vaccination-induced herd immunity \citep{Swaminathan2021}.\comment[id=HM]{Need to find
-some more scientific citation before submission} In the meantime, it is of utmost
-importance to employ an effective mix of strategies for containing the virus. The most
-frequent initial response was a set of non-pharmaceutical interventions (NPIs) to reduce
-contacts between individuals. While this has allowed some countries to sustain
+Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity
+on many dimensions. The development of highly effective vaccines holds the promise of
+containment in the medium term. However, most countries find themselves many
+months---and often years---away from reaching vaccination levels that would end the
+pandemic or even protect the most vulnerable\citep{Swaminathan2021}.\comment[id=HM]{Use
+\url{https://www.nature.com/articles/s41562-021-01160-2} instead} In the meantime, it is
+of utmost importance to employ an effective mix of strategies for containing the virus.
+The most frequent initial response was a set of non-pharmaceutical interventions (NPIs)
+to reduce contacts between individuals. While this has allowed some countries to sustain
 equilibria with very low infection numbers,\footnote{See \citet{Contreras2021} for a
 theoretical equilibrium at low case numbers which is sustained with
 test-trace-and-isolate policies.} most have seen large fluctuations of infection rates
 over time. Containment measures have become increasingly diverse and now include rapid
 testing, more nuanced NPIs, and contact tracing. Neither these policies' effect nor the
 influence of seasonal patterns or of more infectious virus strains are well understood
-in quantitative terms.\comment[id=K]{feedback from Philipp:
-\begin{itemize}
-    \item he would suggest to lay more focus on explaining the mechanisms behind our
-    results
-    \item he suggests we should try to get some form of confidence bands or standard errors
-    \item he got the wrong impression that we only have three mechanisms and that the
-    rapid tests are the residual.
-\end{itemize}
-}
+in quantitative terms.
 
 This paper develops a quantitative model incorporating these factors simultaneously. The
 framework allows to combine a wide variety of data and mechanisms in a timely fashion,
@@ -183,16 +174,15 @@ the B.1.1.7 strain.
 The main issue with official case numbers is that they will contain only a fraction of
 all infections. We thus model official cases as depicted in
 Figure~\ref{fig:model_official_cases}. We take aggregate estimates of the share of
-detected cases and use data on \replaced[id=K]{the share of PCR tests administered to
-people with CoViD-19 symptoms}{whether CoViD-19 symptoms led to a PCR test}. As the share
-of asymptomatic individuals varies by age group, this gives us age-specific shares (see
-Figure~\ref{fig:share_known_cases_by_age_group} for the share of known cases by age group
-over time in our model). Our estimates suggest that---in the absence of rapid
-testing---the detection rate is 80\% higher on average for individuals above age 80
-compared to school age children. Once rapid test become available, confirmation of a
-positive result is another reason leading to positive PCR tests.
+detected cases and use data on the share of PCR tests administered because of CoViD-19
+symptoms. As the share of asymptomatic individuals varies by age group, this gives us
+age-specific shares (see Figure~\ref{fig:share_known_cases_by_age_group} for the share
+of known cases by age group over time in our model). Our estimates suggest that---in the
+absence of rapid testing---the detection rate is 80\% higher on average for individuals
+above age 80 compared to school age children. Once rapid test become available,
+confirmation of a positive result is another reason leading to positive PCR tests.
 
-The model is applied to the second and third wave of the CoViD-19 pandemic in Germany,
+The model is applied to the second and third waves of the CoViD-19 pandemic in Germany,
 covering the period mid-September 2020 to the end of May 2021.
 Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and
 of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
@@ -207,14 +197,14 @@ but open schools and workplaces. In the seven weeks between mid September and ea
 November, cases increased by a factor of 10. Restrictions were somewhat tightened in
 mid-October and again in early November. New infections remained constant throughout
 November before rising again in December, prompting the most stringent lockdown to this
-date. Schools and daycare centers were closed again, so were customer-facing businesses
-except for grocery and drug stores. From the peak of the second wave just before
-Christmas until the trough in mid-February, newly detected cases decreased by almost
-three quarters. The third wave in the spring of 2021 is associated with the B.1.1.7
-strain, which became dominant in March (Figure~\ref{fig:share_b117}). In early March,
-some NPIs were being relaxed; e.g., hairdressers and home improvement stores were
-allowed to open again to the public. There were many changes in details of regulations
-afterwards, but they did not change the stringency index.
+date. Schools and daycare centers were closed, so were customer-facing businesses except
+for grocery and drug stores. From the peak of the second wave just before Christmas
+until the trough in mid-February, newly detected cases decreased by almost three
+quarters. The third wave in the spring of 2021 is associated with the B.1.1.7 strain,
+which became dominant in March (Figure~\ref{fig:share_b117}). In early March, some NPIs
+were being relaxed; e.g., hairdressers and home improvement stores were allowed to open
+again to the public. There were many changes in details of regulations afterwards, but
+they did not change the overall stringency index.
 
 \begin{figure}[!tp]   % Figure 2
     \centering
@@ -271,19 +261,19 @@ afterwards, but they did not change the stringency index.
         factors by contact type.}
 \end{figure}
 
-By this time, the set of policy instruments had become much more diverse. Around the
+By March 2021, the set of policy instruments had become much more diverse. Around the
 turn of the year, the first people were vaccinated with a focus on older age groups and
-medical personnel (Figure~\ref{fig:antigen_tests_vaccinations}). By the end of May, just
-over 40\% had received at least one dose of a vaccine. Around the same time, rapid tests
-started to replace regular PCR tests for staff in many medical and nursing facilities.
-These had to be administered by medical doctors or in pharmacies. At-home tests approved
-by authorities became available in mid-March, rapid test centers were opened, and one
-test per person and week was made available free of charge. In several states, customers
-were only allowed to enter certain stores with a recent negative rapid test result.
-These developments are characteristic of many countries: The initial focus on NPIs to
-slow the spread of the disease has been accompanied by vaccines and a growing acceptance
-and use of rapid tests. At broadly similar points in time, novel strains of the virus
-have started to pose additional challenges.
+medical personnel (Figure~\ref{fig:antigen_tests_vaccinations}). Until the end of May,
+43\% had received at least one dose of a vaccine. In late 2020, rapid tests started to
+replace regular PCR tests for staff in many medical and nursing facilities. These had to
+be administered by medical doctors or in pharmacies. At-home tests approved by
+authorities became available in mid-March, rapid test centers were opened, and one test
+per person and week was made available free of charge. In several states, customers were
+only allowed to enter certain stores with a recent negative rapid test result. These
+developments are characteristic of many countries: The initial focus on NPIs to slow the
+spread of the disease has been accompanied by vaccines and a growing acceptance and use
+of rapid tests. At broadly similar points in time, novel strains of the virus have
+started to pose additional challenges.
 
 We draw simulated samples of agents from the population structure in September 2020 and
 use the model to predict recorded infection rates until the end of May 2021. See
@@ -298,22 +288,21 @@ variation in the drivers of the pandemic. Next to the stringency index, the thre
 in Figure~\ref{fig:stringency_infectious_contacts} summarize how contact reductions,
 increased hygiene regulations, and seasonality evolved since early September for each of
 the three broad contact networks. For example, a value of 0.75 for the work multiplier
-means that if the environment was the same as in September (levels of infection rates, no
-rapid tests or vaccinations, only the wildtype virus present), infections at the
+means that if the environment was the same as in September (levels of infection rates,
+no rapid tests or vaccinations, only the wildtype virus present), infections at the
 workplace would be reduced by 25\%. The lines show the product of the effect of contact
 reductions, increased hygiene regulations, and seasonality. Two aspects are particularly
 interesting. First, all lines broadly follow the stringency index and they would do so
 even more if we left out seasonality and school vacations (roughly the last two weeks of
 October, two weeks each around Christmas and Easter, and some days in late May). Second,
 the most stringent regulations are associated with the period of strong decreases in new
-infections between late December 2020 and mid-February 2021. The reversal of the trend is
-associated with the spread of the B.1.1.7 variant. The steep drop in recorded cases
+infections between late December 2020 and mid-February 2021. The reversal of the trend
+is associated with the spread of the B.1.1.7 variant. The steep drop in recorded cases
 during May 2021 is associated with at least weekly rapid tests for 42\% of the
-population, a vaccination rate that rose from 28\% to 43\%, and \deleted[id=K]{mostly}
-seasonality \replaced[id=K]{further lowering}{impacting a fall in} the relative
-infectiousness of contacts \deleted[id=K]{outside of work and school.}
+population, a vaccination rate that rose from 28\% to 43\%, and seasonality lowering the
+relative infectiousness of contacts, most strongly outside of work and school.
 
-In order to better understand the contributions  of rapid tests, vaccinations, and
+In order to better understand the contributions of rapid tests, vaccinations, and
 seasonality on the evolution of infections in 2021, Figure~\ref{fig:2021_scenarios_broad}
 considers various scenarios. NPIs are always the same as in the baseline scenario.
 Figure~\ref{fig:2021_scenarios_recorded} shows the model fit (the blue line, same as in
@@ -385,14 +374,12 @@ cumulative difference between scenarios. Reasons for this are the slow start---i
 until March~24th until 10\% of the population had received their first vaccination, the
 20\% mark was reached on April 19th---and the focus on older individuals. These groups
 contribute less to the spread of the disease than others due to a lower number of
-contacts\replaced[id=K]{as they do not work, do not go to school and tend to live in small households}{, see Supplementary Material~\ref{subsec:contacts_by_age}}.
-% We don't draw age specific number of contacts because the sample sizes would be to
-% small.
-By the end of our study period, when first-dose vaccination rates reached around 40\% of
-the population, the numbers of new cases would have started to decline. It is important
-to note that the initial focus of the campaign was to prevent deaths and severe disease.
-Indeed, the case fatality was rate considerably lower during the third wave when compared
-to the second (4.4\% between October and February and 1.4\% between March and the end of
+contacts see Supplementary Material~\ref{subsec:contacts_by_age}. By the end of our
+study period, when first-dose vaccination rates reached around 40\% of the population,
+the numbers of new cases would have started to decline. It is important to note that the
+initial focus of the campaign was to prevent deaths and severe disease. Indeed, the case
+fatality was rate considerably lower during the third wave when compared to the second
+(4.4\% between October and February and 1.4\% between March and the end of
 May).\comment[id=K]{This needs a source.}
 
 Seasonality has a large effect in slowing the spread of SARS-CoV-2. By May 31, both
