@@ -1,7 +1,7 @@
 name,notation,time active,source,description
 p\_duration\_until\_test\_result,"$\gamma_{PCR,\:d}$",always,\href{https://ars.rki.de/Content/COVID19/Main.aspx}{RKI ARS data},probability that it takes $d$ days between the performance of a PCR test and receiving the result.
-share\_of\_tests\_for\_symptomatics,$chi_{symptom}$,always,calibrated from RKI,share of positive PCR tests that are performed on individuals because of Covid-19 symptoms
-share\_requesting\_PCR\_confir- mation,$chi_{confirmation}$,2021,\cite{Betsch2021},share of individuals with positive rapid test that seek a PCR test
+share\_of\_tests\_for\_symptomatics,$\chi_{symptom}$,always,calibrated from RKI,share of positive PCR tests that are performed on individuals because of Covid-19 symptoms
+share\_requesting\_PCR\_confir- mation,$\chi_{confirmation}$,2021,\cite{Betsch2021},share of individuals with positive rapid test that seek a PCR test
 share\_known\_cases\_without\_ rapid\_tests,$\psi$,always,\href{https://covid19.dunkelzifferradar.de/}{Dunkelzifferradar},share of cases that would be detected in the absence of rapid tests (see Section~\ref{sub:testing})
 ,,,,
 symptomatic\_multiplier,"$\tau_{symptoms,\:c}$",always,,share of symptomatic individuals that still have contacts of type $c$
