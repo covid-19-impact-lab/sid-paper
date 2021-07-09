@@ -7,7 +7,7 @@ rapid test demands. Where available we do not only look at aggregated statistics
 analyze the model fit for age groups and federal states.\comment[id=J]{summarize the fit}
 
 
-\begin{figure}[ht]
+\begin{figure}[ht]   % new known case with single runs
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case_with_single_runs}
   \caption{Fit Over the Full Simulation Time Frame with Single Simulation Runs}
@@ -21,7 +21,7 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
   \label{fig:aggregated_fit2}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[ht]  % newly infected with single runs
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_newly_infected_with_single_runs}
   \caption{Development of the Total Infections Over the Full Simulation Time Frame with
@@ -35,9 +35,7 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
 \end{figure}
 
 
-
-
-\begin{figure}[ht]
+\begin{figure}[ht]  % new known case by age group
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/incidences_by_group/age_group_rki/full_combined_baseline_new_known_case}
   \caption{Simulated and Empirical Infections by Age Group}
@@ -53,7 +51,7 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
 \end{figure}
 
 
-\begin{figure}[ht]
+\begin{figure}[ht]   % new known case by federal state
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/incidences_by_group/state/full_combined_baseline_new_known_case}
   \caption{Simulated and Empirical Infections by Federal State}
@@ -64,7 +62,7 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
 \end{figure}
 
 
-\begin{figure}[ht]
+\begin{figure}[ht]   % fit of vaccinations
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_ever_vaccinated}
   \caption{Share of Vaccinated Individuals}
@@ -79,7 +77,19 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
 \end{figure}
 
 
-\begin{figure}[ht]
+\begin{figure}[ht]   % vaccinations by age group
+  \centering
+  \includegraphics[width=\textwidth]{figures/results/figures/vaccinations/spring_baseline}
+  \caption{Simulated and Empirical Infections by Federal State}
+  \floatfoot{\noindent \textit{Note:} The figure shows the weekly incidence rates per
+  100,000 people for the reported versus the simulated infections rates for different
+  federal states. We averaged over 30 simulation runs.}
+  \label{fig:state_fit}
+\end{figure}
+
+
+
+\begin{figure}[ht]   % R effective
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_r_effective_with_single_runs}
   \caption{Effective Replication Number $R_t$ in the Model and as Reported by the
@@ -100,7 +110,7 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
 \end{figure}
 
 
-\begin{figure}[ht]
+\begin{figure}[ht]   % Share B.1.1.7
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_b117_with_single_runs}
   \caption{Share of B.1.1.7 in the Model and as Reported by the Robert-Koch-Institute}
