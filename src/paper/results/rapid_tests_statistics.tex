@@ -1,0 +1,180 @@
+
+\subsection{Rapid Tests}
+\label{subsec:appendix_rapid_tests}
+
+
+\begin{figure}[ht] % Ever Rapid Test
+  \centering
+  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_ever_rapid_test}
+  \caption{Share of Individuals Who Have Ever Done a Rapid Test}
+  \label{fig:fit_share_ever_rapid_test}
+  \floatfoot{\noindent \textit{Note:} This figure clearly shows that overall our
+  assumptions on rapid tests are conservative. In our model, the share of individuals who
+  have ever done a rapid test lies  consistently 10 percentage points below the share
+  reported in the COSMO study \citep{Betsch2021}. The main reason for this is that we
+  introduce rapid tests only at the start of 2021. However, using the available data to
+  calibrate our rapid test parameters and estimating the remaining parameters to fit the
+  official case numbers we arrive at a shape that is very similar to that implied by the
+  survey results. This together with fitting the share of Germans with weekly rapid tests
+  well (see Figure~\ref{fig:fit_share_rapid_test_within_last_week} makes us confident
+  that our rapid test model is a good -- and especially not over-confident --
+  representation of rapid testing in Germany.}
+\end{figure}
+
+
+\begin{figure}[ht] % Tested in the last week
+  \centering
+  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week}
+  \caption{Share of Individuals Who Have Done a Rapid Test in the Last Week}
+  \label{fig:fit_share_rapid_test_within_last_week}
+  \floatfoot{\noindent \textit{Note:} Our modelling of rapid tests leads to very similar rates of individuals that are tested at least weekly as in the COSMO study \citep{Betsch2021}.
+  In that study, individuals were asked if they performed rapaid tests at least weekly in
+  the last four weeks. In our model we cannot verify the rhythm over the last four
+  weeks but just observe the last time of a rapid test. However, both work and school
+  rapid tests which make up the largest share of rapid tests (see
+  Figure~\ref{fig:rapid_test_demand_by_channel}) are both required on a weekly or twice
+  weekly basis while the private rapid test demand which are partly just triggered by
+  events make up only a small fraction of tests.}
+\end{figure}
+
+
+\begin{figure}[ht] % Share tested per day
+  \centering
+  \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/popshare_tested}
+  \caption{Share of the Population Demanding a Rapid Test Because of Different Channels}
+  \label{fig:rapid_test_demand_by_channel}
+  \floatfoot{\noindent \textit{Note:}
+    Rapid tests in the education setting are demanded by teachers (nursery, preschool and
+    school) as well as school pupils. After Easter the required frequency of tests is
+    increased from once per week to twice per week. Work rapid tests are demanded by
+    individuals that still have work contacts, i.e. do not work from home. The share of
+    employers offering rapid tests increases over the time frame and the frequency of
+    testing is also increased. Tests are demanded by individuals for one of three private
+    reasons: having developed symptoms without access to a PCR test, having a household
+    member that has tested positive or developed symptoms or having planned weekly
+    meeting with friends. }
+\end{figure}
+
+
+\begin{figure}   % Number of True Positive / False Positive / True Negative / False Negative
+    \centering
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/number_true_positive}
+        \caption{Number of Discovered Cases Due to Rapid Tests by Channel}
+        \label{fig:rapid_tests_number_true_positive}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/number_false_positive}
+        \caption{Number of False Positive Rapid Tests by Channel}
+        \label{fig:rapid_tests_number_false_positive}
+    \end{subfigure}
+    \vskip3ex
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/number_true_negative}
+        \caption{Number of True Negative Rapid Tests by Channel}
+        \label{fig:rapid_tests_number_true_negative}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/number_false_negative}
+        \caption{Number of False Negative Rapid Tests by Channel}
+        \label{fig:rapid_tests_number_false_negative}
+    \end{subfigure}
+    \vskip3ex
+    \caption{Rapid Test Results}
+    \label{fig:rapid_test_results_numbers}
+
+    \floatfoot{\noindent \textit{Note:}
+      The number of rapid tests of each category are upscaled to the full German
+      population. \textcolor{red}{To be written.}
+    }
+\end{figure}
+
+
+\begin{figure} % True Positive / False Positive / True Negative / False Negative Rate
+    \centering
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/true_positive_rate}
+        \caption{Rate of True Positive Rapid Tests by Channel}
+        \label{fig:rapid_tests_true_positive_rate}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/false_positive_rate}
+        \caption{Rate of False Positive Rapid Tests by Channel}
+        \label{fig:rapid_tests_false_positive_rate}
+    \end{subfigure}
+    \vskip3ex
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/true_negative_rate}
+        \caption{Rate of True Negative Rapid Tests by Channel}
+        \label{fig:rapid_tests_true_negative_rate}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/false_negative_rate}
+        \caption{Rate of False Negative Rapid Tests by Channel}
+        \label{fig:rapid_tests_false_negative_rate}
+    \end{subfigure}
+    \vskip3ex
+    \caption{Rapid Test Rates by Channel}
+    \label{fig:rapid_test_results_rates}
+
+    \floatfoot{\noindent \textit{Note:}
+      \textcolor{red}{To be written.}
+    }
+\end{figure}
+
+\begin{figure} % Share of Tests That Are True Positive / False Positive / True Negative / False Negative
+    \centering
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/true_positive_rate}
+        \caption{Share of Tests That Are True Positive by Channel}
+        \label{fig:rapid_tests_true_positive_rate}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/false_positive_rate}
+        \caption{Share of Tests That Are False Positive by Channel}
+        \label{fig:rapid_tests_false_positive_rate}
+    \end{subfigure}
+    \vskip3ex
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/true_negative_rate}
+        \caption{Share of Tests That Are True Negative by Channel}
+        \label{fig:rapid_tests_true_negative_rate}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/false_negative_rate}
+        \caption{Share of Tests That Are False Negative by Channel}
+        \label{fig:rapid_tests_false_negative_rate}
+    \end{subfigure}
+    \vskip3ex
+    \caption{Share of Rapid Tests by Outcome and True Infection Status}
+    \label{fig:rapid_test_results_test_shares}
+
+    \floatfoot{\noindent \textit{Note:}
+      \textcolor{red}{To be written.}
+    }
+\end{figure}
+
+
+
+
+
+
+\FloatBarrier
