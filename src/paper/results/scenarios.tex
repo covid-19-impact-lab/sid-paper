@@ -71,39 +71,6 @@
  \comment[id=K]{Regarding figure \ref{fig:school_scenarios_detailed}: Look up numbers and
  add them to the description.}
 
-\begin{figure}[ht] % Robustness Check
-  \centering
-  \begin{subfigure}[b]{.49\textwidth}
-    \centering
-    \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/robustness_check/full_new_known_case}
-    \caption{Reported Cases}
-    \label{fig:robustness_check_new_known_case}
-  \end{subfigure}%
-  \hfill
-  \begin{subfigure}[b]{.49\textwidth}
-    \centering
-    \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/robustness_check/full_newly_infected}
-    \caption{Total Cases}
-    \label{fig:robustness_check_newly_infected}
-  \end{subfigure}
-  \caption{Robustness Check}
-  \label{fig:robustness_check_detailed}
-  \floatfoot{\noindent \textit{Note:} \textcolor{red}{To be written}}
-\end{figure}
-
- \comment[id=K]{@Janos: Please add caption and description for the robustness check.}
-
- \comment[id=K]{HM: Why are the baseline cases above the three other scenarios?
-
-  \begin{itemize}
-    \item there are \textbf{less} vaccinations in the robustness check
-    \item the "true" work multiplier is on average approx. equal to the value that we set
-  \end{itemize}
-
-  How do the numbers of tests compare?
-
- }
-
 
 \begin{figure}[ht] % Random Rapid Tests
   \centering
@@ -125,11 +92,10 @@
   \floatfoot{\noindent \textit{Note:} \textcolor{red}{To be written}}
 \end{figure}
 
- \commend[id=K]{Describe that random tests are more effective at detecting cases and that
+ \comment[id=K]{Describe that random tests are more effective at detecting cases and that
  explains the bump in the random test scenario detection in the beginning. However, cases
  fall immediately more in the non-random scenario because the targeted demand for tests
- by household members leads to a much more efficient interruption of infection chains.}
-
-
+ by household members leads to a much more efficient interruption of infection chains
+ because we catch the household members very early in their infectious period.}
 
 \FloatBarrier

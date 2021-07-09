@@ -84,16 +84,27 @@ group and a vaccination rank from that group that creates a complete vaccination
 over the population including 15\% that refuse to be vaccinated \citep{RKI2021}. The
 vaccination groups are created to match the recommendations by the Ständige
 Impfkommission \citep{VygenBonnet2020}.\footnote{We cover that teachers were prioritized
-more than recommended by the commission.}% To cover that the Pfizer-BioNTech vaccine was later approved for younger age groups we
+more than recommended by the commission.}\comment[id=K]{Write how that plays out in our simulations for the different age groups.}
+
+% To cover that the Pfizer-BioNTech vaccine was later approved for younger age groups we
 % put adolescents and children into two groups that follow after the general population.
 % These groups do not become eligible within our simulation frame until June.
+
+
+% \begin{figure}[ht]   % vaccinations by age group
+%   \centering
+%   \includegraphics[width=\textwidth]{figures/results/figures/vaccinations/spring_baseline}
+%   \caption{Simulated and Empirical Infections by Federal State}
+%   \floatfoot{\noindent \textit{Note:} \textcolor{red}{To be written.}}
+%   \label{fig:vaccinations_by_age_group}
+% \end{figure}
 
 
 \FloatBarrier
 
 
 \subsection{Number of Contacts}
-\label{sub:number_of_contacts}
+\label{subsec:data_number_of_contacts}
 
 We calibrate the parameters for the predicted numbers of contacts from contact diaries
 of over 2000 individuals from Germany, Belgium, the Netherlands and Luxembourg
@@ -289,9 +300,8 @@ German microcensus data we use to construct our synthetic population.
 \label{subsec:policies_seasonality}
 
 
-In our empirical application we distinguish four groups of contact types: households,
-education, work and other contacts.
-% households
+In our empirical application\comment[id=K]{Improve language} we distinguish four groups
+of contact types: households, education, work and other contacts.% households
 For households we assume that the individuals'
 contacts in their households do not change over our estimation period.
 % educ models
@@ -329,14 +339,12 @@ of childcare leads working parents to stay home. An approximation of the share o
 % 18% der Grundschüler in Notbetreuung in BW
 %
 
-% work models
-For our work models\footnote{We distinguish non-recurrent work contacts, daily work
-    contacts and weekly work contacts.} we use the reductions in work mobility reported in
-the Google Mobility Data \citep{Google2021} to calibrate our work policies. Reductions in
-work contacts are not random but governed through a work contact priority where the
-policy changes the threshold below which workers stay home. Figure
-\ref{fig:work_multiplier} shows the share of workers that go to work in our model over
-time.
+% work
+For our work contacts we use the reductions in work mobility reported in the Google
+Mobility Data \citep{Google2021} to calibrate our work policies. Reductions in work
+contacts are not random but governed through a work contact priority where the policy
+changes the threshold below which workers stay home. Figure \ref{fig:work_multiplier}
+shows the share of workers that go to work in our model over time.
 
 \begin{figure}[ht]
     \centering
@@ -415,8 +423,7 @@ Figure~\ref{fig:seasonality} shows our seasonality factors.
 \input{paper/rapid_test_params}
 
 All shares of individuals who would take a rapid test if the conditions were met can be
-seen in Figure~\ref{fig:rapid_test_demand}.\comment[id=J]{Talk about the interpretation
-of each line.}
+seen in Figure~\ref{fig:rapid_test_demand}.
 
 \begin{figure}
     \centering
@@ -461,3 +468,5 @@ of each line.}
         weekly tests quite exactly. However, the study only covers adults while our share
         also includes children who are tested very regularly when attending school.}
 \end{figure}
+
+ \comment[id=K]{J: Explain that we don't fit the share ever tested that well because our rapid test compliance is completely fixed. }
