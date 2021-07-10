@@ -3,3 +3,4 @@ infection\_prob,$\beta_{c}$,always,estimated,"Base infection probability of cont
 susceptibility,$\zeta_{a}$,always,\cite{Davies2020},Susceptibility to Covid-19 depends on a person’s age group. The higher the age the more easily people become infected. The susceptibility of the oldest age group is normalized to one.
 seasonality,"$\kappa_{c}$",always,\cite{Gavenciak2021},The probability to contract Covid-19 when exposed depends on the seasonality. Since different contact types are more or less subject to seasonal variation (e.g. by moving contacts outdoors) the seasonality also depends on the contact type. Refer to Section~\ref{subsec:seasonality} for an explanation.
 variant\_infectiousness,$\sigma_{v}$,always,\cite{Davies2021},Variant $v$'s infectiousness relative to the wild type.
+variant\_introduction,"$\omega_{v,t}$",time dependent,estimated,"Number of infections per 100,000 individuals of variant $v$ to be introduced on day $t$"

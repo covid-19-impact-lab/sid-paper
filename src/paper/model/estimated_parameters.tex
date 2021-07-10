@@ -37,13 +37,14 @@ probabilities}\comment[id=K]{Compare to
 \href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3867682}{these estimates}}
 
 % policies
-We also estimate a parameter that reflects the effect of hygiene measures
-after November 2020 at work and in educational facilities. This parameter reduces
-infectiousness of contacts by one third. In total those are 10 parameters. The
-breakpoints the contact reduction changes are not determined from data but from
-announcements of policy changes. Moreover, we constrain the estimated contact reduction
-to follow the shape of the stringency index. The resulting contact reduction can be
-seen in Figure~\ref{fig:other_multiplier}
+We also estimate a parameter that reflects the effect of hygiene measures after November
+2020 at work and in educational facilities. This parameter reduces infectiousness of
+contacts by one third. In total those are ten parameters.\comment[id=K]{I think here you
+refer to the other multipliers but you don't mention them. Also, since there is no change on the 12th of April it's only nine changes} The breakpoints the contact
+reduction changes are not determined from data but from announcements of policy changes.
+Moreover, we constrain the estimated contact reduction to follow the shape of the
+stringency index. The resulting contact reduction can be seen in
+Figure~\ref{fig:other_multiplier}
 
 
 % b117 rate
@@ -53,27 +54,9 @@ case per 100 000 individuals per day is imported. After January we do not model 
 cases of B.1.1.7 anymore because they are negligible compared to the endogenous growth
 of that virus variant.
 
-% The infection probabilities estimated from our model are as shown in
-% Table~\ref{tab:infection_probs}.\comment[id=K]{Missing to add data for the other
-% estimated parameters (import of b117 etc)}\comment[id=K]{Update table after the new
-% estimation is finished}
-
-% \begin{table}[tb]
-%     \caption{Estimated Infection Probabilities}
-%     \label{tab:infection_probs}
-%     \centering
-%     \begin{tabular}{ll}
-%         \toprule
-%         Contact Type & Infection Probability \\
-%         \midrule
-%         preschool and nursery & 00.500\% \\
-%         school & 01.200\% \\
-%         household & 10.000\% \\
-%         work & 14.500\% \\
-%         other & 15.875\% \\
-%         \bottomrule
-%     \end{tabular}
-%     \tablenotes{}
-% \end{table}
-
-
+\begin{table}[htb]
+    \centering
+    \caption{Estimated Parameters}
+    \label{tab:estimated_params}
+    \input{../bld/param_tables/estimates}
+\end{table}
