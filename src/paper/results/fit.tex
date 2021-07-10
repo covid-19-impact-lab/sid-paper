@@ -1,33 +1,32 @@
 \subsection{Model Fit}
 \label{subsec:fit_results}
 
+%%% WRITE MORE POSITIVELY
+
 This section compares simulated data from our model with empirical data from Germany. We
-look at observed infections, fatality rates,\comment[id=K]{should we include them?} the
-spread of the B.1.1.7 mutation, vaccinations\comment[id=K]{We fit vaccinations in the
-population by construction. Maybe this should go to a different section?} and rapid test
-demand. Where available we do not only look at aggregated statistics but also analyze the
-model fit for age groups and federal states.
+look at observed infections, the spread of the B.1.1.7 mutation,
+vaccinations\comment[id=K]{We fit vaccinations in the population by construction. Maybe
+this should go to a different section?} and rapid test demand. Where available we do not
+only look at aggregated statistics but also analyze the model fit for age groups and
+federal states.
 
 % summary of the fit
 Overall, our model achieves an excellent fit of the two waves of infections with few free
 parameters (Figure~\ref{fig:aggregated_fit2}. As a result the effective replication
-number is similar to that reported by the Robert Koch-Institut (see
-Figure~\ref{fig:fit_r_effective}). This excellent fit is also achieved for most age
-groups in Germany. The fit is also good for many German federal states even though our
-synthetic population does not represent the differences in the distribution of age groups
-and they only had a small weight in the optimization. Despite, the fact that the number
-of performed rapid tests and their distribution in the population results endogenously
-inside our model we fit the share of the population with at least a weekly rapid test
-very well and err on the side of too few individuals that have ever done a rapid test.
+number is similar to that reported by the RKI (see Figure~\ref{fig:fit_r_effective}).
+This excellent fit is also achieved for most age groups in Germany. The fit is also good
+for many German federal states. Despite, the fact that the number of performed rapid
+tests and their distribution in the population results endogenously inside our model we
+fit the share of the population with at least a weekly rapid test very well and err on
+the side of too few individuals that have ever done a rapid test.
 
 % observed infections
 Our fit of the infection rates in Germany between October 2020 and June 2021 is very
 good. The incidence in our model follows the shape of the reported incidence almost
-perfectly. The increase in December is somewhat less steep than it was. This can be
-attributed to the large number of cases in nursing homes during that time that our model
-cannot capture because it does not include nursing homes. It is very noticeable that high
-levels of infections often coincide with increased statistical uncertainty, as for
-example in April and May.
+perfectly. % The increase in December is somewhat less steep than it was. This can be
+% attributed to the large number of cases in nursing homes during that time that our
+% model cannot capture because it does not include nursing homes. \comment[id=K]{Write
+% about uncertainty and that we take enough simulations to have a stable mean}
 
 \begin{figure}[ht]   % observed infections with single runs
   \centering
@@ -44,24 +43,24 @@ example in April and May.
 \end{figure}
 
 % observed infections by age group
-Zooming into the different age groups in Figure~\ref{fit:age_group_fit}, we can see that
+Zooming into the different age groups in Figure~\ref{fig:age_group_fit}, we can see that
 our model is also able to reproduce the infection rates on this level. Differences
 between the age groups allow us to identify the infection probabilities because different
 age groups have contacts of different types (e.g. Mostly children go to school, the share
-of workers is highest in the 35 to 59 age bracket etc.). There are three exceptions to
-our fit. Firstly, the age group of 80 to 100 year olds due to the absence of nursing
-homes in our synthetic population. Secondly, the increase in adolescents in April. It is
-surprising that we do not match this increase despite explicitly modeling the
-introduction of rapid tests for students. However, it can be expected that every rapid
-test in a school setting is followed up by a PCR test while only 82\% of our population
-\citep{Betsch2021} demand a confirming PCR test when receiving a positive rapid test. The
-last age group where our fit does not fit the empirical curve very well is the group of
-15 to 34 year olds. This group has been touted to have a very active social life and it
-has often been suspected that this age group also stayed more socially active during the
-pandemic. Since our model does not include either effect it's unsurprising that the
-actual case numbers in this group are consistently higher than our simulated case
-numbers.\comment[id=K]{Does anyone have an idea why we do not match the shape from Oct to
-Dec?}
+of workers is highest in the 35 to 59 age bracket etc.). There are only three
+\textcolor{red}{\ldots}. Firstly, the age group of 80 to 100 year olds due to the absence
+of nursing homes in our synthetic population. Secondly, the increase in adolescents in
+April. It is surprising that we do not match this increase despite explicitly modeling
+the introduction of rapid tests for students. However, it can be expected that every
+rapid test in a school setting is followed up by a PCR test while only 82\% of our
+population \citep{Betsch2021} demand a confirming PCR test when receiving a positive
+rapid test. The last age group where our fit does not fit the empirical curve very well
+is the group of 15 to 34 year olds. This group has been touted to have a very active
+social life and it has often been suspected that this age group also stayed more socially
+active during the pandemic. Since our model does not include either effect it's
+unsurprising that the actual case numbers in this group are consistently higher than our
+simulated case numbers.\comment[id=K]{Does anyone have an idea why we do not match the
+shape from Oct to Dec?}
 
 \begin{figure}[ht]  % observed infections by age group
   \centering
@@ -151,7 +150,7 @@ the RKI. \textcolor{red}{ldots}
 \begin{figure}[ht]     % rapid test demand
     \centering
     \caption{Share of Individuals With Rapid Tests}
-    \label{fig:share_ever_rapid_test}
+    \label{fig:share_ever_rapid_test2}
     \begin{subfigure}{.55\textwidth}
         \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_ever_rapid_test}
         \caption{Share of Individuals That Have Ever Done a Rapid Test}
@@ -160,7 +159,7 @@ the RKI. \textcolor{red}{ldots}
         \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week}
         \caption{Share of Individuals Having Done a Rapid Test in the Last Week}
     \end{subfigure}
-    \label{fig:share_rapid_test_last_week}
+    \label{fig:share_rapid_test_last_week2}
     \floatfoot{\noindent \textit{Note:} The figure compares the share of individuals who
         have ever done a rapid test or done a rapid test within the last week in our
         simulations to the shares reported in the

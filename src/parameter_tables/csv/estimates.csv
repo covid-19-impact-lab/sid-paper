@@ -17,7 +17,6 @@ $\rho_{hygiene}$,0.66,reduces work and education contacts starting in November
 "$\rho_{other,\:Feb\:11\:to\:Feb\:28}$",0.50,hard lockdown with fatigue
 "$\rho_{other,\:after\:Feb\:28}$",0.515,reopening
 \textbf{B.1.1.7 Introduction},,
-"$\omega_{B.1.1.7,\:Jan\:1}$",0.0,number of B.1.1.7 infections to introduce on January 1st.
 "$\omega_{B.1.1.7,\:Jan\:31}$",0.986,number of B.1.1.7 infections to introduce on January 31st
 \textbf{Rapid Test Introduction},,
 \textcolor{red}{still missing},,
