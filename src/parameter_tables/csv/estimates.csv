@@ -1,22 +1,22 @@
 notation,estimate,note
-\textbf{Infection Probabilities},,
+\textbf{Base Infection Probabilities},,
 $\beta_{household}$,0.1,
 $\beta_{school}$,0.012,
 $\beta_{young\:educ}$,0.005,
 $\beta_{work}$,0.1475,
 $\beta_{other}$,0.15875,
 \textbf{Policy Parameters},,
-$\rho_{hygiene}$,0.66,reduces work and education contacts starting in November
-"$\rho_{other,\:before\:Oct\:1}$",0.75
-"$\rho_{other,\:Oct\:1\:to\:Oct\:20}$",1.00,fall vacation
-"$\rho_{other,\:Oct\:21\:to\:Nov\:1}$",0.75,anticipation of a lockdown
-"$\rho_{other,\:Nov\:2\:to\:Dec\:1}$",0.52,lockdown light
-"$\rho_{other,\:Dec\:2\:to\:Dec\:23}$",0.57,lockdown light with fatigue
+$\rho_{hygiene}$,0.66,reduces infectiousness of work and education contacts from November to end of simulation
+"$\rho_{other,\:before\:Oct\:1}$",0.75, before October
+"$\rho_{other,\:Oct\:1\:to\:Oct\:20}$",1.00, reopening phase and fall vacations
+"$\rho_{other,\:Oct\:21\:to\:Nov\:1}$",0.75,anticipation of a lockdown and precaution due to high incidenes
+"$\rho_{other,\:Nov\:2\:to\:Dec\:1}$",0.52,``lockdown light''
+"$\rho_{other,\:Dec\:2\:to\:Dec\:23}$",0.57, ``lockdown light'' with lockdown fatigue and holiday shopping
 "$\rho_{other,\:Dec\:24\:to\:Dec\:26}$",0.65,Christmas holidays
 "$\rho_{other,\:Dec\:27\:to\:Feb\:10}$",0.35,hard lockdown
-"$\rho_{other,\:Feb\:11\:to\:Feb\:28}$",0.50,hard lockdown with fatigue
+"$\rho_{other,\:Feb\:11\:to\:Feb\:28}$",0.50,lower precaution due to low incidences and lockdown fatigue
 "$\rho_{other,\:after\:Feb\:28}$",0.515,reopening
 \textbf{B.1.1.7 Introduction},,
-"$\omega_{B.1.1.7,\:Jan\:31}$",0.986,number of B.1.1.7 infections to introduce on January 31st
+"$\omega_{B.1.1.7,\:Jan\:31}$",0.986,number of B.1.1.7 cases per 100 000 individuals to import on January 31st. Imported B.1.1.7 cases gradually rise from January 1st where 0 cases are imported. No cases are imported in other months.
 \textbf{Rapid Test Introduction},,
-\textcolor{red}{still missing},,
+"$\pi_{private, t}$",Figure \ref{fig:rapid_test_demand},the private rapid tests levels mid march and at eastern as well as the date at which full availability of private rapid tests is reached are fit to the data. In between those levels are linearly interpolated. The remaining rapid tests demands are calibrated from surveys. See Section~\ref{subsec:rapid_test_demand}
