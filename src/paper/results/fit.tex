@@ -1,13 +1,28 @@
 \subsection{Model Fit}
 \label{subsec:fit_results}
 
-This compares simulated data from our model with empirical data from Germany. We look at
-observed infections, fatality rates, the spread of the B117 mutation, vaccinations and
-rapid test demands. Where available we do not only look at aggregated statistics but also
-analyze the model fit for age groups and federal states.\comment[id=J]{summarize the fit}
+This section compares simulated data from our model with empirical data from Germany. We
+look at observed infections, fatality rates,\comment[id=K]{should we include them?} the
+spread of the B.1.1.7 mutation, vaccinations\comment[id=K]{We fit vaccinations in the
+population by construction. Maybe this should go to a different section?} and rapid test
+demand. Where available we do not only look at aggregated statistics but also analyze the
+model fit for age groups and federal states.
 
+% summary of the fit
+Overall, our model achieves an excellent fit of the two waves of infections with few free
+parameters (Figure~\ref{fig:aggregated_fit2}. As a result the effective replication
+number is similar to that reported by the Robert Koch-Institut (see
+Figure~\ref{fig:fit_r_effective}). This excellent fit is also achieved for most age
+groups in Germany. The fit is also good for many German federal states even though our
+synthetic population does not represent the differences in the distribution of age groups
+and they only had a small weight in the optimization. Despite, the fact that the number
+of performed rapid tests and their distribution in the population results endogenously
+inside our model we fit the share of the population with at least a weekly rapid test
+very well and err on the side of too few individuals that have ever done a rapid test.
 
-\begin{figure}[ht]   % new known case with single runs
+% observed infections
+
+\begin{figure}[ht]   % observed infections with single runs
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case_with_single_runs}
   \caption{Fit Over the Full Simulation Time Frame with Single Simulation Runs}
@@ -21,10 +36,11 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
   \label{fig:aggregated_fit2}
 \end{figure}
 
- \comment[id=K]{More text in this subsection. For \ref{fig:age_group_fit}: Explain why we
- don't fit the 80 to 100 year olds}
 
-\begin{figure}[ht]  % new known case by age group
+\textcolor{red}{...} High levels of infections often coincide with increased statistical
+uncertainty, as for example in April and May.
+
+\begin{figure}[ht]  % observed infections by age group
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/incidences_by_group/age_group_rki/full_combined_baseline_new_known_case}
   \caption{Simulated and Empirical Infections by Age Group}
@@ -39,10 +55,13 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
   \label{fig:age_group_fit}
 \end{figure}
 
- \comment[id=K]{Explain differences between simulated and actual cases in figure
- \ref{fig:state_fit}. (Our states are uniform with respect to their age distribution.}
+\textcolor{red}{...} One important exception are the 80 to 100 year olds where we do not
+fit the large number of cases in the winter of 2020/2021. This is because we do not model
+nursing homes where a large fraction of this age group lives and a very large fraction of
+cases in that age group occurred.
 
-\begin{figure}[ht]   % new known case by federal state
+
+\begin{figure}[ht]   % observed infections by federal state
   \centering
   \includegraphics[height=0.95\textheight]{figures/results/figures/incidences_by_group/state/full_combined_baseline_new_known_case}
   \caption{Simulated and Empirical Infections by Federal State}
@@ -52,21 +71,10 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
   \label{fig:state_fit}
 \end{figure}
 
+Our states are uniform with respect to their age distribution. \textcolor{red}{...}
 
-\begin{figure}[ht]   % fit of vaccinations
-  \centering
-  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_ever_vaccinated}
-  \caption{Share of Vaccinated Individuals}
-  \floatfoot{\noindent \textit{Note:} The figure shows the rate of individuals that are
-  vaccinated in our synthetic population versus in the general German population. Note
-  that we excluded the vaccinations that were given to nursing homes, approximately the
-  first percent of the German population that were vaccinated. Overall, our model covers
-  a time frame that goes from zero vaccinated individuals to a state where over 40\% of
-  the population are vaccinated. Our vaccinations work imperfectly but we do not model
-  different vaccines nor do we distinguish between first and second shot.}
-  \label{fig:fit_vaccinations}
-\end{figure}
-
+Our fit of the effective replication number $R_t$ closely follows the values reported by
+the RKI. \textcolor{red}{ldots}
 
 \begin{figure}[ht]   % R effective
   \centering
@@ -89,6 +97,9 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
 \end{figure}
 
 
+% fatality rates: MISSING
+
+
 \begin{figure}[ht]   % Share B.1.1.7
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_b117_with_single_runs}
@@ -99,6 +110,50 @@ analyze the model fit for age groups and federal states.\comment[id=J]{summarize
   infectiousness. We model no other features of B.1.1.7. At most we introduce 0.75 cases per 100,000 inhabitants.}
   \label{fig:fit_share_b117}
 \end{figure}
+
+
+\begin{figure}[ht]   % fit of vaccinations
+  \centering
+  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_ever_vaccinated}
+  \caption{Share of Vaccinated Individuals}
+  \floatfoot{\noindent \textit{Note:} The figure shows the rate of individuals that are
+  vaccinated in our synthetic population versus in the general German population. Note
+  that we excluded the vaccinations that were given to nursing homes, approximately the
+  first percent of the German population that were vaccinated. Overall, our model covers
+  a time frame that goes from zero vaccinated individuals to a state where over 40\% of
+  the population are vaccinated. Our vaccinations work imperfectly but we do not model
+  different vaccines nor do we distinguish between first and second shot.}
+  \label{fig:fit_vaccinations}
+\end{figure}
+
+
+\begin{figure}[ht]     % rapid test demand
+    \centering
+    \caption{Share of Individuals With Rapid Tests}
+    \label{fig:share_ever_rapid_test}
+    \begin{subfigure}{.55\textwidth}
+        \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_ever_rapid_test}
+        \caption{Share of Individuals That Have Ever Done a Rapid Test}
+    \end{subfigure}%
+    \begin{subfigure}{.55\textwidth}
+        \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week}
+        \caption{Share of Individuals Having Done a Rapid Test in the Last Week}
+    \end{subfigure}
+    \label{fig:share_rapid_test_last_week}
+    \floatfoot{\noindent \textit{Note:} The figure compares the share of individuals who
+        have ever done a rapid test or done a rapid test within the last week in our
+        simulations to the shares reported in the
+        \href{https://projekte.uni-erfurt.de/cosmo2020/web/topic/wissen-verhalten/80-schnelltests/}{COVID-19
+        Snapshot Monitoring Survey}. The left panel compares the share of individuals who
+        have ever done a rapid test. The right panel compares the share of individuals
+        who have done a rapid test within the last seven days in our simulation compared
+        to the share reporting to have done at least weekly rapid tests in the last four
+        weeks in the COSMO survey. Overall our calibration of rapid tests are slightly
+        conservative. The overall share is below that in the study. We fit the share of
+        weekly tests quite exactly. However, the study only covers adults while our share
+        also includes children who are tested very regularly when attending school.}
+\end{figure}
+
 
 
 \FloatBarrier
