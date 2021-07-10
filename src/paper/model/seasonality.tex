@@ -13,7 +13,7 @@ transmission of SARS-CoV-2 as a multiplicative factor on infection probabilities
 factor follows a sine curve that reaches its maximum at January first and its minimum
 on June 30.
 
-For simplicity we normalize the factor to reach one at its maximum. Thus the formula of
+For simplicity we normalize the factor to reach one at its maximum. Thus, the formula of
 the seasonality factor is given by:
 
 \begin{equation}
@@ -33,3 +33,21 @@ via those contacts should have a stronger seasonal pattern.
 
 We calibrate $\kappa_{strong}$ to 0.42 and $\kappa_{weak}$ to 0.21. This is in line with
 \cite{Gavenciak2021} and \cite{Kuehn2020}.
+
+The two seasonality curves are shown in Figure~\ref{fig:seasonality}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/data/seasonality}
+    \caption{Seasonality by Type of Contact}
+    \label{fig:seasonality}
+    \floatfoot{\noindent \textit{Note:} We model seasonality as a factor that reduces the
+    probability of infection of all encounters. The factor depends on the day and is
+    calculated from a sinus shaped function with its maximum on January 1st. Since
+    seasonality can affect the transmission both through physical conditions such as
+    temperature and humidity as well as through the numbers of contacts that take place
+    outside we assume two seasonality factors. One for other contacts which we expect to
+    be strongly affected by fairer weather with a maximum reduction of 42\% in the
+    infection probability. The other seasonality only makes contacts up to 21\% less
+    infectious and is applied to household, work and school contacts.}
+\end{figure}
