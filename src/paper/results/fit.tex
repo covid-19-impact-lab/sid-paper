@@ -82,18 +82,19 @@ shape from Oct to Dec?}
 % observed infections by federal state
 Our model fit is also very good for the different German federal states. This holds not
 only for the large states such as North Rhine-Westphalia or Bavaria but also for many
-smaller states such as Hessen or Rhineland-Palatinate. This shows that the inclusion of
-school vacations and relying on work reductions by \cite{Google2021} combined with the
-assortativity of contacts on the county level is sufficient to represent many local
-differences.  %
-However, admittedly, there are several patterns that our model does not reproduce - for
-example because we do not have cross-border travel nor population density. This explains
-why our model produces too many infections for federal states such as Schleswig-Holstein
-and why it predicts too few infections for states, such as Saxony, bordering high
-incidence countries.\comment[id=K]{The Czech Republic had very high numbers in October
-(max > 800) but they fell during Nov to 220 and then climbed again to 800 by Jan 12th so
-that might be only part of the answer why Saxony had such high numbers.}
-However, these missing features are irrelevant for our main conclusions.
+smaller states such as Hessen or Rhineland-Palatinate. This shows that using school
+vacations dates and work mobility reductions by \cite{Google2021} at the state level
+combined with county and age group specific initial conditions (see
+Section~\ref{sub:initial_conditions}) and county level assortativity of contacts is
+sufficient to represent many local differences.  %
+The fit is especially good given that our model does not aim to have a high local
+resolution. For example we abstract from population density and cross-border travel. It
+is, thus, unsurprising that there are states that we do not match well, such as very
+thinly populated Mecklenburg-Vorpommern and Schleswig-Holstein or Saxony with its large
+border to the Czech Republic that had a much higher incidence than
+Germany.\comment[id=K]{The Czech Republic had very high numbers in October (max > 800)
+but they fell during Nov to 220 and then climbed again to 800 by Jan 12th so that might
+be only part of the answer why Saxony had such high numbers.}
 
 
 \begin{figure}[ht]   % observed infections by federal state
