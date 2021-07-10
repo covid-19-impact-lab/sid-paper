@@ -1,5 +1,24 @@
 \subsection{Share of Detected Cases}
-\label{subsec:appendix_share_known_cases}
+\label{subsec:results_share_known_cases}
+
+We explain how we model the detection of cases in Section~\ref{sub:testing} and show the
+overall share of known cases that we use as input for our testing model in
+Section~\ref{subsec:data_share_known_cases}.
+% 2020
+Given the differential demand by symptomatic and asymptomatic individuals our model
+endogenously results in group specific share known cases that are shown in
+Figure~\ref{fig:share_known_cases_by_age_group}. Since older individuals are much more
+likely to develop symptoms many more cases among them are detected.
+% 2021
+Starting in 2021 the share known cases not only depends on the overall share known cases
+we feed into our model but also on the number of performed rapid tests. As more and more
+(often asymptomatic and presymptomatic) individuals receive positive rapid tests and
+receive confirmation, the share of detected cases starts to increase, especially after
+March when rapid tests became much more widely available in Germany. This effect is very
+visible for school pupils, (5-14, green line). As twice weekly rapid tests become
+mandatory in schools and students start going to school after the Easter break, the share
+of detected cases for that group increases drastically from 25\% to over 60\% between
+April and June.
 
 \begin{figure}[ht]
   \centering
