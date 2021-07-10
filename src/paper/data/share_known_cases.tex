@@ -4,18 +4,17 @@
  \comment[id=K]{Stoye called this the ascertainment rate if I remember right. Maybe we should replace this everywhere}
 
 One important feature of our model is that we distinguish between undetected and detected
-cases and that we model which cases are detected and which are not (see \ref{sub:testing}
-for a detailed description for how we model both rapid and PCR tests). For our model it
-is important to have an estimate for the share of cases that is detected in the absence
-of rapid tests. For this we rely on the
+cases and that we model which cases are detected and which are not (see
+Section~\ref{sub:testing} for a detailed description for how we model both rapid and PCR
+tests). For our model it is important to have an estimate for the share of cases that is
+detected in the absence of rapid tests. For this we rely on the
 \href{https://covid19.dunkelzifferradar.de/}{Dunkelzifferradar} which relies on estimates
 of the case fatality rate to estimate the number of total cases given the number of
 deaths which are suspected to be perfectly observable. For 2020, we follow the reported
 share of detected cases quite closely only interpolating the phase of November 2020 where
 the testing policy was changed to give more priority to vulnerable groups. This lead to
 more tests being done among older age groups which are also at the highest risk of dying
-from CoViD-19 and an overestimation of the share of detected cases.
-% After Christmas 2020
+from CoViD-19 and an overestimation of the share of detected cases.% After Christmas 2020
 Similarly, the start of vaccinations after Christmas 2020 that were predominantly given
 to nursing homes in the beginning and other vulnerable groups in spring, led to a
 decrease in the number of deadly cases, leading to an increasing upward bias in the share
