@@ -3,9 +3,9 @@
 
 This section compares simulated data from our model with empirical data from Germany. We
 look at observed infections (overall as well as by age group and federal state), the
-spread of the B.1.1.7 mutation, vaccinations\comment[id=K]{We fit vaccinations in the
-population by construction. Maybe this should go to a different section?} and rapid test
-demand.
+effective replication number,  the spread of the B.1.1.7 mutation,
+vaccinations\comment[id=K]{We fit vaccinations in the population by construction. Maybe
+this should go to a different section?} and rapid test demand.
 
 % summary of the fit
 Overall, our model achieves an excellent fit of the two waves of infections with few free
@@ -27,16 +27,54 @@ average over these random differences and have a stable mean.
 
 \begin{figure}[ht]   % observed infections with single runs
   \centering
-  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case_with_single_runs}
-  \caption{Fit Over the Full Simulation Time Frame with Single Simulation Runs}
-  \floatfoot{\noindent \textit{Note:} The figure shows the daily incidence rate per
-  million for the reported simulated infections rates. The mean infection rate is the
+  \begin{subfigure}[b]{0.425\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_new_known_case_with_single_runs}
+    \caption{Observed Incidence in the Model and as Reported by the RKI}
+    \label{fig:aggregated_fit2}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.425\textwidth}
+    \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_r_effective_with_single_runs}
+    \caption{Effective Replication Number $R_t$ in the Model and as Reported by the RKI}
+    \label{fig:fit_r_effective}
+  \end{subfigure}
+
+  \caption{Model Fit of the Reported Cases and the Effective Replication Number}
+  \label{fig:incidence_and_r_effective}
+
+  \floatfoot{\noindent \textit{Note:} Both figures show averages and single runs. The
+  average is the thick line. Single runs are shown as lighter and thinner lines. We
+  averaged and show 30 simulation runs. The left figure shows the daily incidence rate
+  per million for the reported simulated infections rates. The mean infection rate is the
   thick blue line. Single simulation runs are plotted in lighter and thinner lines. The
   official case numbers as reported by the RKI are plotted in black. The fit is overall
   very good. The higher the mean incidence and the stronger the growth the more variance
-  there is between simulation runs. We averaged over 30 simulation runs.}
-  \label{fig:aggregated_fit2}
+  there is between simulation runs. The right figure shows the effective replication
+  number ($R_t$) as reported by the RKI and as calculated in our model. The $R_t$ gives
+  the average number of new infections caused by one infected individual. The $R_t$ in
+  our model broadly follows the $R_t$ reported by the RKI. Two trends stand out. Firstly,
+  the RKI's $R_t$ drops faster in November. This could be due to a change in the testing
+  policy that focused tests on the elderly when the second wave hit Germany and led to a
+  decline in the overall share of detected cases. The second difference is from mid
+  February to mid March where the RKI's reported $R_t$ increased more rapidly than that
+  in our model. Here the opposite effect can be expected. During this time rapid tests
+  increased strongly leading to more cases being detected. In the short term this leads
+  an $R_t$ estimation that is based on detected cases to overestimate the replication
+  number.}
 \end{figure}
+
+% R effective
+Our fit of the effective replication number $R_t$ closely follows the values reported by
+the RKI (see Figure~\ref{fig:fit_r_effective} even though we calculate $R_t$ on all
+infected individuals not just the detected cases. This explains why the $R_t$ in our
+simulations is higher during phases where the share of detected cases falls such as in
+the fall of 2020 (see Figure~\ref{fig:share_known_cases_data}) where the RKI
+underestimated the effective replication number due to observing a lower share of cases
+and is lower than the $R_t$ reported by the RKI in spring where the share of known cases
+increased due to increased rapid testing.
+
+\FloatBarrier
 
 % observed infections by age group
 Zooming into the different age groups in Figure~\ref{fig:age_group_fit}, we can see that
@@ -109,35 +147,6 @@ be only part of the answer why Saxony had such high numbers.}
 
 \FloatBarrier
 
-Our fit of the effective replication number $R_t$ closely follows the values reported by
-the RKI even though we calculate $R_t$ on all infected individuals not just the detected
-cases. This explains why the $R_t$ in our simulations is higher during phases where the
-share of detected cases falls such as in the fall of 2020 (see
-Figure~\ref{fig:share_known_cases_data}) where the RKI underestimated the effective
-replication number due to observing a lower share of cases and is lower than the $R_t$
-reported by the RKI in spring where the share of known cases increased due to increased
-rapid testing.
-
-\begin{figure}[ht]   % R effective
-  \centering
-  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_r_effective_with_single_runs}
-  \caption{Effective Replication Number $R_t$ in the Model and as Reported by the
-  Robert-Koch-Institute}
-  \floatfoot{\noindent \textit{Note:} The figure shows the effective replication number
-  ($R_t$) as reported by the RKI and as calculated in our model. The $R_t$ gives the
-  average number of new infections caused by one infected individual. The $R_t$ in our
-  model broadly follows the $R_t$ reported by the RKI. Two trends stand out. Firstly, the
-  RKI's $R_t$ drops faster in November. This could be due to a change in the testing
-  policy that focused tests on the elderly when the second wave hit Germany and led to a
-  decline in the overall share of detected cases. The second difference is from mid
-  February to mid March where the RKI's reported $R_t$ increased more rapidly than that
-  in our model. Here the opposite effect can be expected. During this time rapid tests
-  increased strongly leading to more cases being detected. In the short term this leads
-  an $R_t$ estimation that is based on detected cases to overestimate the replication
-  number.}
-  \label{fig:fit_r_effective}
-\end{figure}
-
 % B.1.1.7
 We fit the proliferation of the B.1.1.7 variant quite exactly despite only introducing a
 few cases in January as can be seen in Figure~\ref{fig:fit_share_b117}. Since we only
@@ -146,19 +155,37 @@ by May while the true rate plateaued at 90\% and B.1.1.7 was then replaced by B.
 as the dominant variant in June. However, B.1.1.7 still made up over 90\% of all cases in
 Germany at the end of our simulation period.
 
-\begin{figure}[ht]   % Share B.1.1.7
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_b117_with_single_runs}
-  \caption{Share of B.1.1.7 in the Model and as Reported by the Robert-Koch-Institute}
-  \floatfoot{\noindent \textit{Note:} The figure shows the share of B.1.1.7 as
+
+  \begin{subfigure}[b]{0.425\textwidth}   % Share B.1.1.7
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_b117_with_single_runs}
+    \caption{Share of B.1.1.7 in the Model and as Reported by the RKI}
+    \label{fig:fit_share_b117}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.425\textwidth}    % Vaccinations
+    \centering
+    \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_ever_vaccinated}
+    \caption{Share of Vaccinated Individuals in the Model and the German Population}
+    \label{fig:fit_vaccinations}
+  \end{subfigure}
+  \caption{Model Fit of the Share of B.1.1.7 and Vaccinations}
+  \floatfoot{\noindent \textit{Note:} The left figure shows the share of B.1.1.7 as
   reported by the RKI and as calculated in our model. We only introduce a few cases over
   the cause of January. From then B.1.1.7 takes over endogenously through its increased
-  infectiousness. We model no other features of B.1.1.7. At most we introduce 0.75 cases per 100,000 inhabitants.}
-  \label{fig:fit_share_b117}
+  infectiousness. We model no other features of B.1.1.7. At most we introduce 0.75 cases
+  per 100,000 inhabitants. The right figure shows the rate of individuals that are
+  vaccinated in our synthetic population versus in the general German population. Note
+  that we excluded the vaccinations that were given to nursing homes, approximately the
+  first percent of the German population that were vaccinated. Overall, our model covers
+  a time frame that goes from zero vaccinated individuals to a state where over 40\% of
+  the population are vaccinated. Our vaccinations work imperfectly but we do not model
+  different vaccines nor do we distinguish between first and second shot.}
 \end{figure}
 
 % vaccinations
-
 The fit of the share of vaccinated individuals can be seen in
 Figure~\ref{fig:fit_vaccinations}. In Germany, vaccines were rolled according to four
 priority groups. The first vaccines were mostly reserved for nursing homes and some
@@ -171,19 +198,7 @@ cannot reduce physical contact easily such as teachers or medical staff (see
 Section~\ref{subsec:synthetic_population}. How the share of vaccinated individuals
 develops by age group can be seen in Figure~\ref{fig:vaccinations_by_age_group}.
 
-\begin{figure}[ht]   % fit of vaccinations
-  \centering
-  \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_ever_vaccinated}
-  \caption{Share of Vaccinated Individuals}
-  \floatfoot{\noindent \textit{Note:} The figure shows the rate of individuals that are
-  vaccinated in our synthetic population versus in the general German population. Note
-  that we excluded the vaccinations that were given to nursing homes, approximately the
-  first percent of the German population that were vaccinated. Overall, our model covers
-  a time frame that goes from zero vaccinated individuals to a state where over 40\% of
-  the population are vaccinated. Our vaccinations work imperfectly but we do not model
-  different vaccines nor do we distinguish between first and second shot.}
-  \label{fig:fit_vaccinations}
-\end{figure}
+\FloatBarrier
 
 % rapid test demand
 The most difficult moment to match in our model is the rapid test demand. Since we have
@@ -204,13 +219,14 @@ in the exact shares of individuals demanding rapid tests.
     \centering
     \caption{Share of Individuals With Rapid Tests}
     \label{fig:share_ever_rapid_test2}
-    \begin{subfigure}{.55\textwidth}
+    \begin{subfigure}{.425\textwidth}
         \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_ever_rapid_test}
-        \caption{Share of Individuals That Have Ever Done a Rapid Test}
+        \caption{Share of the Population That Has Ever Done a Rapid Test}
     \end{subfigure}%
-    \begin{subfigure}{.55\textwidth}
+    \hfill
+    \begin{subfigure}{.425\textwidth}
         \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/combined_fit/full_share_rapid_test_in_last_week}
-        \caption{Share of Individuals Having Done a Rapid Test in the Last Week}
+        \caption{Share of the Population That Did a Rapid Test in the Last Week}
     \end{subfigure}
     \label{fig:share_rapid_test_last_week2}
     \floatfoot{\noindent \textit{Note:} The figure compares the share of individuals who

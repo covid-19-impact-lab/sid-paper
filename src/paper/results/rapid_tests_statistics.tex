@@ -4,10 +4,27 @@
 
 \begin{figure}[ht] % Share tested per day
   \centering
-  \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/popshare_tested}
-  \caption{Share of the Population Demanding a Rapid Test Because of Different Channels
-  on a Given Day}
-  \label{fig:rapid_test_demand_by_channel}
+  \begin{subfigure}[b]{0.3\textwidth}
+      \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/popshare_tested}
+      \caption{Share of the Population Doing a Rapid Test Because of Different Channels
+      on a Given Day}
+      \label{fig:rapid_test_demand_by_channel}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.3\textwidth}
+      \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/popshare_tested_positive}
+      \caption{Share of the Population Testing Positive Because of Different Channels
+      on a Given Day}
+      \label{fig:pos_rapid_tests_by_channel}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.3\textwidth}
+      \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/popshare_tested_negative}
+      \caption{Share of the Population Testing Negative Because of Different Channels
+      on a Given Day}
+      \label{fig:neg_rapid_tests_by_channel}
+  \end{subfigure}
+  \caption{Rapid Test Shares in the Population by Channel}
   \floatfoot{\noindent \textit{Note:}
     Rapid tests in the education setting are demanded by teachers (nursery, preschool and
     school) as well as school pupils. After Easter the required frequency of tests is
@@ -17,7 +34,11 @@
     testing is also increased. Tests are demanded by individuals for one of three private
     reasons: having developed symptoms without access to a PCR test, having a household
     member that has tested positive or developed symptoms or having planned weekly
-    meeting with friends. }
+    meeting with friends. The left figure shows the share of the population demanding a
+    rapid test on a given day. The middle figure shows the share of the population
+    testing positive on a given day (true and false positives). The right figure shows
+    the share of the population testing negative on a given day (true and false
+    negatives).}
 \end{figure}
 
 

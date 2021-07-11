@@ -30,12 +30,12 @@ time and is unknown.
 To distribute the correct number of PCR tests among symptomatic and asymptomatic
 infections without knowing explicit test demand probabilities, we use the following
 approach: First, we calculate the total number of positive PCR tests by multiplying the
-number of newly infected individuals with an estimate of the share of detected cases from
-the Dunkelzifferradar project \citep{Dunkelzifferradar2020}. Next, we determine how many of these tests
-should go to symptomatic and asymptomatic individuals from data by the Robert Koch
-Institute. \comment[id=J]{add source}
-Then, we sample the individuals to which those tests are allocated from the pools of
-symptomatic and asymptomatic infected but not yet tested individuals.
+number of newly infected individuals with an estimate of the share of detected cases
+from the Dunkelzifferradar project \citep{Dunkelzifferradar2020}. Next, we determine how
+many of these tests should go to symptomatic and asymptomatic individuals from data by
+the RKI.\comment[id=J]{add source} Then, we sample the individuals to which those tests
+are allocated from the pools of symptomatic and asymptomatic infected but not yet tested
+individuals.
 
 Sampling uniformly from the pool of symptomatic individuals ensures that age groups who
 are more likely to develop symptoms are also more likely to receive tests. Thus, the
@@ -44,9 +44,9 @@ where many tests are done because of symptoms which is in line with the estimate
 the literature. \comment[id=J]{need source}
 
 At the beginning of 2021, two challenges arise: Firstly, the externally estimated share
-of detected cases from \citet{Dunkelzifferradar2020} can no longer be used because it is based on
-case fatality rates which drastically change due to vaccinations. Secondly, rapid tests
-become available at a large scale.
+of detected cases from \citet{Dunkelzifferradar2020} can no longer be used because it is
+based on case fatality rates which drastically change due to vaccinations. Secondly,
+rapid tests become available at a large scale.
 
 We solve the first challenge by assuming that the share of detected cases would have
 remained at the level it reached before Christmas if rapid tests had not become
@@ -54,11 +54,11 @@ available. While this is only an approximation to reality, changes in the share 
 detected cases that would have happened without rapid tests are very likely to be small
 compared to the changes caused by rapid tests.
 
-The second challenge is solved by mechanistic rapid test demand models for the workplace,
-schools and by private individuals. The calibration of these models is described in
-Section~\ref{subsec:rapid_test_demand}. Figure~\ref{fig:antigen_tests_vaccinations} shows
-that the number of performed rapid tests in the model fits the empirical data well (where
-empirical data is available).
+The second challenge is solved by mechanistic rapid test demand models for the
+workplace, schools and by private individuals. The calibration of these models is
+described in Section~\ref{subsec:rapid_test_demand}.
+Figure~\ref{fig:antigen_tests_vaccinations} shows that the number of performed rapid
+tests in the model fits the empirical data well (where empirical data is available).
 
 In contrast to PCR tests, rapid tests are not perfect and can be falsely positive or
 falsely negative. While the specificity of rapid tests is constant over time, their
@@ -73,9 +73,9 @@ important to address concerns that rapid tests are too unreliable to serve as sc
 devices.
 
 We do not distinguish between self administered rapid tests and those that are
-administered by medical personnel. While there were concerns that self administered tests
-are less reliable, a recent study has found no basis for this concern.\comment[id=J]{cite
-charite study on self administered tests}
+administered by medical personnel. While there were concerns that self administered
+tests are less reliable, a recent study has found no basis for this
+concern.\comment[id=J]{cite charite study on self administered tests}
 
 While rapid tests do not directly enter official case numbers, many positively tested
 individuals confirm their rapid test result with a PCR test.\comment[id=J]{Need to link
@@ -83,5 +83,5 @@ to data appendix once the number is there and maybe mention the number}. Importa
 those PCR tests are made in addition to the tests that would have been done otherwise.
 Section~\ref{subsec:results_share_known_cases} discusses the effect of rapid tests on
 the share of detected cases.\comment[id=K]{Talk here about reactions to tests and
-symptoms with contact reductions. (If not here, find other place where to talk about this
-in detail.)}
+symptoms with contact reductions. (If not here, find other place where to talk about
+this in detail.)}

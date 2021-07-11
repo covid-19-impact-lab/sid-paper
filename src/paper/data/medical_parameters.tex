@@ -1,23 +1,21 @@
 \subsection{Medical Parameters}
 \label{sec:medical_params}
 
-This section discusses the medical parameters used in the model, their sources and how we
-arrived at the distributions used in the model.\footnotemark See
-Figure~\ref{fig:model_disease_progression} for a summary of our disease progression model.
-
-\footnotetext{Additional information can be found in the
+This section discusses the medical parameters used in the model, their sources and how
+we arrived at the distributions used in the model.\footnote{Additional information can
+be found in the
 \href{https://sid-dev.readthedocs.io/en/latest/reference_guides/epi_params.html}{online
-documentation}.}
+documentation}.} See Figure~\ref{fig:model_disease_progression} for a summary of our
+disease progression model.
+
 
 % Duration until Infectiousness and Symptoms ----------------------------------
 
 % Latency Period
-The first medical parameter we need is the length of the period between infection and the
-start of infectiousness, the so called latent period. We infer it from two other measures
-that are more common in the medical literature: Firstly, the time between infection and
-the onset of symptoms, the incubation period. Secondly, the time between the start of
-infectiousness and the onset of symptoms. We assume that the latency period is the same
-for symptomatic and asymptomatic individuals.
+The first medical parameter we need is the length of the period between infection and
+the start of infectiousness, the so called latent period. \cite{Zhao2021} estimate the
+latent period to last 3.3 days (95\% CI: 0.2, 7.9). In line with this estimate our
+latent period lasts one to five days with a slightly lower average of 2 days.
 
 % Asymptomatic Share
 Once individuals become infectious a share of them goes on to develop symptoms while
@@ -27,18 +25,14 @@ nearly 70\% for the elderly.
 
 % Incubation Period
 The incubation period is usually estimated to be two to twelve days. A meta analysis by
-\citet{McAloon2020} comes to the conclusion that ``The incubation period distribution may
-be modeled with a lognormal distribution with pooled $\mu$ and $\sigma$ parameters (95\%
-CIs) of 1.63 (95\% CI 1.51 to 1.75) and 0.50 (95\% CI 0.46 to 0.55), respectively.'' For
-simplicity we discretize this distribution into four bins.
+\citet{McAloon2020} comes to the conclusion that ``The incubation period distribution
+may be modeled with a lognormal distribution with pooled $\mu$ and $\sigma$ parameters
+(95\% CIs) of 1.63 (95\% CI 1.51 to 1.75) and 0.50 (95\% CI 0.46 to 0.55),
+respectively.'' For simplicity we discretize this distribution into four bins.
 
 % Length of the presymptomatic stage
-The European Centre for Disease Prevention and Control \citep{ECDC2021} reports that
-people become infectious between one and two days before symptoms start.\footnotemark
-
-\footnotetext{This is similar to \citet{He2020} and in line with \citet{Peak2020}.}
-
-Taking these estimates together, we arrive at a latent period of one to five days.
+Similar to \citet{Peak2020} and in line with \citet{He2020} we set the length of the
+presymptomatic stage to be one to two days.
 
 % Duration of Infectiousness ----------------------------------------------------------
 
@@ -49,74 +43,43 @@ load between symptomatic and asymptomatic individuals are similar (\citet{Zou202
 \citet{Byrne2020}, \citet{Singanayagam2020}). Our distribution of the duration of
 infectiousness is based on \citet{Byrne2020}. For symptomatic cases they arrive at zero
 to five days before symptom onset (see their figure 2) and three to eight days of
-infectiousness afterwards.\footnote{Viral loads may be detected much later but eight days
-seems to be the time after which most people are culture negative, as also reported by
-\citet{Singanayagam2020}.} Thus, we arrive at 0 to 13 days as the range for
+infectiousness afterwards.\footnote{Viral loads may be detected much later but eight
+days seems to be the time after which most people are culture negative, as also reported
+by \citet{Singanayagam2020}.} Thus, we arrive at zero to 13 days as the range for
 infectiousness among individuals who become symptomatic (see also figure 5).
 
 % Duration of Symptoms ----------------------------------------------------------
 
 We use the duration to recovery of mild and moderate cases reported by \cite[Figure~S3,
-Panel~2]{Bi2020} for the duration of symptoms for non-ICU requiring symptomatic cases. We
-only disaggregate by age how likely individuals are to require intensive
+Panel~2]{Bi2020} for the duration of symptoms for non-ICU requiring symptomatic cases.
+We only disaggregate by age how likely individuals are to require intensive
 care.\footnote{The length of symptoms is not very important in our model given that
 individuals mostly stop being infectious before their symptoms cease.}
 
 % Time from Symptom Onset to Admission to ICU ------------------------------------------
 
-For the time from symptom onset until need for intensive care we rely on data by the US
-CDC \citep{Stokes2020} and the OpenABM Project \citep{Hinch2021}.
-
-%Table~\ref{tab:symptomatic-to-ICU} shows our derivations for the probabilities of
-%requiring intensive care per age group.
-%
-%\begin{table}[tb]
-%    \caption{Shares of symptomatic patients who will require ICU care by age groups.}
-%    \label{tab:symptomatic-to-ICU}
-%    \centering
-%
-%    \begin{tabular}{ll}
-%        \toprule
-%        Age Group & Share \\
-%        \midrule
-%        0-9 & 0.00005 \\
-%        10-19 & 0.00030 \\
-%        20-29 & 0.00075 \\
-%        30-39 & 0.00345 \\
-%        40-49 & 0.01380 \\
-%        50-59 & 0.03404 \\
-%        60-69 & 0.10138 \\
-%        70-79 & 0.16891 \\
-%        80-100 & 0.26871 \\
-%        \bottomrule
-%    \end{tabular}
-%
-%    \tablenotes{The data is taken from \citet{Stokes2020} and citet{Hinch2021}.}
-%
-%\end{table}
+For the time from symptom onset until need for intensive care we rely on data by
+\cite{Stokes2020}) and \citep{Hinch2021}.
 
 For those who will require intensive care we follow \citet{Chen2020} who estimate the
-time from symptom onset to ICU admission as 8.5 $\pm$ 4 days. This aligns well with
+time from symptom onset to ICU admission as $8.5 \pm 4$ days. This aligns well with
 numbers reported for the time from first symptoms to hospitalization:
-\citet{Gaythorpe2020} report a mean of 5.76 with a standard deviation of 4. This is also
-in line with the duration estimates collected by the Robert Koch Institute
-\citep{RKI2021b}. We assume that the time between symptom onset and ICU takes 4, 6, 8 or
-10 days with equal probabilities. As we do not model nursing homes, do not focus on
-matching deaths and do not use the number of individuals in intensive care to estimate
-our parameters, these numbers are not important for our empirical results.
 
+\citet{Gaythorpe2020} report a mean of 5.76 with a standard deviation of four. We assume
+that the time between symptom onset and ICU takes four, six, eight or ten days with
+equal probabilities.
 
 % Death and Recovery from ICU ----------------------------------------------------------
 
 We take the survival probabilities and time to death and time until recovery from
-intensive care from \citet{Hinch2021}. They report time until death to have a mean of
-11.74 days and a standard deviation of 8.79 days. To match this approximately we
+intensive care from the \citet{Hinch2021}. They report time until death to have a mean
+of 11.74 days and a standard deviation of 8.79 days. To match this approximately we
 discretize that 41\% of individuals who will die from Covid-19 do so after one day in
-intensive care, 22\% day after 12 days, 29\% after 20 days and 7\% after 32 days. Again,
-we rescale this for every age group among those that will not survive. For survivors the
-OpenABM Project reports a mean duration of 18.8 days until recovery and a standard
-deviation of 12.21 days. We discretize this such that of those who recover in intensive
-care, 22\% do so after one day, 30\% after 15 days, 28\% after 25 days and 18\% after 45
-days.
+intensive care, 22\% day after twelve days, 29\% after 20 days and 7\% after 32 days.
+Again, we rescale this for every age group among those that will not survive. For
+survivors the OpenABM Project reports a mean duration of 18.8 days until recovery and a
+standard deviation of 12.21 days. We discretize this such that of those who recover in
+intensive care, 22\% do so after one day, 30\% after 15 days, 28\% after 25 days and
+18\% after 45 days.
 
 \FloatBarrier
