@@ -1,8 +1,8 @@
 name,notation,time active,source,description
-rapid\_test\_specificity,$p_{negative|not\:infected}$,2021,\cite{Bruemmer2021},"the probability of an uninfected person to receive a negative rapid test result."
-rapid\_test\_sensitivity,"$p_{positive|infected,\;i,\:t}$",2021,\cite{Smith2021},"the probability of an infected person to receive a positive rapid test result. This depends on the timing of the test relative to the individual’s onset of infectiousness."
+rapid\_test\_specificity,$p_{negative|not\:infected}$,2021,\citet{Bruemmer2021},"the probability of an uninfected person to receive a negative rapid test result."
+rapid\_test\_sensitivity,"$p_{positive|infected,\;i,\:t}$",2021,\citet{Smith2021},"the probability of an infected person to receive a positive rapid test result. This depends on the timing of the test relative to the individual’s onset of infectiousness."
 ,,,,
-share\_accepting\_work\_rapid\_test\_ offer,"$\pi_{w,\:d}$",2021,\cite{Betsch2021},share of workers that regularly pick up rapid test offers by their employers when they do not work from home. In our baseline specification this is time constant.
+share\_accepting\_work\_rapid\_test\_ offer,"$\pi_{w,\:d}$",2021,\citet{Betsch2021},share of workers that regularly pick up rapid test offers by their employers when they do not work from home. In our baseline specification this is time constant.
 share\_workers\_receiving\_rapid\_ test\_offer,"$\pi_{w,\:s,\:t}$",2021,see~\ref{subsec:rapid_test_demand},share of workers that get a regular rapid test offer by their employer when they do not work from home on date $t$.
 share\_educ\_workers\_with\_rapid\_ test,"$\pi_{teacher,\:t}$",2021,see~\ref{subsec:rapid_test_demand},share of educational workers who test themselves as part of their work on date $t$
 share\_students\_with\_rapid\_test,"$\pi_{students,\:t}$",2021,see~\ref{subsec:rapid_test_demand},share of school pupils that do rapid tests at school on date $t$.
@@ -10,4 +10,3 @@ share\_private\_rapid\_test\_demand,"$\pi_{private,\:t}$",2021,see~\ref{subsec:r
 ,,,,
 rapid\_test\_educ\_freq,"$\theta_{t,\:educ}$",2021,,"Frequency with which individuals test themselves in educational settings. Weekly before Easter 2021, twice weekly after Easter 2021."
 rapid\_test\_work\_freq,"$\theta_{t,\:work}$",2021,,Frequency with which complying workers test themselves. Weekly before April 2021. Then the frequency increases to twice weekly during April 2021.
-share\_w\_positive\_rapid\_test\_ requesting\_pcr,$\chi_{confirm}$,2021,\cite{Betsch2021},Share of individuals with a positive rapid test that seek PCR confirmation.
