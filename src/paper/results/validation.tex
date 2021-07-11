@@ -15,42 +15,69 @@ and June with a simple linear regression model that was fitted on vaccine data f
 February. The work mobility multiplier is predicted to be constant at a value of
 0.75, which is an approximate average of the second half of February.
 
-The area that is frought with the most uncerainty are the introduction of rapid test,
-because it comprises both, supply and demand factors. Moreover, accurately predicting
-the number of rapid tests ist expected to be important because rapid tests play a large
+The area that is fraught with the most uncertainty are the introduction of rapid test,
+because it comprises both supply and demand factors. Moreover, accurately predicting
+the number of rapid tests is expected to be important because rapid tests play a large
 role for the transmission dynamic.
+
+
+\begin{figure}[ht] % Robustness Check Rapid Test Fade In Params
+  \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{figures/results/figures/data/testing/rapid_test_demand/robustness_check_params_early_shares}
+    \caption{Rapid Test Parameters: Early Scenario}
+    \label{fig:robustness_early_params}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{figures/results/figures/data/testing/rapid_test_demand/robustness_check_params_medium_shares}
+    \caption{Rapid Test Parameters: Medium Scenario}
+    \label{fig:robustness_medium_params}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{figures/results/figures/data/testing/rapid_test_demand/robustness_check_params_late_shares}
+    \caption{Rapid Test Parameters: Late Scenario}
+    \label{fig:robustness_late_params}
+  \end{subfigure}
+
+  \caption{Rapid Test Introduction Parameters in the Three Scenarios}
+  \label{fig:robustness_check_rapid_test_params}
+
+  \floatfoot{\noindent \textit{Note:} \textcolor{red}{To be written}}
+\end{figure}
 
 
 
 \begin{figure}[ht] % Robustness Check
   \centering
-  \begin{subfigure}[b]{.49\textwidth}
+  \begin{subfigure}[b]{.425\textwidth}
     \centering
-    \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/robustness_check/full_new_known_case}
+    \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/robustness_check/full_new_known_case}
     \caption{Reported Cases}
     \label{fig:robustness_check_new_known_case}
   \end{subfigure}%
   \hfill
-  \begin{subfigure}[b]{.49\textwidth}
+  \begin{subfigure}[b]{.425\textwidth}
     \centering
-    \includegraphics[width=0.9 \textwidth]{figures/results/figures/scenario_comparisons/robustness_check/full_newly_infected}
+    \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/robustness_check/full_newly_infected}
     \caption{Total Cases}
     \label{fig:robustness_check_newly_infected}
   \end{subfigure}
-  \caption{Out of sample prediction for reported and total cases from March to June
-    2021. The ex-post scenario is an in-sample prediction that uses all available
-    information and is very close to actual case numbers. For the other scenarios data
-    on vaccinations, work mobility and rapid tests that became available after March 1
-    have been replaced by prediction models that are calibrated with data from February.
-    Moreover, they do not model a lower number of detected cases over the easter
-    holidays. The different scenarios make different assumptions on the date at which
-    full availability of rapid tests is reached. While the out of sample predictions
-    differ substantially for the exact case numbers at the beginning of June (between
-    20 and 70 cases per million), they can all reproduce the decline in case numbers
-    that is jointly driven by seasonality, large scale rapid tests and vaccinations.
-  }
+  \caption{Out of Sample Prediction for Reported and Total Cases from March to June
+  2021.}
   \label{fig:robustness_check_detailed}
-  \floatfoot{\noindent \textit{Note:} \textcolor{red}{To be written}}
+  \floatfoot{\noindent \textit{Note:} The ex-post scenario is an in-sample prediction
+  that uses all available information and is very close to actual case numbers. For the
+  other scenarios data on vaccinations, work mobility and rapid tests that became
+  available after March 1 have been replaced by prediction models that are calibrated
+  with data from February. Moreover, they do not model a lower number of detected cases
+  over the easter holidays. The different scenarios make different assumptions on the
+  date at which full availability of rapid tests is reached. While the out of sample
+  predictions differ substantially for the exact case numbers at the beginning of June
+  (between 20 and 70 cases per million), they can all reproduce the decline in case
+  numbers that is jointly driven by seasonality, large scale rapid tests and
+  vaccinations. \textcolor{red}{To be written}}
 \end{figure}
 
  \comment[id=K]{@Janos: Please add caption and description for the robustness check.}
