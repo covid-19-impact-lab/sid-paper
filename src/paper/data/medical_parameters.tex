@@ -67,45 +67,15 @@ individuals mostly stop being infectious before their symptoms cease.}
 
 For the time from symptom onset until need for intensive care we rely on data by the US
 CDC (\citet{Stokes2020}) and \href{https://bit.ly/3yKXFyu}{the OpenABM-Project}.
-%Table~\ref{tab:symptomatic-to-ICU} shows our derivations for the probabilities of
-%requiring intensive care per age group.
-%
-%\begin{table}[tb]
-%    \caption{Shares of symptomatic patients who will require ICU care by age groups.}
-%    \label{tab:symptomatic-to-ICU}
-%    \centering
-%
-%    \begin{tabular}{ll}
-%        \toprule
-%        Age Group & Share \\
-%        \midrule
-%        0-9 & 0.00005 \\
-%        10-19 & 0.00030 \\
-%        20-29 & 0.00075 \\
-%        30-39 & 0.00345 \\
-%        40-49 & 0.01380 \\
-%        50-59 & 0.03404 \\
-%        60-69 & 0.10138 \\
-%        70-79 & 0.16891 \\
-%        80-100 & 0.26871 \\
-%        \bottomrule
-%    \end{tabular}
-%
-%    \tablenotes{
-%        The data is taken from \citet{Stokes2020} and \href{https://bit.ly/354pKTZ}{the
-%        OpenABM-Project}. }
-%
-%\end{table}
 
 For those who will require intensive care we follow \citet{Chen2020} who estimate the
 time from symptom onset to ICU admission as 8.5 $\pm$ 4 days. This aligns well with
 numbers reported for the time from first symptoms to hospitalization:
-\citet{Gaythorpe2020} report a mean of 5.76 with a standard deviation of 4. This is also
-in line with the duration estimates collected by \href{https://bit.ly/3gkGtaU}{the
-Robert-Koch-Institut}. We assume that the time between symptom onset and ICU takes 4, 6,
-8 or 10 days with equal probabilities. As we do not model nursing homes, do not focus on
-matching deaths and do not use the number of individuals in intensive care to estimate
-our parameters, these numbers are not important for our empirical results.
+\citet{Gaythorpe2020} report a mean of 5.76 with a standard deviation of 4. We assume
+that the time between symptom onset and ICU takes 4, 6, 8 or 10 days with equal
+probabilities. As we do not model nursing homes, do not focus on matching deaths and do
+not use the number of individuals in intensive care to estimate our parameters, these
+numbers are not important for our empirical results.
 
 
 % Death and Recovery from ICU ----------------------------------------------------------
