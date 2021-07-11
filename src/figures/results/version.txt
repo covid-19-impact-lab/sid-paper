@@ -1,5 +1,5 @@
 sid: 0.0.10
 
 sid-germany:
-    - 29a4242
-    - improved and more rapid test statistics. random rapid test scenarios. robustness check scenarios. Plot styling.
+    - 2b95c08
+    - improved and more rapid test statistics. random rapid test scenarios. robustness check scenarios. Plot styling. Plot rapid test demand shares for different scenarios.
