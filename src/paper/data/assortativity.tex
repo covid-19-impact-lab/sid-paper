@@ -4,9 +4,8 @@
 As explained in section \ref{sec:matching}, the probability that two individuals are
 matched can depend on background characteristics. In particular, we allow this
 probability to depend on age and county of residence. While we do not have good data on
-geographical assortativity and just roughly calibrate it such that 80\% of contacts are
-within the same county, we can calibrate the assortative mixing by age from
-\cite{Mossong2008}.
+geographical assortativity and set it such that 80\% of contacts are within the same
+county, we can calibrate the assortativity by age from \cite{Mossong2008}.
 
 \begin{figure}[ht]
     \centering
@@ -36,8 +35,7 @@ within the same county, we can calibrate the assortative mixing by age from
         represents the share of contacts with individuals from the same age group. The
         80-100 age group for other contacts was so small that we assumed for them to have
         the same contact distribution as the 70-79 year olds. For work contacts, we only
-        show age groups that have a significant fraction of working individuals. The
-        matrix must not be symmetric because the groups have very different sizes.}
+        show age groups that have a significant fraction of working individuals.}
 
     \label{fig:assortativity}
 
@@ -50,9 +48,14 @@ becomes more dispersed around their own age group, but within-age-group contacts
 still the most common contacts. Figure~\ref{fig:assortativity_work} shows that
 assortativity by age is also important among work contacts.
 
-Our two other types of contacts, households and schools, get their assortativity by
-construction. Schools are groups where the same children of the mostly same age and
-county meet with teachers every day. Household composition follows directly from the
-German microcensus data we use to construct our synthetic population.
+For recurrent contacts, we constructed groups to have the following features: Recurrent
+work contacts are not assortative by age. Daily work groups are always of the same county
+and weekly work contacts are to 80\% with workers from the same county. Other recurrent
+contacts are constructed the same way but we impose for daily contacts that they are
+always with individuals from the same age group. School classes are groups where the same
+children of the mostly same age and county meet with teachers every day. Nurseries and
+preschools mix children by age but match them to come mostly from the same county.
+Household age composition follows directly from the German microcensus data we use to
+construct our synthetic population.
 
 \FloatBarrier
