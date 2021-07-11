@@ -44,8 +44,7 @@ In the same way children have a educational priority determining if they are ent
 emergency care workers are assigned a work contact priority that captures how necessary
 their work is and to which degree they can work from home. This means that it's always
 the same individuals that continue to have work contacts when work from home mandates of
-a certain strictness are in place. Since our work contact priority is uniformly normal
-from zero to one, we can use the reduction in work mobility as reported by
+a certain strictness are in place. We use the reduction in work mobility reported by
 \cite{Google2021} as a proxy for the share of individuals that do not have work contacts.
 
 In addition to creating groups for educational facilities and work we also have other
@@ -80,8 +79,16 @@ These groups do not become eligible within our simulation frame until June.
 \begin{figure}[ht]   % vaccinations by age group
   \centering
   \includegraphics[width=\textwidth]{figures/results/figures/vaccinations/spring_baseline}
-  \caption{Simulated and Empirical Infections by Federal State}
-  \floatfoot{\noindent \textit{Note:} \textcolor{red}{To be written.}}
+  \caption{Vaccination Rates by Age Group}
+  \floatfoot{\noindent \textit{Note:} An individual's vaccination priority depends on her
+  work contact priority, her age group and a random component to capture medical
+  preconditions like diabetes. 15\% of the population refuse to be vaccinated.
+  Adolescents would be vaccinated after the general population and children last. The
+  figure clearly shows that the first vaccinations go to some workers with very high work
+  contact priority and to the 80 to 100 age group followed by the 60 to 79 year olds.
+  Both groups are saturated with vaccinations by mid March and start of May respectively.
+  By June a third of the younger adults have received the vaccination but these groups
+  still remain far from herd immunity thresholds.}
   \label{fig:vaccinations_by_age_group}
 \end{figure}
 
