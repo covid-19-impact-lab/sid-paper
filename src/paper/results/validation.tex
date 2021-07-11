@@ -12,13 +12,24 @@ out of sample predictions that only use data that was available at March 1 2021.
 
 For the out of sample predictions we predict the number of vaccinations between March
 and June with a simple linear regression model that was fitted on vaccine data from
-February. The work mobility multiplier is predicted to be constant at a value of
-0.75, which is an approximate average of the second half of February.
+February. This prediction model is pessimistic compared to the actual number of
+vaccinations. The work mobility multiplier is predicted to be constant at a value of
+0.75, which is an approximate average of the second half of February. This turned out
+to be optimistic.
 
-The area that is fraught with the most uncertainty are the introduction of rapid test,
+The area that is fraught with the most uncertainty is the introduction of rapid test,
 because it comprises both supply and demand factors. Moreover, accurately predicting
 the number of rapid tests is expected to be important because rapid tests play a large
 role for the transmission dynamic.
+
+We therefore make a scenario analysis with different assumptions on the availability
+of rapid tests. The number of rapid tests performed in each scenario can be seen in
+Figure~\ref{fig:robustness_check_rapid_test_params}. All scenarios are the same
+unti March 1 and have the same level of rapid tests when all supply constraints are
+resolved. They differ in the date at which the full number of tests is reached. For
+students and teachers the full number of rapid tests is reached after the easter
+holidays. For rapid tests in the workplace and private rapid tests it is reached between
+May 1 and June 10, depending on the scenario.
 
 
 \begin{figure}[ht] % Robustness Check Rapid Test Fade In Params
@@ -41,12 +52,29 @@ role for the transmission dynamic.
     \label{fig:robustness_late_params}
   \end{subfigure}
 
-  \caption{Rapid Test Introduction Parameters in the Three Scenarios}
+  \caption{Rapid Test Introduction in the Three Scenarios}
   \label{fig:robustness_check_rapid_test_params}
 
-  \floatfoot{\noindent \textit{Note:} \textcolor{red}{To be written}}
+  \floatfoot{\noindent \textit{Note:} Number of rapid tests performed in the different
+  prediction scenarios. All scenarios are the same
+  unti March 1 and have the same level of rapid tests when all supply constraints are
+  resolved. They differ in the date at which the full number of tests is reached. For
+  students and teachers the full number of rapid tests is reached after the easter
+  holidays. For rapid tests in the workplace and private rapid tests it is reached
+  between May 1 and June 10, depending on the scenario.
+  }
 \end{figure}
 
+Moreover, the out of sample predictions assume that the share of detected cases that
+would have obtained without rapid tests is not affected by the easter holidays because
+the extent to which this was the case was estimated from case numbers in April.
+
+The results of the out of sample prediction are displayed in
+Figure~\ref{robustness_check_detailed}. While all scenarios considerably deviate from
+the ex-post scenario, they all reproduce the steep increase of cases until the end
+of April, followed by a decline until June. We can therefore conclude that our main
+results are not sensitive to measurement errors in the number of rapid tests,
+vaccinations or mobility data.
 
 
 \begin{figure}[ht] % Robustness Check
@@ -77,7 +105,6 @@ role for the transmission dynamic.
   predictions differ substantially for the exact case numbers at the beginning of June
   (between 20 and 70 cases per million), they can all reproduce the decline in case
   numbers that is jointly driven by seasonality, large scale rapid tests and
-  vaccinations. \textcolor{red}{To be written}}
+  vaccinations.}
 \end{figure}
 
- \comment[id=K]{@Janos: Please add caption and description for the robustness check.}
