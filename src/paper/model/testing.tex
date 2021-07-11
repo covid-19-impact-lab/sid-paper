@@ -31,13 +31,11 @@ To distribute the correct number of PCR tests among symptomatic and asymptomatic
 infections without knowing explicit test demand probabilities, we use the following
 approach: First, we calculate the total number of positive PCR tests by multiplying the
 number of newly infected individuals with an estimate of the share of detected cases from
-the Dunkelzifferradar project. \footnote{The Dunkelzifferradar project publishes daily
-estimates of the dark figure of infections under
-\url{https://covid19.dunkelzifferradar.de/}} Next, we determine how many of these tests
+the Dunkelzifferradar project \citep{Dunkelzifferradar2020}. Next, we determine how many of these tests
 should go to symptomatic and asymptomatic individuals from data by the Robert Koch
-Institut. \comment[id=J]{add source}
+Institute. \comment[id=J]{add source}
 Then, we sample the individuals to which those tests are allocated from the pools of
-symptomatic and asyptomatic infected but not yet tested individuals.
+symptomatic and asymptomatic infected but not yet tested individuals.
 
 Sampling uniformly from the pool of symptomatic individuals ensures that age groups who
 are more likely to develop symptoms are also more likely to receive tests. Thus, the
@@ -46,7 +44,7 @@ where many tests are done because of symptoms which is in line with the estimate
 the literature. \comment[id=J]{need source}
 
 At the beginning of 2021, two challenges arise: Firstly, the externally estimated share
-of detected cases from the Dunkelzifferradar can no longer be used because it is based on
+of detected cases from \citet{Dunkelzifferradar2020} can no longer be used because it is based on
 case fatality rates which drastically change due to vaccinations. Secondly, rapid tests
 become available at a large scale.
 

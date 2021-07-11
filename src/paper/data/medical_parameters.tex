@@ -33,9 +33,8 @@ CIs) of 1.63 (95\% CI 1.51 to 1.75) and 0.50 (95\% CI 0.46 to 0.55), respectivel
 simplicity we discretize this distribution into four bins.
 
 % Length of the presymptomatic stage
-The \href{https://bit.ly/3pi18Ax}{European Centre for Disease Prevention and Control}
-reports that people become infectious between one and two days before symptoms
-start.\footnotemark
+The European Centre for Disease Prevention and Control \citep{ECDC2021} reports that
+people become infectious between one and two days before symptoms start.\footnotemark
 
 \footnotetext{This is similar to \citet{He2020} and in line with \citet{Peak2020}.}
 
@@ -66,7 +65,8 @@ individuals mostly stop being infectious before their symptoms cease.}
 % Time from Symptom Onset to Admission to ICU ------------------------------------------
 
 For the time from symptom onset until need for intensive care we rely on data by the US
-CDC (\citet{Stokes2020}) and \href{https://bit.ly/3yKXFyu}{the OpenABM-Project}.
+CDC \citep{Stokes2020} and the OpenABM Project \citep{Hinch2021}.
+
 %Table~\ref{tab:symptomatic-to-ICU} shows our derivations for the probabilities of
 %requiring intensive care per age group.
 %
@@ -91,9 +91,7 @@ CDC (\citet{Stokes2020}) and \href{https://bit.ly/3yKXFyu}{the OpenABM-Project}.
 %        \bottomrule
 %    \end{tabular}
 %
-%    \tablenotes{
-%        The data is taken from \citet{Stokes2020} and \href{https://bit.ly/354pKTZ}{the
-%        OpenABM-Project}. }
+%    \tablenotes{The data is taken from \citet{Stokes2020} and citet{Hinch2021}.}
 %
 %\end{table}
 
@@ -101,9 +99,9 @@ For those who will require intensive care we follow \citet{Chen2020} who estimat
 time from symptom onset to ICU admission as 8.5 $\pm$ 4 days. This aligns well with
 numbers reported for the time from first symptoms to hospitalization:
 \citet{Gaythorpe2020} report a mean of 5.76 with a standard deviation of 4. This is also
-in line with the duration estimates collected by \href{https://bit.ly/3gkGtaU}{the
-Robert-Koch-Institut}. We assume that the time between symptom onset and ICU takes 4, 6,
-8 or 10 days with equal probabilities. As we do not model nursing homes, do not focus on
+in line with the duration estimates collected by the Robert Koch Institute
+\citep{RKI2021b}. We assume that the time between symptom onset and ICU takes 4, 6, 8 or
+10 days with equal probabilities. As we do not model nursing homes, do not focus on
 matching deaths and do not use the number of individuals in intensive care to estimate
 our parameters, these numbers are not important for our empirical results.
 
@@ -111,14 +109,14 @@ our parameters, these numbers are not important for our empirical results.
 % Death and Recovery from ICU ----------------------------------------------------------
 
 We take the survival probabilities and time to death and time until recovery from
-intensive care from the \href{https://tinyurl.com/y5owhyts}{OpenABM Project}. They report
-time until death to have a mean of 11.74 days and a standard deviation of 8.79 days. To
-match this approximately we discretize that 41\% of individuals who will die from
-Covid-19 do so after one day in intensive care, 22\% day after 12 days, 29\% after 20
-days and 7\% after 32 days. Again, we rescale this for every age group among those that
-will not survive. For survivors the \href{https://tinyurl.com/y5owhyts}{OpenABM Project}
-reports a mean duration of 18.8 days until recovery and a standard deviation of 12.21
-days. We discretize this such that of those who recover in intensive care, 22\% do so
-after one day, 30\% after 15 days, 28\% after 25 days and 18\% after 45 days.
+intensive care from \citet{Hinch2021}. They report time until death to have a mean of
+11.74 days and a standard deviation of 8.79 days. To match this approximately we
+discretize that 41\% of individuals who will die from Covid-19 do so after one day in
+intensive care, 22\% day after 12 days, 29\% after 20 days and 7\% after 32 days. Again,
+we rescale this for every age group among those that will not survive. For survivors the
+OpenABM Project reports a mean duration of 18.8 days until recovery and a standard
+deviation of 12.21 days. We discretize this such that of those who recover in intensive
+care, 22\% do so after one day, 30\% after 15 days, 28\% after 25 days and 18\% after 45
+days.
 
 \FloatBarrier

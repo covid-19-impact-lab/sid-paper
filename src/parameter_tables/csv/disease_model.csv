@@ -8,4 +8,4 @@ p\_duration\_until\_icu,"$\gamma_{icu,\:a,\:d}$",always,see Section~\ref{sec:med
 p\_duration\_of\_icu,"$\gamma_{stop\:icu,\:d}$",always,see Section~\ref{sec:medical_params},probability to recover after $d$ days from requiring intensive care
 p\_duration\_until\_death,"$\gamma_{dead,\:a,\:d}$",always,see Section~\ref{sec:medical_params},probability for individuals of age group $a$ in intensive care to die after $d$ days (possibly infinite)
 p\_until\_immune\_by\_vaccine,"$\gamma_{vacc,\:d}$",2021,\cite{Pritchard2021},probability to develop immunity $d$ days (possibly infinite) after being vaccinated
-share\_vaccine\_refusers,$\xi$,always,\url{https://bit.ly/3c9mTgX},share of individuals refusing to be vaccinated
+share\_vaccine\_refusers,$\xi$,always,\cite{AZ2021},share of individuals refusing to be vaccinated

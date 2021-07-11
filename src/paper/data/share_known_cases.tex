@@ -8,7 +8,7 @@ cases and that we model which cases are detected and which are not (see
 Section~\ref{sub:testing} for a detailed description for how we model both rapid and PCR
 tests). For our model it is important to have an estimate for the share of cases that is
 detected in the absence of rapid tests. For this we rely on the
-\href{https://covid19.dunkelzifferradar.de/}{Dunkelzifferradar} which relies on estimates
+\citet{Dunkelzifferradar2020} which relies on estimates
 of the case fatality rate to estimate the number of total cases given the number of
 deaths which are suspected to be perfectly observable. For 2020, we follow the reported
 share of detected cases quite closely only interpolating the phase of November 2020 where
@@ -18,7 +18,7 @@ from CoViD-19 and an overestimation of the share of detected cases.% After Chris
 Similarly, the start of vaccinations after Christmas 2020 that were predominantly given
 to nursing homes in the beginning and other vulnerable groups in spring, led to a
 decrease in the number of deadly cases, leading to an increasing upward bias in the share
-of detected cases. This is why we stop using the Dunkelzifferradar after Christmas.
+of detected cases. This is why we stop using the \citet{Dunkelzifferradar2020} after Christmas.
 Instead, we assume that that the share of detected cases would have stayed the same in
 the absence of rapid tests. Thus, we also achieve in our model an increase in the share
 of detected cases but this is driven from inside our model through increased testing and
@@ -37,7 +37,7 @@ leading to short and large drops in the share of known cases.
   \floatfoot{\noindent \textit{Note:} The figure shows the share of cases that is
   reported as an official case via PCR confirmation. We use the overall share of known
   cases that was estimated through the case fatality ratio by the
-  \href{https://covid19.dunkelzifferradar.de/}{Dunkelzifferradar} for all of 2020 and
+  \citet{Dunkelzifferradar2020} for all of 2020 and
   then assume it to be constant as vaccinations of the elderly strongly affect the case
   fatality rate which the project does not account for. Starting in 2021 in addition to
   the overall numbers of detected cases through symptoms and the share known cases, cases
