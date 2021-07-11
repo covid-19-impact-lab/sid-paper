@@ -32,7 +32,8 @@ Until mid April 72\% of workers were expected to receive a weekly test offer
 \citep{Betsch2021}, less than two thirds of individuals with work contacts receive a test
 offer. Starting on April 19th employers were required by law to provide two weekly tests
 to their employees \citep{Bundesanzeiger2021}. We assume that compliance is incomplete
-and only 80\% of employers actually offer tests.
+and only 80\% of employers actually offer tests. We interpolate between these points
+linearly, arriving at the blue line in Figure~\ref{fig:rapid_test_demand}.
 
 %%\subsubsection{educ rapid tests}
 
@@ -51,8 +52,10 @@ Easter this share had increased to 40\% \citep{SchulministeriumNRW2021}.
 
 After Easter the share of students receiving twice weekly tests is set to 75\%. This is
 based on tests becoming mandatory in Bavaria \citep{BayerischeStaatskanzlei2021} and
-North Rhine-Westphalia \citep{SchulministeriumNRW2021b} after their Easter breaks and
-on the 19th in Baden-Württemberg \citep{KMBaWue2021}.
+North Rhine-Westphalia \citep{SchulministeriumNRW2021b} after their Easter breaks and on
+the 19th in Baden-Württemberg \citep{KMBaWue2021}. Again, we interpolate linearly between
+these points and arrive at the purple line for teachers and the red line for school
+students in Figure~\ref{fig:rapid_test_demand}.
 
 %%\subsubsection{private rapid tests}
 
@@ -69,24 +72,25 @@ limited.
 According to the COSMO study \citep{Betsch2021a} 63\% would have been willing to take a
 test in the round of 23rd of February 2021 when an acquaintance would have tested
 positive. Since this is only asking for willingness not actual behavior, we take this as
-the upper bound of private rapid test demand which is reached in the beginning of May. To
-cover that many people are likely to have sought and done their first rapid test before
-the Easter holidays to meet friends or family, we let the share of individuals doing
-rapid tests in that time increase more rapidly than before and after. By end of March
-25\% of individuals would do a rapid test due to a private reason.
+the upper bound of private rapid test demand which we estimate in our model to be reached
+in the beginning of May. To cover that many people are likely to have sought and done
+their first rapid test before the Easter holidays we add another point that we estimate
+for the rapid test demand around Easter. Similarly, we estimate one point in mid March
+when tests started to become available in grocery stores and pharmacies which we estimate
+in our model. The resulting share of private rapid test demand is shown as the green line
+in Figure~\ref{fig:rapid_test_demand}.
 
-All shares of individuals who would take a rapid test if the conditions were met can be
-seen in Figure~\ref{fig:rapid_test_demand}.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/results/figures/data/testing/rapid_test_demand_shares}
     \caption{Share of Individuals Doing a Rapid Test.}
+    \label{fig:rapid_test_demand}
     \floatfoot{\noindent \textit{Note:} Rapid test demand can be triggered by individuals
     planning to have education contacts, work contacts, developing symptoms without
     access to a PCR test, having a household member with a positive test or symptoms. In
     each case whether a rapid test is done depends on how long it has been since the
-    individual's last rapid test and her individual compliance parameters. As an example,
+    individual's last rapid test and her individual compliance parameter. As an example,
     take a worker in May. In that time workers are encouraged to test themselves twice
     weekly but there is no general requirement to test themselves. If the worker has not
     done a test within the last four days in our model she will demand a test if her
