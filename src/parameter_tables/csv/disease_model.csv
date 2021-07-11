@@ -1,5 +1,5 @@
 name,notation,time active,source,description
-p\_duration\_immune,"$\gamma_{immune,\:d}$",always,see Section~\ref{sec:medical_params},probability to stay immune for $d$ days after having contracted Covid-19
+p\_duration\_immune,"$\gamma_{immune,\:d}$",always,see Section~\ref{sec:medical_params},probability to stay immune for $d$ days after having contracted CoViD-19
 p\_duration\_until\_infectious,"$\gamma_{infectious,\:d}$",always,see Section~\ref{sec:medical_params},probability to become infectious $d$ days after infection
 p\_duration\_of\_infectiousness,"$\gamma_{stop\:infectious,\:d}$",always,see Section~\ref{sec:medical_params},probability that infectiousness lasts $d$ days
 p\_duration\_until\_symptoms,"$\gamma_{symptoms,\:a,\:d}$",always,see Section~\ref{sec:medical_params},"probability for individuals of age group $a$ to develop symptoms $d$ days (possibly infinite) after becoming infectious"
