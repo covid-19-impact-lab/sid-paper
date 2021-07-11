@@ -8,19 +8,18 @@ For households we assume that the individuals' contacts in their households do n
 over our estimation period.
 % educ models
 For nurseries, preschools and schools we implement vacations as announced by the German
-federal states as well as school closures, emergency care and A / B schooling where only
-one half of students attends every other week or day.
-% For the moment we ignore that lack of childcare leads working parents to stay home.
+federal states as well as school closures, emergency care and rotating schooling
+schedules where only one half of students attends every other week or day.% For the moment we ignore that lack of childcare leads working parents to stay home.
 An approximation of the share of contacts still taking place with the different school
 regulations can be found in Figure~\ref{fig:school_multiplier}.
 % work
-For work contacts we use the reductions in work mobility reported in the Google
-Mobility Data \citep{Google2021} to calibrate our work policies. Reductions in work
-contacts are not random but governed through a work contact priority where the policy
-changes the threshold below which workers stay home. Figure \ref{fig:work_multiplier}
-shows the share of workers that go to work over time at the federal German level. We use
-the data on the state level.
-
+For work contacts we use the reductions in work mobility reported by the Google Mobility
+Data \citep{Google2021} to calibrate our work policies. Reductions in work contacts are
+not random but governed through a work contact priority where the policy changes the
+threshold below which workers stay home. Figure \ref{fig:work_multiplier} shows the share
+of workers that go to work over time at the federal German level. We use the data on the
+state level to account for local holidays and differences in state regulations.
+% hygiene umltiplier
 In addition, for both work and school contacts we assume that hygiene measures (such as
 masks, ventilation and hand washing) became more strict and more conscientiously observed
 in November, leading to a reduction of 33\% in the number of contacts with the potential
@@ -45,7 +44,7 @@ to transmit Covid-19.
 
     \vskip3ex
 
-    \caption{The Effect of School and Work Policies on the Number Contacts Taking Place}
+    \caption{The Contact Reduction Effects of School and Work Attendance Policies}
 
     \floatfoot{\noindent \textit{Note:} The left figure shows the approximate share of
     school contacts taking place with and without vacations factored in. The dates on
@@ -68,8 +67,9 @@ to transmit Covid-19.
     \label{fig:multipliers}
 \end{figure}
 
-Lastly, for the other contacts category we did not calibrate them from data but estimated
-the policy effects on them. Refer to Section~\ref{subsec:estimated_params} and Figure~\ref{fig:other_multiplier} in particular.
+Lastly, for the other contacts category we could not calibrate the policies from data but
+estimated the policy effects. The estimation and values are detailed in
+Section~\ref{subsec:estimated_params} and Figure~\ref{fig:other_multiplier}.
 
 \FloatBarrier
 
