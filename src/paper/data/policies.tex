@@ -1,73 +1,75 @@
 \subsection{Policies}
 \label{subsec:policies}
 
-In our empirical application\comment[id=K]{Improve language} we distinguish four groups
-of contact types: households, education, work and other contacts.% households
-For households we assume that the individuals'
-contacts in their households do not change over our estimation period.
+Our policies usually affect one of our four contact types: households, education, work
+and other contacts.
+% households
+For households we assume that the individuals' contacts in their households do not change
+over our estimation period.
 % educ models
 For nurseries, preschools and schools we implement vacations as announced by the German
 federal states as well as school closures, emergency care and A / B schooling where only
-one half of students attends every other week or day. For the moment we ignore that lack
-of childcare leads working parents to stay home. An approximation of the share of contacts still taking place with the different school regulations can be found in Figure~\ref{fig:school_multiplier}.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{figures/results/figures/data/school_multiplier_comparison}
-    \caption{School Multiplier With and Without Vacations Factored In}
-    \floatfoot{\noindent \textit{Note:} The dates on which schools have vacation are
-    decided at the federal level. Vacations are directly implemented in our model with no
-    school contacts taking place on weekends and during vacations (by federal state) just
-    like the schooling mode (full operation, emergency care, rotating schemes with half
-    class sizes etc.). The figure is thus only an illustration that roughly shows the
-    share of contacts taking place compared to pre-pandemic level with and without
-    vacations. The difference between the lines show when vacations take place and to
-    what degree. For example all states have fall vacations but the timing varies
-    strongly between states.}
-    \label{fig:school_multiplier}
-\end{figure}
-
-
-%
-% Schließung von Kindertagesstätten und Schulen: 37,4 Millionen ausgefallene Arbeitstage
-% http://www.iab-forum.de/schul-und-kitaschliessungen-krankheit-quarantaene-die-coronabedingten-arbeitsausfaelle-der-erwerbstaetigen-steigen-auf-592-millionen-arbeitstage/
-%
-%
-% https://www.sueddeutsche.de/politik/schulschliessung-lockdown-bildung-1.5190377: In
-% allen Ländern geht trotz des Lockdowns ein erheblicher Anteil der Schülerinnen und
-% Schüler in die Schule.
-% https://gfx.sueddeutsche.de/apps/e525337/www/_image_desktopw1840q70-1e2e2bf78b7d4430
-% 18% der Grundschüler in Notbetreuung in BW
-%
-
+one half of students attends every other week or day.
+% For the moment we ignore that lack of childcare leads working parents to stay home.
+An approximation of the share of contacts still taking place with the different school
+regulations can be found in Figure~\ref{fig:school_multiplier}.
 % work
-For our work contacts we use the reductions in work mobility reported in the Google
+For work contacts we use the reductions in work mobility reported in the Google
 Mobility Data \citep{Google2021} to calibrate our work policies. Reductions in work
 contacts are not random but governed through a work contact priority where the policy
 changes the threshold below which workers stay home. Figure \ref{fig:work_multiplier}
-shows the share of workers that go to work in our model over time.
+shows the share of workers that go to work over time at the federal German level. We use
+the data on the state level.
+
+In addition, for both work and school contacts we assume that hygiene measures (such as
+masks, ventilation and hand washing) became more strict and more conscientiously observed
+in November, leading to a reduction of 33\% in the number of contacts with the potential
+to transmit Covid-19.
+
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{figures/results/figures/data/work_multiplier_since_sep}
-    \caption{Share of Workers with Work Contacts}
-    \label{fig:work_multiplier}
-    \floatfoot{\noindent \textit{Note:} The figure shows the work mobility as reported by
-        \cite{Google2021}. We take this as a proxy of the share of workers who are not in
-        home office, i.e. who still have physical work contacts. The figure interpolates
-        over weekends as we handle weekend effects through information on work on
-        weekends in the German census data we use. The figure shows the share aggregated
-        over Germany as a whole. To capture the effect that local policies, school
-        vacations and public policies have on work contacts we use the data on the level
-        of the federal states to determine which workers go to work depending on the
-        state they live in.}
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/data/school_multiplier_comparison}
+        \caption{{School Attendance}}
+        \label{fig:school_multiplier}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/data/work_multiplier_since_sep}
+        \caption{Work Attendance}
+        \label{fig:work_multiplier}
+    \end{subfigure}
+
+    \vskip3ex
+
+    \caption{The Effect of School and Work Policies on the Number Contacts Taking Place}
+
+    \floatfoot{\noindent \textit{Note:} The left figure shows the approximate share of
+    school contacts taking place with and without vacations factored in. The dates on
+    which schools have vacation are decided at the state level. Vacations are directly
+    implemented in our model with no school contacts taking place on weekends and during
+    vacations (by federal state) just like the schooling mode (full operation, emergency
+    care, rotating schemes with half class sizes etc.). The figure is thus only an
+    illustration that shows the approximate share of contacts taking place compared to
+    the pre-pandemic level with and without vacations. The difference between the lines
+    show when vacations take place and to what degree. For example all states have fall
+    vacations but the timing varies strongly between states while all states close
+    schools during the Christmas holidays. The right figure shows the work mobility as
+    reported by \cite{Google2021}. We take this as a proxy of the share of workers who
+    still have physical work contacts. The figure interpolates over weekends as we handle
+    weekend effects through information on work on weekends in the German census data we
+    use. The figure shows the share for Germany as a whole. To capture the effect that
+    local policies, school vacations, etc. have on work contacts we use the data on the
+    state level to determine which workers go to work depending on the state they live
+    in.}
+    \label{fig:multipliers}
 \end{figure}
 
-For both work and school contacts we assume that starting November with the lockdown
-light in Germany, hygiene measures (such as masks, ventilation and hand washing) became
-more strict and more conscientiously observed, leading to a reduction of 33\% in the
-number of contacts with the potential to transmit Covid-19.
-
+Lastly, for the other contacts category we did not calibrate them from data but estimated
+the policy effects on them. Refer to Section~\ref{subsec:estimated_params} and Figure~\ref{fig:other_multiplier} in particular.
 
 \FloatBarrier
 
