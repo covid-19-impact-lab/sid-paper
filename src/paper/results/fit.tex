@@ -9,13 +9,13 @@ vaccinations.
 % summary of the fit
 Overall, our model achieves an excellent fit of the two waves of infections with few free
 parameters (Figure~\ref{fig:aggregated_fit2}). As a result the effective replication
-number also closely follows that reported by the RKI (see
+number $R_t$ also closely follows that reported by the RKI (see
 Figure~\ref{fig:fit_r_effective}). We also achieve an excellent fit for most age groups
 in Germany. The fit is also good for many German federal states. Despite the fact that
 the number of performed rapid tests and their distribution in the population are
 determined endogenously in our model, we fit the share of the population with at least a
-weekly rapid test very well. For the share of individuals who have ever done a rapid
-test we err on the side of too few test.
+weekly rapid test very well. For the share of individuals who have ever done a rapid test
+we err on the side of too few test.
 
 % observed infections
 Our fit of the infection rates in Germany between October 2020 and June 2021 is
@@ -56,39 +56,39 @@ level.
   the average number of new infections caused by one infected individual. The $R_t$ in
   our model broadly follows the $R_t$ reported by the RKI. Two differences stand out.
   Firstly, the RKI's $R_t$ drops faster in November. This is likely due to a decline in
-  the estimated overall share of detected cases when the second wave hit Germany.
-  The second difference is from mid February to mid March where the RKI's reported $R_t$
-  increased more rapidly than that in our model. Here the opposite effect can be
-  expected. During this time rapid tests increased strongly leading to more cases being
-  detected. In the short term this leads an $R_t$ estimation that is based on detected
-  cases to overestimate the replication number.}
+  the estimated overall share of detected cases ($\psi_t$) when the second wave hit
+  Germany. The second difference is from mid February to mid March where the RKI's
+  reported $R_t$ increased more rapidly than that in our model. Here the opposite effect
+  can be expected. During this time rapid tests increased strongly leading to more cases
+  being detected. In the short term this leads an $R_t$ estimation that is based on
+  detected cases to overestimate the replication number.}
 \end{figure}
 
 % R effective
 Our fit of the effective replication number $R_t$ closely follows the values reported by
-the RKI (see Figure~\ref{fig:fit_r_effective} even though we calculate $R_t$ on all
+the RKI (see Figure~\ref{fig:fit_r_effective}) even though we calculate $R_t$ on all
 infected individuals not just the detected cases. This explains why the $R_t$ in our
-simulations is higher during phases where the share of detected cases falls such as in
-the fall of 2020 (see Figure~\ref{fig:share_known_cases_data}) where the RKI
-underestimated the effective replication number due to observing a lower share of cases
-and is lower than the $R_t$ reported by the RKI in spring where the share of known cases
-increased due to increased rapid testing.
+simulations is higher during phases where the share of detected cases ($\psi_t$) falls.
+This is the case in the fall of 2020 (see Figure~\ref{fig:share_known_cases_data}) where
+the RKI underestimated the effective replication number due to observing a falling share
+of cases. Analogously, the $R_t$ in our simulations is lower than the $R_t$ reported by
+the RKI in spring where the share of known cases increased due to increased rapid
+testing.
 
 \FloatBarrier
 
 % observed infections by age group
 Zooming into the different age groups in Figure~\ref{fig:age_group_fit}, we can see that
-our model is also able to reproduce the infection rates on this level.
-The only major deviation from this pattern is that
-our model predicts too few infections for the 80 to 100 year olds.
-This was to be expected because our synthetic population does not include inhabitants of
-nursing homes. Outbreaks in nursing homes led to a large number of infections among
-the oldest during the second wave of the pandemic in Germany.
-Moreover, the model predicts too few observed infections for the 15 to 34 years old at
-the end of 2020 and the 5 to 14 years old in April and May 2021. The former is likely
-due to the fact that this age group has a very active social life which is not fully
-captured by our contact networks. The latter probably comes from too optimistic
-assumptions on school reopenings.
+our model is also able to reproduce the infection rates on this level. The only major
+deviation from this pattern is that our model predicts too few infections for the 80 to
+100 year olds. This was to be expected because our synthetic population does not include
+inhabitants of nursing homes. Outbreaks in nursing homes led to a large number of
+infections among the oldest during the second wave of the pandemic in Germany. Moreover,
+the model predicts too few observed infections for the 15 to 34 years old at the end of
+2020 and the 5 to 14 years old in April and May 2021. The former is likely due to the
+fact that this age group has a very active social life which is not fully captured by our
+contact networks. The latter probably comes from too optimistic\comment[id=K]{cautious or
+slow? I think optimistic might be ambiguous here.} assumptions on school reopenings.
 
 
 \begin{figure}[ht]  % observed infections by age group
@@ -137,11 +137,12 @@ Germany.
 
 % B.1.1.7
 We fit the proliferation of the B.1.1.7 variant quite exactly despite only introducing a
-few cases in January as can be seen in Figure~\ref{fig:fit_share_b117}. Since we only
-model B.1.1.7 and do not include other variants, B.1.1.7 reaches a share of nearly 100\%
-by May while the true rate plateaued at 90\% as B.1.617.2 started gained traction in
-Germany. Given that B.1.617.2 made up less than 5\% even at the end of our simulation
-period, we did not include it in our model.
+few cases in January ($\omega_{B.1.1.7,t}$) as can be seen in
+Figure~\ref{fig:fit_share_b117}. Since we only model B.1.1.7 and do not include other
+variants, B.1.1.7 reaches a share of nearly 100\% by May while the true rate plateaued at
+90\%. By the end of May B.1.617.2 gained traction in Germany. However, given that
+B.1.617.2 made up less than 5\% even at the end of our simulation period, we did not
+include it in our model.
 
 \begin{figure}[ht]
   \centering
@@ -162,15 +163,15 @@ period, we did not include it in our model.
   \caption{Model Fit of the Share of B.1.1.7 and Vaccinations}
   \floatfoot{\noindent \textit{Note:} The left figure shows the share of B.1.1.7 as
   reported by the RKI and as calculated in our model. We only introduce a few cases over
-  the cause of January. From then B.1.1.7 takes over endogenously through its increased
-  infectiousness. We model no other features of B.1.1.7. We introduce at most 0.986 cases
-  per 100,000 inhabitants. The right figure shows the rate of individuals that are
-  vaccinated in our synthetic population versus in the general German population. Note
-  that we excluded the vaccinations that were given to nursing homes (approx. one percent
-  of the German population) that were vaccinated. Overall, our model covers a time frame
-  that goes from zero vaccinated individuals to a state where over 40\% of the population
-  are vaccinated. Our vaccinations work imperfectly but we do not model different
-  vaccines nor do we distinguish between first and second shot.}
+  the course of January. From then B.1.1.7 takes over endogenously through its increased
+  infectiousness ($\sigma_{B.1.1.7}$). We model no other features of B.1.1.7. We
+  introduce at most 0.986 cases per 100,000 inhabitants. The right figure shows the rate
+  of individuals that are vaccinated in our synthetic population versus in the general
+  German population. Note that we excluded the vaccinations that were given to nursing
+  homes (approx. one percent of the German population). Overall, our model covers a time
+  frame that goes from zero vaccinated individuals to a state where over 40\% of the
+  population are vaccinated. Our vaccinations work imperfectly but we do not model
+  different different vaccines nor do we distinguish between first and second shot.}
 \end{figure}
 
 % vaccinations
@@ -183,26 +184,25 @@ equivalent to the share of Germans living in nursing homes. Afterwards, the shar
 vaccinated individuals in the population follows the German increase exactly. We took
 great care to model the prioritization of older individuals and professions that cannot
 reduce physical contact easily such as teachers or medical staff (see
-Section~\ref{subsec:synthetic_population}. How the share of vaccinated individuals
-develops by age group can be seen in Figure~\ref{fig:vaccinations_by_age_group}.
+Section~\ref{subsec:synthetic_population} and Figure~\ref{fig:vaccinations_by_age_group}
+for the vaccination rates in our model by age group).
 
 \FloatBarrier
 
 % rapid test demand
-The most difficult moment to match in our model is the rapid test demand. Since we have
-five different channels through which individuals demand rapid tests and many of the
-demand curves are at least partially calibrated through survey data. It is therefore very
-reassuring that we fit the share of individuals that do weekly rapid tests almost
+The most difficult moment to match in our model is the rapid test demand. This is because
+we have five different channels through which individuals demand rapid tests and many of
+the demand curves are at least partially calibrated through survey data. It is therefore
+very reassuring that we fit the share of individuals that do weekly rapid tests almost
 perfectly. For the share of individuals that have ever done a rapid test our model is
 conservative. There are two reasons for this: Firstly, we do not model people who have
-made rapid tests out of curiosity once they became available. Secondly, in the model,
-the decision to take a rapid test is based on a time invariant individual specific
-compliance factor without any additional random components. While this captures
-important features of rapid test demand it abstracts to people who turn down rapid tests
-most of the time but accept them sometimes. Fortunately,
-Section~\ref{subsec:model_validation} shows
-that our main results are robust to changes in the exact shares of individuals demanding
-rapid tests.
+made rapid tests out of curiosity once they became available. Secondly, in the model, the
+decision to take a rapid test is based on a time invariant individual specific compliance
+factor without any additional random components. While this captures important features
+of rapid test demand it abstracts from people who turn down rapid tests most of the time
+but accept them sometimes. Fortunately, Section~\ref{subsec:model_validation} shows that
+our main results are robust to changes in the exact shares of individuals demanding rapid
+tests.
 
 \begin{figure}[ht]     % rapid test demand
     \centering
