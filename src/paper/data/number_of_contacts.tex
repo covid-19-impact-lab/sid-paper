@@ -8,7 +8,8 @@ throughout one day, including information on the other person (such as age and g
 and information on the contact. Importantly, for each contact individuals entered of
 which type the contact (school, leisure, work etc.) was and how frequent the contact with
 the other person is. Binning the number of contacts for very high numbers, we arrive at
-the distributions of the numbers of contacts by contact type as shown in Figure~\ref{fig:n_contacts}.
+the distributions of the numbers of contacts by type of contact ($\eta_{c}$) as shown in
+Figure~\ref{fig:n_contacts}.
 
 \begin{figure}[ht]
     \centering
@@ -63,7 +64,7 @@ the distributions of the numbers of contacts by contact type as shown in Figure~
     \label{fig:n_contacts}
     \floatfoot{\noindent
         \textit{Note:} This figure shows the pre-pandemic number of contacts individuals
-        report of different contact types.
+        report of different contact types ($\eta_c$).
         % non recurrent contacts
         In the model it is sampled every day which of the numbers of non recurrent
         contacts a person is planned to have. Note that the contact diaries include such
@@ -75,19 +76,19 @@ the distributions of the numbers of contacts by contact type as shown in Figure~
         place on work days.
         % reductions that can happen
         The pre-pandemic number of contacts with transmission potential is reduced by
-        policies, seasonality and individual responses to events such as
-        receiving a positive rapid test to the number of actual contacts with
-        transmission potential.
+        policies ($\rho$), seasonality ($\kappa$) and individual responses ($\tau$) to
+        events such as receiving a positive rapid test to the number of actual contacts
+        with transmission potential.
         % other
         The upper row shows the distribution of the number of other contacts individuals
-        report. Other contacts include all contacts that are not household members,
-        school contacts or work contacts, for example leisure contacts. We assume that
-        individuals in households with children or teachers or retired individuals have
-        additional non recurrent other contacts during school vacations to cover things
-        like family visits or travel during vacations.
+        report ($\eta_{other}$). Other contacts include all contacts that are not
+        household members, school contacts or work contacts, for example leisure
+        contacts. We assume that individuals in households with children or teachers or
+        retired individuals have additional non recurrent other contacts during school
+        vacations to cover things like family visits or travel during vacations.
         % work contacts
-        The lower row shows the distribution of the different types of work contacts.
-        Work contacts only take place between working individuals.}
+        The lower row shows the distribution of the different types of work contacts
+        ($\eta_{work}$). Work contacts only take place between working individuals.}
 \end{figure}
 
 \FloatBarrier

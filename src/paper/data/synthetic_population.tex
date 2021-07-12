@@ -46,8 +46,7 @@ In the same way children have an educational priority determining if they are en
 emergency care workers are assigned a work contact priority that captures how necessary
 their work is and to which degree they can work from home. This means that it's always
 the same individuals that continue to have work contacts when work from home mandates of
-a certain strictness are in place. We use the reduction in work mobility reported by
-\cite{Google2021} as a proxy for the share of individuals that do not have work contacts.
+a certain strictness are in place.
 
 % other recurring contacts
 In addition to creating groups for educational facilities and work we also have other
@@ -62,23 +61,22 @@ with a person not only from the same county but also from the same age group.
 The individuals in our population can react to events such as developing symptoms that
 are typical of CoViD-19, a positive PCR test or a positive rapid test by reducing their
 contacts. To determine who would reduce their contacts in such a situation or demand a
-rapid test we introduce a quarantine compliance parameter. Similarly we introduce a rapid
-test compliance parameter that determines in which order individuals start demanding
-rapid tests when rapid tests become increasingly available. This makes sure that when for
-example only 10\% of workers get tested, it's the same workers that have access to tests
-every week.
+rapid test we introduce a quarantine compliance parameter. Similarly, we introduce a
+rapid test compliance parameter that determines in which order individuals start
+demanding rapid tests when rapid tests become increasingly available. This makes sure
+that when for example only 10\% of workers get tested, it's the same workers that have
+access to tests every week.
 
 Lastly, for the distribution of vaccinations every individual is assigned a vaccination
 group and a vaccination rank from that group that creates a complete vaccination queue
-over the population including 15\% that refuse to be vaccinated as reported by the
-Robert Koch Institute (RKI, \cite{RKI2021c}). The vaccination groups are created to
-match the recommendations by the Ständige Impfkommission
-\citep{VygenBonnet2020}.\footnote{We cover that teachers were prioritized more than
-recommended by the commission.} To cover that the Pfizer-BioNTech vaccine was later
-approved for younger age groups we put adolescents and children into two groups that
-follow after the general population. These groups do not become eligible within our
-simulation frame until June. The way vaccinations are rolled out in our model is shown
-in Figure~\ref{fig:vaccinations_by_age_group}.
+over the population including a share that refuses to be vaccinated ($\xi$) which we
+calibrate to  15\% \citep{RKI2021c}. The vaccination groups are created to match the
+recommendations by the Ständige Impfkommission \citep{VygenBonnet2020}.\footnote{We cover
+that teachers were prioritized more than recommended by the commission.} To cover that
+the Pfizer-BioNTech vaccine was later approved for younger age groups we put adolescents
+and children into two groups that follow after the general population. These groups do
+not become eligible within our simulation frame until June. The way vaccinations are
+rolled out in our model is shown in Figure~\ref{fig:vaccinations_by_age_group}.
 
 \begin{figure}[ht]   % vaccinations by age group
   \centering
@@ -86,7 +84,7 @@ in Figure~\ref{fig:vaccinations_by_age_group}.
   \caption{Vaccination Rates by Age Group}
   \floatfoot{\noindent \textit{Note:} An individual's vaccination priority depends on her
   work contact priority, her age group and a random component to capture medical
-  preconditions like diabetes. 15\% of the population refuse to be vaccinated.
+  preconditions like diabetes. 15\% of the population refuse to be vaccinated ($\xi$).
   Adolescents would be vaccinated after the general population and children last. The
   figure clearly shows that the first vaccinations go to some workers with very high work
   contact priority and to the 80 to 100 age group followed by the 60 to 79 year olds.
