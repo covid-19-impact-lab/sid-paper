@@ -8,16 +8,14 @@ cases and that we model which cases are detected and which are not (see
 Section~\ref{sub:testing} for a detailed description for how we model both rapid and PCR
 tests). For our model it is important to have an estimate for the share of cases that is
 detected in the absence of rapid tests ($\psi_t$). For this we rely on the
-\cite[Dunkelzifferradar Project][]{Dunkelzifferradar2020} which uses estimates of the case
-fatality rate to estimate the number of total cases given the number of CoViD-19 deaths
-which are assumed to be perfectly observable. For 2020, we follow the reported share of
-detected cases quite closely \textcolor{red}{only interpolating the phase of November
-2020 where the testing policy was changed to give more priority to vulnerable groups
-\citep{RKI2020a}. This lead to more tests being done among older age groups which are
-also at the highest risk of dying from CoViD-19. We suspect that this led the estimated
-share of detected cases to increase without a corresponding increase in the share of
-detected cases in the overall population as PCR tests, a rare resource at the time, were
-only moved to groups with a high case fatality ratio.}
+\cite[Dunkelzifferradar Project][]{Dunkelzifferradar2020} which uses estimates of the
+case fatality rate to estimate the number of total cases given the number of CoViD-19
+deaths which are assumed to be perfectly observable. For 2020, we follow the reported
+share of detected cases quite closely. One exception is the phase of November 2020 where
+we interpolate to maintain monotonicity during the fall as there was no reason why the
+share of detected cases should have risen in that time\footnote{The testing policy
+changed in November \citep{RKI2020a}. However, this only moved the rare PCR tests more
+towards vulnerable groups.}
 
 % After Christmas 2020
 Since vaccinations started after Christmas 2020 and these were predominantly given to

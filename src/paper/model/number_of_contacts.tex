@@ -2,17 +2,17 @@
 \label{sec:number_of_contacts}
 
 Consider a hypothetical population of 1,000 individuals in which 50 were infected with a
-novel infectious disease. From this alone, it is impossible to say whether only
-those 50 people had contact with an infectious person and the disease has an infection
-probability of 1 per contact or whether everyone met an infectious person but the
-disease has an infection probability of only 5 percent per contact. SEIR models do not
-distinguish contact frequency from the infectiousness of each contact and
-combine the two in one parameter that is not invariant to social distancing policies.
+novel infectious disease. From this alone, it is impossible to say whether only those 50
+people had contact with an infectious person and the disease has an infection probability
+of one or whether everyone met one infectious person but the disease has an infection
+probability of only 5 percent per contact. SEIR models do not distinguish between the
+number of contacts and the infectiousness of each contact. Instead, they combine the two
+into one parameter that is not invariant to social distancing policies.
 
 To model social distancing policies, we need to disentangle the effects of the number of
-contacts of each individual and the effect of policy-invariant infection probabilities
-specific to each contact type. Since not all contacts are equally infectious, we
-distinguish different contact types.
+contacts of each individual and the effect of mostly policy-invariant infection
+probabilities specific to each contact type. Since not all contacts are equally
+infectious, we distinguish different contact types.
 
 The number and type of contacts in our model can be easily extended. Each type of
 contacts is described by a function that maps individual characteristics, health states
