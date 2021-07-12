@@ -4,28 +4,27 @@
 This section compares simulated data from our model with empirical data from Germany. We
 look at observed infections (overall as well as by age group and federal state), the
 effective replication number,  the spread of the B.1.1.7 mutation,
-vaccinations\comment[id=K]{We fit vaccinations in the population by construction. Maybe
-this should go to a different section?} and rapid test demand.
+vaccinations.
 
 % summary of the fit
 Overall, our model achieves an excellent fit of the two waves of infections with few free
 parameters (Figure~\ref{fig:aggregated_fit2}). As a result the effective replication
 number also closely follows that reported by the RKI (see
 Figure~\ref{fig:fit_r_effective}). We also achieve an excellent fit for most age groups
-in Germany. The fit is also good for many German federal states. Despite, the fact that
-the number of performed rapid tests and their distribution in the population result
-endogenously inside our model we fit the share of the population with at least a weekly
-rapid test very well and err on the side of too few individuals that have ever done a
-rapid test.
+in Germany. The fit is also good for many German federal states. Despite the fact that
+the number of performed rapid tests and their distribution in the population are
+determined endogenously in our model, we fit the share of the population with at least a
+weekly rapid test very well. For the share of individuals who have ever done a rapid
+test we err on the side of too few test.
 
 % observed infections
 Our fit of the infection rates in Germany between October 2020 and June 2021 is
 excellent. The incidence in our model matches both the levels and the shape of the
-reported incidence almost perfectly. When the prevalence of the virus is high
-\textcolor{red}{and during exponential growth phases} the effect of random events on the
-incidence is large. That is why it's important that we rely on 30 simulation runs with
-different seed sequences and average over these random differences to have a mean that's
-robust to the randomness in our model.
+reported incidence almost perfectly. When the prevalence of the virus is high and
+especially after explosive growth phases, the effect of random events on the
+incidence is large. Therefore all reported simulations average over at least 30
+simulation runs which is enough to reduce the sampling uncertainty to a negligible
+level.
 
 \begin{figure}[ht]   % observed infections with single runs
   \centering
@@ -48,7 +47,7 @@ robust to the randomness in our model.
   \floatfoot{\noindent \textit{Note:} Both figures show averages and single runs. The
   average is the thick line. Single runs are shown as lighter and thinner lines. We
   averaged and show 30 simulation runs. The left figure shows the daily incidence rate
-  per million for the reported simulated infections rates. The mean infection rate is the
+  per million for the simulated reported infection rates. The mean infection rate is the
   thick blue line. Single simulation runs are plotted in lighter and thinner lines. The
   official case numbers as reported by the RKI are plotted in black. The fit is overall
   very good. The higher the mean incidence and the stronger the growth the more variance
@@ -81,26 +80,18 @@ increased due to increased rapid testing.
 
 % observed infections by age group
 Zooming into the different age groups in Figure~\ref{fig:age_group_fit}, we can see that
-our model is also able to reproduce the infection rates on this level. Differences
-between the age groups allow us to identify the infection probabilities because different
-age groups have contacts of different types (e.g. mostly children go to school, the share
-of workers is highest in the 35 to 59 age bracket etc.). There are very few points where
-our simulated incidences and the empirical incidences do not
-coincide:\comment[id=K]{@Janos: I think you can probably present this better...} Firstly,
-the age group of 80 to 100 year olds due to the absence of nursing homes in our synthetic
-population. Secondly, the increase in adolescents in April. We model the introduction of
-rapid tests for students and do see an increase both in the observed infections and the
-share of detected cases among students (see
-Figure~\ref{fig:share_known_cases_by_age_group}). However, we follow \cite{Betsch2021}
-and assume that 82\% of all rapid tests are followed up with a PCR test---irrespective of
-why they took place. It is likely that that share is higher for rapid tests that were
-done in schools. The last age group where our fit does not fit the empirical curve very
-well is the group of 15 to 34 year olds. This group has been touted to have a very active
-social life and it has often been suspected that this age group also stayed more socially
-active during the pandemic. However, our model does not include either effect because of
-very little data on both and hence it's unsurprising that the actual case numbers in this
-group are consistently higher than our simulated case numbers.\comment[id=K]{Does anyone
-have an idea why we do not match their shape from Oct to Dec?}
+our model is also able to reproduce the infection rates on this level.
+The only major deviation from this pattern is that
+our model predicts too few infections for the 80 to 100 year olds.
+This was to be expected because our synthetic population does not include inhabitants of
+nursing homes. Outbreaks in nursing homes led to a large number of infections among
+the oldest during the second wave of the pandemic in Germany.
+Moreover, the model predicts too few observed infections for the 15 to 34 years old at
+the end of 2020 and the 5 to 14 years old in April and May 2021. The former is likely
+due to the fact that this age group has a very active social life which is not fully
+captured by our contact networks. The latter probably comes from too optimistic
+assumptions on school reopenings.
+
 
 \begin{figure}[ht]  % observed infections by age group
   \centering
@@ -111,8 +102,7 @@ have an idea why we do not match their shape from Oct to Dec?}
   of individuals above 80 needs to be interpreted with caution because our synthetic
   population only includes private households, i.e. nursing homes are not represented in
   our model. They accounted for many cases and deaths in the winter of 2020 and many 80
-  to 100 year olds live in these facilities. However, the official data does not contain
-  information on whether cases were nursing home inhabitants or not. We average over 30
+  to 100 year olds live in these facilities. We average over 30
   simulation runs.}
   \label{fig:age_group_fit}
 \end{figure}
@@ -133,10 +123,7 @@ resolution. For example we abstract from population density and cross-border tra
 is, thus, unsurprising that there are states that we do not match well, such as very
 thinly populated Mecklenburg-Vorpommern and Schleswig-Holstein or Saxony with its large
 border to the Czech Republic that had a much higher incidence than
-Germany.\comment[id=K]{The Czech Republic had very high numbers in October (max > 800)
-but they fell during Nov to 220 and then climbed again to 800 by Jan 12th so that might
-be only part of the story why Saxony had such high numbers.}
-
+Germany.
 
 \begin{figure}[ht]   % observed infections by federal state
   \centering
@@ -190,7 +177,7 @@ period, we did not include it in our model.
 
 % vaccinations
 The fit of the share of vaccinated individuals can be seen in
-Figure~\ref{fig:fit_vaccinations}. In Germany, vaccines were rolled according to four
+Figure~\ref{fig:fit_vaccinations}. In Germany, vaccines were rolled out according to four
 priority groups. The first vaccines were mostly reserved for nursing homes and some
 selected professions such as first responders. Since we do not have nursing home
 inhabitants in our model, we subtract the first percent of vaccinations which is
@@ -209,14 +196,15 @@ five different channels through which individuals demand rapid tests and many of
 demand curves are at least partially calibrated through survey data. It is therefore very
 reassuring that we fit the share of individuals that do weekly rapid tests almost
 perfectly. For the share of individuals that have ever done a rapid test our model is
-conservative. There are two reasons for this: Firstly, we only introduce rapid tests in
-2021. This is due to the small number of rapid tests in 2020 as well as a lack of data on
-the number of random tests and who received them. Secondly, there is no randomness in an
-individual's rapid test demand in our model. This reduces the randomness in our model at
-the cost of having less individuals that only occasionally test themselves.
- \comment[id=K]{Write that this makes us underestimate the effect of random tests?}
-However, Section~\ref{subsec:model_validation} shows that our results are very robust to
-changes in the exact shares of individuals demanding rapid tests.
+conservative. There are two reasons for this: Firstly, we do not model people who have
+made rapid tests out of curiosity once they became available. Secondly, in the model,
+the decision to take a rapid test is based on a time invariant individual specific
+compliance factor without any additional random components. While this captures
+important features of rapid test demand it abstracts to people who turn down rapid tests
+most of the time but accept them sometimes. Fortunately,
+Section~\ref{subsec:model_validation} shows
+that our main results are robust to changes in the exact shares of individuals demanding
+rapid tests.
 
 \begin{figure}[ht]     % rapid test demand
     \centering
