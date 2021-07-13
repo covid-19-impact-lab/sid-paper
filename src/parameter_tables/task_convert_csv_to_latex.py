@@ -17,7 +17,7 @@ def task_convert_csv_to_tex(depends_on, produces):
         col_format = r"p{4cm}p{2cm}p{2cm}p{2cm}p{9cm}"
         float_format = "%.0f"
     elif len(df.columns) == 3:
-        col_format = r"p{3cm}p{1.5cm}p{6.5cm}"
+        col_format = r"p{3cm}p{2cm}p{15cm}"
         float_format = "%.3f"
     else:
         raise ValueError(f"Unexpected number of columns: {len(df.columns)}")
