@@ -1,15 +1,19 @@
 \subsection{Literature Review}
 \label{sec:literature_review}
 
-The workhorse model in epidemiology is the SEIR model. However,
-The traditional SEIR model is not fine-grained enough to model nuanced policies. This
-has motivated a large number of researchers to extend the standard model to allow for
-more heterogeneity and flexibility. Examples are \citet{Grimm2020},
-\citet{Donsimoni2020} and \citet{Acemoglu2020} who develop multi group SEIR models to
-analyze the effects of targeted lockdowns and \citet{Berger2020} who extend the SEIR
-model to analyze testing and conditional quarantines. For a more comprehensive review
-see \citet{Avery2020}. Others have used the results of a standard SEIR model as input
-for economic models that estimate the cost of policies (e.g. \citet{Dorn2020}).
+The workhorse model in epidemiology is the SEIR model. However, The traditional SEIR
+model is not fine-grained enough to model nuanced policies.\comment[id=HM]{Still old
+motivation. Hard to get the timing of tests and results right?} This has motivated a
+large number of researchers to extend the standard model to allow for more heterogeneity
+and flexibility. Examples are \citet{Grimm2020}, \citet{Donsimoni2020} and
+\citet{Acemoglu2020}\comment[id=HM]{We need to cite more strategically. Cut Grimm,
+Donsinomi. More state of the art SEIR in other fields. Or drop SEIR altogether? If I
+read that as a Michael Meyer-Hermann type, I would think, ``ah, these economists
+again...''} who develop multi group SEIR models to analyze the effects of targeted
+lockdowns and \citet{Berger2020} who extend the SEIR model to analyze testing and
+conditional quarantines. For a more comprehensive review see \citet{Avery2020}. Others
+have used the results of a standard SEIR model as input for economic models that
+estimate the cost of policies (e.g. \citet{Dorn2020}).
 
 While the popularity of the SEIR model is mainly due to its simplicity, the extensions
 are quite complex. It is unlikely that there will be a SEIR model that combines all
@@ -34,10 +38,10 @@ These shortcomings have motivated variations of agent-based simulation models wh
 moving particles have been replaced by contact networks for households, work and random
 contacts.
 
-The OpenABM-Covid-19 model by \citet{Hinch2020} is the closest in spirit to ours. They
-model detailed contact networks for workplaces, schools and households and can evaluate
-the effect of several NPIs. The main focus of their application are contact tracing
-policies.
+The OpenABM-Covid-19 model by \citet{Hinch2020} is the closest in spirit to
+ours\comment[id=HM]{I'd rather be close to Aleta et al. ;-)}. They model detailed
+contact networks for workplaces, schools and households and can evaluate the effect of
+several NPIs. The main focus of their application are contact tracing policies.
 
 \citet{Aleta2020} develop an agent-based simulation model with a very high geographical
 resolution by estimating contact networks from fine grained mobility data for the
@@ -47,15 +51,14 @@ match actual infection numbers which makes it more suitable to explore the gener
 mechanics of different disease mitigation measures than for their quantitative
 evaluation.
 
-\citet{Bicher2021} implement a model that simulates the complete Austrian population
-with almost nine million people. It uses the same data provided by \citet{Mossong2008}
-as we use to calibrate contact networks for households, workplaces and schools. The
-model focuses and analyzing the effect of different contact tracing strategies. It is
-calibrated with data from the first wave (February 21 to April 9).
+\citet{Bicher2021} simulate the Austrian population during the first wave (February 21
+to April 9, 2020). It uses the same data provided by \citet{Mossong2008} as we use to
+calibrate contact networks for households, workplaces and schools. The model focuses on
+analyzing the effect of different contact tracing strategies.
 
-Moreover, there are several forthcoming applications of agent-based simulation models
-with contact networks. Examples are \citet{Basurto2020}, \citet{DelliGatti2020} and
-\citet{Mellacher2020}.
+Moreover, there are several forthcoming applications\comment[id=HM]{What is that
+supposed to mean?} of agent-based simulation models with contact networks. Examples are
+\citet{Basurto2020}, \citet{DelliGatti2020} and \citet{Mellacher2020}.
 
 Our model combines elements from the above models and adds several new features. To
 the best of our knowledge, ours is the only model that can explain observed case

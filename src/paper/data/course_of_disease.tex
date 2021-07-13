@@ -1,9 +1,9 @@
-\subsection{Medical Parameters}
-\label{sec:medical_params}
+\subsection{Course of Disease}
+\label{sub:data_course_of_disease}
 
-This section discusses the medical parameters used in the model, their sources and how
-we arrived at the distributions used in the model.\footnote{Additional information can
-be found in the
+This section discusses the parameters governing the course of disease, their sources and
+how we arrived at the distributions used in the paper.\footnote{Additional information
+can be found in the
 \href{https://sid-dev.readthedocs.io/en/latest/reference_guides/epi_params.html}{online
 documentation}.} See Figure~\ref{fig:model_disease_progression} for a summary of our
 disease progression model.
@@ -12,14 +12,13 @@ disease progression model.
 % Duration until Infectiousness and Symptoms ----------------------------------
 
 % Latency Period
-The first medical parameter we need is the distribution of the length of the period
-between infection and the start of infectiousness, the so called latent period,
-$\gamma_{infectious}$. \cite{Zhao2021} estimate the latent period to last 3.3 days (95\%
-CI: 0.2, 7.9). In line with this estimate our latent period lasts one to five days with a
-slightly lower average of two days.
+We denote the latent period---i.e., the time span between infection and the start of
+infectiousness---by $\gamma_{infectious}$. \cite{Zhao2021} estimate the latent period to
+last 3.3 days (95\% CI: 0.2, 7.9) on average. In line with this estimate our latent
+period lasts one to five days.
 
 % Asymptomatic Share
-Once individuals become infectious a share of them goes on to develop symptoms while
+Once individuals become infectious, a share of them goes on to develop symptoms while
 others remain asymptomatic. We rely on data by \cite{Davies2020} for the age-dependent
 probability to develop symptoms. It varies from 25\% for children and young adults to
 nearly 70\% for the elderly.

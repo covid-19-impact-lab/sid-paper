@@ -1,9 +1,9 @@
-\subsection{Course of the Disease}
-\label{sub:disease_progression}
+\subsection{Course of Disease}
+\label{sub:model_course_of_disease}
 
 The disease progression in the model is fairly standard. It is depicted in
 Figure~\ref{fig:model_disease_progression} and the values and source of the relevant
-parameters are describes in Section~\ref{sec:medical_params}.
+parameters are describes in Section~\ref{sub:data_course_of_disease}.
 
 First, infected individuals will become infectious after one to five days. Overall,
 about one third of people remain asymptomatic. The rest develop symptoms about one to
@@ -20,10 +20,10 @@ care unit (ICU) patients will die after spending up to 32 days in intensive care
 Moreover, if the ICU capacity was reached, all patients who require intensive care but do
 not receive it die.
 
-It would be easy to make the course of disease even more fine-grained. For example, we
-could model people who require hospitalization but not intensive care. So far we opted
-against that because only the intensive care capacities are feared to become a bottleneck
-in Germany.
+% It would be easy to make the course of disease even more fine-grained. For example, we
+% could model people who require hospitalization but not intensive care. So far we opted
+% against that because only the intensive care capacities are feared to become a bottleneck
+% in Germany.
 
 We allow the progression of the disease to be stochastic in two ways: Firstly, state
 changes only occur with a certain probability (e.g. only a fraction of infected
