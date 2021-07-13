@@ -1,31 +1,7 @@
 \subsection{Literature Review}
 \label{sec:literature_review}
 
-The workhorse model in epidemiology is the SEIR model. However, The traditional SEIR
-model is not fine-grained enough to model nuanced policies.\comment[id=HM]{Still old
-motivation. Hard to get the timing of tests and results right?} This has motivated a
-large number of researchers to extend the standard model to allow for more heterogeneity
-and flexibility. Examples are \citet{Grimm2020}, \citet{Donsimoni2020} and
-\citet{Acemoglu2020}\comment[id=HM]{We need to cite more strategically. Cut Grimm,
-Donsinomi. More state of the art SEIR in other fields. Or drop SEIR altogether? If I
-read that as a Michael Meyer-Hermann type, I would think, ``ah, these economists
-again...''} who develop multi group SEIR models to analyze the effects of targeted
-lockdowns and \citet{Berger2020} who extend the SEIR model to analyze testing and
-conditional quarantines. For a more comprehensive review see \citet{Avery2020}. Others
-have used the results of a standard SEIR model as input for economic models that
-estimate the cost of policies (e.g. \citet{Dorn2020}).
-
-While the popularity of the SEIR model is mainly due to its simplicity, the extensions
-are quite complex. It is unlikely that there will be a SEIR model that combines all
-proposed extensions. Moreover, the extensions do not address other key issues: The main
-parameter of the SEIR model, the basic reproduction number ($R_0$), is not
-policy-invariant. It is a composite of the number of contacts each person has and the
-infection probability of the contacts. In fact, policy simulations are done by setting
-$R_0$ to a different value but it is hard to translate a real policy into the value of
-$R_0$ it will induce. In other words, SEIR models are not suited for evaluating the
-effect of policies which have never been experienced before.
-
-Another commonly used model class in epidemiology are agent-based simulation
+A commonly used model class in epidemiology are agent-based simulation
 models. In a prototypical agent-based simulation model, individuals are
 simulated as moving particles. Infections take place when two particles come closer than
 a certain contact radius (e.g. \citet{Silva2020} and \citet{Cuevas2020}). While the
@@ -47,24 +23,49 @@ several NPIs. The main focus of their application are contact tracing policies.
 resolution by estimating contact networks from fine grained mobility data for the
 Boston metropolitan area. They use this model to show how NPIs, contact tracing and PCR
 testing can influence the infection dynamics. However, they do not calibrate their model
-match actual infection numbers which makes it more suitable to explore the general
+to match actual infection numbers which makes it more suitable to explore the general
 mechanics of different disease mitigation measures than for their quantitative
 evaluation.
 
-\citet{Bicher2021} simulate the Austrian population during the first wave (February 21
-to April 9, 2020). It uses the same data provided by \citet{Mossong2008} as we use to
-calibrate contact networks for households, workplaces and schools. The model focuses on
-analyzing the effect of different contact tracing strategies.
+\citet{Bicher2021} simulate the entire Austrian population. The use data from the first
+wave (February 21 to April 9, 2020) to calibrate ther model and predict the effect of
+different NPIs and contact tracing policies until November 2020. They the same data
+provided by \citet{Mossong2008} as we use to calibrate contact networks for households,
+workplaces and schools. The model focuses on analyzing the effect of different contact
+tracing strategies and not on modelling enacted Austrian policies over a long period
+of time.
 
 Moreover, there are several forthcoming applications\comment[id=HM]{What is that
-supposed to mean?} of agent-based simulation models with contact networks. Examples are
+supposed to mean?}\comment[id=J]{Does that mean we should not cite the working
+papers here?} of agent-based simulation models with contact networks. Examples are
 \citet{Basurto2020}, \citet{DelliGatti2020} and \citet{Mellacher2020}.
 
-Our model combines elements from the above models and adds several new features. To
-the best of our knowledge, ours is the only model that can explain observed case
-numbers with an excellent fit over more than 9 Months. We also have the most fine
-grained model of schools and NPIs that affect schools. Finally, we have an extremely
-detailed model of PCR and rapid tests with a share of detected cases that varies over
-time and across age groups.
+Our model combines elements from the above models and adds other ones. To the best of
+our knowledge, our model is the only one with the following features:
+
+1. The free model parameters have been estimated with the method of simulated moments
+\citep{McFadden1989}. Despite having few free parameters our model does en excellent
+job in explaining observed case numbers and the spread of the B.1.1.7 mutation over
+more than nine months of data.
+
+2. We have an extremely fine grained of schools and preschools.
+We can thus easily model all NPIs that have been implemented in Germany in the past 9
+months. This includes complete school closures, phases where only those students whose
+parents could not find any private childcare arrangement could attend, split class
+approaches for some or all age groups and combinations thereof. Moreover, we can
+account for additional hygiene measures whose effect is estimated inside the model.
+
+3. we model the evolution of the pandemic and all enacted policies over since the
+start of the second wave. Since the vast majority of cases has occurred in that time
+period and we also model unobserved infections our simulations take into account that
+many people are already immune because they are recovered from an infection and that
+this immunity is not spread randomly across the population.
+
+4. We have an extremely detailed model of PCR and rapid tests with a share of detected
+cases that varies over time and across age groups. We fit estimates of the share of
+known cases from other studies for time periods where those are available but also
+estimate a plausible share of known cases after vaccinations become widespread and
+methodologies that rely on a case fatality ratio to identify the share of known
+cases are not applicable anymore.
 
 
