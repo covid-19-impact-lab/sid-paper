@@ -29,22 +29,16 @@ are triggered to seek a rapid test because of a risk contact in their household.
 
 \begin{figure}[ht] % Share tested per day
     \centering
-    \begin{subfigure}[b]{0.3\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/popshare_tested}
         \caption{Share of the Population Doing a Rapid Test on a Given Day, by Channels}
         \label{fig:rapid_test_demand_by_channel}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/popshare_tested_positive}
         \caption{Share of the Population Testing Positive on a Given Day, by Channels}
         \label{fig:pos_rapid_tests_by_channel}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{figures/results/figures/rapid_test_statistics/popshare_tested_negative}
-        \caption{Share of the Population Testing Negative on a Given Day, by Channels}
-        \label{fig:neg_rapid_tests_by_channel}
     \end{subfigure}
     \caption{Rapid Test Shares in the Population by Channel}
     \floatfoot{\noindent \textit{Note:}
@@ -56,11 +50,11 @@ are triggered to seek a rapid test because of a risk contact in their household.
         and the frequency of testing is also increased. Private tests are demanded by
         individuals for one of three reasons: having developed symptoms without access
         to a PCR test, having a household member that has tested positive or developed
-        symptoms or having planned a weekly meeting with friends. The left figure shows
-        the share of the population doing a rapid test on a given day. The middle figure
-        shows the share of the population testing positive on a given day (true and
-        false positives). The right figure shows the share of the population testing
-        negative on a given day (true and false negatives).}
+        symptoms or having planned a weekly meeting with friends.
+        Panel~\subref{fig:rapid_test_demand_by_channel} shows the share of the
+        population doing a rapid test on a given day.
+        Panel~\subref{fig:pos_rapid_tests_by_channel} shows the share of the population
+        testing positive on a given day (true and false positives).}
 \end{figure}
 
 \FloatBarrier
@@ -84,14 +78,16 @@ rapid tests with work and school rapid tests accounting for 40\% and 7\%,
 respectively.
 
 Such a large effect of rapid tests seems to be at odds with the general perception that
-they are not very reliable. However, this is not the case, which can be seen from the
-number of
-false negative tests. At its peak at the beginning of May, there are more than 80 false
-negative rapid tests per million inhabitants per day. While this number might sound low
-in isolation, it becomes quite large when set in context: We estimate that at at the
-the same time only 200 cases per million are detected by rapid tests. This means that
-even at the time where discovery of cases via rapid tests is at its peak, almost
-30\% of people who are infected and make a test are not discovered by the test.
+they are not very reliable. However, this is not the case,\comment[id=HM]{I do not
+understand. 80 fals neg for 200 true pos does not seem too reliable? I guess the
+important bit is the reference cat. -- catching 200 pos vs. nothing} which can be seen
+from the number of false negative tests. At its peak at the beginning of May, there are
+more than 80 false negative rapid tests per million inhabitants per day. While this
+number might sound low in isolation, it becomes quite large when set in context: We
+estimate that at at the the same time only 200 cases per million are detected by rapid
+tests. This means that even at the time where discovery of cases via rapid tests is at
+its peak, almost 30\% of people who are infected and make a test are not discovered by
+the test.
 
 This shows clearly that the large effect of rapid tests on the infection dynamic
 is not driven by unrealistic assumptions about their sensitivity but rather by the
