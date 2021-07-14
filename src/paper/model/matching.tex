@@ -2,7 +2,7 @@
 \label{sec:matching}
 
 The empirical data described above only allows to estimate the number of contacts each
-person has. In order to simulate transmissions of Covid-19, the numbers of contacts has
+person has. In order to simulate transmissions of Covid-19, the numbers of contacts have
 to be translated into actual meetings between people. This is achieved by a matching
 algorithm:
 
@@ -17,8 +17,10 @@ such as school classes or groups of co-workers. Those groups are generated once 
 beginning of the simulation. The groups can be sampled from empirical data or created by
 randomly matching simulated individuals into groups. 2) A deterministic or random
 function that takes the value 0 (non-participating) and 1 (participating) and can depend
-on the weekday, date and health state. This can be used to model vacations, weekends or
-symptomatic people who stay home (see section \ref{sec:policies} for details).
+on the weekday, date and health state.\comment[id=K]{Actually the full states and params
+enter into the contact functions} This can be used to model things like vacations,
+weekends or symptomatic people who stay home (see section \ref{sec:policies} for
+details).
 
 Given those two components, the disease transmission for recurrent contacts is extremely
 simple: On each simulated day, every person who does not stay home meets all other group
@@ -31,7 +33,7 @@ $a$ and susceptible, then $j$ becomes infected with the following probability
     P(infection) = \beta_c \cdot s_{c, t} \cdot \sigma_v \cdot \zeta_a
 \end{equation}
 
-where $beta_c$ denotes the base infection probability of contact type $c$,
+where $\beta_c$ denotes the base infection probability of contact type $c$,
 $s_{c, t}$ is a seasonality factor between zero and one that depends on the contact
 type $c$ and time $t$ (see Equation~\ref{eq:seasonality}), $\sigma_v$ is the
 infectiousness factor of virus variant $v$ and $\zeta_a$ is an age dependent
@@ -46,15 +48,13 @@ that an actual contact takes place.
 
 %% Non recurrent contacts
 
-The matching of non-recurrent contact types is more difficult because the contact
-network is resampled randomly every day. Moreover, it needs to allow for
-assortative matching. In our application, all
-random contacts are assortative with respect to age group $a$ (it is usually more likely
-to meet
-people from the same age group) and county (it is more likely to meet people from the
-same county) but in principle any set of discrete variables can be used. This set of
-variables that influence matching probabilities introduce a discrete partition of the
-population into groups.
+The matching of non-recurrent contact types is more difficult because the contact network
+is resampled randomly every day. Moreover, it needs to allow for assortative matching. In
+our application, all random contacts are assortative with respect to age group $a$ (it is
+usually more likely to meet people from the same age group) and county (it is more likely
+to meet people from the same county) but in principle any set of discrete variables can
+be used. This set of variables that influence matching probabilities
+\replaced[id=K]{induce}{introduce} a discrete partition of the population into groups.
 
 Below we first describe one iteration of a simplified matching algorithm that
 illustrates what we want to achieve. In practice, we approximate the result of this
@@ -76,7 +76,7 @@ $f_{zj}$ is calculated as follows:
 
 \begin{equation}
     \label{eq:combined_matching_probabilities}
-    f_{zj} = \underbrace{\alpha_{c,a_i,a_j, county_i, county_j}\vphantom{\frac{bla}{\sum_i^k}}}_{\text{Group Probability}} \cdot \underbrace{\frac{K_{z,j,c}}{\sum_{l=1}^N K_{z,l,c} \cdot \mathbb{I}_{county_l=county_j \land a_l = a_j}}}_{\text{Individual probability}}
+    f_{zj} = \underbrace{\alpha_{c,a_i,a_j, county_i, county_j}\vphantom{\frac{bla}{\sum_i^k}}}_{\text{Group Probability}} \cdot \underbrace{\frac{K_{z,j,c}}{\sum_{l=1}^N K_{z,l,c} \cdot \mathbb{I}_{county_l=county_j \land a_l = a_j}}}_{\text{Individual Probability}}
 \end{equation}
 
 We then draw an individual $j$. If one of the two participants is susceptible and the
@@ -86,8 +86,8 @@ Equation~\ref{eq:infection_probability_formula}. Finally we update the remaining
 numbers of unmatched contacts by setting:
 
 \begin{align}
-    K_{z+1,i,c} = K_{z, i, c} - 1
-    K_{z+1, j, c} = K_{z, j, c} - 1
+    K_{z+1,i,c} &= K_{z, i, c} - 1 \\
+    K_{z+1, j, c} &= K_{z, j, c} - 1
 \end{align}
 
 

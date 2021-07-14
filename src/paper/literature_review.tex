@@ -27,10 +27,10 @@ to match actual infection numbers which makes it more suitable to explore the ge
 mechanics of different disease mitigation measures than for their quantitative
 evaluation.
 
-\citet{Bicher2021} simulate the entire Austrian population. The use data from the first
-wave (February 21 to April 9, 2020) to calibrate ther model and predict the effect of
-different NPIs and contact tracing policies until November 2020. They the same data
-provided by \citet{Mossong2008} as we use to calibrate contact networks for households,
+\citet{Bicher2021} simulate the entire Austrian population. They use data from the first
+wave (February 21 to April 9, 2020) to calibrate their model and predict the effect of
+different NPIs and contact tracing policies until November 2020. They use the same data
+provided by \citet{Mossong2008} as we to calibrate contact networks for households,
 workplaces and schools. The model focuses on analyzing the effect of different contact
 tracing strategies and not on modelling enacted Austrian policies over a long period
 of time.
@@ -40,32 +40,33 @@ supposed to mean?}\comment[id=J]{Does that mean we should not cite the working
 papers here?} of agent-based simulation models with contact networks. Examples are
 \citet{Basurto2020}, \citet{DelliGatti2020} and \citet{Mellacher2020}.
 
-Our model combines elements from the above models and adds other ones. To the best of
+Our model combines elements from the above models and adds several others. To the best of
 our knowledge, our model is the only one with the following features:
 
 1. The free model parameters have been estimated with the method of simulated moments
-\citep{McFadden1989}. Despite having few free parameters our model does en excellent
-job in explaining observed case numbers and the spread of the B.1.1.7 mutation over
-more than nine months of data.
+   \citep{McFadden1989}. Despite having few free parameters our model does an excellent
+   job in explaining observed case numbers and the spread of the B.1.1.7 mutation over
+   more than nine months of data.
 
-2. We have an extremely fine grained of schools and preschools.
-We can thus easily model all NPIs that have been implemented in Germany in the past 9
-months. This includes complete school closures, phases where only those students whose
-parents could not find any private childcare arrangement could attend, split class
-approaches for some or all age groups and combinations thereof. Moreover, we can
-account for additional hygiene measures whose effect is estimated inside the model.
+2. We have an extremely fine grained \replaced[id=K]{representation}{} of schools and
+   preschools. We can thus easily model all \replaced[id=K]{schooling policies}{NPIs}
+   that have been implemented in Germany in the past nine months. This includes complete
+   school closures, phases where only those students whose parents could not find any
+   private childcare arrangement could attend, split class approaches for some or all age
+   groups and combinations thereof. Moreover, we can account for additional hygiene
+   measures whose effect is estimated inside the model.
 
-3. we model the evolution of the pandemic and all enacted policies over since the
-start of the second wave. Since the vast majority of cases has occurred in that time
-period and we also model unobserved infections our simulations take into account that
-many people are already immune because they are recovered from an infection and that
-this immunity is not spread randomly across the population.
+3. We model the evolution of the pandemic and all enacted policies since the start of the
+   second wave. Since the vast majority of cases has occurred in that time period and we
+   also model unobserved infections our simulations take into account that many people
+   are already immune because they have recovered from an infection and that this
+   immunity is not spread randomly across the population.
 
 4. We have an extremely detailed model of PCR and rapid tests with a share of detected
-cases that varies over time and across age groups. We fit estimates of the share of
-known cases from other studies for time periods where those are available but also
-estimate a plausible share of known cases after vaccinations become widespread and
-methodologies that rely on a case fatality ratio to identify the share of known
-cases are not applicable anymore.
+   cases that varies over time and across age groups. We fit estimates of the share of
+   known cases from other studies for time periods where those are
+   available\comment[id=K]{Citation here?} but also estimate a plausible share of known
+   cases after vaccinations become widespread and methodologies that rely on the case
+   fatality ratio to identify the share of known cases are not applicable anymore.
 
-
+ \comment[id=K]{Four is of course plenty but what about weekly recurring contacts or using the google mobility data? -> maybe add these to point 2?}

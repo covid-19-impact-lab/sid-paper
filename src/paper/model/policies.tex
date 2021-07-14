@@ -1,10 +1,14 @@
 \subsection{Reducing Numbers of Contacts via NPIs}
 \label{sec:policies}
 
+ \comment[id=K]{I think we need to make sure we distinguish very clearly what is possible
+ and what's implemented.}
+
+
 Our model makes it very easy to model a wide range of NPIs, either in isolation or
 simultaneously. This is important for two reasons: Firstly, it allows to predict and
 quantify the effect of novel NPIs. Secondly, it allows to model the actually implemented
-policy environment in great detail, which is necessary to use use the full time series
+policy environment in great detail, which is necessary to use the full time series
 of infections and fatality rates to estimate the model parameters.\footnote{
 See \citet{Avery2020} for an explanation why it can be harmful to use too long time
 series to estimate simple SEIR type models.}
@@ -29,34 +33,34 @@ reproduce the finding that school vacations do not reduce infection numbers even
 schools lead to infections when open \citep{Isphording2021}.
 
 The most complex policies are typically found in the education sector. Since the
-beginning of 2021 schools have switched back and fourth between full closures,
-split class approaches with alternating schedules for some or all age groups and
-reopening while maintaining hygiene measures. On top of that there are different
-policies for allowing young students whose parents work full time to attend school
-even on days where they normally would not. For details on how we calibrate these
-policies see Section~\ref{subsec:policies}.
+beginning of \replaced[id=K]{2020}{2021} schools have switched back and fourth between
+full closures, split class approaches with alternating schedules for some or all age
+groups and reopening while maintaining hygiene measures. On top of that there are
+different policies for allowing young students whose parents work full time to attend
+school even on days where they normally would not. For details on how we calibrate these
+policies see Section~\ref{subsec:policies}.\comment[id=K]{Did I write enough on the school policies? (No sources or details so far...)}
 
 Importantly, policies can depend on the health states of participating individuals.
-This allows to quarantine entire school classes if one student tested positive or
-to implement official or private contact tracing.
+\replaced[id=K]{Thus, it would be possible}{This allows} to quarantine entire school
+classes if one student tested positive \replaced[id=K]{and many other forms of contact
+tracing}{or to implement official or private contact tracing}.
 
-For some policies the exact effect on each contact type is not easy to determine. If
-this refers to a policy has been active during the estimation period, it is possible to
+For some policies the exact effect on each contact type is not easy to determine. If this
+refers to a policy that has been active during the estimation period, it is possible to
 estimate such parameters by fitting the model to time series data of infection rates.
-This is only possible if the policy was not active during the whole estimation period
-and thus the infection probabilities can be identified separately. We do this to account
-for hygiene measures at school and in the workplace that have been in effect since
-November 2020.
+This is only possible if the policy was not active during the whole estimation period and
+thus the infection probabilities can be identified separately. We do this to account for
+hygiene measures at school and in the workplace that have been in effect since November
+2020.\comment[id=K]{I don't understand this paragraph.}
 
-Not all things that reduce contacts compared to the pre-pandemic level are driven
-by NPIs. Therefore, we also model endogenous contact reductions that can depend on
-the health state of individuals, known risk contacts or the local incidence of
-infections. Examples are strong contact reductions for symptomatic individuals or those
-who have a positive PCR or rapid tests or contact reductions when a houshold member
-tested positive. The extent to which contacts are reduced can be calibrated from
-surveys. For an application of our model showcasing private contact tracing in the
-context of the Christmas holidays see \cite{Gabler2020}.
-
+Not all things that reduce contacts compared to the pre-pandemic level are driven by
+NPIs. Therefore, we also model endogenous contact reductions that can depend on the
+health state of individuals \replaced[id=K]{}{, known risk contacts} or the local
+incidence. Examples in our model are contact reductions for symptomatic individuals or
+those who have a positive PCR or rapid tests \replaced[id=K]{or contact reductions when a
+household member tested positive}. The extent to which contacts are reduced can be
+calibrated from surveys. For an application of our model showcasing private contact
+tracing in the context of the Christmas holidays see \cite{Gabler2020}.
 
 
 
