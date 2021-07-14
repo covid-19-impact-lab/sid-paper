@@ -1,8 +1,6 @@
 \subsection{Share of Detected Cases}
 \label{subsec:data_share_known_cases}
 
- \comment[id=K]{Stoye called this the ascertainment rate if I remember right. Maybe we should replace this everywhere}
-
 One important feature of our model is that we distinguish between undetected and detected
 cases and that we model which cases are detected and which are not (see
 Section~\ref{sub:testing} for a detailed description for how we model both rapid and PCR
@@ -29,11 +27,12 @@ rapid testing which lead follow-up PCR tests when they are positive (see
 Section~\ref{subsec:results_share_known_cases} and \ref{sub:testing}).
 
 % Christmas and Easter
-Lastly, we model reductions in the share known cases due to the two major holidays in our
+Lastly, we model reductions in the share of detected cases due to the two major holidays in our
 simulation period, Christmas and Easter. During both holidays many laboratories did not
 process tests and most physicians' offices were closed, leading to less PCR tests and
 short and large drops in the share of known cases. The resulting share of detected cases
-in the absence of rapid tests is shown in Figure~\ref{fig:share_known_cases_data}.
+in the absence of rapid tests is shown in Figure~\ref{fig:share_known_cases_data} and
+was estimated to fit the data.
 
 \begin{figure}[ht]
   \centering
