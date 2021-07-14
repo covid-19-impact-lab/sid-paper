@@ -1,18 +1,18 @@
 Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity
 on many dimensions. The development of highly effective vaccines holds the promise of
-containment in the medium term. However, most countries find themselves many
-months---and often years---away from reaching vaccination levels that would end the
-pandemic or even protect the most vulnerable \citep{Mathieu2021}. In the meantime, it is
-of utmost importance to employ an effective mix of strategies for containing the virus.
-The most frequent initial response was a set of non-pharmaceutical interventions (NPIs)
-to reduce contacts between individuals. While this has allowed some countries to sustain
-equilibria with very low infection numbers,\footnote{See \citet{Contreras2021} for a
-    theoretical equilibrium at low case numbers which is sustained with
-    test-trace-and-isolate policies.} most have seen large fluctuations of infection rates
-over time. Containment measures have become increasingly diverse and now include rapid
-testing, more nuanced NPIs, and contact tracing. Neither these policies' effects nor the
-influence of seasonal patterns or of more infectious virus strains are well understood
-in quantitative terms.
+containment in the medium term. However, most countries find themselves many months---and
+often years---away from reaching vaccination levels that would end the pandemic or even
+protect the most vulnerable \citep{Mathieu2021}. In the meantime, it is of utmost
+importance to employ an effective mix of strategies for containing the virus. The most
+frequent initial response was a set of non-pharmaceutical interventions (NPIs) to reduce
+contacts between individuals. While this has allowed some countries to sustain equilibria
+with very low infection numbers,\footnote{See \citet{Contreras2021} for a theoretical
+equilibrium at low case numbers which is sustained with test-trace-and-isolate
+policies.}\comment[id=K]{Contreras2021 is not published but only on medrxiv} most have
+seen large fluctuations of infection rates over time. Containment measures have become
+increasingly diverse and now include rapid testing, more nuanced NPIs, and contact
+tracing. Neither these policies' effects nor the influence of seasonal patterns or of
+more infectious virus strains are well understood in quantitative terms.
 
 This paper develops a quantitative model incorporating these factors simultaneously. The
 framework allows to combine a wide variety of data and mechanisms in a timely fashion,
@@ -126,13 +126,14 @@ to medical literature (for a detailed description see Supplementary
 Material~\ref{sub:data_course_of_disease}). Conditional on the type of contact,
 infectiousness is independent of age \citep{Jones2021}.
 
-The model includes several other features, which are crucial to describe the evolution
-of the pandemic in 2020-2021. New virus strains with different infectiousness
-profiles may appear. Vaccines may become available. During the
-vaccine roll-out, priority may depend on age and occupation; vaccine hesitancy is
-modelled by some individuals refusing vaccination offers. With some probability,
-vaccinated agents become immune and do not transmit the virus \citep{Hunter2021,
-    LevineTiefenbrun2021, Petter2021, Pritchard2021}.
+The model includes several other features, which are crucial to describe the evolution of
+the pandemic in 2020-2021. New virus strains with different infectiousness profiles may
+appear. Vaccines may become available. During the vaccine roll-out, priority may depend
+on age and occupation; vaccine hesitancy is modelled by some individuals refusing
+vaccination offers. With some probability, vaccinated agents become immune and do not
+transmit the virus \citep{Hunter2021, LevineTiefenbrun2021, Petter2021,
+Pritchard2021}.\comment[id=K]{Hunter2021, Petter2021 and Pritchard not published
+(medrxiv)}
 
 We include two types of tests. Polymerase chain reaction (PCR) tests reveal whether an
 individual is infected or not; there is no uncertainty to the result. PCR tests require
@@ -389,9 +390,10 @@ Seasonality has a large effect in slowing the spread of SARS-CoV-2. By May 31, b
 observed and total cases would be reduced by a factor of four if only seasonality
 mattered. However, in this period, cases would have kept on rising throughout, just at a
 much lower pace \citep[this is in line with results in][, which our seasonality measure
-    is based on]{Gavenciak2021}. Nevertheless, we estimate seasonality to be a
-quantitatively important factor determining the evolution of the pandemic, explaining
-most of the early changes and 43\% of the cumulative difference by the end of May.
+is based on]{Gavenciak2021}.\comment[id=K]{Gavenciak2021 is not published} Nevertheless,
+we estimate seasonality to be a quantitatively important factor determining the evolution
+of the pandemic, explaining most of the early changes and 43\% of the cumulative
+difference by the end of May.
 
 A similar-sized effect---42\% in the decomposition---comes from rapid testing. Here, it
 is crucial to differentiate between recorded cases and actual cases. Additional testing
@@ -493,9 +495,10 @@ participation in a non-public setting. The benefit of point-of-care rapid tests 
 precondition to participate in leisure activities as well as mandatory tests at the
 workplace or at school come from screening the entire population. This is important
 because disadvantaged groups are less likely to be reached by testing campaigns relying
-on voluntary participation \citep[e.g.][]{StillmanTonin2021}; at the same time, these
-groups have a higher risk to contract CoViD-19 \citep{KochInstitut2021a}. Mandatory
-tests at school and at the workplace will extend more into these groups. The same goes
-for individuals who exhibit a low level of compliance with CoViD-19-related regulations.
-Compared to vaccinations, rapid testing programmes allow a much quicker roll-out, making
-it arguably the most effective tool to contain the pandemic in the short run.
+on voluntary participation \citep[e.g.][]{StillmanTonin2021};\comment[id=K]{IZA DP} at
+the same time, these groups have a higher risk to contract CoViD-19
+\citep{KochInstitut2021a}. Mandatory tests at school and at the workplace will extend
+more into these groups. The same goes for individuals who exhibit a low level of
+compliance with CoViD-19-related regulations. Compared to vaccinations, rapid testing
+programmes allow a much quicker roll-out, making it arguably the most effective tool to
+contain the pandemic in the short run.
