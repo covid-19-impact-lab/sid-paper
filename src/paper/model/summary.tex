@@ -1,20 +1,13 @@
 \subsection{Summary}
 \label{sub:model_summary}
 
-To predict and quantify the effects of a wide variety of fine-grained social distancing
-policies, vaccinations and rapid testing, we \replaced[id=K]{use the following}{propose a
-different} model structure. \replaced[id=K]{}{It inherits many features from prototypical
-agent-based simulation models but replaces the contacts between moving particles by
-contacts between individuals who work, go to school, live in a household and enjoy
-leisure activities.}\comment[id=K]{This has been moved to the Literature Review, I
-think.}
+We use an agent-based simulation model with detailed contact networks. The model
+structure is depicted in Figure~\ref{fig:model_contacts_infections}.
 
-The structure of the model is depicted in Figure~\ref{fig:model_contacts_infections}.
-
-We distinguish between eight types of contact
-models which are all listed in Figure~\ref{fig:model_contacts_infections}: households,
-recurrent and random work contacts, recurrent and random leisure contacts, and nursery,
-preschool, and school contacts.
+We distinguish between eight types of contacts which are all listed in
+Figure~\ref{fig:model_contacts_infections}: households, recurrent and random work
+contacts, recurrent and random leisure contacts, as well as nursery, preschool, and
+school contacts.
 
 The number of contacts is translated into infections by a matching algorithm.
 There are different matching algorithms for recurrent contacts (e.g. classmates, family
@@ -35,21 +28,17 @@ symptoms additionally require hospitalization and lead to either recovery or dea
 
 After rapid tests become available, people who work or go to school can receive rapid
 tests there. Moreover, people can decide to do a rapid test if they develop symptoms,
-have many planned contacts\comment[id=K]{at the moment it's implemented as planing to
-participate in a weekly leisure meeting. Should we be more explicit here?} or
-\replaced[id=K]{have a sick or positively tested household member}{observe cases in their
-contact network}. People who have a positive rapid test demand a confirmatory PCR test
-with a certain probability. Moreover, PCR tests can be demanded because of symptoms or
-randomly.
+have many planned contacts or have a sick or positively tested household member. People
+who have a positive rapid test demand a confirmatory PCR test with a certain probability.
+Moreover, PCR tests can be demanded because of symptoms or randomly.
 
 This rich model of PCR and rapid tests leads to a share of detected cases that varies
 over time and across age groups. It also allows to quantify the effect of changes in
 testing policies on the dynamic of infections.
 
-People who have symptoms\replaced[id=K]{ or}{,} received a positive test,
-\replaced[id=K]{}{or had a risk contact} can reduce their number of contacts across all
-contact types endogenously. The extent to which this is done is calibrated from survey
-data.
+People who have symptoms or received a positive test can reduce their number of contacts
+across all contact types endogenously. The extent to which this is done is calibrated
+from survey data.
 
 The model makes it very simple to translate policies into model quantities. For example,
 school closures imply the complete suspension of school contacts. A strict lockdown

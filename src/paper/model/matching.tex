@@ -17,10 +17,9 @@ such as school classes or groups of co-workers. Those groups are generated once 
 beginning of the simulation. The groups can be sampled from empirical data or created by
 randomly matching simulated individuals into groups. 2) A deterministic or random
 function that takes the value 0 (non-participating) and 1 (participating) and can depend
-on the weekday, date and health state.\comment[id=K]{Actually the full states and params
-enter into the contact functions} This can be used to model things like vacations,
-weekends or symptomatic people who stay home (see section \ref{sec:policies} for
-details).
+on the weekday, date and health states of the entire population. This can be used to
+model things like vacations, weekends or symptomatic people who stay home (see section
+\ref{sec:policies} for details).
 
 Given those two components, the disease transmission for recurrent contacts is extremely
 simple: On each simulated day, every person who does not stay home meets all other group
@@ -53,8 +52,8 @@ is resampled randomly every day. Moreover, it needs to allow for assortative mat
 our application, all random contacts are assortative with respect to age group $a$ (it is
 usually more likely to meet people from the same age group) and county (it is more likely
 to meet people from the same county) but in principle any set of discrete variables can
-be used. This set of variables that influence matching probabilities
-\replaced[id=K]{induce}{introduce} a discrete partition of the population into groups.
+be used. This set of variables that influence matching probabilities induce a discrete
+partition of the population into groups.
 
 Below we first describe one iteration of a simplified matching algorithm that
 illustrates what we want to achieve. In practice, we approximate the result of this
