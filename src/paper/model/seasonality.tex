@@ -9,7 +9,7 @@ temperature swings. For a detailed overview of possible drivers see
 
 We follow \cite{Kuehn2020} and \cite{Gavenciak2021} in modeling seasonality in the
 transmission of SARS-CoV-2 as a multiplicative factor on infection probabilities. The
-factor follows a sine curve that reaches its maximum at January first and its minimum
+factor follows a sine curve that reaches its maximum at January 1 and its minimum
 on June 30.
 
 For simplicity we normalize the factor to reach one at its maximum. Thus, the formula of
@@ -20,10 +20,10 @@ the seasonality factor is given by:
     s_{c, t} = 1 + 0.5 \kappa_c  sin \left ( \pi  \left (\frac{1}{2} + \frac{t}{182.5}\right ) \right ) - 0.5 \kappa_c
 \end{equation}
 
-Where $\kappa_k$ is difference in the seasonality factor between peak infectiousness
+Where $\kappa_c$ is difference in the seasonality factor between peak infectiousness
 and lowest infectiousness.
 
-The subscript $k$ is needed because the strength of the seasonality effect differs
+The subscript $c$ is needed because the strength of the seasonality effect differs
 across contact types: Work, household and school contacts are likely to take place
 inside even in summer. Thus they are only subject to seasonality due to factors that
 influence the immune system. Other contacts (for example meeting friends and while doing
@@ -33,7 +33,7 @@ via those contacts should have a stronger seasonal pattern.
 We calibrate $\kappa_{strong}$ to 0.42 and $\kappa_{weak}$ to 0.21. This is in line with
 \cite{Gavenciak2021} and \cite{Kuehn2020}.
 
-The two seasonality curves are shown in Figure~\ref{fig:seasonality}
+The two seasonality curves are shown in Figure~\ref{fig:seasonality}.
 
 \begin{figure}
     \centering
@@ -42,7 +42,7 @@ The two seasonality curves are shown in Figure~\ref{fig:seasonality}
     \label{fig:seasonality}
     \floatfoot{\noindent \textit{Note:} We model seasonality as a factor that reduces the
     probability of infection of all encounters. The factor depends on the day and is
-    calculated from a sinus shaped function with its maximum on January 1st. Since
+    calculated from a sinus shaped function with its maximum on January 1. Since
     seasonality can affect the transmission both through physical conditions such as
     temperature and humidity as well as through the numbers of contacts that take place
     outside we assume two seasonality factors. One for other contacts which we expect to

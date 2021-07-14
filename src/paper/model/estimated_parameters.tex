@@ -4,11 +4,11 @@
 
 \FloatBarrier
 
-We estimate parameters that cannot be calibrated outside of the model with the
-method of simulated moments \citep{McFadden1989} by minimizing the distance between
-simulated and observed infection rates and fatality rates (disaggregated by region
-and age groups). Since our model includes a lot of randomness, we
-average simulated infection rates over several model runs.
+We estimate parameters that cannot be calibrated outside of the model with the method of
+simulated moments \citep{McFadden1989} by minimizing the distance between simulated and
+observed infection rates (disaggregated by region and age groups) and fatality rates.
+Since our model includes a lot of randomness, we average simulated infection rates over
+several model runs.
 
 All estimated parameters are described in Table~\ref{tab:estimated_params}.
 
@@ -34,7 +34,7 @@ model.
 
 % infection probabilities
 To avoid over-fitting and simplify the numerical optimization problem, we only allow for
-five different infection probabilities: 1) for contacts in schools 2) contacts in
+five different infection probabilities: 1) for contacts in schools 2) for contacts in
 preschools and nurseries. 3) for work contacts. 4) for households. 5) for other
 contacts.
 
@@ -62,7 +62,7 @@ probability of that contact.
 In order to get a feeling for the infectiousness of each contact type it
 is more intuitive to look at how many infections were actually caused by each contact
 type. This is depicted in Figure~\ref{fig:infection_heatmap}. We can see that work and
-other contacts are the main driver of the pandemic, followed by infections in
+other contacts are the main drivers of the pandemic, followed by infections in
 households. Schools and preschools contribute fewer infections which is to be expected
 given that there are much fewer students than working adults in the German population.
 Nevertheless, Figure~\ref{fig:school_scenarios_detailed} shows that schools do have a
@@ -72,7 +72,7 @@ notable effect on the infection dynamic in the long run.
     \centering
     \includegraphics[width=\textwidth]{figures/infection_channels.png}
     \caption{Daily share of infections by contact type}
-    \floatfoot{\noindent \textit{Note:} Daily hare of infections that were contributed
+    \floatfoot{\noindent \textit{Note:} Daily share of infections that were contributed
     by each contact type. Darker colors mean that a larger share of infections were
     contributed by that contact type. The majority of infections take place in the
     workplace, in households and via other contacts. Schools and preschools contribute
@@ -85,13 +85,13 @@ at work and in educational facilities. This parameter becomes active in November
 when stricter mask mandates and distancing rules were introduced. It is estimated to
 reduce infectiousness of contacts by one third.
 
-Moreover, we estimate nine different multipliers that reflect how strongly other
-contacts are reduced over time. The dates at which we switch between the multipliers
-usually coincides with policy changes and is not determined from the data. The only
-exception to this are slight adjustments to parameters to incorporate lockdown fatigue
-(towards the end of a lockdown period) or precautionary contact reductions (in times
-of high incidences right before a lockdown is enacted). The estimated other multipliers
-are also depicted in Figure~\ref{fig:other_multiplier}.
+Moreover, we estimate nine different multipliers that reflect how strongly other contacts
+are reduced over time. The dates at which we switch between the multipliers usually
+coincide with policy changes and is not determined from the \replaced[id=K]{case
+numbers}{data}. The only exception to this are slight adjustments to parameters to
+incorporate lockdown fatigue (towards the end of a lockdown period) or precautionary
+contact reductions (in times of high incidences right before a lockdown is enacted). The
+estimated other multipliers are also depicted in Figure~\ref{fig:other_multiplier}.
 
 \begin{figure}
     \centering
