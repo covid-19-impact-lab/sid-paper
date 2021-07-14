@@ -3,8 +3,7 @@
 
 This section compares simulated data from our model with empirical data from Germany. We
 look at observed infections (overall as well as by age group and federal state), the
-effective replication number,  the spread of the B.1.1.7 mutation,
-vaccinations.
+effective replication number,  the spread of B.1.1.7 and vaccinations.
 
 % summary of the fit
 Overall, our model achieves an excellent fit of the two waves of infections with few free
@@ -47,11 +46,9 @@ level.
   \floatfoot{\noindent \textit{Note:} Both figures show averages and single runs. The
   average is the thick line. Single runs are shown as lighter and thinner lines. We
   averaged and show 30 simulation runs. The left figure shows the daily incidence rate
-  per million for the simulated reported infection rates. The mean infection rate is the
-  thick blue line. Single simulation runs are plotted in lighter and thinner lines. The
+  per million for the simulated reported infection rates. The
   official case numbers as reported by the RKI are plotted in black. The fit is overall
-  very good. The higher the mean incidence and the stronger the growth the more variance
-  there is between simulation runs. The right figure shows the effective replication
+  very good. The right figure shows the effective replication
   number ($R_t$) as reported by the RKI and as calculated in our model. The $R_t$ gives
   the average number of new infections caused by one infected individual. The $R_t$ in
   our model broadly follows the $R_t$ reported by the RKI. Two differences stand out.
@@ -61,7 +58,8 @@ level.
   reported $R_t$ increased more rapidly than that in our model. Here the opposite effect
   can be expected. During this time rapid tests increased strongly leading to more cases
   being detected. In the short term this leads an $R_t$ estimation that is based on
-  detected cases to overestimate the replication number.}
+  detected cases to overestimate the replication number.
+  For legibility reasons, all lines are rolling 7-day averages.}
 \end{figure}
 
 % R effective
@@ -87,8 +85,8 @@ infections among the oldest during the second wave of the pandemic in Germany. M
 the model predicts too few observed infections for the 15 to 34 years old at the end of
 2020 and the 5 to 14 years old in April and May 2021. The former is likely due to the
 fact that this age group has a very active social life which is not fully captured by our
-contact networks. The latter probably comes from too optimistic\comment[id=K]{cautious or
-slow? I think optimistic might be ambiguous here.} assumptions on school reopenings.
+contact networks. The latter probably comes from a too conservative model of school
+reopenings.
 
 
 \begin{figure}[ht]  % observed infections by age group
@@ -101,7 +99,7 @@ slow? I think optimistic might be ambiguous here.} assumptions on school reopeni
   population only includes private households, i.e. nursing homes are not represented in
   our model. They accounted for many cases and deaths in the winter of 2020 and many 80
   to 100 year olds live in these facilities. We average over 30
-  simulation runs.}
+  simulation runs. For legibility reasons, all lines are rolling 7-day averages.}
   \label{fig:age_group_fit}
 \end{figure}
 
@@ -129,7 +127,7 @@ Germany.
   \caption{Simulated and Empirical Infections by Federal State}
   \floatfoot{\noindent \textit{Note:} The figure shows the number of reported versus
   simulated cases per one million people per day for different federal states. We
-  averaged over 30 simulation runs.}
+  averaged over 30 simulation runs. For legibility reasons, all lines are rolling 7-day averages.}
   \label{fig:state_fit}
 \end{figure}
 
@@ -164,14 +162,9 @@ include it in our model.
   \floatfoot{\noindent \textit{Note:} The left figure shows the share of B.1.1.7 as
   reported by the RKI and as calculated in our model. We only introduce a few cases over
   the course of January. From then B.1.1.7 takes over endogenously through its increased
-  infectiousness ($\sigma_{B.1.1.7}$). We model no other features of B.1.1.7. We
-  introduce at most 0.986 cases per 100,000 inhabitants. The right figure shows the rate
+  infectiousness ($\sigma_{B.1.1.7}$). The right figure shows the rate
   of individuals that are vaccinated in our synthetic population versus in the general
-  German population. Note that we excluded the vaccinations that were given to nursing
-  homes (approx. one percent of the German population). Overall, our model covers a time
-  frame that goes from zero vaccinated individuals to a state where over 40\% of the
-  population are vaccinated. Our vaccinations work imperfectly but we do not model
-  different different vaccines nor do we distinguish between first and second shot.}
+  German population. For legibility reasons, all lines are rolling 7-day averages.}
 \end{figure}
 
 % vaccinations
@@ -196,7 +189,7 @@ the demand curves are at least partially calibrated through survey data. It is t
 very reassuring that we fit the share of individuals that do weekly rapid tests almost
 perfectly. For the share of individuals that have ever done a rapid test our model is
 conservative. There are two reasons for this: Firstly, we do not model people who have
-made rapid tests out of curiosity once they became available. Secondly, in the model, the
+done rapid tests out of curiosity once they became available. Secondly, in the model, the
 decision to take a rapid test is based on a time invariant individual specific compliance
 factor without any additional random components. While this captures important features
 of rapid test demand it abstracts from people who turn down rapid tests most of the time
@@ -218,15 +211,16 @@ tests.
         \caption{Share of the Population That Did a Rapid Test in the Last Week}
     \end{subfigure}
     \label{fig:share_rapid_test_last_week2}
-    \floatfoot{\noindent \textit{Note:} The figure compares the share of individuals who
-        have ever done a rapid test or done a rapid test within the last week in our
-        simulations to the shares reported in \citet{Betsch2021b}. The left panel
-        compares the share of individuals who have ever done a rapid test. The right
+    \floatfoot{\noindent \textit{Note:} Both panels compare empirical and simulated
+        rapid test demands. The empirical data comes from \citet{Betsch2021b}.
+        The left panel compares the share of individuals who have ever done a rapid test.
+        The right
         panel compares the share of individuals who have done a rapid test within the
         last seven days in our simulation compared to the share reporting to have done at
         least weekly rapid tests in the last four weeks in the COSMO survey. Overall our
         calibration of rapid tests are slightly conservative. The overall share is below
-        that in the study. We fit the share of weekly tests quite exactly. % However, the
+        that in the study. We fit the share of weekly tests quite exactly.
+        For legibility reasons, all simulated lines are rolling 7-day averages. % However, the
         % study only covers adults while our share also includes children who are tested
         % very regularly when attending school.
       }
