@@ -1,7 +1,7 @@
 \subsection{Simulated Rapid Tests}
 \label{subsec:results_rapid_test_statistics}
 
-In order to make most use out of limited data sources on rapid test usage, we model the
+In order to make the most use out of limited data sources on rapid test usage, we model the
 number of performed rapid tests as a result of time invariant willingness to do rapid
 tests and time varying supply side factors and events that trigger rapid tests. Thus, the
 $\pi$ parameters governing when individuals do rapid tests described in
@@ -13,8 +13,8 @@ sensitive and specific.
 In this section we look at how rapid tests expanded in our simulations over time and to
 what degree they are useful as a screening device despite their imperfections.
 
-We start with the share of the population doing a rapid test, receiving a positive rapid
-test and receiving a negative rapid test over time by the channel through which the test
+We start with the share of the population doing a rapid test and receiving a positive rapid
+test over time by the channel through which the test
 was demanded in Figures~\ref{fig:rapid_test_demand_by_channel},
 \ref{fig:pos_rapid_tests_by_channel}, respectively. Overall, the share of the population
 getting a rapid test on a given day increases from 2\% in mid March to over 10\% by May.
@@ -69,7 +69,7 @@ rapid tests per day. This means that our model suggests that Germany was able to
 up to 16,600 cases per day that would have likely gone undetected otherwise. The most
 powerful tool for detecting cases are the private rapid tests. This is because a large
 share of them are targeted, i.e. triggered by events in the household. However, this
-does not mean that rapid tests in the workplace or at school are useless. It is rather
+does not mean that rapid tests in the workplace or at school are less important. It is rather
 the combination of large scale screening at work and in schools and very efficient
 follow up tests whenever those screening tests detected a case. Shapley values
 (Figure~\ref{fig:2021_scenarios_decomposition_tests}) take this into account and
@@ -92,7 +92,7 @@ the test.
 This shows clearly that the large effect of rapid tests on the infection dynamic
 is not driven by unrealistic assumptions about their sensitivity but rather by the
 fact that there was a very large number of infected individuals who did not know they
-are positive. Detecting and isolating some of them is enough to slow down the
+are infected. Detecting and isolating some of them is enough to slow down the
 overall infection dynamic.
 
 \begin{figure}   % Number of True Positive / False Positive / True Negative / False Negative
@@ -125,14 +125,16 @@ overall infection dynamic.
         \label{fig:rapid_tests_number_false_negative}
     \end{subfigure}
     \vskip3ex
-    \caption{Rapid Test Results}
+    \caption{Simulated Rapid Test Statistics}
     \label{fig:rapid_test_results_numbers}
     \floatfoot{\noindent \textit{Note:}
         Each panel shows the number of rapid tests per million inhabitants that fall into the
         respective category. Private rapid tests are especially good at detecting cases but
         since they are often triggered by rapid tests from other channels, the other groups
         of tests, especially rapid tests at the workplace, also play an important role for
-        containing the pandemic.}
+        containing the pandemic. All results are averaged over 30 simulation runs.
+        For legibility reasons, all lines are rolling 7-day averages.
+        }
 \end{figure}
 
 \FloatBarrier
@@ -145,7 +147,7 @@ received by individuals that are not infected. The false positive rate increases
 time. This is due to the low prevalence of infections in the population, which falls
 over time. Again, private rapid tests are an exception with a much lower false
 positive rate because those tests are primarily demanded when there is a high likelihood
-of being infected. The low false negative rate of 0.2\% looks very low. As discussed
+of being infected. The false negative rate of 0.2\% looks very low. As discussed
 above this is deceiving and just a mechanical consequence of a very low prevalence
 of the disease and the many rapid tests done by non-infected people.
 
@@ -179,7 +181,7 @@ of the disease and the many rapid tests done by non-infected people.
         \label{fig:rapid_tests_false_negative_rate}
     \end{subfigure}
     \vskip3ex
-    \caption{Rapid Test Rates by Channel}
+    \caption{False Positive and False Negative Rates by Channel}
     \label{fig:rapid_test_results_rates}
 
     \floatfoot{\noindent \textit{Note:}
@@ -190,7 +192,7 @@ of the disease and the many rapid tests done by non-infected people.
         especially when the incidence is high -- often triggered by events that make it
         likely that the test taker is infected and therefore their false positive rate is
         much lower. The right panel shows the false negative rate in the population, i.e. the
-        share of negative test results that are mistakenly given to infected individuals.
+        share of negative tests done by infected individuals.
         This is very low because there are many truly negative tests in times of low
         incidences and large scale screening tests.}
 \end{figure}
