@@ -27,6 +27,7 @@ At the core of our agent-based model \citep[][we review more literature in Suppl
     Material~\ref{sec:literature_review}]{Aleta2020,Hinch2020} are physical contacts
 between heterogeneous agents (Figure~\ref{fig:model_contacts_infections}). Each contact between an infectious individual and somebody susceptible to
 the disease bears the risk of transmitting the virus. Contacts occur in up to four networks:
+ \comment[id=J]{I would replace networks by areas because we have more than four networks}
 Within the household, at work, at school, or in other settings (leisure activities,
 grocery shopping, medical appointments, etc.). Some contacts recur regularly, others
 occur at random. Empirical applications can take the population and household structure
@@ -91,8 +92,8 @@ probability of infection associated with a contact
     \floatfoot{\noindent \textit{Note:}
         A~description of the model can be found in Supplementary
         Material~\ref{sec:model}. Figure~\ref{fig:model_contacts_infections} shows the
-        influence on an agent's contacts to other agents. Demographic characteristics
-        set the baseline number of contacts in different networks ($\eta$). She may
+        influence of an agent's contacts to other agents on infections. Demographic characteristics
+        set the baseline number of contacts in different networks ($\eta$). The agents may
         reduce the number of contacts due to NPIs, showing symptoms, or testing
         positively for SARS-CoV-2 ($\tau$). Infections may occur when a susceptible
         agent meets an infectious agent; the probability depends on the type of contact
@@ -105,10 +106,11 @@ probability of infection associated with a contact
         reasons and they may depend on calendar time ($\pi_{c,\:t}$ and $\tau_{c,\:t}$).
         Figure~\ref{fig:model_official_cases} shows the model of translating all
         infections in the simulated data to age-specific recorded infections. The model
-        uses data on the aggregate share of recorded cases ($\psi$), on the share of
-        positive PCR tests triggered by symptoms ($\chi_{symptom}$), and on the false
+        uses data on the aggregate share of recorded cases ($\psi$), the share of
+        positive PCR tests triggered by symptoms ($\chi_{symptom}$), and the false
         positive rate of rapid tests ($p_{positive|infected,\;i,\:t}$). The lower part
-        of the graph is relevant only for periods where rapid tests are available.}
+        of the graph is relevant only for periods where rapid tests are available. All
+        parameters are explained in Appendix\ref{sub:param_tables}.}
 \end{figure}
 
 In the model, susceptibility to contracting the SARS-CoV-2 virus is dependent on
@@ -147,12 +149,12 @@ employers to on-site workers. Individuals may demand tests for private reasons, 
 include having plans to meet other people, showing symptoms of CoViD-19, and a household
 member having tested positively for the virus. We endow each agent with an individual
 compliance parameter. This parameter determines whether she takes up rapid
-tests.\footnote{Positive test results or symptoms leads most individuals to reduce their
+tests.\footnote{Positive test results or symptoms lead most individuals to reduce their
     contacts; this is why tests impact the actual contacts in
     Figure~\ref{fig:model_description}.}
 
 Modelling a population of agents according to actual demographic characteristics means
-that we can use a wide array of data to identify and estimate the model's many
+that we can use a wide array of data to identify and calibrate the model's many
 parameters.\footnote{See Supplementary Material~\ref{sec:data_and_parameters} for a
     complete description.} Contact diaries yield pre-pandemic distributions of contacts for
 different contact types and their assortativity by age group. Mobility data is used to
@@ -172,17 +174,14 @@ region, deaths, and the share of the B.1.1.7 strain.
 The main issue with official case numbers is that they will contain only a fraction of
 all infections. In the German case, this specifically amounts to positive PCR tests. We
 thus model recorded cases as depicted in Figure~\ref{fig:model_official_cases}. We take
-mortality-based\comment[id=HM]{added ``mortality-based'' -- correct?} aggregate
-estimates of the share of detected cases and use data on the
+mortality-based aggregate estimates of the share of detected cases and use data on the
 share of PCR tests administered because of CoViD-19
 symptoms. As the share of asymptomatic individuals
 varies by age group, this gives us age-specific shares (see
-Figure~\ref{fig:share_known_cases_by_age_group} for the share of detected cases by age
-group over time in our model). Our estimates suggest that---in the absence of rapid
-testing---the detection rate is 80\% higher on average for individuals above age 80
-compared to school age children. Once rapid test become available, confirmation of a
-positive result
-is another reason leading to positive PCR tests.
+Figure~\ref{fig:share_known_cases_by_age_group}). Our estimates suggest that---in the
+absence of rapid testing---the detection rate is 80\% higher on average for individuals
+above age 80 compared to school age children. Once rapid test become available,
+confirmation of a positive result is another reason leading to positive PCR tests.
 
 The model is applied to the second and third waves of the CoViD-19 pandemic in Germany,
 covering the period mid-September 2020 to the end of May 2021.
@@ -365,7 +364,8 @@ without any of the three factors and our main specification.
         these three factors on individually. The decompositions in
         Figures~\ref{fig:2021_scenarios_decomposition} and
         \ref{fig:2021_scenarios_decomposition_tests} are based on Shapley values, which
-        are explained more thoroughly in Appendix~\ref{sub:shapley_value}}
+        are explained more thoroughly in Appendix~\ref{sub:shapley_value}.
+        For legibility reasons, all lines are rolling 7-day averages.}
 \end{figure}
 
 Until mid-March, there is no visible difference between the different scenarios.
@@ -381,13 +381,12 @@ individuals. These groups contribute less to the spread of the disease than othe
 to a lower number of contacts. By the end of our study period, when first-dose
 vaccination rates reached 43\% of the population, the numbers of new cases would have
 started to decline. It is important to note that the initial focus of the campaign was
-to prevent deaths and severe disease. Indeed, the case fatality was rate considerably
+to prevent deaths and severe disease. Indeed, the case fatality rate was considerably
 lower during the third wave when compared to the second (4.4\% between October and
-February and 1.4\% between March and the end of May).\comment[id=K]{This needs a
-source.}\comment[id=HM]{Didn't we calculate that ourselves at some point?}
+February and 1.4\% between March and the end of May).
 
 Seasonality has a large effect in slowing the spread of SARS-CoV-2. By May 31, both
-observed and recorded cases would be reduced by a factor of four if only seasonality
+observed and total cases would be reduced by a factor of four if only seasonality
 mattered. However, in this period, cases would have kept on rising throughout, just at a
 much lower pace \citep[this is in line with results in][, which our seasonality measure
     is based on]{Gavenciak2021}. Nevertheless, we estimate seasonality to be a
@@ -408,7 +407,7 @@ tests, or seasonality.
 
 So why is rapid testing so effective? In order to shed more light on this question,
 Figure~\ref{fig:2021_scenarios_decomposition_tests} decomposes the difference in the
-scenario without rapid tests only and the main specification into the three channels for
+scenario without rapid tests and the main specification into the three channels for
 rapid tests. Tests at schools have the smallest effect, which is largely explained by
 schools not operating at full capacity during our period of study and the relatively
 small number of students.\footnote{18\% of our population are in the education sector
@@ -421,17 +420,16 @@ up on a positive test of a household member. The latter is essentially a form of
 tracing, which has been shown to be very effective \citep{Contreras2021,
     Fetzer2021,Kretzschmar2020}. Indeed, a deeper analysis in Supplementary
 Material~\ref{subsec:appendix_scenarios} shows that the same amount of rapid tests
-administered randomly in the population would not nearly have been as effective.
+administered randomly in the population would not have been nearly as effective.
 
 Two of the most contentious NPIs concern schools and mandates to work from
-home.\comment[id=K]{We should decide if we want to keep this section or prefer to show
-some rapid test statistics.} In many countries, schools switched to remote instruction
+home. In many countries, schools switched to remote instruction
 during the first wave, so did Germany. After the summer break, they were operating at
 full capacity with increased hygiene measures, before being closed again from
 mid-December onward. Some states started opening them gradually in late February, but
 operation at normal capacity did not resume until the beginning of June.
 Figure~\ref{fig:school_scenarios} shows the effects of different policies regarding
-schools starting at Easter, at which point rapid tests had become widely available. We
+schools starting after Easter, at which point rapid tests had become widely available. We
 estimate the realized scenario to have essentially the same effect as a situation with
 closed schools. Under fully opened schools with mandatory tests, total infections would
 have been 6\% higher; this number rises to 20\% without tests. These effect sizes are
@@ -468,7 +466,8 @@ are not available at scale, trade-offs may well be different.
     \floatfoot{\noindent \textit{Note:} Blue lines in both figures refer to our baseline
         scenario; they are the same as in
         Figure~\ref{fig:2021_scenarios_newly_infected}. Interventions start at Easter
-        because there were no capacity constraints for rapid tests afterwards.}
+        because there were no capacity constraints for rapid tests afterwards.
+        For legibility reasons, all lines are rolling 7-day averages.}
 
 \end{figure}
 
@@ -485,6 +484,7 @@ Our analysis has shown that during the transition to high levels of vaccination 
 possibly thereafter, large-scale rapid testing can substitute for some NPIs. This comes
 at a fraction of the cost. A week of the fairly strict lockdown in early 2021 is
 estimated to have cost around 20~Euros per capita \citep{Wollmershauser2021}; retail
+ \comment[id=J]{Check this number and add to which time period it refers}
 prices for rapid tests were below one Euro in early June 2021. While we do not
 distinguish between self-administered rapid tests and point of care rapid tests, the
 former are likely to play a larger role for indication-driven testing. Widespread
