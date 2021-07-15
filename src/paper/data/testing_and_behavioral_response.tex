@@ -1,21 +1,19 @@
 \subsection{PCR Testing and Behavioral Response}
 \label{subsec:pcr_testing_and_behavioral_response}
 
- \comment[id=K]{@Janos: Read this}
 
-After showing how we calibrate rapid test demand and the share of detected cases, this
-section describes the remaining parameters for our testing model. Refer to
+This section describes the remaining parameters for our testing model. Refer to
 Section~\ref{sub:testing} for a description of the full testing model.
 
 % share of tests for symptomatics
 From the share of detected cases and the number of infections we arrive at the number of
-positive PCR tests in our model. A share of these positive tests is given to symptomatic
+positive PCR tests in our model. A share of these positive tests goes to symptomatic
 individuals ($\chi_{symptom,\:t}$). This share is calibrated from German data on case
 characteristics \citep{RKICaseCharacteristics} and shown in
 Figure~\ref{fig:share_pcr_to_symptomatic}. We keep $\chi_{symptom,\:t}$ constant after
 Christmas because the RKI data does not include if a PCR test was done to confirm a
 positive rapid test and this share is used for PCR test demand without prior rapid test
-indication
+indication.
 
 \begin{figure}
     \centering
@@ -39,7 +37,7 @@ days and 7\% after four days.
 % share with positive rapid test requesting pcr
 To model the demand for PCR tests through rapid tests, we only need the share of
 individuals that seek a PCR test to confirm a positive rapid test result
-($\chi_{confirmation}$). We calibrate this from \citet{Betsch2021} who asked this
+($\chi_{confirmation}$). We calibrate this from \citet{Betsch2021} who asked this as a
 hypothetical question in March of 2021. There 82\% of Germans reported that they would
 follow up on a positive rapid test with a PCR test.
 
