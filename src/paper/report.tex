@@ -23,8 +23,8 @@ been offered to an entire population.
 At the core of our agent-based model \citep[][we review more literature in Supplementary
 Material~\ref{sec:literature_review}]{Aleta2020,Hinch2020} are physical contacts between
 heterogeneous agents (Figure~\ref{fig:model_contacts_infections}). Each contact between
-an infectious individual and somebody susceptible to the disease bears the risk of
-transmitting the virus. Contacts occur in up to four networks: Within the household, at
+infectious and susceptible individuals bears the risk of transmitting the virus.
+Contacts occur in up to four networks: Within the household, at
 work, at school, or in other settings (leisure activities, grocery shopping, medical
 appointments, etc.). Some contacts recur regularly, others occur at random. Empirical
 applications can take the population and household structure from census data and the
@@ -36,13 +36,9 @@ Material~\ref{subsec:assortativity}).
 The four contact networks are chosen so that the most common NPIs can be modeled in
 great detail. NPIs affect the number of contacts or the risk of transmitting the disease
 upon having physical contact. The effect of different NPIs will generally vary across
-contact types. For example, a mandate to work from
-home will reduce the number of work contacts to zero for a fraction of the working
-population. Schools and daycare can be closed entirely, operate at reduced
-capacity---including an alternating schedule---, or implement mitigation measures like
-masking requirements or air filters \citep{Lessler2021}. In any setting, measures like
-masking requirements would reduce the probability of infection
-\citep{Cheng2021}.
+contact types. See Section~\ref{sec:policies} for details on how we model NPIs.
+ In any setting, mask mandates or air filtes would reduce the probability
+of infection \citep{Lessler2021, Cheng2021}.
 
 \begin{figure}   % Figure 1
     \centering
@@ -111,23 +107,22 @@ In the model, susceptibility to contracting the SARS-CoV-2 virus is dependent on
 possible infection progresses as shown in Figure~\ref{fig:model_disease_progression}. We
 differentiate between an initial period of infection without being infectious or showing
 symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring
-intensive care, and recovery or death \citep[similar to][]{Aleta2020}. The probabilities
-of transitioning between these states depend on age; their duration is random and
-calibrated to medical literature (see Supplementary
-Material~\ref{sub:data_course_of_disease}). Conditional on the type of contact,
-infectiousness is independent of age \citep{Jones2021}.
+intensive care, and recovery or death \citep[similar to][]{Aleta2020}. The calibration
+of the age dependent probabilities of transitioning between these states  is described
+in Supplementary Material~\ref{sub:data_course_of_disease}). Conditional on the type of
+contact, infectiousness is independent of age \citep{Jones2021}.
 
-The model includes several other features, which are crucial to describe the evolution of
-the pandemic in 2020-2021. New virus strains with different infectiousness profiles may
-appear. Vaccines may become available. During the vaccine roll-out, priority may depend
-on age and occupation; vaccine hesitancy is modelled by some individuals refusing
-vaccination offers. With some probability, vaccinated agents become immune and do not
-transmit the virus \citep{Hunter2021, LevineTiefenbrun2021, Petter2021, Pritchard2021}.
+The model includes several other crucial features. New virus strains with different
+infectiousness profiles may appear. Vaccines may become available. During the vaccine
+roll-out, priority may depend on age and occupation; vaccine hesitancy is modelled by
+some individuals refusing vaccination offers. With some probability, vaccinated agents
+become immune and do not transmit the virus \citep{Hunter2021, LevineTiefenbrun2021,
+Petter2021, Pritchard2021}.
 
-We include two types of tests. Polymerase chain reaction (PCR) tests reveal whether an
-individual is infected or not; there is no uncertainty to the result. PCR tests require
-at least one day to be processed and there are aggregate capacity constraints. In
-contrast, rapid antigen tests yield immediate results. Specificity and sensitivity of
+We include two types of tests. Polymerase chain reaction (PCR) tests reveal with
+certainty whether an individual is infected or not; They require at least one day to be
+processed and are scarce. In contrast, rapid antigen tests yield immediate results.
+Specificity and sensitivity of
 these tests is set according to data analyzed in \cite{Bruemmer2021, Smith2021};
 sensitivity depends on the timing of the test relative to the onset of infectiousness.
 Figure~\ref{fig:model_rapid_tests} shows our model for rapid test demand. Schools may
@@ -142,14 +137,11 @@ tests. Positive tests and symptoms lead most individuals to reduce their contact
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and calibrate the model's many
 parameters.\footnote{See Supplementary Material~\ref{sec:materials_and_methods} for a
-    complete description.} Contact diaries yield pre-pandemic distributions of contacts for
-different contact types and their assortativity by age group. Mobility data is used to
-model the evolution of work contacts. School and daycare policies can be incorporated
-directly from official directives. Administrative records on the number of tests,
-vaccinations by age and region, and the prevalence of virus strains are generally
-available. Surveys may ask about test offers, propensities to take them up, and past
-tests. Other studies' estimates of the seasonality of infections can be incorporated
-directly. The remaining parameters---most notably, these include infection probabilities
+    complete description.}
+Examples are contact diaries, administrative records on case numbers, virus straints,
+tests and vaccines as well as surveys on private rapid test demand.
+Other studies' estimates of the seasonality of infections can be incorporated
+directly. The remaining parameters---most notably, the infection probabilities
 by contact network and the effects of some NPIs, see Supplementary
 Material~\ref{subsec:estimated_params}---will be chosen numerically so that the model
 matches features of the data \citep[see][for the general method]{McFadden1989}.
@@ -360,8 +352,7 @@ start---it took until March~24th until 10\% of the population had received their
 vaccination, the 20\% mark was reached on April 19th---and the focus on older
 individuals. By the end of our study period, when first-dose
 vaccination rates reached 43\% of the population, the numbers of new cases would have
-started to decline. However, the vaccination campaign reached its goal of protecting
-risk groups.
+started to decline.
 
 %It is important to note that the initial focus of the campaign was
 %to prevent deaths and severe disease. Indeed, the case fatality rate was considerably
@@ -383,10 +374,12 @@ undetected. Figure~\ref{fig:2021_scenarios_recorded} shows that this effect is l
 may persist for some time. Until late April, recorded cases are higher in the scenario
 with rapid testing alone when compared to the setting where none of the three mechanisms
 are turned on. The effect on total cases, however, is visible immediately in
-Figure~\ref{fig:2021_scenarios_newly_infected}. Despite the fact that only 10\% of the
-population performed weekly rapid tests in March on average, new infections on April~1
-would have been reduced by 53\% relative to the scenario without vaccinations, rapid
-tests, or seasonality.
+Figure~\ref{fig:2021_scenarios_newly_infected}.
+
+% Despite the fact that only 10\% of the
+% population performed weekly rapid tests in March on average, new infections on April~1
+% would have been reduced by 53\% relative to the scenario without vaccinations, rapid
+% tests, or seasonality.
 
 So why is rapid testing so effective? In order to shed more light on this question,
 Figure~\ref{fig:2021_scenarios_decomposition_tests} decomposes the difference in the
@@ -399,9 +392,9 @@ come from tests at the workplace. Despite the fact that rapid tests for private 
 are phased in only in mid-March, they make up for more than half of the total effect.
 The reason lies in the fact that a substantial share of these tests is driven by an
 elevated probability to carry the virus, i.e., showing symptoms of CoViD-19 or following
-up on a positive test of a household member. The latter is essentially a form of contact
+up on a positive test of a household member. This is essentially a form of contact
 tracing, which has been shown to be very effective \citep{Contreras2021,
-    Fetzer2021,Kretzschmar2020}. A deeper analysis in Supplementary
+    Fetzer2021,Kretzschmar2020}. Indeed, a deeper analysis in Supplementary
 Material~\ref{subsec:appendix_scenarios} shows that the same amount of rapid tests
 administered randomly in the population would not have been nearly as effective and that
 mandatory tests at schools almost offset the increased infection risk of opening
