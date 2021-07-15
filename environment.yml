@@ -9,3 +9,4 @@ dependencies:
   - pre-commit
   - pytask
   - pytask-latex
+  - pandas=1.2.5

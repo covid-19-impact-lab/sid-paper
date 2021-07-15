@@ -1,22 +1,22 @@
 \subsection{Testing} % (fold)
 \label{sub:testing}
 
-Having a realistic model of PCR and rapid tests is crucial for two reasons: Firstly,
-only via a testing model the simulated infections from the model can be made comparable
-to official case numbers. Secondly, individuals with undetected or not yet detected
+Having a realistic model of PCR and rapid tests is crucial for two reasons: Firstly, only
+via a testing model can the simulated infections from the model be made comparable to
+official case numbers. Secondly, individuals with undetected or not yet detected
 infections are an important driver of the pandemic.
 
 In principle, our modeling approach is flexible enough to incorporate mechanistic test
 demand, allocation and processing models. However, there is not enough data available to
 calibrate such a mechanistic model.
 
-Therefore, we aim for a simpler model of PCR and rapid tests that can be calibrated with
-available data on test demand and availability and -- nevertheless -- can produce a share
-of undetected cases that varies over time and across age groups and agrees with other
-estimates over the time periods where they are available.
+Therefore, we build a simpler model of PCR and rapid tests that can be calibrated with
+available data on test demand and availability and -- nevertheless
+-- can produce a share of undetected cases that varies over time and across age groups
+and agrees with other estimates over the time periods where they are available.
 
 PCR tests are modeled since the beginning of the simulation and determine whether a
-infections is officially recorded. Rapid tests are only added at the beginning of 2021.
+infection is officially recorded. Rapid tests are only added at the beginning of 2021.
 Positive rapid tests do not enter official case numbers directly, but most people with a
 positive rapid tests demand a confirmatory PCR test. However, positive rapid tests can
 have a strong effect on the infection dynamics because they trigger contact reductions
@@ -30,25 +30,22 @@ time and is unknown.
 To distribute the correct number of PCR tests among symptomatic and asymptomatic
 infections without knowing explicit test demand probabilities, we use the following
 approach: First, we calculate the total number of positive PCR tests by multiplying the
-number of newly infected individuals with an estimate of the share of detected cases from
-the Dunkelzifferradar project. \footnote{The Dunkelzifferradar project publishes daily
-estimates of the dark figure of infections under
-\url{https://covid19.dunkelzifferradar.de/}} Next, we determine how many of these tests
-should go to symptomatic and asymptomatic individuals from data by the Robert Koch
-Institut. \comment[id=J]{add source}
-Then, we sample the individuals to which those tests are allocated from the pools of
-symptomatic and asyptomatic infected but not yet tested individuals.
+number of newly infected individuals with an estimate of the share of detected cases
+from the Dunkelzifferradar project \citep{Dunkelzifferradar2020}. Next, we determine how
+many of these tests should go to symptomatic and asymptomatic individuals from data by
+the RKI \citep{ARS2020}. Then, we sample the individuals to which those tests
+are allocated from the pools of symptomatic and asymptomatic infected but not yet tested
+individuals.
 
 Sampling uniformly from the pool of symptomatic individuals ensures that age groups who
 are more likely to develop symptoms are also more likely to receive tests. Thus, the
 share of detected cases is much higher for the elderly than for children in time periods
-where many tests are done because of symptoms which is in line with the estimates from
-the literature. \comment[id=J]{need source}
+where many tests are done because of symptoms.
 
 At the beginning of 2021, two challenges arise: Firstly, the externally estimated share
-of detected cases from the Dunkelzifferradar can no longer be used because it is based on
-case fatality rates which drastically change due to vaccinations. Secondly, rapid tests
-become available at a large scale.
+of detected cases from Dunkelzifferradar project \citep{Dunkelzifferradar2020} can no
+longer be used because it is based on the case fatality rate which changes drastically
+due to vaccinations. Secondly, rapid tests become available at a large scale.
 
 We solve the first challenge by assuming that the share of detected cases would have
 remained at the level it reached before Christmas if rapid tests had not become
@@ -56,34 +53,32 @@ available. While this is only an approximation to reality, changes in the share 
 detected cases that would have happened without rapid tests are very likely to be small
 compared to the changes caused by rapid tests.
 
-The second challenge is solved by mechanistic rapid test demand models for the workplace,
-schools and by private individuals. The calibration of these models is described in
-Section~\ref{subsec:rapid_test_demand}. Figure~\ref{fig:antigen_tests_vaccinations} shows
-that the number of performed rapid tests in the model fits the empirical data well (where
-empirical data is available).
+The second challenge is solved by mechanistic rapid test demand models for the
+workplace, schools and by private individuals. The calibration of these models is
+described in Section~\ref{subsec:rapid_test_demand}.
+Figure~\ref{fig:antigen_tests_vaccinations} shows that the number of performed rapid
+tests in the model fits the empirical data well (where empirical data is available).
 
 In contrast to PCR tests, rapid tests are not perfect and can be falsely positive or
-falsely negative. While the specificity of rapid tests is constant over time, their
-sensitivity strongly depends on whether the tested individual is already infectious and
-if so for how long he has been infectious. Before the onset of infectiousness the
-sensitivity is very low (35\%). On the first day of infectiousness it is much higher
-(88\%) but still lower than during the remaining infectious period (92\%). After
-infectiousness stops, the sensitivity drops to 50 \%.
+falsely negative. While the specificity of rapid tests is calibrated at 99.4\%
+\citep{Bruemmer2021}, their sensitivity strongly depends on the timing of the rapid test
+relative to the start of infectiousness \citep{Smith2021}. Before the onset of
+infectiousness the sensitivity is very low (35\%). On the first day of infectiousness it
+is much higher (88\%) but still lower than during the remaining infectious period (92\%).
+After infectiousness stops, the sensitivity drops to 50 \%.
 
 Modeling the diagnostic gap before and at the beginning of infectiousness is very
 important to address concerns that rapid tests are too unreliable to serve as screening
 devices.
 
 We do not distinguish between self administered rapid tests and those that are
-administered by medical personnel. While there were concerns that self administered tests
-are less reliable, a recent study has found no basis for this concern.\comment[id=J]{cite
-charite study on self administered tests}
+administered by medical personnel. While there were concerns that self administered
+tests are less reliable, a recent study has found no basis for this
+concern \citep{Lindner2020}.
 
-While rapid tests do not directly enter official case numbers, many positively tested
-individuals confirm their rapid test result with a PCR test.\comment[id=J]{Need to link
-to data appendix once the number is there and maybe mention the number}. Importantly,
-those PCR tests are made in addition to the tests that would have been done otherwise.
-Section~\ref{subsec:appendix_share_known_cases} discusses the effect of rapid tests on
-the share of detected cases.\comment[id=K]{Talk here about reactions to tests and
-symptoms with contact reductions. (If not here, find other place where to talk about this
-in detail.)}
+While rapid tests do not directly enter official case numbers, 82\%
+($\chi_{confirmation}$) of positively tested individuals seek a PCR test
+\citep{Betsch2021}. Importantly, those PCR tests are made in addition to the tests that
+would have been done otherwise. Section~\ref{subsec:results_share_known_cases} discusses
+the effect of rapid tests on the share of detected cases.
+
