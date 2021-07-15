@@ -1,3 +1,4 @@
+import subprocess
 import shutil
 from pathlib import Path
 
@@ -46,3 +47,20 @@ def task_compile_science_report():
 @pytask.mark.produces(ROOT / "paper.pdf")
 def task_copy_pdf_to_root(depends_on, produces):
     shutil.copy(depends_on, produces)
+
+
+@pytask.mark.skipif(shutil.which("qpdf") is None, reason="Extraction needs qpdf.")
+@pytask.mark.depends_on(BLD / "paper.pdf")
+@pytask.mark.produces(BLD / "supplementary_material.pdf")
+def task_extract_supplementary_material(depends_on, produces):
+    subprocess.run(
+        [
+            "qpdf",
+            "--empty",
+            "--pages",
+            "14-",
+            depends_on.as_posix(),
+            "--",
+            produces.as_posix(),
+        ]
+    )
