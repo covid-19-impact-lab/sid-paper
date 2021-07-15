@@ -1,33 +1,26 @@
-Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity
-on many dimensions. The development of highly effective vaccines holds the promise of
+The development of highly effective vaccines holds the promise of
 containment in the medium term. However, most countries find themselves months or years
 away from reaching vaccination levels that would end the pandemic \citep{Mathieu2021}.
-In the meantime, it is of utmost importance to employ an effective mix of strategies for
-containing the virus. The most frequent initial response was a set of non-pharmaceutical
-interventions (NPIs) to reduce contacts between individuals. While this has allowed some
+While non-pharmaceutical interventions (NPIs) have allowed some
 countries to sustain equilibria with very low infection numbers \citep{Contreras2021}
-most have seen large fluctuations of infection rates over time. Containment measures have
-become increasingly diverse and now include rapid testing, more nuanced NPIs, and contact
-tracing. Neither these policies' effects nor the influence of seasonal patterns or of
-more infectious virus strains are well understood in quantitative terms.
+most have seen large fluctuations of infection rates over time. It is therefore of utmost
+importance to employ an effective mix of strategies for containing the virus.
+However, the effects of diverse policies and their interplay with seasonal patterns
+are not well understood.
 
 This paper develops a quantitative model incorporating these factors simultaneously. The
-framework allows to combine a wide variety of data and mechanisms in a timely fashion,
+framework allows to combine a wide variety of data and mechanisms,
 making it useful to predict the effects of various interventions. We apply the model to
 Germany, where new infections fell by almost 80\% during May 2021. Our analysis
 shows that, aside from seasonality, frequent and large-scale rapid testing caused the
-bulk of this decrease, which is in line with prior predictions \citep{Mina2021}. We
-conclude that it should have a large role for at least as long as vaccinations have not
-been offered to an entire population.
+bulk of this decrease, which is in line with prior predictions \citep{Mina2021}.
 
 At the core of our agent-based model \citep[][we review more literature in Supplementary
 Material~\ref{sec:literature_review}]{Aleta2020,Hinch2020} are physical contacts between
-heterogeneous agents (Figure~\ref{fig:model_contacts_infections}). Each contact between
-infectious and susceptible individuals bears the risk of transmitting the virus.
-Contacts occur in up to four networks: Within the household, at
-work, at school, or in other settings (leisure activities, grocery shopping, medical
-appointments, etc.). Some contacts recur regularly, others occur at random. Empirical
-applications can take the population and household structure from census data and the
+heterogeneous agents (Figure~\ref{fig:model_contacts_infections}) that potentially cause
+infections. Contacts occur in up to four networks: Within the household, at
+work, at school, or in other settings. Some contacts recur regularly, others occur at random.
+Empirical applications can take the population and household structure from census data and the
 network-specific frequencies of contacts from diary data measuring contacts before the
 pandemic \citep[e.g.][]{Mossong2008,Hoang2019}. Within each network, meeting frequencies
 depend on age and geographical location (see Supplementary
@@ -37,7 +30,7 @@ The four contact networks are chosen so that the most common NPIs can be modeled
 great detail. NPIs affect the number of contacts or the risk of transmitting the disease
 upon having physical contact. The effect of different NPIs will generally vary across
 contact types. See Section~\ref{sec:policies} for details on how we model NPIs.
- In any setting, mask mandates or air filtes would reduce the probability
+In any setting, mask mandates or air filtes would reduce the probability
 of infection \citep{Lessler2021, Cheng2021}.
 
 \begin{figure}   % Figure 1
@@ -106,7 +99,7 @@ of infection \citep{Lessler2021, Cheng2021}.
 In the model, a possible infection progresses as shown in
 Figure~\ref{fig:model_disease_progression} (similar to \cite{Aleta2020}, more in
 Supplementary Material~\ref{sub:data_course_of_disease}). Whereas susceptibility to the
-viruses differs by age, the infection probabilities are independent of age conditioned
+viruses differs by age, the infectiousness is independent of age conditioned
 on the type of contact \cite{Jones2021}.
 
 The model includes several other crucial features. New virus strains with different
@@ -135,52 +128,37 @@ Modelling a population of agents according to actual demographic characteristics
 that we can use a wide array of data to identify and calibrate the model's many
 parameters.\footnote{See Supplementary Material~\ref{sec:materials_and_methods} for a
     complete description.}
-Examples are contact diaries, administrative records on case numbers, virus straints,
+Examples are contact diaries, administrative records on case numbers, virus strains,
 tests and vaccines as well as surveys on private rapid test demand.
 Other studies' estimates of the seasonality of infections can be incorporated
 directly. The remaining parameters---most notably, the infection probabilities
 by contact network and the effects of some NPIs, see Supplementary
 Material~\ref{subsec:estimated_params}---will be chosen numerically so that the model
-matches features of the data \citep[see][for the general method]{McFadden1989}.
+matches features of the data \citep[see][for the general method]{McFadden1989}. By
+modelling PCR and rapid tests in detail, we can translate infection numbers in the model
+into observed infections before matching them to the data. The mechanism is
+depicted in Figure~\ref{fig:model_official_cases} and described in Supplementary
+Material~\ref{sub:testing}. Figure~\ref{fig:share_known_cases_by_age_group}
+shows the resulting share of detected cases.
 
-The main issue with official case numbers is that they will contain only a fraction of
-all infections. In the German case, this specifically amounts to positive PCR tests. We
-thus model recorded cases as depicted in Figure~\ref{fig:model_official_cases}. We take
-mortality-based aggregate estimates of the share of detected cases and use data on the
-share of PCR tests administered because of CoViD-19
-symptoms. As the share of asymptomatic individuals
-varies by age group, this gives us age-specific shares (see
-Figure~\ref{fig:share_known_cases_by_age_group}).
-% Our estimates suggest that---in the
-% absence of rapid testing---the detection rate is 80\% higher on average for individuals
-% above age 80 compared to school age children. Once rapid test become available,
-% confirmation of a positive result is another reason leading to positive PCR tests.
 
 The model is applied to the second and third waves of infections in Germany,
 covering the period September 2020 to May 2021.
 Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and
 of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
-recorded cases; the black line in Figure~\ref{fig:stringency_infectious_contacts} the
-Oxford Response Stringency Index \citep{Hale2020}, which tracks the tightness of
-non-pharmaceutical interventions. The index is shown for illustration of the NPIs, we
-never use it directly. For legibility reasons, we transform the index so that lower
-values represent higher levels of restrictions. A value of zero means all measures
-incorporated in the index are turned on. The value one represents the situation in
-mid-September, with restrictions on gatherings and public events, masking requirements,
-but open schools and workplaces. In the seven weeks between mid September and early
-November, cases increased by a factor of ten. Restrictions were somewhat tightened in
+recorded cases; the black line in Figure~\ref{fig:stringency_infectious_contacts} a
+rescaled Oxford Response Stringency Index \citep{Hale2020}, which tracks the tightness of
+non-pharmaceutical interventions. Between mid September and early
+November, cases increased tenfold. Restrictions were somewhat tightened in
 mid-October and again in early November. New infections remained constant throughout
 November before rising again in December, prompting the most stringent lockdown to this
 date. Schools and daycare centers were closed, so were customer-facing businesses except
 for grocery and drug stores. From the peak of the second wave just before Christmas
 until the trough in mid-February, newly detected cases decreased by almost three
 quarters. The third wave in the spring of 2021 is associated with the B.1.1.7 (Alpha)
-strain, which became dominant in March (Figure~\ref{fig:share_b117}).\footnote{B.1.617.2
-    (Delta) reached Germany in April but still accounted for less than 5\% of cases at the
-    end of our simulation period.} In early March, some NPIs were relaxed; e.g.,
-hairdressers and home improvement stores were allowed to open again to the public. There
-were many changes in details of regulations afterwards, but they did not change the
-overall stringency index.
+strain, which became dominant in March (Figure~\ref{fig:share_b117}).
+In early March, some NPIs were relaxed. There were many changes in details of
+regulations afterwards, but they did not change the overall stringency index.
 
 \begin{figure}[!tp]   % Figure 2
     \centering
@@ -237,7 +215,7 @@ overall stringency index.
         contact type.}
 \end{figure}
 
-By March 2021, the set of policy instruments had become much more diverse. Around the
+Around the
 turn of the year, the first people were vaccinated with a focus on older age groups and
 medical staff (Figure~\ref{fig:antigen_tests_vaccinations}). Until the end of May, 43\%
 had received at least one dose of a vaccine. In late 2020, rapid tests started to
@@ -248,8 +226,7 @@ per person and week was made available free of charge. In several states, custom
 only allowed to enter certain stores with a recent negative rapid test result. These
 developments are characteristic of many countries: The initial focus on NPIs to slow the
 spread of the disease has been accompanied by vaccines and a growing acceptance and use
-of rapid tests. At broadly similar points in time, novel strains of the virus have
-started to pose additional challenges.
+of rapid tests.
 
 We draw simulated samples of agents from the population structure in September 2020 and
 use the model to predict recorded infection rates until May 2021. See
@@ -277,7 +254,7 @@ rate rose from 28\% to 43\%, and seasonality lowered the relative infectiousness
 of contacts.
 
 In order to better understand the contributions of rapid tests, vaccinations, and
-seasonality on the evolution of infections in 2021,
+seasonality on the evolution of infections,
 Figure~\ref{fig:2021_scenarios_broad} considers various scenarios. NPIs are always held
 constant at their values in the baseline scenario.
 Figure~\ref{fig:2021_scenarios_recorded} shows the model fit (the blue line, same as in
@@ -341,20 +318,14 @@ without any of the three factors and our main specification.
 \end{figure}
 
 Until mid-March, there is no visible difference between the different scenarios.
-Seasonality hardly changes, and only few vaccinations and rapid tests were administered.
 Even thereafter, the effect of the vaccination campaign is surprisingly small.
 The Shapley value decomposition shows that vaccinations contribute 16\% to the
 cumulative difference between scenarios. Reasons for the low share are the slow
-start---it took until March~24th until 10\% of the population had received their first
-vaccination, the 20\% mark was reached on April 19th---and the focus on older
-individuals. By the end of our study period, when first-dose
+start and the focus on older individuals who typically have fewer contacts.
+By the end of our study period, when first-dose
 vaccination rates reached 43\% of the population, the numbers of new cases would have
 started to decline.
 
-%It is important to note that the initial focus of the campaign was
-%to prevent deaths and severe disease. Indeed, the case fatality rate was considerably
-%lower during the third wave when compared to the second (4.4\% between October and
-%February and 1.4\% between March and the end of May).
 
 Seasonality has a large effect in slowing the spread of SARS-CoV-2. By May 31, both
 observed and total cases would be reduced by a factor of four if only seasonality
@@ -399,19 +370,14 @@ schools (see Figure~\ref{fig:school_scenarios}).
 
 Our analysis has shown that during the transition to high levels of vaccination and
 possibly thereafter, large-scale rapid testing can substitute for some NPIs. This comes
-at a fraction of the cost. A day of the fairly strict lockdown in early 2021 is
-estimated to have cost around 50~Euros per capita \citep{Wollmershauser2021}; retail
-prices for rapid tests were below one Euro in early June 2021 and below five Euros for
-firms. While we do not distinguish between self-administered rapid tests and point of
-care rapid tests, the former are likely to play a larger role for indication-driven
-testing. Widespread availability at low prices seems important. However, they rely on
-purely voluntary participation in a non-public setting. The benefit of point-of-care
-rapid tests as a precondition to participate in leisure activities as well as mandatory
-tests at the workplace or at school come from screening the entire population. This is
-important because disadvantaged groups are less likely to be reached by testing campaigns
-relying on voluntary participation \citep[e.g.][]{StillmanTonin2021}; at the same time,
-these groups have a higher risk to contract CoViD-19 \citep{KochInstitut2021a}. Mandatory
-tests at school and at the workplace will extend more into these groups. The same goes
-for individuals who exhibit a low level of compliance with CoViD-19-related regulations.
+at a fraction of the cost. A day of strict lockdown is
+estimated to have cost around 50~Euros per capita \citep{Dorn2020b}; retail
+prices for rapid tests were below one Euro in early June 2021. Widespread availability
+of self-administered tests at low prices are likely to play a role for indication-driven
+testing. Mandatory tests in schools and at the workplace are important to screen the
+entire population. Especially, because disadvantaged groups are less likely to be
+reached by testing campaigns relying on voluntary participation
+\citep[e.g.][]{StillmanTonin2021}; at the same time,
+these groups have a higher risk to contract CoViD-19 \citep{KochInstitut2021a}.
 Compared to vaccinations, rapid testing programmes allow a much quicker roll-out, making
 it arguably the most effective tool to contain the pandemic in the short run.
