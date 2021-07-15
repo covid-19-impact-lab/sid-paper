@@ -110,4 +110,59 @@ mobility data.
   vaccinations. For legibility reasons, all lines are rolling 7-day averages.}
 \end{figure}
 
+Another form of validating our model is to see how well our main results align with
+other studies that evaluate the effect of large scale rapid testing. Of course, this
+has to be taken with a grain of salt as the effect of any rapid testing policy depends
+on the incidence of the disease in the population, how well other testing policies
+such as PCR tests are working, the effect of seasonality and NPIs that are in place.
+
+Nevertheless, it is reassuring that other studies find effect sizes in the same order
+of magnitude.
+
+\citet{Pavelka2021} estimates that a mass testing campaign in Slovakia in October and
+November 2020 where approximately 65 \% of the population took a rapid test within a two
+week period lead to a reduction in case numbers of 70 \% three weeks after the start
+of the intervention. Moreover, they find that this strong reduction in
+cases cannot be explained by isolation of people who tested positive alone but only when
+they took into account that household members of people who tested positive reduced
+their contacts.
+
+While we do not model the exact scenario of \citet{Pavelka2021}, we can roughly compare
+their estimates with our predictions for the difference between the baseline scenario
+and and a scenario without rapid tests. In May about 45\% of people do
+at least one rapid test in every week. Taking into account that there are many repeated
+testers the number of people who do a test within a two week period is probably
+slightly less than the 65 \% from the intervention in Slovakia. On the other hand, we
+have many people who do more than one rapid test in that time which also leads to the
+detection of cases. Our model predicts that the observed incidence with tests is
+approximately 65 \% lower than without tests after three weeks.
+Thus we have an effect size in the same order of magnitude but are slightly
+less optimistic regarding the efficiency of rapid test.
+
+\citet{Berger2021} analyse the effect of twice weekly rapid testing in schools. They
+have two main findings: Firstly, rapid tests reduced the share of undetected cases
+among students by a factor between 2 and 4. Secondly, open schools with mandatory
+testing might leads to the same or even lower numbers of infections than closed
+schools. The estimates are based on infection numbers after the Easter holiday.
+
+Again, we do not directly simulated their scenarios but can roughly compare our results
+to theirs. We estimate a share of undetected cases of approximately 75 \% among school
+age children (5 to 14 years) at the beginning of April, see
+Figure~\ref{fig:share_known_cases_by_age_group}. This drops to slightly less than 40 \%
+at the end of our simulation period. Thus in the long run, mandatory tests at schools
+led to a reduction of the share of undetected cases by a factor of more than 1.8 which
+is just slightly below the factor of 2 to 4 predicted by \citet{Berger2021}.
+
+Similarly we are slightly less optimistic for the effect opening schools with testing
+compared to closing schools. While they predict that opening schools could even be
+beneficial we estimate that it would lead to a slight increase in case numbers
+see Figure~\ref{fig:school_scenarios_detailed}).
+
+
+
+% In May 45 % per week are tested
+% Incidence pessimistic = 1750
+% Incidence with mass testing = 750
+
+
 \FloatBarrier
