@@ -26,6 +26,22 @@ def task_compile_documents():
     pass
 
 
+@pytask.mark.latex(
+    [
+        "--pdf",
+        "--interaction=nonstopmode",
+        "--synctex=1",
+        "--cd",
+        "--shell-escape",
+        "-f",
+    ]
+)
+@pytask.mark.depends_on([SRC / "science" / "paper.tex", *_DEPENDENCIES])
+@pytask.mark.produces(BLD / "science_report.pdf")
+def task_compile_science_report():
+    pass
+
+
 @pytask.mark.depends_on(BLD / "paper.pdf")
 @pytask.mark.produces(ROOT / "paper.pdf")
 def task_copy_pdf_to_root(depends_on, produces):
