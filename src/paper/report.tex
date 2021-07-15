@@ -103,14 +103,11 @@ of infection \citep{Lessler2021, Cheng2021}.
         parameters are explained in Appendix~\ref{sub:param_tables}.}
 \end{figure}
 
-In the model, susceptibility to contracting the SARS-CoV-2 virus is dependent on age. A
-possible infection progresses as shown in Figure~\ref{fig:model_disease_progression}. We
-differentiate between an initial period of infection without being infectious or showing
-symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms, requiring
-intensive care, and recovery or death \citep[similar to][]{Aleta2020}. The calibration
-of the age dependent probabilities of transitioning between these states  is described
-in Supplementary Material~\ref{sub:data_course_of_disease}). Conditional on the type of
-contact, infectiousness is independent of age \citep{Jones2021}.
+In the model, a possible infection progresses as shown in
+Figure~\ref{fig:model_disease_progression} (similar to \cite{Aleta2020}, more in
+Supplementary Material~\ref{sub:data_course_of_disease}). Whereas susceptibility to the
+viruses differs by age, the infection probabilities are independent of age conditioned
+on the type of contact \cite{Jones2021}.
 
 The model includes several other crucial features. New virus strains with different
 infectiousness profiles may appear. Vaccines may become available. During the vaccine
