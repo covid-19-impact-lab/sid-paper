@@ -58,8 +58,8 @@ def task_extract_supplementary_material(depends_on, produces):
             "qpdf",
             "--empty",
             "--pages",
-            "14-",
             depends_on.as_posix(),
+            "15-78",
             "--",
             produces.as_posix(),
         ]
