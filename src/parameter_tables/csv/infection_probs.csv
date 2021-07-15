@@ -1,6 +1,6 @@
 name,notation,time active,source,description
-infection\_prob,$\beta_{c}$,always,estimated,"Base infection probability of contact type $c$. For each contact, this base probability is further adjusted by the seasonality, susceptibility of the contact and the virus strain."
+infection\_prob,$\beta_{c}$,always,estimated,"Base infection probability of contact type $c$. For each contact, this base probability is further adjusted by the seasonality, susceptibility of the contact and the virus strain. See Section~\ref{subsec:estimated_params} for details."
 susceptibility,$\zeta_{a}$,always,\citet{Davies2020},Susceptibility to Covid-19 depends on a person’s age group. The higher the age the more easily people become infected. The susceptibility of the oldest age group is normalized to one.
 seasonality,"$\kappa_{c}$",always,\citet{Gavenciak2021},The probability to contract Covid-19 when exposed depends on the seasonality. Since different contact types are more or less subject to seasonal variation (e.g. by moving contacts outdoors) the seasonality also depends on the contact type. Refer to Section~\ref{subsec:seasonality} for an explanation.
 variant\_infectiousness,$\sigma_{v}$,always,\citet{Davies2021},Variant $v$'s infectiousness relative to the wild type.
-variant\_introduction,"$\omega_{v,t}$",time dependent,estimated,"Number of infections per 100,000 individuals of variant $v$ to be introduced on day $t$"
+variant\_introduction,"$\omega_{v,t}$",time dependent,estimated,"Number of infections per 100,000 individuals of variant $v$ to be introduced on day $t$. See Section~\ref{subsec:estimated_params} for details."

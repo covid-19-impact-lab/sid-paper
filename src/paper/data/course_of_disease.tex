@@ -6,6 +6,20 @@ how we arrived at the distributions used in the paper.
 See Figure~\ref{fig:model_disease_progression} for a summary of our
 disease progression model.
 
+% Susceptibility and Infectiousness
+ \comment[id=K]{@Janos: read this.}
+The first stage of any disease is the infection. As detailed in
+Equation~\ref{eq:infection_probability_formula} the infection
+probability depends on the contact type, the calendar date to determine the seasonality,
+the age group of the susceptible person and the variant the infectious person is
+carrying.
+%
+The base infection probability of each contact type ($\beta_c$) is estimated inside our
+model (Section~\ref{subsec:estimated_params}). How we model and set the seasonality is
+detailed in Section~\ref{subsec:seasonality}. For the susceptibility of each age group
+($\zeta_a$) we take the estimates of \citet{Davies2020} (Extended Data Fig. 4). Lastly,
+we calibrate the infectiousness of the B.1.1.7 variant ($\sigma_{B.1.1.7}$) from
+\citet{Davies2021} to 1.67.
 
 % Duration until Infectiousness and Symptoms ----------------------------------
 
@@ -67,5 +81,51 @@ among those that will not survive. For survivors \cite{Hinch2020} reports a mean
 of 18.8 days until recovery and a standard deviation of 12.21 days. We discretize this
 such that of those who recover in intensive care, 22\% do so after one day, 30\% after 15
 days, 28\% after 25 days and 18\% after 45 days.
+
+% Immunity and Vaccination -------------------------------------------------------------
+
+
+ \comment[id=K]{@Janos: Read this!}
+
+Individuals can become immune either through infection ($\gamma_{immune}$) or vaccination
+($\gamma_{vacc,\:d}$). As reinfections are estimated to be extremely rare
+\citep{AbuRaddad2020}, we simply set the immunity period to one year with probability
+one, i.e. everyone that has been infected enjoys immunity for the rest of the simulation
+period.
+
+% vaccinations
+The second route to immunity is through vaccination. Germany has mostly relied on the
+Pfizer-BioNTech BNT162b2 and Oxford-AstraZeneca ChAdOx1-S vaccines with smaller shares of
+the Moderna and Johnson\&Johnson vaccines \citep{Impfdashboard}. As \citet{Pritchard2021}
+and \citet{Harris2021} find no difference in the effectiveness between the two most
+common vaccines, we do not distinguish between vaccine types.
+
+Immunity is binary in our model, i.e. individuals become either sterile immune or remain
+susceptible. Thus, we cannot simply use the reported effectiveness but must also include
+the risk of asymptomatic and sub-clinical reinfection among the vaccinated in our
+probability to become immune upon vaccination. This is important as there is by now ample
+evidence that vaccinated individuals can still get infected with SARS-CoV-2 and transmit
+the disease \citep{Petter2021, LevineTiefenbrun2021, Harris2021}.
+
+The reported effectiveness for BNT162b2 is estimated to be 90\% 21 days after the first
+shot \citep{Hunter2021}. The effectiveness does not increase much through the booster
+shot as \citet{Thompson2021} report 90\% (95\% CI = 68\%–97\%) effectiveness against
+PCR-confirmed infections after two doses for mRNA vaccines in general. We therefore do
+not distinguish between the first and the booster shot.
+
+On the other hand, \citet{Lipsitch2021} report a lower bound on transmission for
+the very similar Moderna vaccine of 61\%.
+
+Taking this evidence together we simplify to 35\% of individuals developing immunity 14
+days after their vaccination and 40\% after 21 days. For the remaining 25\% we assume
+that the vaccine does not protect them. %
+This may seem slightly optimistic for how early vaccinations may already have an effect
+when looking at infection rates like \citet{Hunter2021}. However, it can be expected that
+individuals underestimate the time it takes for the vaccine to work and behave less
+carefully after receiving a vaccination. We err on the side of being too optimistic for
+the effectiveness of vaccine and assume a significant protection after 14 days as
+\citet{LevineTiefenbrun2021} report strongly reduced viral loads already 12 to 28 days
+after the first vaccine.
+
 
 \FloatBarrier
