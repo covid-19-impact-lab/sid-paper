@@ -59,7 +59,7 @@ def task_extract_supplementary_material(depends_on, produces):
             "--empty",
             "--pages",
             depends_on.as_posix(),
-            "15-67",
+            "12-78",
             "--",
             produces.as_posix(),
         ]
