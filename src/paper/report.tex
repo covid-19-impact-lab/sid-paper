@@ -89,25 +89,25 @@ probability of infection associated with a contact
 
     \floatfoot{\noindent \textit{Note:}
         A~description of the model can be found in Supplementary
-        Material~\ref{sec:model}. Figure~\ref{fig:model_contacts_infections} shows the
-        influence of an agent's contacts to other agents on infections. Demographic
-        characteristics set the baseline number of contacts in different networks
-        ($\eta$). The agents may reduce the number of contacts due to NPIs, showing
-        symptoms, or testing positively for SARS-CoV-2 ($\tau$). Infections may occur
-        when a susceptible agent meets an infectious agent; the probability depends on
-        the type of contact ($\beta_c$), on seasonality ($\kappa_{c}$), and on NPIs
+        Material~\ref{sec:supplementary_text}. Figure~\ref{fig:model_contacts_infections}
+        shows the influence of an agent's contacts to other agents on infections.
+        Demographic characteristics set the baseline number of contacts in different
+        networks ($\eta$). The agents may reduce the number of contacts due to NPIs,
+        showing symptoms, or testing positively for SARS-CoV-2 ($\tau$). Infections may
+        occur when a susceptible agent meets an infectious agent; the probability depends
+        on the type of contact ($\beta_c$), on seasonality ($\kappa_{c}$), and on NPIs
         ($\rho_{c,\:t}$). If infected, the infection progresses as depicted in
-        Figure~\ref{fig:model_disease_progression}. If rapid tests are available,
-        agents' demand is modeled as in Figure~\ref{fig:model_rapid_tests}. All reasons
-        trigger a test only for a fraction of individuals depending on an individual
-        compliance parameter; the thresholds for triggering test demand differ across
-        reasons and they may depend on calendar time ($\pi_{c,\:t}$ and $\tau_{c,\:t}$).
+        Figure~\ref{fig:model_disease_progression}. If rapid tests are available, agents'
+        demand is modeled as in Figure~\ref{fig:model_rapid_tests}. All reasons trigger a
+        test only for a fraction of individuals depending on an individual compliance
+        parameter; the thresholds for triggering test demand differ across reasons and
+        they may depend on calendar time ($\pi_{c,\:t}$ and $\tau_{c,\:t}$).
         Figure~\ref{fig:model_official_cases} shows the model of translating all
         infections in the simulated data to age-specific recorded infections. The model
         uses data on the aggregate share of recorded cases ($\psi$), the share of
         positive PCR tests triggered by symptoms ($\chi_{symptom}$), and the false
-        positive rate of rapid tests ($p_{positive|infected,\;i,\:t}$). The lower part
-        of the graph is relevant only for periods where rapid tests are available. All
+        positive rate of rapid tests ($p_{positive|infected,\;i,\:t}$). The lower part of
+        the graph is relevant only for periods where rapid tests are available. All
         parameters are explained in Appendix~\ref{sub:param_tables}.}
 \end{figure}
 
@@ -149,7 +149,7 @@ tests.\footnote{Positive test results or symptoms lead most individuals to reduc
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and calibrate the model's many
-parameters.\footnote{See Supplementary Material~\ref{sec:data_and_parameters} for a
+parameters.\footnote{See Supplementary Material~\ref{sec:materials_and_methods} for a
     complete description.} Contact diaries yield pre-pandemic distributions of contacts for
 different contact types and their assortativity by age group. Mobility data is used to
 model the evolution of work contacts. School and daycare policies can be incorporated
@@ -245,7 +245,7 @@ overall stringency index.
     \label{fig:pandemic_drivers_model_fit}
 
     \floatfoot{\noindent \textit{Note:} Data sources are described in Supplementary
-        Material~\ref{sec:data_and_parameters}. Age- and region-specific analogues to
+        Material~\ref{sec:materials_and_methods}. Age- and region-specific analogues to
         Figure~\ref{fig:aggregated_fit} can be found in Supplementary Material
         \ref{subsec:fit_results}. For legibility reasons, all lines in
         Figure~\ref{fig:stringency_infectious_contacts} are rolling 7-day averages. The
