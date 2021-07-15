@@ -1,9 +1,9 @@
 name,notation,time active,source,description
-p\_duration\_until\_test\_result,"$\gamma_{PCR,\:d}$",always,\citet{ARS2020},probability that it takes $d$ days between the performance of a PCR test and receiving the result.
-share\_of\_tests\_for\_symptomatics,$\chi_{symptom}$,always,calibrated from RKI,share of positive PCR tests that are performed on individuals because of Covid-19 symptoms
-share\_w\_positive\_rapid\_test\_ requesting\_pcr,$\chi_{confirmation}$,2021,\citet{Betsch2021},share of individuals with positive rapid test that seek a PCR test
+p\_duration\_until\_test\_result,"$\gamma_{PCR,\:d}$",always,\citet{ARS2020},probability that it takes $d$ days between the performance of a PCR test and receiving the result. See Section~\ref{subsec:pcr_testing_and_behavioral_response}.
+share\_of\_tests\_for\_symptomatics,"$\chi_{symptom,\:t}$",always,calibrated from RKI,share of positive PCR tests that are performed on individuals because of Covid-19 symptoms. See Section~\ref{subsec:pcr_testing_and_behavioral_response}.
+share\_w\_positive\_rapid\_test\_ requesting\_pcr,$\chi_{confirmation}$,2021,\citet{Betsch2021},share of individuals with positive rapid test that seek a PCR test. See Section~\ref{subsec:pcr_testing_and_behavioral_response}.
 share\_known\_cases\_without\_ rapid\_tests,$\psi_t$,always,\citet{Dunkelzifferradar2020},share of cases that would be detected in the absence of rapid tests (see Section~\ref{sub:testing})
 ,,,,
-symptomatic\_multiplier,"$\tau_{symptoms,\:c}$",always,,share of symptomatic individuals that still have contacts of type $c$
-positive\_pcr\_multiplier,"$\tau_{positive\:PCR,\:c}$",always,,share of individuals with a positive PCR test that still have contacts of type $c$
-positive\_rapid\_test\_multiplier,"$\tau_{positive\:rapid\:test,\:c}$",2021,\citet{Betsch2021},share of individuals with a recent positive rapid test that still have contacts of type $c$
+symptomatic\_multiplier,"$\tau_{symptoms,\:c}$",always,see \ref{subsec:pcr_testing_and_behavioral_response},share of symptomatic individuals that still have contacts of type $c$.
+positive\_pcr\_multiplier,"$\tau_{positive\:PCR,\:c}$",always,see \ref{subsec:pcr_testing_and_behavioral_response},share of individuals with a positive PCR test that still have contacts of type $c$.
+positive\_rapid\_test\_multiplier,"$\tau_{positive\:rapid\:test,\:c}$",2021,\citet{Betsch2021},share of individuals with a recent positive rapid test that still have contacts of type $c$. See Section~\ref{subsec:pcr_testing_and_behavioral_response}

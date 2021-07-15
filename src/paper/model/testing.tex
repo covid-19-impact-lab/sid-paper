@@ -33,7 +33,7 @@ approach: First, we calculate the total number of positive PCR tests by multiply
 number of newly infected individuals with an estimate of the share of detected cases
 from the Dunkelzifferradar project \citep{Dunkelzifferradar2020}. Next, we determine how
 many of these tests should go to symptomatic and asymptomatic individuals from data by
-the RKI.\comment[id=J]{add source} Then, we sample the individuals to which those tests
+the RKI \citep{ARS2020}. Then, we sample the individuals to which those tests
 are allocated from the pools of symptomatic and asymptomatic infected but not yet tested
 individuals.
 
@@ -60,11 +60,12 @@ Figure~\ref{fig:antigen_tests_vaccinations} shows that the number of performed r
 tests in the model fits the empirical data well (where empirical data is available).
 
 In contrast to PCR tests, rapid tests are not perfect and can be falsely positive or
-falsely negative. While the specificity of rapid tests is constant, their sensitivity
-strongly depends on the timing of the rapid test relative to the start of infectiousness.
-Before the onset of infectiousness the sensitivity is very low (35\%). On the first day
-of infectiousness it is much higher (88\%) but still lower than during the remaining
-infectious period (92\%). After infectiousness stops, the sensitivity drops to 50 \%.
+falsely negative. While the specificity of rapid tests is calibrated at 99.4\%
+\citep{Bruemmer2021}, their sensitivity strongly depends on the timing of the rapid test
+relative to the start of infectiousness \citep{Smith2021}. Before the onset of
+infectiousness the sensitivity is very low (35\%). On the first day of infectiousness it
+is much higher (88\%) but still lower than during the remaining infectious period (92\%).
+After infectiousness stops, the sensitivity drops to 50 \%.
 
 Modeling the diagnostic gap before and at the beginning of infectiousness is very
 important to address concerns that rapid tests are too unreliable to serve as screening
