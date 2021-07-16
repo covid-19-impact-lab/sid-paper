@@ -7,6 +7,62 @@ NPIs, work from home mandates and school closures. All scenarios start after Eas
 (April 6). Our analyses show that many socially costly NPIs can be avoided through strong
 rapid testing policies.
 
+Two of the most contentious NPIs concern schools and mandates to work from home. In many
+countries, schools switched to remote instruction during the first wave, so did Germany.
+After the summer break, they were operating at full capacity with increased hygiene
+measures, before being closed again from mid-December onward. Some states started opening
+them gradually in late February, but operation at normal capacity did not resume until
+the beginning of June. Figure~\ref{fig:school_scenarios} shows the effects of different
+policies regarding schools starting after Easter, at which point rapid tests had become
+widely available. We estimate the realized scenario to have essentially the same effect
+as a situation with closed schools. Under fully opened schools with mandatory tests,
+total infections would have been 6\% higher; this number rises to 20\% without tests.
+These effect sizes are broadly in line with empirical studies (e.g. \citet{Vlachos2021,
+Berger2021}, see Section~\ref{subsec:model_validation} for a comparison). In light of the
+large negative effects school closures have on children and parents \citep{Luijten2021,
+Melegari2021}---and in particular on those with low socio-economic status---these results
+in conjunction with hindsight bias suggest that opening schools combined with a testing
+strategy would have been beneficial. In other situations, and particular when rapid test
+are not available at scale, trade-offs may well be different.
+
+\begin{figure}[!tp]
+    \centering
+
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/school_scenarios/full_newly_infected}
+        \caption{{Effects of different schooling scenarios}}
+        \label{fig:school_scenarios}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/results/figures/scenario_comparisons/new_work_scenarios/full_newly_infected}
+        \caption{{Effects of different work scenarios}}
+        \label{fig:workplace_scenarios}
+    \end{subfigure}
+    \vskip3ex
+
+    \caption{Effects of different scenarios for policies regarding schools and workplaces.}
+    \label{fig:school_workplace_scenarios}
+
+    \floatfoot{\noindent \textit{Note:} Blue lines in both figures refer to our baseline
+        scenario; they are the same as in
+        Figure~\ref{fig:2021_scenarios_newly_infected}. Interventions start at Easter
+        because there were no capacity constraints for rapid tests afterwards.
+        For legibility reasons, all lines are rolling 7-day averages.}
+
+\end{figure}
+
+Figure~\ref{fig:workplace_scenarios} shows that with a large fraction of workers
+receiving tests, testing at the workplace has larger effects than mandating employees to
+work from home. Whether the share of workers working at the usual workplace is reduced
+or increased by ten percent changes infection rates by 2.5\% or less in either
+direction. Making testing mandatory twice a week---assuming independent compliance by
+employers and workers of 95\% each---would have reduced infections by 23\%. Reducing
+rapid tests offers by employers to the level of March would have increased infections by
+13\%.
+
 Figure~\ref{fig:work_scenarios_detailed} shows the effects of different work policies on
 the infections in the general population. We compare four scenarios with our baseline
 scenario: Keeping the share of workers having physical work contacts the same as in our
