@@ -230,3 +230,21 @@ def task_prepare_submission_material(depends_on, produces):
             produces[name].write_text(text)
         else:
             shutil.copy(depends_on[name], produces[name])
+
+
+
+@pytask.mark.skipif(shutil.which("qpdf") is None, reason="Combination needs qpdf.")
+@pytask.mark.depends_on([BLD / "science" / "paper.pdf", BLD / "supplementary_material.pdf"])
+@pytask.mark.produces(BLD / "science" / "full_paper.pdf")
+def task_create_combined_report(depends_on, produces):
+    subprocess.run(
+        [
+            "qpdf",
+            "--empty",
+            "--pages",
+            depends_on[0].as_posix(),
+            depends_on[1].as_posix(),
+            "--",
+            produces.as_posix(),
+        ]
+    )

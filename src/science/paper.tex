@@ -122,7 +122,7 @@ which is in line with prior predictions \cite{Mina2021}.
 At the core of our agent-based model \cite{Aleta2020,Hinch2020} (we review more
 literature in Supplementary Material~Fig.~B.1) are physical contacts
 between heterogeneous agents (Figure~\ref{fig:model_contacts_infections}) that
-potentially cause infections. Contacts occur in up to four networks: Within the
+potentially cause infections. Contacts occur in up to four areas: Within the
 household, at work, at school, or in other settings. Some contacts recur regularly,
 others occur at random. Empirical applications can take the population and household
 structure from census data and the network-specific frequencies of contacts from diary
@@ -130,12 +130,12 @@ data measuring contacts before the pandemic (e.g. \cite{Mossong2008,Hoang2019}).
 each network, meeting frequencies depend on age and geographical location (see
 Supplementary Material~A.4).
 
-The four contact networks are chosen so that the most common NPIs can be modeled in
-great detail. NPIs affect the number of contacts or the risk of transmitting the disease
-upon having physical contact. The effect of different NPIs will generally vary across
-contact types. See Section~B.4 for details on how we model NPIs. In any
-setting, mask mandates or air filters would reduce the probability of infection
-\cite{Lessler2021, Cheng2021}.
+The contact networks are chosen so that the most common NPIs can be modeled in great
+detail. NPIs affect the number of contacts or the risk of transmitting the disease upon
+having physical contact. NPIs' effects on meeting frequencies will vary across contact
+types. Mask mandates or air filters would reduce the probability of infection
+\cite{Lessler2021, Cheng2021}. See Supplementary Material~B.4 for
+details on how we model NPIs.
 
 \begin{figure}   % Figure 1
     \centering
@@ -214,8 +214,8 @@ become immune and do not transmit the virus \cite{Hunter2021, LevineTiefenbrun20
 Petter2021, Pritchard2021}.
 
 We include two types of tests. Polymerase chain reaction (PCR) tests reveal with
-certainty whether an individual is infected or not; They require at least one day to be
-processed and are scarce. In contrast, rapid antigen tests yield immediate results.
+certainty whether an individual is infected or not; they are scarce and require at least
+one day to be processed. In contrast, rapid antigen tests yield immediate results.
 Specificity and sensitivity of these tests is set according to data analyzed in
 \cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the test relative
 to the onset of infectiousness. Figure~\ref{fig:model_rapid_tests} shows our model for
@@ -229,8 +229,8 @@ contacts.
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and calibrate the model's many
-parameters.\footnote{See Supplementary Material~A for a complete description.} Examples
-are contact diaries, administrative records on case numbers, virus strains, tests and
+parameters (see Supplementary Material~A for a complete description). Examples are
+contact diaries, administrative records on case numbers, virus strains, tests and
 vaccines as well as surveys on private rapid test demand. Other studies' estimates of
 the seasonality of infections can be incorporated directly. The remaining
 parameters---most notably, the infection probabilities by contact network and the
@@ -450,8 +450,8 @@ up on a positive test of a household member. This is essentially a form of conta
 tracing, which has been shown to be very effective \cite{Contreras2021,
 Fetzer2021,Kretzschmar2020}. Indeed, a deeper analysis in Supplementary Material~B.14
 shows that the same amount of rapid tests administered randomly in the population would
-not have been nearly as effective and that mandatory tests at schools almost offset the
-increased infection risk of opening schools (see Figure~B.13a).
+not have been nearly as effective. Furthermore, mandating tests at schools almost
+offsets the increased infection risk of opening schools (see Figure~B.13a).
 
 Our analysis has shown that during the transition to high levels of vaccination and
 possibly thereafter, large-scale rapid testing can substitute for some NPIs. This comes
@@ -459,12 +459,12 @@ at a fraction of the cost. A day of strict lockdown is estimated to have cost ar
 50~Euros per capita \cite{Dorn2020b}; retail prices for rapid tests were below one Euro
 in early June 2021. Widespread availability of self-administered tests at low prices are
 likely to play a role for indication-driven testing. Mandatory tests in schools and at
-the workplace are important to screen the entire population. Especially, because
-disadvantaged groups are less likely to be reached by testing campaigns relying on
-voluntary participation (e.g. \cite{StillmanTonin2021}); at the same time, these groups
-have a higher risk to contract CoViD-19 \cite{KochInstitut2021a}. Compared to
-vaccinations, rapid testing programmes allow a much quicker roll-out, making it arguably
-the most effective tool to contain the pandemic in the short run.
+the workplace are important to screen the entire population, also because disadvantaged
+groups are less likely to be reached by testing campaigns relying on voluntary
+participation (e.g. \cite{StillmanTonin2021}); at the same time, these groups have a
+higher risk to contract CoViD-19 \cite{KochInstitut2021a}. Compared to vaccinations,
+rapid testing programmes allow a much quicker roll-out, making it arguably the most
+effective tool to contain the pandemic in the short run.
 
 % \bibliography{bibliography}
 % \bibliographystyle{Science}
