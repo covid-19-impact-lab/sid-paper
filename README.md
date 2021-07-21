@@ -39,10 +39,10 @@ preprint](https://arxiv.org/abs/2106.11129). Please cite it with
 
   An updated version for the CRC Discussion Series.
 
-- v4 - 2021-02-09
+- v4 - 2021-06-22
 
   The fourth version in this repository corresponds to the second version of the
-  preprint published on arXiv.
+  pre-print published on arXiv.
 
 
 ## Related publications
@@ -101,12 +101,11 @@ Here are some useful things to know.
 
 3. zip the src folder and upload it to archive.
 
-**Notes:**
 
-- the `comment` package should work
-- you can preview the resulting pdf.
-- if the run on arxive fails, the most likely culprits are:
-  - it used `tex` and not `pdflatex` in the command -> put `\pdfoutput=1` as first line
-    of `paper.tex`
-  - everything before `\begin{document}` must be in the main paper without input
-    statements.
+If the run on arxive fails, the most likely culprits are:
+
+- it used `tex` and not `pdflatex` in the command -> put `\pdfoutput=1` as first line
+  of `paper.tex`
+
+- everything before `\begin{document}` **must** be in the main paper without input
+  statements.

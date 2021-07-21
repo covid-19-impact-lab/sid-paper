@@ -1,0 +1,11 @@
+name,notation,time active,source,description
+p\_duration\_immune,"$\gamma_{immune,\:d}$",always,see Section~\ref{sub:data_course_of_disease},probability to stay immune for $d$ days after having contracted CoViD-19
+p\_duration\_until\_infectious,"$\gamma_{infectious,\:d}$",always,see Section~\ref{sub:data_course_of_disease},probability to become infectious $d$ days after infection
+p\_duration\_of\_infectiousness,"$\gamma_{stop\:infectious,\:d}$",always,see Section~\ref{sub:data_course_of_disease},probability that infectiousness lasts $d$ days
+p\_duration\_until\_symptoms,"$\gamma_{symptoms,\:a,\:d}$",always,see Section~\ref{sub:data_course_of_disease},"probability for individuals of age group $a$ to develop symptoms $d$ days (possibly infinite) after becoming infectious"
+p\_duration\_of\_symptoms,"$\gamma_{stop\:symptoms,\:d}$",always,see Section~\ref{sub:data_course_of_disease},probability for individuals of age group $a$ that symptoms last $d$ days
+p\_duration\_until\_icu,"$\gamma_{icu,\:a,\:d}$",always,see Section~\ref{sub:data_course_of_disease},probability for symptomatic individuals of age group $a$ to require intensive care $d$ days (possibly infinite) after symptom onset
+p\_duration\_of\_icu,"$\gamma_{stop\:icu,\:a,\:d}$",always,see Section~\ref{sub:data_course_of_disease},probability to recover after $d$ days from requiring intensive care
+p\_duration\_until\_death,"$\gamma_{dead,\:a,\:d}$",always,see Section~\ref{sub:data_course_of_disease},probability for individuals of age group $a$ in intensive care to die after $d$ days (possibly infinite)
+p\_until\_immune\_by\_vaccine,"$\gamma_{vacc,\:d}$",2021,see Section~\ref{sub:data_course_of_disease},probability to develop immunity $d$ days (possibly infinite) after being vaccinated
+share\_vaccine\_refusers,$\xi$,always,\citet{AZ2021},share of individuals refusing to be vaccinated. See Section~\ref{subsec:synthetic_population}

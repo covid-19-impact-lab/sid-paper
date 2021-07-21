@@ -1,0 +1,118 @@
+\subsection{Course of Disease}
+\label{sub:data_course_of_disease}
+
+This section discusses the parameters governing the course of disease, their sources and
+how we arrived at the distributions used in the paper.
+See Figure~\ref{fig:model_disease_progression} for a summary of our
+disease progression model.
+
+% Susceptibility and Infectiousness
+The first stage of any disease is the infection. As detailed in
+Equation~\ref{eq:infection_probability_formula} the infection
+probability depends on the contact type, the calendar date to determine the seasonality,
+the age group of the susceptible person and the variant the infectious person is
+carrying.
+%
+The base infection probability of each contact type ($\beta_c$) is estimated inside our
+model (Section~\ref{subsec:estimated_params}). How we model and calibrate the seasonality
+effect is detailed in Section~\ref{subsec:seasonality}. For the susceptibility of each
+age group ($\zeta_a$) we take the estimates of \citet{Davies2020} (Extended Data Fig. 4).
+Lastly, we calibrate the infectiousness of the B.1.1.7 variant ($\sigma_{B.1.1.7}$) from
+\citet{Davies2021} to 1.67.
+
+% Duration until Infectiousness and Symptoms ----------------------------------
+
+% Latency Period
+We denote the latent period---i.e., the time span between infection and the start of
+infectiousness---by $\gamma_{infectious}$. \cite{Zhao2021} estimate the latent period to
+last 3.3 days (95\% CI: 0.2, 7.9) on average. In line with this estimate our latent
+period lasts one to five days.
+
+% Asymptomatic Share
+Once individuals become infectious, a share of them goes on to develop symptoms while
+others remain asymptomatic. We rely on data by \cite{Davies2020} for the age-dependent
+probability to develop symptoms. It varies from 25\% for children and young adults to
+nearly 70\% for the elderly.
+% Length of the presymptomatic stage
+Similar to \citet{Peak2020} and in line with \citet{He2020} we set the length of the
+presymptomatic stage of age group $a$, $\gamma_{symptoms,\:a}$ to be one or two days. The
+probability to become symptomatic for age group $a$ is split equally between one and two
+days. This combined with our latency period leads to an incubation period that is in line
+with the meta analysis by \citet{McAloon2020}.
+
+% Duration of Infectiousness ----------------------------------------------------------
+
+We assume that the duration of infectiousness ($\gamma_{stop\:infectious}$) is the same
+for both symptomatic and asymptomatic individuals as evidence suggests little differences
+in the transmission rates between symptomatic and asymptomatic patients (\citet{Yin2020})
+and that the viral load between symptomatic and asymptomatic individuals are similar
+(\citet{Zou2020}, \citet{Byrne2020}, \citet{Singanayagam2020}). Our distribution of the
+duration of infectiousness is based on \citet{Byrne2020}. For symptomatic cases they
+arrive at zero to five days before symptom onset (see their figure 2) and three to eight
+days of infectiousness afterwards.\footnote{Viral loads may be detected much later but
+eight days seems to be the time after which most people are culture negative, as also
+reported by \citet{Singanayagam2020}.} Excluding the most extreme combinations, we arrive
+at 3 to 11 days as the duration of infectiousness.
+
+% Duration of Symptoms ----------------------------------------------------------
+
+We use the duration to recovery of mild and moderate cases reported by \cite[Figure~S3,
+Panel~2]{Bi2020} for the duration of symptoms for non-ICU requiring symptomatic cases
+($\gamma_{stop\:symptoms}$). We only disaggregate by age how likely individuals
+are to require intensive care. %
+
+For the time from symptom onset until need for intensive care we rely on data by
+\cite{Stokes2020}) and \cite{Hinch2021} ($\gamma_{icu,\:a}$). For those who will require
+intensive care we follow \citet{Chen2020} who estimate the time from symptom onset to ICU
+admission as $8.5 \pm 4$ days. This aligns well with numbers reported for the time from
+first symptoms to hospitalization: \citet{Gaythorpe2020} report a mean of 5.76 with a
+standard deviation of four. We assume that the time between symptom onset and ICU takes
+four, six, eight or ten days with equal probabilities.
+
+% Death and Recovery from ICU ----------------------------------------------------------
+We take the survival probabilities and time to death and time until recovery
+($\gamma_{stop\:icu\:a}$ and $\gamma_{dead,\:a}$) from intensive care from
+\citet{Hinch2021}. They report time until death to have a mean of 11.74 days and a
+standard deviation of 8.79 days. To match this we discretize that 41\% of individuals who
+will die from Covid-19 do so after one day in intensive care, 22\% die after twelve days,
+29\% after 20 days and 7\% after 32 days. Again, we rescale this for every age group
+among those that will not survive. For survivors \cite{Hinch2020} reports a mean duration
+of 18.8 days until recovery and a standard deviation of 12.21 days. We discretize this
+such that of those who recover in intensive care, 22\% do so after one day, 30\% after 15
+days, 28\% after 25 days and 18\% after 45 days.
+
+% Immunity and Vaccination -------------------------------------------------------------
+
+Individuals can become immune either through infection ($\gamma_{immune}$) or vaccination
+($\gamma_{vacc,\:d}$). As reinfections are very rare \citep{AbuRaddad2020}, we
+set the immunity period to one year with probability one, i.e. everyone that has
+been infected enjoys immunity for the rest of the simulation period.
+
+% vaccinations
+The second route to immunity is through vaccination. Germany has mostly relied on the
+Pfizer-BioNTech BNT162b2 and Oxford-AstraZeneca ChAdOx1-S vaccines with smaller shares of
+the Moderna and Johnson\&Johnson vaccines \citep{Impfdashboard}. As \citet{Pritchard2021}
+and \citet{Harris2021} find no difference in the effectiveness between the two most
+common vaccines, we do not distinguish between vaccine types.
+
+Immunity is binary in our model, i.e. individuals achieve either sterile immunity or
+remain susceptible. Thus, we cannot simply use the reported effectiveness but must also
+include the risk of asymptomatic and sub-clinical reinfection among the vaccinated in our
+probability to become immune upon vaccination. This is important as there is ample
+evidence by now that vaccinated individuals can still get infected with SARS-CoV-2 and
+transmit the disease \citep{Petter2021, LevineTiefenbrun2021, Harris2021}.
+
+The reported effectiveness for BNT162b2 is estimated to be 90\% 21 days after the first
+shot \citep{Hunter2021}. The effectiveness does not increase much through the booster
+shot as \citet{Thompson2021} report 90\% (95\% CI = 68\%–97\%) effectiveness against
+PCR-confirmed infections after two doses for mRNA vaccines in general. We therefore do
+not distinguish between the first and the booster shot.
+
+On the other hand, \citet{Lipsitch2021} report a lower bound on transmission for
+the very similar Moderna vaccine of 61\%.
+
+To strike a middle ground we assume that 75\% of individuals achieve sterile immunity
+after vaccination. This is split into 35\% reaching immunity after 14 days after the
+first shot and 40\% reaching immunity after 21 days.
+
+\FloatBarrier
