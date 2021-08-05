@@ -58,3 +58,18 @@ def task_extract_supplementary_material(depends_on, produces):
             produces.as_posix(),
         ]
     )
+
+@pytask.mark.latex(
+    [
+        "--pdf",
+        "--interaction=nonstopmode",
+        "--synctex=1",
+        "--cd",
+        "--shell-escape",
+        "-f",
+    ]
+)
+@pytask.mark.depends_on([SRC / "cover-letter.tex"])
+@pytask.mark.produces(BLD / "cover-letter.pdf")
+def task_compile_documents():
+    pass
