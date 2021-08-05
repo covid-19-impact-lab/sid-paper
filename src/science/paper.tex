@@ -103,39 +103,56 @@
     society, and the economy.
 \end{sciabstract}
 
-The development of highly effective vaccines holds the promise of containment in the
-medium term. However, most countries find themselves months or years away from reaching
-vaccination levels that would end the pandemic \cite{Mathieu2021}. While
-non-pharmaceutical interventions (NPIs) have allowed some countries to sustain
-equilibria with very low infection numbers \cite{Contreras2021} most have seen large
-fluctuations of infection rates over time. It is therefore of utmost importance to
-employ an effective mix of strategies for containing the virus. However, the effects of
-diverse policies and their interplay with seasonal patterns are not well understood.
+Since early 2020, the CoViD-19 pandemic has presented an enormous challenge to humanity
+on many dimensions. The development of highly effective vaccines holds the promise of
+containment in the medium term. However, most countries find themselves many months---and
+often years---away from reaching vaccination levels that would end the pandemic or even
+protect the most vulnerable \cite{Mathieu2021}. In the meantime, it is of utmost
+importance to employ an effective mix of strategies for containing the virus. The most
+frequent initial response was a set of non-pharmaceutical interventions (NPIs) to reduce
+contacts between individuals. While this has allowed some countries to sustain equilibria
+with very low infection numbers,\footnote{See \cite{Contreras2021} for a theoretical
+equilibrium at low case numbers which is sustained with test-trace-and-isolate
+policies.} most have
+seen large fluctuations of infection rates over time. Containment measures have become
+increasingly diverse and now include rapid testing, more nuanced NPIs, and contact
+tracing. Neither these policies' effects nor the influence of seasonal patterns or of
+more infectious virus strains are well understood in quantitative terms.
 
 This paper develops a quantitative model incorporating these factors simultaneously. The
-framework allows to combine a wide variety of data and mechanisms, making it useful to
-predict the effects of various interventions. We apply the model to Germany, where new
-infections fell by almost 80\% during May 2021. Our analysis shows that, aside from
-seasonality, frequent and large-scale rapid testing caused the bulk of this decrease,
-which is in line with prior predictions \cite{Mina2021}.
+framework allows to combine a wide variety of data and mechanisms in a timely fashion,
+making it useful to predict the effects of various interventions. We apply the model to
+Germany, where new infections fell by almost 80\% during May 2021. Our analysis
+shows that, aside from seasonality, frequent and large-scale rapid testing caused the
+bulk of this decrease, which is in line with prior predictions \cite{Mina2021}. We
+conclude that it should have a large role for at least as long as vaccinations have not
+been offered to an entire population.
 
 At the core of our agent-based model \cite{Aleta2020,Hinch2020} (we review more
-literature in Supplementary Material~Fig.~B.1) are physical contacts
-between heterogeneous agents (Figure~\ref{fig:model_contacts_infections}) that
-potentially cause infections. Contacts occur in up to four areas: Within the
-household, at work, at school, or in other settings. Some contacts recur regularly,
-others occur at random. Empirical applications can take the population and household
-structure from census data and the network-specific frequencies of contacts from diary
-data measuring contacts before the pandemic (e.g. \cite{Mossong2008,Hoang2019}). Within
-each network, meeting frequencies depend on age and geographical location (see
-Supplementary Material~A.4).
+literature in Supplementary Material~\ref{sec:literature_review}) are physical contacts
+between heterogeneous agents (Figure~\ref{fig:model_contacts_infections}). Each contact
+between an infectious individual and somebody susceptible to the disease bears the risk
+of transmitting the virus. Contacts occur in up to four networks: Within the household,
+at work, at school, or in other settings (leisure activities, grocery shopping, medical
+appointments, etc.). Some contacts recur regularly, others occur at random. Empirical
+applications can take the population and household structure from census data and the
+network-specific frequencies of contacts from diary data measuring contacts before the
+pandemic \cite{Mossong2008,Hoang2019}. Within each network, meeting frequencies depend
+on age and geographical location (see Supplementary
+Material~\ref{subsec:assortativity}).
 
-The contact networks are chosen so that the most common NPIs can be modeled in great
-detail. NPIs affect the number of contacts or the risk of transmitting the disease upon
-having physical contact. NPIs' effects on meeting frequencies will vary across contact
-types. Mask mandates or air filters would reduce the probability of infection
-\cite{Lessler2021, Cheng2021}. See Supplementary Material~B.4 for
-details on how we model NPIs.
+The four contact networks are chosen so that the most common NPIs can be modeled in
+great detail. NPIs affect the number of contacts or the risk of transmitting the disease
+upon having physical contact. The effect of different NPIs will generally vary across
+contact types. For example, a mandate to work from
+home will reduce the number of work contacts to zero for a fraction of the working
+population. Schools and daycare can be closed entirely, operate at reduced
+capacity---including an alternating schedule---, or implement mitigation measures like
+masking requirements or air filters \cite{Lessler2021}. Curfews may reduce the number
+of contacts in settings outside of
+work and school. In any setting, measures like masking requirements would reduce the
+probability of infection associated with a contact
+\cite{Cheng2021}.
 
 \begin{figure}   % Figure 1
     \centering
@@ -177,87 +194,122 @@ details on how we model NPIs.
     \label{fig:model_description}
 
     \floatfoot{\noindent \textit{Note:}
-        A~description of the model can be found in Supplementary Material~B.
-        Figure~\ref{fig:model_contacts_infections} shows the influence of an agent's
-        contacts to other agents on infections. Demographic characteristics set the
-        baseline number of contacts in different networks ($\eta$). The agents may
-        reduce the number of contacts due to NPIs, showing symptoms, or testing
-        positively for SARS-CoV-2 ($\tau$). Infections may occur when a susceptible
-        agent meets an infectious agent; the probability depends on the type of contact
-        ($\beta_c$), on seasonality ($\kappa_{c}$), and on NPIs ($\rho_{c,\:t}$). If
-        infected, the infection progresses as depicted in
-        Figure~\ref{fig:model_disease_progression}. If rapid tests are available,
-        agents' demand is modeled as in Figure~\ref{fig:model_rapid_tests}. All reasons
-        trigger a test only for a fraction of individuals depending on an individual
-        compliance parameter; the thresholds for triggering test demand differ across
-        reasons and they may depend on calendar time ($\pi_{c,\:t}$ and $\tau_{c,\:t}$).
+        A~description of the model can be found in Supplementary
+        Material~\ref{sec:supplementary_text}. Figure~\ref{fig:model_contacts_infections}
+        shows the influence of an agent's contacts to other agents on infections.
+        Demographic characteristics set the baseline number of contacts in different
+        networks ($\eta$). The agents may reduce the number of contacts due to NPIs,
+        showing symptoms, or testing positively for SARS-CoV-2 ($\tau$). Infections may
+        occur when a susceptible agent meets an infectious agent; the probability depends
+        on the type of contact ($\beta_c$), on seasonality ($\kappa_{c}$), and on NPIs
+        ($\rho_{c,\:t}$). If infected, the infection progresses as depicted in
+        Figure~\ref{fig:model_disease_progression}. If rapid tests are available, agents'
+        demand is modeled as in Figure~\ref{fig:model_rapid_tests}. All reasons trigger a
+        test only for a fraction of individuals depending on an individual compliance
+        parameter; the thresholds for triggering test demand differ across reasons and
+        they may depend on calendar time ($\pi_{c,\:t}$ and $\tau_{c,\:t}$).
         Figure~\ref{fig:model_official_cases} shows the model of translating all
         infections in the simulated data to age-specific recorded infections. The model
         uses data on the aggregate share of recorded cases ($\psi$), the share of
         positive PCR tests triggered by symptoms ($\chi_{symptom}$), and the false
-        positive rate of rapid tests ($p_{positive|infected,\;i,\:t}$). The lower part
-        of the graph is relevant only for periods where rapid tests are available. All
-        parameters are explained in Appendix~A.11.}
+        positive rate of rapid tests ($p_{positive|infected,\;i,\:t}$). The lower part of
+        the graph is relevant only for periods where rapid tests are available. All
+        parameters are explained in Appendix~\ref{sub:param_tables}.}
 \end{figure}
 
-In the model, a possible infection progresses as shown in
-Figure~\ref{fig:model_disease_progression} (similar to \cite{Aleta2020}, more in
-Supplementary Material~A.1). Whereas susceptibility to the viruses differs by age, the
-infectiousness is independent of age conditioned on the type of contact
-\cite{Jones2021}.
+In the model, susceptibility to contracting the SARS-CoV-2 virus is dependent on
+age. A possible infection progresses as shown in
+Figure~\ref{fig:model_disease_progression}. We differentiate
+between an initial period of infection without being infectious or showing symptoms,
+being infectious (presymptomatic or asymptomatic), showing symptoms, requiring intensive
+care, and recovery or death (similar to \cite{Aleta2020}). The probabilities of
+transitioning between these states depend on age; their duration is random and calibrated
+to medical literature (for a detailed description see Supplementary
+Material~\ref{sub:data_course_of_disease}). Conditional on the type of contact,
+infectiousness is independent of age \cite{Jones2021}.
 
-The model includes several other crucial features. New virus strains with different
-infectiousness profiles may appear. Vaccines may become available. During the vaccine
-roll-out, priority may depend on age and occupation; vaccine hesitancy is modeled by
-some individuals refusing vaccination offers. With some probability, vaccinated agents
-become immune and do not transmit the virus \cite{Hunter2021, LevineTiefenbrun2021,
-Petter2021, Pritchard2021}.
+The model includes several other features, which are crucial to describe the evolution of
+the pandemic in 2020-2021. New virus strains with different infectiousness profiles may
+appear. Vaccines may become available. During the vaccine roll-out, priority may depend
+on age and occupation; vaccine hesitancy is modelled by some individuals refusing
+vaccination offers. With some probability, vaccinated agents become immune and do not
+transmit the virus \cite{Hunter2021, LevineTiefenbrun2021, Petter2021,
+Pritchard2021}.
 
-We include two types of tests. Polymerase chain reaction (PCR) tests reveal with
-certainty whether an individual is infected or not; they are scarce and require at least
-one day to be processed. In contrast, rapid antigen tests yield immediate results.
-Specificity and sensitivity of these tests is set according to data analyzed in
-\cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the test relative
-to the onset of infectiousness. Figure~\ref{fig:model_rapid_tests} shows our model for
-rapid test demand. Schools may require staff and students to be tested regularly. Rapid
-tests may be offered by employers to on-site workers. Individuals may demand tests for
-private reasons, which include having plans to meet other people, showing symptoms of
-CoViD-19, and a household member having tested positively for the virus. We endow each
-agent with an individual compliance parameter. This parameter determines whether she
-takes up rapid tests. Positive tests and symptoms lead most individuals to reduce their
-contacts.
+We include two types of tests. Polymerase chain reaction (PCR) tests reveal whether an
+individual is infected or not; there is no uncertainty to the result. PCR tests require
+at least one day to be processed and there are aggregate capacity constraints. In
+contrast, rapid antigen tests
+yield immediate results. Specificity and
+sensitivity of these tests is set
+according to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the
+timing of the test relative to the onset of infectiousness. After a phase-in period, all
+tests that are demanded will be performed. Figure~\ref{fig:model_rapid_tests} shows our
+model for rapid test demand. Schools may require staff and students to be tested
+regularly. Rapid tests may be offered by
+employers to on-site workers. Individuals may demand tests for private reasons, which
+include having plans to meet other people, showing symptoms of CoViD-19, and a household
+member having tested positively for the virus. We endow each agent with an individual
+compliance parameter. This parameter determines whether she takes up rapid
+tests.\footnote{Positive test results or symptoms lead most individuals to reduce their
+    contacts; this is why tests impact the actual contacts in
+    Figure~\ref{fig:model_description}.}
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and calibrate the model's many
-parameters (see Supplementary Material~A for a complete description). Examples are
-contact diaries, administrative records on case numbers, virus strains, tests and
-vaccines as well as surveys on private rapid test demand. Other studies' estimates of
-the seasonality of infections can be incorporated directly. The remaining
-parameters---most notably, the infection probabilities by contact network and the
-effects of some NPIs, see Supplementary Material~A.9---will be chosen numerically so
-that the model matches features of the data (see \cite{McFadden1989} for the general
-method). By modelling PCR and rapid tests in detail, we can translate infection numbers
-in the model into observed infections before matching them to the data. The mechanism is
-depicted in Figure~\ref{fig:model_official_cases} and described in Supplementary
-Material~B.7. Figure~B.9 shows the resulting share of detected cases.
+parameters.\footnote{See Supplementary Material~\ref{sec:materials_and_methods} for a
+    complete description.} Contact diaries yield pre-pandemic distributions of contacts for
+different contact types and their assortativity by age group. Mobility data is used to
+model the evolution of work contacts. School and daycare policies can be incorporated
+directly from official directives. Administrative records on the number of tests,
+vaccinations by age and region, and the prevalence of virus strains are generally
+available. Surveys may ask about test offers, propensities to take them up, and past
+tests. Other studies' estimates of the seasonality of infections can be incorporated
+directly. The remaining parameters---most notably, these include infection probabilities
+by contact network and the effects of some NPIs, see Supplementary
+Material~\ref{subsec:estimated_params}---will be chosen numerically so that the model
+matches features of the data (see \cite{McFadden1989} for the general method). In our
+application, we keep the number of free parameters low in order to avoid overfitting.
+The data features to be matched include official case numbers for each age group and
+region, deaths, and the share of the B.1.1.7 strain.
 
-The model is applied to the second and third waves of infections in Germany, covering
-the period September 2020 to May 2021. Figure~\ref{fig:pandemic_drivers_model_fit}
-describes the evolution of the pandemic and of its drivers. The black line in
-Figure~\ref{fig:aggregated_fit} shows officially recorded cases; the black line in
-Figure~\ref{fig:stringency_infectious_contacts} a rescaled Oxford Response Stringency
-Index \cite{Hale2020}, which tracks the tightness of non-pharmaceutical interventions.
-Between mid September and early November, cases increased tenfold. Restrictions were
-somewhat tightened in mid-October and again in early November. New infections remained
-constant throughout November before rising again in December, prompting the most
-stringent lockdown to this date. Schools and daycare centers were closed, so were
-customer-facing businesses except for grocery and drug stores. From the peak of the
-second wave just before Christmas until the trough in mid-February, newly detected cases
-decreased by almost three quarters. The third wave in the spring of 2021 is associated
-with the B.1.1.7 (Alpha) strain, which became dominant in March
-(Figure~\ref{fig:share_b117}). In early March, some NPIs were relaxed. There were many
-changes in details of regulations afterwards, but they did not change the overall
-stringency index.
+The main issue with official case numbers is that they will contain only a fraction of
+all infections. In the German case, this specifically amounts to positive PCR tests. We
+thus model recorded cases as depicted in Figure~\ref{fig:model_official_cases}. We take
+mortality-based aggregate estimates of the share of detected cases and use data on the
+share of PCR tests administered because of CoViD-19
+symptoms. As the share of asymptomatic individuals
+varies by age group, this gives us age-specific shares (see
+Figure~\ref{fig:share_known_cases_by_age_group}). Our estimates suggest that---in the
+absence of rapid testing---the detection rate is 80\% higher on average for individuals
+above age 80 compared to school age children. Once rapid test become available,
+confirmation of a positive result is another reason leading to positive PCR tests.
+
+The model is applied to the second and third waves of the CoViD-19 pandemic in Germany,
+covering the period mid-September 2020 to the end of May 2021.
+Figure~\ref{fig:pandemic_drivers_model_fit} describes the evolution of the pandemic and
+of its drivers. The black line in Figure~\ref{fig:aggregated_fit} shows officially
+recorded cases; the black line in Figure~\ref{fig:stringency_infectious_contacts} the
+Oxford Response Stringency Index \cite{Hale2020}, which tracks the tightness of
+non-pharmaceutical interventions. The index is shown for illustration of the NPIs, we
+never use it directly. For legibility reasons, we transform the index so that lower
+values represent higher levels of restrictions. A value of zero means all measures
+incorporated in the index are turned on. The value one represents the situation in
+mid-September, with restrictions on gatherings and public events, masking requirements,
+but open schools and workplaces. In the seven weeks between mid September and early
+November, cases increased by a factor of ten. Restrictions were somewhat tightened in
+mid-October and again in early November. New infections remained constant throughout
+November before rising again in December, prompting the most stringent lockdown to this
+date. Schools and daycare centers were closed, so were customer-facing businesses except
+for grocery and drug stores. From the peak of the second wave just before Christmas
+until the trough in mid-February, newly detected cases decreased by almost three
+quarters. The third wave in the spring of 2021 is associated with the B.1.1.7 (Alpha)
+strain, which became dominant in March (Figure~\ref{fig:share_b117}).\footnote{B.1.617.2
+    (Delta) reached Germany in April but still accounted for less than 5\% of cases at the
+    end of our simulation period.} In early March, some NPIs were relaxed; e.g.,
+hairdressers and home improvement stores were allowed to open again to the public. There
+were many changes in details of regulations afterwards, but they did not change the
+overall stringency index.
 
 \begin{figure}[!tp]   % Figure 2
     \centering
@@ -301,35 +353,40 @@ stringency index.
     \label{fig:pandemic_drivers_model_fit}
 
     \floatfoot{\noindent \textit{Note:} Data sources are described in Supplementary
-        Material~A. Age- and region-specific analogues to
-        Figure~\ref{fig:aggregated_fit} can be found in Supplementary Material B.10. For
-        legibility reasons, all lines in Figure~\ref{fig:stringency_infectious_contacts}
-        are rolling 7-day averages. The Oxford Response Stringency Index is scaled as $2
-        \cdot (1 -  x / 100)$, so that a value of one refers to the situation at the
-        start of our sample period and zero means that all NPIs included in the index
-        are turned on. The other lines in
+        Material~\ref{sec:materials_and_methods}. Age- and region-specific analogues to
+        Figure~\ref{fig:aggregated_fit} can be found in Supplementary Material
+        \ref{subsec:fit_results}. For legibility reasons, all lines in
+        Figure~\ref{fig:stringency_infectious_contacts} are rolling 7-day averages. The
+        Oxford Response Stringency Index is scaled as $2 \cdot (1 -  x / 100)$, so that
+        a value of one refers to the situation at the start of our sample period and
+        zero means that all NPIs included in the index are turned on. The other lines in
         Figure~\ref{fig:stringency_infectious_contacts} show the product of the effect
         of contact reductions, increased hygiene regulations, and seasonality. See
-        Appendix~A.5 for separate plots of the three factors by contact type.}
+        Appendix~\ref{subsec:policies} for separate plots of the three factors by
+        contact type.}
 \end{figure}
 
-Around the turn of the year, the first people were vaccinated with a focus on older age
-groups and medical staff (Figure~\ref{fig:antigen_tests_vaccinations}). Until the end of
-May, 43\% had received at least one dose of a vaccine. In late 2020, rapid tests started
-to replace regular PCR tests for staff in many medical and nursing facilities. At-home
-tests approved by authorities became available in mid-March. Rapid test centers were
-opened, and one test per person and week was made available free of charge. In several
-states, customers were only allowed to enter certain stores with a recent negative rapid
-test result. These developments are characteristic of many countries: The initial focus
-on NPIs to slow the spread of the disease has been accompanied by vaccines and a growing
-acceptance and use of rapid tests.
+By March 2021, the set of policy instruments had become much more diverse. Around the
+turn of the year, the first people were vaccinated with a focus on older age groups and
+medical staff (Figure~\ref{fig:antigen_tests_vaccinations}). Until the end of May, 43\%
+had received at least one dose of a vaccine. In late 2020, rapid tests started to
+replace regular PCR tests for staff in many medical and nursing facilities. These had to
+be administered by medical doctors or in pharmacies. At-home tests approved by
+authorities became available in mid-March. Rapid test centers were opened, and one test
+per person and week was made available free of charge. In several states, customers were
+only allowed to enter certain stores with a recent negative rapid test result. These
+developments are characteristic of many countries: The initial focus on NPIs to slow the
+spread of the disease has been accompanied by vaccines and a growing acceptance and use
+of rapid tests. At broadly similar points in time, novel strains of the virus have
+started to pose additional challenges.
 
 We draw simulated samples of agents from the population structure in September 2020 and
-use the model to predict recorded infection rates until May 2021. See Supplementary
-Materials~A.2 and B.9 for details. The blue line in Figure~\ref{fig:aggregated_fit}
-shows that our model's predictions are very close to officially recorded cases in the
-aggregate. This is also true for infections by age and geographical region (see
-Supplementary Material~B.10).
+use the model to predict recorded infection rates until the end of May 2021. See
+Supplementary Materials~\ref{subsec:synthetic_population} and
+\ref{sub:initial_conditions} for details. The blue line in
+Figure~\ref{fig:aggregated_fit} shows that our model's predictions are very close to
+officially recorded cases in the aggregate. This is also true for infections by age and
+geographical region (see Supplementary Material~\ref{subsec:fit_results}).
 
 The effects of various mechanisms can be disentangled due to the distinct temporal
 variation in the drivers of the pandemic. Next to the stringency index, the three lines
@@ -340,23 +397,26 @@ means that if the environment was the same as in September (levels of infection 
 no rapid tests or vaccinations, only the wildtype virus present), infections at the
 workplace would be reduced by 25\%. Two aspects are particularly interesting. First, all
 lines broadly follow the stringency index and they would do so even more if we left out
-seasonality and school vacations. Second, the most stringent regulations coincide with
-the period of decreasing infection rates between late December 2020 and mid-February
-2021. The subsequent reversal of the trend is associated with the spread of the B.1.1.7
-variant. During the steep drop in recorded cases during May 2021, for 42\% of the
-population took at least one rapid tests per week, the first-dose vaccination rate rose
-from 28\% to 43\%, and seasonality lowered the relative infectiousness of contacts.
+seasonality and school vacations (roughly the last two weeks of October, two weeks each
+around Christmas and Easter, and some days in late May). Second, the most stringent
+regulations coincide with the period of decreasing infection rates between late December
+2020 and mid-February 2021. The subsequent reversal of the trend is associated with the
+spread of the B.1.1.7 variant. During the steep drop in recorded cases during May 2021,
+for 42\% of the population took at least one rapid tests per week, the first-dose vaccination
+rate rose from 28\% to 43\%, and seasonality lowered the relative infectiousness
+of contacts.
 
 In order to better understand the contributions of rapid tests, vaccinations, and
-seasonality on the evolution of infections, Figure~\ref{fig:2021_scenarios_broad}
-considers various scenarios. NPIs are always held constant at their values in the
-baseline scenario. Figure~\ref{fig:2021_scenarios_recorded} shows the model fit (the
-blue line, same as in Figure~\ref{fig:aggregated_fit}), a scenario without any of the
-three factors (red line), and three scenarios turning each of these factors on
-individually. Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total
-infections in the model. Figure~\ref{fig:2021_scenarios_decomposition} employs Shapley
-values \cite{Shapley2016} to decompose the difference in total infections between the
-scenario without any of the three factors and our main specification.
+seasonality on the evolution of infections in 2021,
+Figure~\ref{fig:2021_scenarios_broad} considers various scenarios. NPIs are always held
+constant at their values in the baseline scenario.
+Figure~\ref{fig:2021_scenarios_recorded} shows the model fit (the blue line, same as in
+Figure~\ref{fig:aggregated_fit}), a scenario without any of the three factors (red
+line), and three scenarios turning each of these factors on individually.
+Figure~\ref{fig:2021_scenarios_newly_infected} does the same for total infections in the
+model. Figure~\ref{fig:2021_scenarios_decomposition} employs Shapley values
+\cite{Shapley2016} to decompose the difference in total infections between the scenario
+without any of the three factors and our main specification.
 
 \begin{figure}[!tp]
     \centering
@@ -406,25 +466,34 @@ scenario without any of the three factors and our main specification.
         these three factors on individually. The decompositions in
         Figures~\ref{fig:2021_scenarios_decomposition} and
         \ref{fig:2021_scenarios_decomposition_tests} are based on Shapley values, which
-        are explained in Appendix~A.10. All lines are rolling 7-day averages.
-    }
+        are explained more thoroughly in Appendix~\ref{sub:shapley_value}.
+        For legibility reasons, all lines are rolling 7-day averages.}
 \end{figure}
 
-Until mid-March, there is no visible difference between the different scenarios. Even
-thereafter, the effect of the vaccination campaign is surprisingly small. The Shapley
-value decomposition shows that vaccinations contribute 16\% to the cumulative difference
-between scenarios. Reasons for the low share are the slow start and the focus on older
-individuals who typically have fewer contacts. By the end of our study period, when
-first-dose vaccination rates reached 43\% of the population, the numbers of new cases
-would have started to decline.
+Until mid-March, there is no visible difference between the different scenarios.
+Seasonality hardly changes, and only few vaccinations and rapid tests were administered.
+Even thereafter, the effect of the vaccination campaign is surprisingly small at first
+sight. Whether considering recorded or total infections with only one channel active,
+the final level is always the highest in case of the vaccination campaign (orange
+lines). The Shapley value decomposition shows that vaccinations contribute 16\% to the
+cumulative difference between scenarios. Reasons for the low share are the slow
+start---it took until March~24th until 10\% of the population had received their first
+vaccination, the 20\% mark was reached on April 19th---and the focus on older
+individuals. These groups contribute less to the spread of the disease than others due
+to a lower number of contacts. By the end of our study period, when first-dose
+vaccination rates reached 43\% of the population, the numbers of new cases would have
+started to decline. It is important to note that the initial focus of the campaign was
+to prevent deaths and severe disease. Indeed, the case fatality rate was considerably
+lower during the third wave when compared to the second (4.4\% between October and
+February and 1.4\% between March and the end of May).
 
 Seasonality has a large effect in slowing the spread of SARS-CoV-2. By May 31, both
 observed and total cases would be reduced by a factor of four if only seasonality
 mattered. However, in this period, cases would have kept on rising throughout, just at a
-much lower pace (this is in line with results in \cite{Gavenciak2021}, which our
-seasonality measure is based on). Nevertheless, we estimate seasonality to be an
-important factor, explaining most of the early changes and 43\% of the cumulative
-difference by the end of May.
+much lower pace (This is in line with results in \cite{Gavenciak2021} which our
+seasonality measure is based on). Nevertheless, we estimate seasonality to be a
+quantitatively important factor determining the evolution of the pandemic, explaining
+most of the early changes and 43\% of the cumulative difference by the end of May.
 
 A similar-sized effect---42\% in the decomposition---comes from rapid testing. Here, it
 is crucial to differentiate between recorded cases and actual cases. Additional testing
@@ -433,7 +502,10 @@ undetected. Figure~\ref{fig:2021_scenarios_recorded} shows that this effect is l
 may persist for some time. Until late April, recorded cases are higher in the scenario
 with rapid testing alone when compared to the setting where none of the three mechanisms
 are turned on. The effect on total cases, however, is visible immediately in
-Figure~\ref{fig:2021_scenarios_newly_infected}.
+Figure~\ref{fig:2021_scenarios_newly_infected}. Despite the fact that only 10\% of the
+population performed weekly rapid tests in March on average, new infections on April~1
+would have been reduced by 53\% relative to the scenario without vaccinations, rapid
+tests, or seasonality.
 
 So why is rapid testing so effective? In order to shed more light on this question,
 Figure~\ref{fig:2021_scenarios_decomposition_tests} decomposes the difference in the
@@ -441,141 +513,112 @@ scenario without rapid tests and the main specification into the three channels 
 rapid tests. Tests at schools have the smallest effect, which is largely explained by
 schools not operating at full capacity during our period of study and the relatively
 small number of students.\footnote{18\% of our population are in the education sector
-(pupils, teachers, etc.); 46\% are workers outside the education sector.} Almost 40\%
+    (pupils, teachers, etc.); 46\% are workers outside the education sector.} Almost 40\%
 come from tests at the workplace. Despite the fact that rapid tests for private reasons
 are phased in only in mid-March, they make up for more than half of the total effect.
 The reason lies in the fact that a substantial share of these tests is driven by an
 elevated probability to carry the virus, i.e., showing symptoms of CoViD-19 or following
-up on a positive test of a household member. This is essentially a form of contact
+up on a positive test of a household member. The latter is essentially a form of contact
 tracing, which has been shown to be very effective \cite{Contreras2021,
-Fetzer2021,Kretzschmar2020}. Indeed, a deeper analysis in Supplementary Material~B.14
-shows that the same amount of rapid tests administered randomly in the population would
-not have been nearly as effective. Furthermore, mandating tests at schools almost
-offsets the increased infection risk of opening schools (see Figure~B.13a).
+    Fetzer2021,Kretzschmar2020}. Indeed, a deeper analysis in Supplementary
+Material~\ref{subsec:appendix_scenarios} shows that the same amount of rapid tests
+administered randomly in the population would not have been nearly as effective.
+
+Two of the most contentious NPIs concern schools and mandates to work from home. In many
+countries, schools switched to remote instruction during the first wave, so did Germany.
+After the summer break, they were operating at full capacity with increased hygiene
+measures, before being closed again from mid-December onward. Some states started
+opening them gradually in late February, but operation at normal capacity did not resume
+until the beginning of June. Figure~\ref{fig:school_scenarios} shows the effects of
+different policies regarding schools starting after Easter, at which point rapid tests
+had become widely available. We estimate the realized scenario to have essentially the
+same effect as a situation with closed schools. Under fully opened schools with
+mandatory tests, total infections would have been 6\% higher; this number rises to 20\%
+without tests. These effect sizes are broadly in line with empirical studies (e.g.,
+\cite{Vlachos2021}). To use another metric, the effective weekly reproduction number
+differs by $0.018$ and $0.052$, respectively. In light of the large negative effects
+school closures have on children and parents \cite{Luijten2021, Melegari2021}---and in
+particular on those with low socio-economic status---these results in conjunction with
+hindsight bias suggest that opening schools combined with a testing strategy would have
+been beneficial. In other situations, and particular when rapid test are not available
+at scale, trade-offs may well be different.
+
+\begin{figure}[!tp]
+    \centering
+
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/school_scenarios/full_newly_infected}
+        \caption{{Effects of different schooling scenarios}}
+        \label{fig:school_scenarios}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.425\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/results/figures/scenario_comparisons/new_work_scenarios/full_newly_infected}
+        \caption{{Effects of different work scenarios}}
+        \label{fig:workplace_scenarios}
+    \end{subfigure}
+    \vskip3ex
+
+    \caption{Effects of different scenarios for policies regarding schools and workplaces.}
+    \label{fig:school_workplace_scenarios}
+
+    \floatfoot{\noindent \textit{Note:} Blue lines in both figures refer to our baseline
+        scenario; they are the same as in
+        Figure~\ref{fig:2021_scenarios_newly_infected}. Interventions start at Easter
+        because there were no capacity constraints for rapid tests afterwards.
+        For legibility reasons, all lines are rolling 7-day averages.}
+
+\end{figure}
+
+Figure~\ref{fig:workplace_scenarios} shows that with a large fraction of workers
+receiving tests, testing at the workplace has larger effects than mandating employees to
+work from home. Whether the share of workers working at the usual workplace is reduced
+or increased by ten percent changes infection rates by 2.5\% or less in either
+direction. Making testing mandatory twice a week---assuming independent compliance by
+employers and workers of 95\% each---would have reduced infections by 23\%. Reducing
+rapid tests offers by employers to the level of March would have increased infections by
+13\%.
 
 Our analysis has shown that during the transition to high levels of vaccination and
 possibly thereafter, large-scale rapid testing can substitute for some NPIs. This comes
-at a fraction of the cost. A day of strict lockdown is estimated to have cost around
-50~Euros per capita \cite{Dorn2020b}; retail prices for rapid tests were below one Euro
-in early June 2021. Widespread availability of self-administered tests at low prices are
-likely to play a role for indication-driven testing. Mandatory tests in schools and at
-the workplace are important to screen the entire population, also because disadvantaged
-groups are less likely to be reached by testing campaigns relying on voluntary
-participation (e.g. \cite{StillmanTonin2021}); at the same time, these groups have a
-higher risk to contract CoViD-19 \cite{KochInstitut2021a}. Compared to vaccinations,
-rapid testing programmes allow a much quicker roll-out, making it arguably the most
-effective tool to contain the pandemic in the short run.
+at a fraction of the cost. A week of the fairly strict lockdown in early 2021 is
+estimated to have cost around 20~Euros per capita \cite{Wollmershauser2021}; retail
+prices for rapid tests were below one Euro in early June 2021. While we do not
+distinguish between self-administered rapid tests and point of care rapid tests, the
+former are likely to play a larger role for indication-driven testing. Widespread
+availability at low prices seems important. However, they rely on purely voluntary
+participation in a non-public setting. The benefit of point-of-care rapid tests as a
+precondition to participate in leisure activities as well as mandatory tests at the
+workplace or at school come from screening the entire population. This is important
+because disadvantaged groups are less likely to be reached by testing campaigns relying
+on voluntary participation (e.g., \cite{StillmanTonin2021}); at
+the same time, these groups have a higher risk to contract CoViD-19
+\cite{KochInstitut2021a}. Mandatory tests at school and at the workplace will extend
+more into these groups. The same goes for individuals who exhibit a low level of
+compliance with CoViD-19-related regulations. Compared to vaccinations, rapid testing
+programmes allow a much quicker roll-out, making it arguably the most effective tool to
+contain the pandemic in the short run.
 
-% \bibliography{bibliography}
-% \bibliographystyle{Science}
+\bibliography{bibliography}
 
-\begin{thebibliography}{10}
+\bibliographystyle{Science}
 
-\bibitem{Mathieu2021}
-E.~Mathieu, {\it et~al.\/}, {\it Nature Human Behaviour\/}  (2021).
-
-\bibitem{Contreras2021}
-S.~Contreras, {\it et~al.\/}, {\it arXiv\/}  (2021).
-
-\bibitem{Mina2021}
-M.~J. Mina, K.~G. Andersen, {\it Science\/} {\bf 371}, 126 (2021).
-
-\bibitem{Aleta2020}
-A.~Aleta, {\it et~al.\/}, {\it Nature Human Behaviour\/} {\bf 4}, 964 (2020).
-
-\bibitem{Hinch2020}
-R.~Hinch, {\it et~al.\/}, {\it medRxiv\/}  (2020).
-
-\bibitem{Mossong2008}
-J.~Mossong, {\it et~al.\/}, {\it PLoS medicine\/} {\bf 5} (2008).
-
-\bibitem{Hoang2019}
-T.~Hoang, {\it et~al.\/}, {\it Epidemiology\/} {\bf 30}, 723 (2019).
-
-\bibitem{Lessler2021}
-J.~Lessler, {\it et~al.\/}, {\it Science\/} {\bf 372}, 1092 (2021).
-
-\bibitem{Cheng2021}
-Y.~Cheng, {\it et~al.\/}, {\it Science\/}  (2021).
-
-\bibitem{Jones2021}
-T.~C. Jones, {\it et~al.\/}, {\it Science\/}  (2021).
-
-\bibitem{Hunter2021}
-P.~R. Hunter, J.~Brainard, {\it medRxiv\/}  (2021).
-
-\bibitem{LevineTiefenbrun2021}
-M.~Levine-Tiefenbrun, {\it et~al.\/}, {\it Nature medicine\/} {\bf 27}, 790
-  (2021).
-
-\bibitem{Petter2021}
-E.~Petter, {\it et~al.\/}, {\it medRxiv\/}  (2021).
-
-\bibitem{Pritchard2021}
-E.~Pritchard, {\it et~al.\/} .
-
-\bibitem{Bruemmer2021}
-L.~E. Br\"{u}mmer, {\it et~al.\/}, {\it medRxiv\/}  (2021).
-
-\bibitem{Smith2021}
-R.~L. Smith, {\it et~al.\/}, {\it The Journal of Infectious Diseases\/}
-  (2021). Jiab337.
-
-\bibitem{McFadden1989}
-D.~McFadden, {\it Econometrica: Journal of the Econometric Society\/} pp.
-  995--1026 (1989).
-
-\bibitem{Hale2020}
-T.~Hale, {\it et~al.\/}, {\it Blavatnik School of Government\/}  (2020).
-
-\bibitem{Shapley2016}
-L.~S. Shapley, {\it 17. A value for n-person games\/} (Princeton University
-  Press, 2016).
-
-\bibitem{Gavenciak2021}
-T.~Gaven{\v c}iak, {\it et~al.\/}, {\it medRxiv\/}  (2021).
-
-\bibitem{Fetzer2021}
-T.~Fetzer, T.~Graeber, {\it Forthcoming, Proceedings of the National Academy of
-  Sciences\/}  (2021).
-
-\bibitem{Kretzschmar2020}
-M.~E. Kretzschmar, {\it et~al.\/}, {\it The Lancet Public Health\/} {\bf 5},
-  e452 (2020).
-
-\bibitem{Dorn2020b}
-F.~Dorn, {\it et~al.\/}, {\it ifo Schnelldienst\/} {\bf 73}, 29 (2020).
-
-\bibitem{StillmanTonin2021}
-S.~Stillman, M.~Tonin, Communities and testing for {COVID-19} (2021). IZA
-  Discussion Paper No. 14012.
-
-\bibitem{KochInstitut2021a}
-{Robert Koch-Institut}, Corona-monitoring bundesweit (rki-soep-studie), {\it
-  Tech. rep.\/}, {Robert Koch-Institut} (2021).
-
-\end{thebibliography}
 
 
 \section*{Acknowledgments}
+Include acknowledgments of funding, any patents pending, where raw data for the paper are deposited, etc.
 
-The authors are grateful for support by the Deutsche Forschungsgemeinschaft (DFG, German
-Research Foundation) under Germany´s Excellence Strategy – EXC 2126/1– 390838866 – and
-through CRC-TR 224 (Projects A02 and C01), by the IZA Institute of Labor Economics, and
-by the Google Cloud CoViD-19 research credits program.
-
-
-%Here you should list the contents of your Supplementary Materials -- below is an
-%example. You should include a list of Supplementary figures, Tables, and any references
-%that appear only in the SM. Note that the reference numbering continues from the main
-%text to the SM. In the example below, Refs. 4-10 were cited only in the SM.
-
+%Here you should list the contents of your Supplementary Materials -- below is an example.
+%You should include a list of Supplementary figures, Tables, and any references that appear only in the SM.
+%Note that the reference numbering continues from the main text to the SM.
+% In the example below, Refs. 4-10 were cited only in the SM.
 \section*{Supplementary materials}
-
-Appendix A - Materials and Methods\\
-Appendix B - Supplementary Text\\
-Figs. A.1-A.10, B.1-B.16\\
-Tables A.1-A.6\\
-References \textit{(26-111)}
+Materials and Methods\\
+Supplementary Text\\
+Figs. S1 to S3\\
+Tables S1 to S4\\
+References \textit{(4-10)}
 
 \end{document}
