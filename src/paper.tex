@@ -67,49 +67,48 @@ The Effectiveness of Strategies to Contain SARS-CoV-2: Testing, Vaccinations, an
 \phantomsection % Needed for the bibliography bookmark to point to the correct page
 
 \begin{refcontext}[sorting=none]  % Sort BIBLIOGRAPHY by appearance.
-\printbibliography[heading=bibintoc]
+    \printbibliography[heading=bibintoc]
 \end{refcontext}
 
 \clearpage
-
-\begin{center}
-    {
-        \Large 
-        Supplementary Material for\\[2ex]
-    
-        \textbf{\papertitle}
-    }
-    \vskip4ex
-    {
-        \large
-        Janoś Gabler,
-        
-        Tobias Raabe,
-        
-        Klara Röhrl,
-        
-        Hans-Martin von Gaudecker
-
-    }
-\end{center}
-
-\tableofcontents
-
-\clearpage
-
+\setcounter{page}{1}
 \begin{appendices}
+
     \begin{refsection}
+        \begin{center}
+            {
+                \Large
+                Supplementary Material for\\[2ex]
 
-    \input{paper/appendix_materials_and_methods}
+                \textbf{\papertitle}
+            }
+            \vskip4ex
+            {
+                \large
+                Janoś Gabler,
 
-    \FloatBarrier
+                Tobias Raabe,
 
-    \input{paper/appendix_supplementary_text}
+                Klara Röhrl,
+
+                Hans-Martin von Gaudecker
+
+            }
+        \end{center}
+
+        % \tableofcontents
+        % \clearpage
+
+        \input{paper/appendix_materials_and_methods}
+
+        \FloatBarrier
+
+        \input{paper/appendix_supplementary_text}
 
 
-    \begin{refcontext}[sorting=none]
-    \printbibliography[heading=bibintoc]
-    \end{refcontext}
+        \begin{refcontext}[sorting=none]
+            \printbibliography[heading=bibintoc]
+        \end{refcontext}
 
     \end{refsection}
 \end{appendices}
