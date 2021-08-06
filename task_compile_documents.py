@@ -1,3 +1,4 @@
+import getpass
 import subprocess
 import shutil
 from pathlib import Path
@@ -59,6 +60,7 @@ def task_extract_supplementary_material(depends_on, produces):
         ]
     )
 
+@pytask.mark.skipif(getpass.getuser() != "hmg", reason="Need UniBN letter basics.")
 @pytask.mark.latex(
     [
         "--pdf",
@@ -71,5 +73,5 @@ def task_extract_supplementary_material(depends_on, produces):
 )
 @pytask.mark.depends_on([SRC / "cover-letter.tex"])
 @pytask.mark.produces(BLD / "cover-letter.pdf")
-def task_compile_documents():
+def task_compile_cover_letter():
     pass
