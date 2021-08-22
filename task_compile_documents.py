@@ -23,7 +23,23 @@ _DEPENDENCIES = [*SRC.rglob("*.tex"), *(BLD / "param_tables").rglob("*.tex")]
 )
 @pytask.mark.depends_on([SRC / "paper.tex", *_DEPENDENCIES])
 @pytask.mark.produces(BLD / "paper.pdf")
-def task_compile_documents():
+def task_compile_paper():
+    pass
+
+
+@pytask.mark.latex(
+    [
+        "--pdf",
+        "--interaction=nonstopmode",
+        "--synctex=1",
+        "--cd",
+        "--shell-escape",
+        "-f",
+    ]
+)
+@pytask.mark.depends_on([SRC / "sars-cov-2-spread-policies-pres.tex", *_DEPENDENCIES])
+@pytask.mark.produces(BLD / "sars-cov-2-spread-policies-pres.pdf")
+def task_compile_pres():
     pass
 
 
@@ -163,20 +179,23 @@ def task_extract_supplementary_material(depends_on, produces):
         / "science"
         / "figures"
         / "model-graph-bottom-right.pdf",
-        "full_new_known_case": BLD / "science"
+        "full_new_known_case": BLD
+        / "science"
         / "figures"
         / "results"
         / "figures"
         / "scenario_comparisons"
         / "combined_fit"
         / "full_new_known_case.pdf",
-        "stringency2_with_seasonality": BLD / "science"
+        "stringency2_with_seasonality": BLD
+        / "science"
         / "figures"
         / "results"
         / "figures"
         / "data"
         / "stringency2_with_seasonality.pdf",
-        "full_share_b117": BLD / "science"
+        "full_share_b117": BLD
+        / "science"
         / "figures"
         / "results"
         / "figures"
@@ -232,9 +251,10 @@ def task_prepare_submission_material(depends_on, produces):
             shutil.copy(depends_on[name], produces[name])
 
 
-
 @pytask.mark.skipif(shutil.which("qpdf") is None, reason="Combination needs qpdf.")
-@pytask.mark.depends_on([BLD / "science" / "paper.pdf", BLD / "supplementary_material.pdf"])
+@pytask.mark.depends_on(
+    [BLD / "science" / "paper.pdf", BLD / "supplementary_material.pdf"]
+)
 @pytask.mark.produces(BLD / "science" / "full_paper.pdf")
 def task_create_combined_report(depends_on, produces):
     subprocess.run(
