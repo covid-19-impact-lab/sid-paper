@@ -1,33 +1,34 @@
 \subsection{Literature Review}
 \label{sec:literature_review}
 
-A commonly used model class in epidemiology are agent-based simulation
-models. In a prototypical agent-based simulation model, individuals are
-simulated as moving particles. Infections take place when two particles come closer than
-a certain contact radius (e.g. \citet{Silva2020} and \citet{Cuevas2020}). While the
-simulation approach makes it easy to incorporate heterogeneity in disease progression, it
-is hard to incorporate heterogeneity in meeting patterns. Moreover, policies are modeled
-as changes in the contact radius or momentum equation of the particles. The translation
-from real policies to corresponding model parameters is a hard task.
+A commonly used model class in epidemiology are agent-based simulation models.
+In a prototypical agent-based simulation model, individuals are simulated as
+moving particles. Infections take place when two particles come closer than a
+certain contact radius (e.g. \citet{Silva2020} and \citet{Cuevas2020}). While
+the simulation approach makes it easy to incorporate heterogeneity in disease
+progression, it is hard to incorporate heterogeneity in meeting patterns.
+Moreover, policies are modeled as changes in the contact radius or momentum
+equation of the particles. The translation from real policies to corresponding
+model parameters is a hard task.
 
-These shortcomings have motivated variations of agent-based simulation models where
-moving particles have been replaced by contact networks for households, work and random
-contacts. The OpenABM-Covid-19 model by \citet{Hinch2020} and the model by
-\citet{Aleta2020} are the closest in spirit to ours.
+These shortcomings have motivated variations of agent-based simulation models
+where moving particles have been replaced by contact networks for households,
+work and random contacts. The OpenABM-Covid-19 model by \citet{Hinch2021a} and
+the model by \citet{Aleta2020} are the closest in spirit to ours.
 
+The OpenABM-Covid-19 model by \citet{Hinch2021a} also uses detailed contact
+networks for workplaces, schools and households and can evaluate the effect of
+several NPIs. The main focus of their application are contact tracing policies
+\citep{Abueg2021}. Recently they have also added support for multiple virus
+strains and vaccinations.
 
-The OpenABM-Covid-19 model by \citet{Hinch2020} also uses detailed contact networks for
-workplaces, schools and households and can evaluate the effect of several NPIs. The main
-focus of their application are contact tracing policies. Recently they have also added
-support for multiple virus strains and vaccinations.
-
-\citet{Aleta2020} develop an agent-based simulation model with a very high geographical
-resolution by estimating contact networks from fine grained mobility data for the
-Boston metropolitan area. They use this model to show how NPIs, contact tracing and PCR
-testing can influence the infection dynamics. However, they do not calibrate their model
-to match actual infection numbers which makes it more suitable to explore the general
-mechanics of different disease mitigation measures than for their quantitative
-evaluation.
+\citet{Aleta2020} develop an agent-based simulation model with a very high
+geographical resolution by estimating contact networks from fine grained
+mobility data for the Boston metropolitan area. They use this model to show how
+NPIs, contact tracing and PCR testing can influence the infection dynamics.
+However, they do not calibrate their model to match actual infection numbers
+which makes it more suitable to explore the general mechanics of different
+disease mitigation measures than for their quantitative evaluation.
 
 \citet{Bicher2021} simulate the entire Austrian population. They use data from the first
 wave (February 21 to April 9, 2020) to calibrate their model and predict the effect of

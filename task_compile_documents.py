@@ -1,3 +1,4 @@
+import getpass
 import subprocess
 import shutil
 from pathlib import Path
@@ -268,3 +269,37 @@ def task_create_combined_report(depends_on, produces):
             produces.as_posix(),
         ]
     )
+
+
+@pytask.mark.skipif(shutil.which("qpdf") is None, reason="Extraction needs qpdf.")
+@pytask.mark.depends_on(BLD / "paper.pdf")
+@pytask.mark.produces(ROOT / "paper-no-appendix.pdf")
+def task_extract_paper(depends_on, produces):
+    subprocess.run(
+        [
+            "qpdf",
+            "--empty",
+            "--pages",
+            depends_on.as_posix(),
+            "1-14",
+            "--",
+            produces.as_posix(),
+        ]
+    )
+
+
+@pytask.mark.skipif(getpass.getuser() != "hmg", reason="Need UniBN letter basics.")
+@pytask.mark.latex(
+    [
+        "--pdf",
+        "--interaction=nonstopmode",
+        "--synctex=1",
+        "--cd",
+        "--shell-escape",
+        "-f",
+    ]
+)
+@pytask.mark.depends_on([SRC / "cover-letter.tex"])
+@pytask.mark.produces(BLD / "cover-letter.pdf")
+def task_compile_cover_letter():
+    pass
