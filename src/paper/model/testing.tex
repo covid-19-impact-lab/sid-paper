@@ -47,11 +47,14 @@ of detected cases from Dunkelzifferradar project \citep{Dunkelzifferradar2020} c
 longer be used because it is based on the case fatality rate which changes drastically
 due to vaccinations. Secondly, rapid tests become available at a large scale.
 
-We solve the first challenge by assuming that the share of detected cases would have
-remained at the level it reached before Christmas if rapid tests had not become
-available. While this is only an approximation to reality, changes in the share of
-detected cases that would have happened without rapid tests are very likely to be small
-compared to the changes caused by rapid tests.
+We solve the first challenge by assuming that the share of detected cases would have 
+remained at the level it reached before Christmas if rapid tests had not become 
+available. While this is only an approximation to reality, changes in the share of 
+detected cases that would have happened without rapid tests are very likely to be small 
+compared to the changes caused by rapid tests. In addition, the number of PCR tests per 
+1000 remains in the same 1.5 to 2.5 window without a visible trend over our estimation 
+period \citep{owid_n_pcr_tests} which is in line with less than 0.08\% of the 
+population receiving a positive rapid test on any given day in our model.
 
 The second challenge is solved by mechanistic rapid test demand models for the
 workplace, schools and by private individuals. The calibration of these models is
@@ -65,7 +68,7 @@ falsely negative. While the specificity of rapid tests is calibrated at 99.4\%
 relative to the start of infectiousness \citep{Smith2021}. Before the onset of
 infectiousness the sensitivity is very low (35\%). On the first day of infectiousness it
 is much higher (88\%) but still lower than during the remaining infectious period (92\%).
-After infectiousness stops, the sensitivity drops to 50 \%.
+After infectiousness stops, the sensitivity drops to 50\%.
 
 Modeling the diagnostic gap before and at the beginning of infectiousness is very
 important to address concerns that rapid tests are too unreliable to serve as screening
@@ -73,8 +76,8 @@ devices.
 
 We do not distinguish between self administered rapid tests and those that are
 administered by medical personnel. While there were concerns that self administered
-tests are less reliable, a recent study has found no basis for this
-concern \citep{Lindner2020}.
+tests are less reliable, a recent study has found no basis for this concern
+\citep{Lindner2020}.
 
 While rapid tests do not directly enter official case numbers, 82\%
 ($\chi_{confirmation}$) of positively tested individuals seek a PCR test
