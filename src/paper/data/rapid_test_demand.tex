@@ -17,19 +17,32 @@ For work contacts, we know from the COSMO study (\cite{Betsch2021}, 20th/21st of
 that 60\% of workers who receive a test offer by their employer regularly use it
 ($\pi_{w,\:d}$). We assume this share to be time constant.
 
-In addition, there are some surveys that allow us to trace the expansion of employers who
-offer tests to their employees ($\pi_{w,\:s,\:t}$). Mid march, 20\% of employers offered
-tests to their employees \citep{DIHK2021}. In the second half of March, 23\% of employees
-reported being offered weekly rapid tests by their employer \citep{Ahlers2021}. This
-share increased to 61\% until the first days of April \citep{BMWI2021, IZA2021}. Until
-mid April 72\% of workers were expected to receive a weekly test offer \citep{BMWI2021,
-IZA2021}. However, according to surveys conducted in mid April \citep{Betsch2021}, less
-than two thirds of individuals with work contacts receive a test offer. Starting on April
-19th employers were required by law to provide two weekly tests to their employees
-\citep{Bundesanzeiger2021}. We assume that compliance is incomplete and only 80\% of
-employers actually offer tests. We interpolate between these points linearly, arriving at
-the blue line in Figure~\ref{fig:rapid_test_demand}. In addition, we increase the
-frequency of testing ($\theta_{t,\:work}$) from weekly to twice weekly during April.
+In addition, there are some surveys that allow us to trace the expansion of employers
+who offer tests to their employees ($\pi_{w,\:s,\:t}$). Mid march, 20\% of employers
+offered tests to their employees \citep{DIHK2021}. In the second half of March, 23\% of
+employees reported being offered weekly rapid tests by their employer
+\citep{Ahlers2021}\footnote{\cite{IZA2021b} reports a somewhat higher share of 35\%
+around March 20}. This share increased to 61\% until the first days of April
+\citep{IZA2021c, IZA2021}. Until mid April 72\% of workers were expected to receive a
+weekly test offer \citep{IZA2021c, IZA2021}. However, according to surveys conducted in
+mid April \citep{Betsch2021}, less than two thirds of individuals with work contacts
+receive a test offer.\footnote{\cite{IZA2021d} report 80\% in mid April which is about
+12\% points less than what we arrive at.} Starting on April 19th employers were required
+by law to provide two weekly tests to their employees \citep{Bundesanzeiger2021}.
+However, compliance was very incomplete and only reached 80\% \citep{IAB2021b,
+Ahlers2021b}. We interpolate between these points linearly, arriving at
+Figure~\ref{fig:work_rapid_test_offers}. In addition, we increase the frequency of
+testing ($\theta_{t,\:work}$) from weekly to twice weekly during April.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/results/figures/data/testing/share_of_workers_with_rapid_test_offer_at_work}
+    \caption{Share of Individuals Being Offered a Rapid Test at Work.}
+    \floatfoot{\noindent \textit{Note:} Employees were never subject to mandatory tests.
+    According to surveys only 60\% of workers regularly used rapid test offers by their
+    employers (\cite{Betsch2021}, 20th/21st of April).}
+\end{figure}
+\FloatBarrier
 
 %%\subsubsection{educ rapid tests}
 
