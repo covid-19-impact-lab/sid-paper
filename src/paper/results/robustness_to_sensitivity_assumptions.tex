@@ -46,33 +46,38 @@ number of days until or since the onset of infectiousness.
 % what is available -> two step mapping
 Unfortunately, such sensitivity profiles are not usually reported in studies. We
 thus need to create them by combining two types of studies: 1. Studies that
-report the viral load in terms of threshold cycle ($C_t$) values determined by
+report the viral load in terms of threshold cycle ($Ct$) values determined by
 PCR test (e.g. \cite{Cosentino2022}, \cite{Ong2021}, \cite{Bonnet2022},
 \cite{Jang2021} and \cite{Zuin2021}). 2. Studies that report the ensitivity of
-rapid tests for different $C_t$ values (e.g. \cite{Scheiblauer2021},
+rapid tests for different $Ct$ values (e.g. \cite{Scheiblauer2021},
 \cite{Bruemmer2021}).
 
 
 % what options do we have to configure the mappings
-It is natural to assume that the evolution of $C_t$ values over time as well as
-the effect of $C_t$ values on rapid test sensitivity are continuous functions.
+It is natural to assume that the evolution of $Ct$ values over time as well as
+the effect of $Ct$ values on rapid test sensitivity are continuous functions.
 However, the results of the available studies are usually reported in a
 discretized way. This leads to multiple ways of calculating the sensitivity
 profiles. Some try to recover the underlying continuous functions using
 interpolation or regression, others simply use the discretized values.
 
 % Describe CT value formula vs. bin averages
-For the calibration of $C_t$ values over time we can either use discretized
+For the calibration of $Ct$ values over time we can either use discretized
 values for several time bins from \cite{Ong2021} and \cite{Jang2021}.
 Alternatively, we can use linearized formulas for calculating sensitivities over
-time \cite{Cosentino2022}.
+time \cite{Cosentino2022} and complement it with interpolations of data points
+from \cite{Jang2021} in the pre-infectious stage. Throughout we assume that the
+$Ct$ values of individuals who eventually develop symptoms and those who do not
+follow the same trajectory. This is in line with results by \cite{Zuin2021} and
+recent evidence that rapid tests excel at discovering asymptomatic cases
+\cite{Rosella2022}.
 
 % Describe sensitivity lookupd vs. interpolation
-For the mapping of $C_t$ values to rapid test sensitivities, again we have two
-options. First, we can simply look up the discretized values for the three $C_t$
+For the mapping of $Ct$ values to rapid test sensitivities, again we have two
+options. First, we can simply look up the discretized values for the three $Ct$
 provided in \cite{Scheiblauer2021} (below 20, 25 to 30 and above 35). Secondly,
 we can use linear regression to estimate a continous mapping for the
-relationship by assuming that the $C_t$ values of each bin are achieved exactly
+relationship by assuming that the $Ct$ values of each bin are achieved exactly
 at the bin midpoints and that the relationship is linear.
 
 % Properties of the different methods

@@ -1,6 +1,6 @@
 name,notation,time active,source,description
 rapid\_test\_specificity,$p_{negative|not\:infected}$,2021,\citet{Bruemmer2021},"the probability of an uninfected person to receive a negative rapid test result. See Section~\ref{sub:testing}."
-rapid\_test\_sensitivity,"$p_{positive|infected,\;i,\:t}$",2021,\citet{Smith2021},"the probability of an infected person to receive a positive rapid test result. This depends on the timing of the test relative to the individual’s onset of infectiousness. See Section~\ref{sub:testing}."
+rapid\_test\_sensitivity,"$p_{positive|infected,\;i,\:t}$",2021,see~\ref{sub:testing},"the probability of an infected person to receive a positive rapid test result. This depends on the timing of the test relative to the individual’s onset of infectiousness. See Section~\ref{sub:testing}."
 ,,,,
 share\_accepting\_work\_rapid\_test\_ offer,"$\pi_{w,\:d}$",2021,\citet{Betsch2021},share of workers that regularly pick up rapid test offers by their employers when they do not work from home. In our baseline specification this is time constant. See Section~\ref{subsec:rapid_test_demand}.
 share\_workers\_receiving\_rapid\_ test\_offer,"$\pi_{w,\:s,\:t}$",2021,see~\ref{subsec:rapid_test_demand},share of workers that get a regular rapid test offer by their employer when they do not work from home on date $t$.
