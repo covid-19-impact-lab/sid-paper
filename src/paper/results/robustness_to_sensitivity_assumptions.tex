@@ -5,8 +5,8 @@
 Our result that frequent and large scale rapid testing was responsible for a
 large decrease in cases in the spring of 2021 in Germany seems to be at odds
 with the general perception that rapid tests are unreliable. They also seem to
-contradict recent studies showing that the actual sensitivity of rapid tests
-might be lower than advertised (e.g.\cite{Scheiblauer2021}).
+contradict recent studies showing that the actual sensitivity of rapid tests t
+be lower than advertised (e.g.\cite{Scheiblauer2021}).
 
 This is, however, not the case. It is important to distinguish studies that
 analyze the sensitivity and specificity of rapid tests in isolation and studies
@@ -47,14 +47,9 @@ number of days until or since the onset of infectiousness.
 Unfortunately, such sensitivity profiles are not usually reported in studies. We
 thus need to create them by combining two types of studies: 1. Studies that
 report the viral load in terms of threshold cycle ($C_t$) values determined by
-PCR test 
-(e.g. \cite{Cosentino2022}
-, \cite{Ong2021}, 
-\cite{Bonnet2022},
-\cite{Jang2021} and \cite{Zuin2021}
-). 2. Studies that report the ensitivity of
-rapid tests for different $C_t$ values 
-(e.g. \cite{Scheiblauer2021},
+PCR test (e.g. \cite{Cosentino2022}, \cite{Ong2021}, \cite{Bonnet2022},
+\cite{Jang2021} and \cite{Zuin2021}). 2. Studies that report the ensitivity of
+rapid tests for different $C_t$ values (e.g. \cite{Scheiblauer2021},
 \cite{Bruemmer2021}).
 
 
@@ -75,8 +70,8 @@ time \cite{Cosentino2022}.
 % Describe sensitivity lookupd vs. interpolation
 For the mapping of $C_t$ values to rapid test sensitivities, again we have two
 options. First, we can simply look up the discretized values for the three $C_t$
-bins provided in \cite{Scheiblauer2021} (below 20, 25 to 30 and above 35).
-Secondly, we can use linear regression to estimate a continous mapping for the
+provided in \cite{Scheiblauer2021} (below 20, 25 to 30 and above 35). Secondly,
+we can use linear regression to estimate a continous mapping for the
 relationship by assuming that the $C_t$ values of each bin are achieved exactly
 at the bin midpoints and that the relationship is linear.
 
