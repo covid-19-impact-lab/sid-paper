@@ -59,13 +59,16 @@ described in Section~\ref{subsec:rapid_test_demand}.
 Figure~\ref{fig:antigen_tests_vaccinations} shows that the number of performed rapid
 tests in the model fits the empirical data well (where empirical data is available).
 
-In contrast to PCR tests, rapid tests are not perfect and can be falsely positive or
-falsely negative. While the specificity of rapid tests is calibrated at 99.4\%
-\citep{Bruemmer2021}, their sensitivity strongly depends on the timing of the rapid test
-relative to the start of infectiousness \citep{Smith2021}. Before the onset of
-infectiousness the sensitivity is very low (35\%). On the first day of infectiousness it
-is much higher (88\%) but still lower than during the remaining infectious period (92\%).
-After infectiousness stops, the sensitivity drops to 50 \%.
+In contrast to PCR tests, rapid tests are not perfect and can be falsely
+positive or falsely negative. While the specificity of rapid tests is calibrated
+at 99.4\% \citep{Bruemmer2021}, their sensitivity strongly depends on the timing
+of the rapid test relative to the start of infectiousness. We follow
+\cite{Smith2021} for our main results: Before the onset of infectiousness the
+sensitivity is very low (35\%). On the first day of infectiousness it is much
+higher (88\%) but still lower than during the remaining infectious period
+(92\%). After infectiousness stops, the sensitivity drops to 50\%. We show that
+our results are robust to more conservative assumptions in
+Section~\ref{subsec:robustness_rapid_test_sensitivity}.
 
 Modeling the diagnostic gap before and at the beginning of infectiousness is very
 important to address concerns that rapid tests are too unreliable to serve as screening

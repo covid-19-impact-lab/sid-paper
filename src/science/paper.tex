@@ -214,18 +214,21 @@ become immune and do not transmit the virus \cite{Hunter2021, LevineTiefenbrun20
 Petter2021, Pritchard2021}.
 
 We include two types of tests. Polymerase chain reaction (PCR) tests reveal with
-certainty whether an individual is infected or not; they are scarce and require at least
-one day to be processed. In contrast, rapid antigen tests yield immediate results.
-Specificity and sensitivity of these tests is set according to data analyzed in
-\cite{Bruemmer2021, Smith2021}; sensitivity depends on the timing of the test relative
-to the onset of infectiousness. Figure~\ref{fig:model_rapid_tests} shows our model for
-rapid test demand. Schools may require staff and students to be tested regularly. Rapid
-tests may be offered by employers to on-site workers. Individuals may demand tests for
-private reasons, which include having plans to meet other people, showing symptoms of
-CoViD-19, and a household member having tested positively for the virus. We endow each
-agent with an individual compliance parameter. This parameter determines whether she
-takes up rapid tests. Positive tests and symptoms lead most individuals to reduce their
-contacts.
+certainty whether an individual is infected or not; they are scarce and require
+at least one day to be processed. In contrast, rapid antigen tests yield
+immediate results. Specificity and sensitivity of these tests is set according
+to data analyzed in \cite{Bruemmer2021, Smith2021}; sensitivity depends on the
+timing of the test relative to the onset of infectiousness (we show our results
+are robust to more conservative assumptions in
+Section~\ref{subsec:robustness_rapid_test_sensitivity}).
+Figure~\ref{fig:model_rapid_tests} shows our model for rapid test demand.
+Schools may require staff and students to be tested regularly. Rapid tests may
+be offered by employers to on-site workers. Individuals may demand tests for
+private reasons, which include having plans to meet other people, showing
+symptoms of CoViD-19, and a household member having tested positively for the
+virus. We endow each agent with an individual compliance parameter. This
+parameter determines whether she takes up rapid tests. Positive tests and
+symptoms lead most individuals to reduce their contacts.
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and calibrate the model's many
