@@ -27,10 +27,21 @@ def task_compile_documents():
     pass
 
 
+@pytask.mark.skipif(shutil.which("qpdf") is None, reason="Extraction needs qpdf.")
 @pytask.mark.depends_on(BLD / "paper.pdf")
-@pytask.mark.produces(ROOT / "paper.pdf")
-def task_copy_pdf_to_root(depends_on, produces):
-    shutil.copy(depends_on, produces)
+@pytask.mark.produces(BLD / "paper-no-appendix.pdf")
+def task_extract_paper_body(depends_on, produces):
+    subprocess.run(
+        [
+            "qpdf",
+            "--empty",
+            "--pages",
+            depends_on.as_posix(),
+            "1-11",
+            "--",
+            produces.as_posix(),
+        ]
+    )
 
 
 @pytask.mark.skipif(shutil.which("qpdf") is None, reason="Extraction needs qpdf.")
@@ -48,6 +59,24 @@ def task_extract_supplementary_material(depends_on, produces):
             produces.as_posix(),
         ]
     )
+
+
+@pytask.mark.depends_on(BLD / "paper.pdf")
+@pytask.mark.produces(ROOT / "paper.pdf")
+def task_copy_paper_to_root(depends_on, produces):
+    shutil.copy(depends_on, produces)
+
+
+@pytask.mark.depends_on(BLD / "paper-no-appendix.pdf")
+@pytask.mark.produces(ROOT / "paper-no-appendix.pdf")
+def task_copy_paper_no_appendix_to_root(depends_on, produces):
+    shutil.copy(depends_on, produces)
+
+
+@pytask.mark.depends_on(BLD / "supplementary_material.pdf")
+@pytask.mark.produces(ROOT / "supplementary_material.pdf")
+def task_copy_supplementary_material_to_root(depends_on, produces):
+    shutil.copy(depends_on, produces)
 
 
 @pytask.mark.latex(

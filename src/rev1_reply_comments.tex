@@ -2,7 +2,7 @@
 \usepackage{a4wide}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{afterpage,rotating,natbib,graphicx,setspace,xcolor}
+\usepackage{afterpage,rotating,graphicx,setspace,xcolor}
 \usepackage{longtable,booktabs,tabularx}
 \usepackage{chngcntr}
 \usepackage{eurosym,calc}
@@ -19,6 +19,8 @@
 \usepackage[unicode=true]{hyperref}
 \usepackage{afterpage}
 \usepackage{clipboard}
+\input{templates/Preamble_BibLaTeX_Science}
+\openclipboard{clipboard-rev1}
 
 \definecolor{darkblue}{rgb}{0, 0, 0.8}
 \hypersetup{ colorlinks=true, linkcolor=darkblue, anchorcolor=darkblue,
@@ -98,6 +100,7 @@
 
 \setlength{\parindent}{0ex}
 
+\bibliography{references.bib}
 
 \begin{document}
 
@@ -169,51 +172,46 @@ population. The authors should at least model this with an alternative calculati
 discuss it accordingly. Such an improvement would increase the importance of this
 manuscript enormously.
 
+\vskip1ex
+
+\response{%
+    We would like to thank the reviewer for these insightful comments. First of all, we
+    agree that the references we used have become outdated in the meantime. Note that we
+    submitted the original manuscript in early September 2021; the analysis had been
+    finalised in June already.
+
+    Many thanks for pointing out that we misclassified the Quidel SARS Sofia antigen
+    FIA test; we removed the reference.
+
+    Indeed, in the line of the additional evidence, the numbers we use for test
+    sensitivity seem to be in the upper part of plausible values. On
+    page~\pageref{r.1.a} of the paper, we cite the two references you pointed out (numbering of references as in this document):
+
+    \textit{\Paste{r.1.a}}
+
+
+    We therefore followed
+    your suggestion and ran additional analyses with more conservative assumptions on
+    the sensitivity of rapid tests. We report on these in
+    Appendix~\ref{subsec:robustness_rapid_test_sensitivity}. Our results are
+    remarkably robust to this change. We write:
+
+
+    The percentage of the decrease in spring 2021
+    attributed to rapid tests decreases by only 4 percentage points even in the least
+    favourable scenario. We describe our approach for calculating the adjusted
+    sensitivities in the next answer. }
+
 Furthermore, I recommend including a declaration of potential conflicts of interest in
 the manuscript. This may be particularly important in light of the significance of the
 findings from the study for the continued operation of industrial companies.
 
-\vskip1ex
+\response{We have added such a declaration. There are no competing interests.}
 
-\response{Many thanks for these insightful comments. We respond in three parts.}
-
-\begin{enumerate}
-    \item In part, incorrect references are also used, especially for the assumption of
-          the high sensitivity of the rapid tests. For example, reference No. 74 explicitly
-          does not refer to rapid antigen tests, but to an immunological laboratory test
-          method (Quidel SARS Sofia antigen FIA).
-
-          \response{%
-              We would like to thank the reviewer for spotting this mistake of ours. We
-              removed the reference.}
-
-    \item In the development of the mathematical model, apparently only the knowledge
-          available a few months ago on the performance of rapid antigen tests was taken into
-          account.
-
-          The authors should at least model this with an alternative calculation and
-          discuss it accordingly. Such an improvement would increase the importance of
-          this manuscript enormously.
-
-          \response{%
-              We agree that the references we used have become outdated in the meantime.
-              Note that we submitted the original manuscript in early September 2021;
-              the calculations had been done some time before that.
-
-              We therefore ran additional simulations with updated and more conservative
-              assumptions on the sensitivity of rapid tests (Appendix~\ref{subsec:robustness_rapid_test_sensitivity}) and found that
-              our main results are remarkably robust to this change. The percentage of the
-              decrease in spring 2021 attributed to rapid tests decreases by only 4
-              percentage points even in the least favourable scenario. We describe our
-              approach for calculating the adjusted sensitivities in the next answer. }
-    \item I recommend including a declaration of potential conflicts of interest in the
-          manuscript.
-          \response{We have added such a declaration. There are no competing interests.}
-
-\end{enumerate}
 }
 
-\section{Reviewer 2}
+\clearpage
+\section*{Reviewer 2}
 
 \comment{ This is a comprehensive and important study that highlights the relevance of
 testing to stop the spread of the pandemic.
@@ -316,7 +314,9 @@ discussion.
 \end{enumerate}
 }
 
+\begin{refcontext}[sorting=none]  % Sort BIBLIOGRAPHY by appearance.
+    \printbibliography[heading=bibintoc]
+\end{refcontext}
 
-% \setstretch{1} \bibliographystyle{ecta} \bibliography{refs}
 
 \end{document}
