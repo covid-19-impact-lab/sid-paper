@@ -27,22 +27,6 @@ def task_compile_documents():
     pass
 
 
-@pytask.mark.latex(
-    [
-        "--pdf",
-        "--interaction=nonstopmode",
-        "--synctex=1",
-        "--cd",
-        "--shell-escape",
-        "-f",
-    ]
-)
-@pytask.mark.depends_on([SRC / "rev1_reply_comments.tex"])
-@pytask.mark.produces(BLD / "rev1_reply_comments.pdf")
-def task_compile_reply():
-    pass
-
-
 @pytask.mark.depends_on(BLD / "paper.pdf")
 @pytask.mark.produces(ROOT / "paper.pdf")
 def task_copy_pdf_to_root(depends_on, produces):
@@ -64,4 +48,26 @@ def task_extract_supplementary_material(depends_on, produces):
             produces.as_posix(),
         ]
     )
+
+
+@pytask.mark.latex(
+    [
+        "--pdf",
+        "--interaction=nonstopmode",
+        "--synctex=1",
+        "--cd",
+        "--shell-escape",
+        "-f",
+    ]
+)
+@pytask.mark.depends_on([SRC / "rev1_reply_comments.tex", BLD / "paper.pdf"])
+@pytask.mark.produces(BLD / "rev1_reply_comments.pdf")
+def task_compile_reply():
+    pass
+
+
+@pytask.mark.depends_on(BLD / "rev1_reply_comments.pdf")
+@pytask.mark.produces(ROOT / "rev1_reply_comments.pdf")
+def task_copy_pdf_to_root(depends_on, produces):
+    shutil.copy(depends_on, produces)
 

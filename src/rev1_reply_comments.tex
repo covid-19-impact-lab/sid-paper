@@ -40,8 +40,8 @@
 \usepackage{eurosym}
 
 % \setlength{\marginparwidth}{2cm}
-\usepackage[ colorinlistoftodos, backgroundcolor=white, prependcaption, textsize=tiny,
-    disable, ]{todonotes}
+\usepackage[colorinlistoftodos, backgroundcolor=white, prependcaption, textsize=tiny,
+    disable]{todonotes}
 
 
 %%%%PROPOSITION AND PROOF ENVIRONMENTS%%%%
@@ -90,6 +90,8 @@
 }}
 \makeatother
 
+\externaldocument{paper}
+
 \renewcommand{\theequation}{\roman{equation}} \renewcommand{\thetable}{\Roman{table}}
 \renewcommand{\thefigure}{\Roman{figure}} \renewcommand{\thesection}{\Roman{section}}
 
@@ -100,9 +102,9 @@
 \begin{document}
 
 \title{\large Reply to the Editor's and Reviewers' comments on: \\[2ex]
-    \LARGE The Effectiveness of Antigen Rapid Diagnostic Tests, Vaccinations, and
-    Contact Restrictions for Containing the Covid-19 Pandemic\\[2ex]
-    \large Submitted to Scientific Reports (Submission ID
+    \LARGE The Effectiveness of Testing, Vaccinations, and Contact Restrictions for
+    Containing the Covid-19 Pandemic\\[2ex]
+    \large Submitted to Scientific Reports \\(Submission ID
     db917d3c-b56a-4129-8eb1-a62a716aaede)\\[-6ex]
 }
 
@@ -119,12 +121,12 @@
 contain a colon. Where possible, the title should be read as one concise sentence. }
 \vskip1ex \response{%
     We changed the title from ``The Effectiveness of Strategies to Contain SARS-CoV-2:
-    Testing, Vaccinations, and NPIs'' to ``The Effectiveness of Antigen Rapid Diagnostic
-    Tests, Vaccinations, and Contact Restrictions for Containing the Covid-19 Pandemic'' }
+    Testing, Vaccinations, and NPIs'' to ``The Effectiveness of Testing, Vaccinations, and Contact Restrictions for Containing the Covid-19 Pandemic''
+}
 
 
 \section*{Reviewer 1}
-\comment{ The authors of the manuscript presented here have used mathematical models to
+\comment{The authors of the manuscript presented here have used mathematical models to
 examine the impact of different measures to contain the SARS-CoV-2 pandemic. Using
 epidemiological data from Germany, the contribution of rapid antigen testing is
 considered in particular.
@@ -148,12 +150,12 @@ antigen tests described by the authors, it should be considered that many of the
 commercially marketed tests show only extremely poor performance. This has recently been
 demonstrated by several publications:
 \begin{itemize}
-    \item     Comparative sensitivity evaluation for 122 CE-marked rapid diagnostic
-          tests for SARS-CoV-2 antigen, Germany, September 2020 to April 2021, Scheiblauer,
-          Heinrich and Filomena, Angela and Nitsche, Andreas and Puyskens, Andreas and Corman,
-          Victor M and Drosten, Christian and Zwirglmaier, Karin and Lange, Constanze and
-          Emmerich, Petra and Müller, Michael and Knauer, Olivia and Nübling, C Micha,
-          Eurosurveillance, 26, 2100441 (2021),
+    \item Comparative sensitivity evaluation for 122 CE-marked rapid diagnostic tests
+          for SARS-CoV-2 antigen, Germany, September 2020 to April 2021, Scheiblauer,
+          Heinrich and Filomena, Angela and Nitsche, Andreas and Puyskens, Andreas and
+          Corman, Victor M and Drosten, Christian and Zwirglmaier, Karin and Lange,
+          Constanze and Emmerich, Petra and Müller, Michael and Knauer, Olivia and
+          Nübling, C Micha, Eurosurveillance, 26, 2100441 (2021),
           \url{https://doi.org/10.2807/1560-7917.ES.2021.26.44.2100441}
     \item Assessment of SARS-CoV-2 rapid antigen tests, Özcürümez, Mustafa, Katsounas,
           Antonios, Holdenrieder, Stefan, von Meyer, Alexander, Renz, Harald and Wölfel,
@@ -182,8 +184,8 @@ findings from the study for the continued operation of industrial companies.
           method (Quidel SARS Sofia antigen FIA).
 
           \response{%
-              We thank the reviewer for spotting this mistake on our part. We removed
-              the reference and only use current information as detailed in the next item. }
+              We would like to thank the reviewer for spotting this mistake of ours. We
+              removed the reference.}
 
     \item In the development of the mathematical model, apparently only the knowledge
           available a few months ago on the performance of rapid antigen tests was taken into
@@ -194,12 +196,12 @@ findings from the study for the continued operation of industrial companies.
           this manuscript enormously.
 
           \response{%
-              We agree that the references we used have become outdated in the meantime
-              (we submitted the paper in  August 2021). Indeed, the numbers we used
-              turned out to be too optimistic in light of newer studies.
+              We agree that the references we used have become outdated in the meantime.
+              Note that we submitted the original manuscript in early September 2021;
+              the calculations had been done some time before that.
 
               We therefore ran additional simulations with updated and more conservative
-              assumptions on the sensitivity of rapid tests (Appendix B.12) and found that
+              assumptions on the sensitivity of rapid tests (Appendix~\ref{subsec:robustness_rapid_test_sensitivity}) and found that
               our main results are remarkably robust to this change. The percentage of the
               decrease in spring 2021 attributed to rapid tests decreases by only 4
               percentage points even in the least favourable scenario. We describe our
