@@ -1,0 +1,222 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{a4wide}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{afterpage,rotating,natbib,graphicx,setspace,xcolor}
+\usepackage{longtable,booktabs,tabularx}
+\usepackage{chngcntr}
+\usepackage{eurosym,calc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,delarray}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xfrac}
+\usepackage{listings}
+\usepackage{adjustbox}
+\usepackage{xr}
+\usepackage{xr-hyper}
+\usepackage[unicode=true]{hyperref}
+\usepackage{afterpage}
+\usepackage{clipboard}
+
+\definecolor{darkblue}{rgb}{0, 0, 0.8}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    anchorcolor=darkblue,
+    citecolor=darkblue,
+    filecolor=darkblue,
+    menucolor=darkblue,
+    runcolor=darkblue,
+    urlcolor=darkblue
+}
+\usepackage{enumerate}
+\usepackage{caption}
+\usepackage{booktabs,caption,rotating}
+\usepackage[capposition=top]{floatrow}
+% \usepackage{bbm}
+\usepackage{epstopdf}
+\usepackage{longtable, tabularx, array}
+\usepackage{colortbl}
+
+% \usepackage[british]{babel}
+% \usepackage[useregional]{datetime2}
+% \DTMlangsetup[en-GB]{showdayofmonth=false}
+
+\usepackage{subcaption}
+\usepackage{eurosym}
+
+% \setlength{\marginparwidth}{2cm}
+\usepackage[
+    colorinlistoftodos,
+    backgroundcolor=white,
+    prependcaption,
+    textsize=tiny,
+    disable,
+]{todonotes}
+
+
+%%%%PROPOSITION AND PROOF ENVIRONMENTS%%%%
+\theoremstyle{plain}
+\newtheorem{result}{Result}
+\newtheorem{assumption}{Assumption}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% don't let footnotes split across pages
+\interfootnotelinepenalty=10000
+\widowpenalty=10000
+\clubpenalty=10000
+
+\hyphenation{bet-ween}
+\hyphenation{with-out}
+
+\frenchspacing
+
+\newlength{\parindentaux}
+\setlength{\parindentaux}{\parindent}
+
+\usepackage{enumitem}
+\setlist[itemize]{%
+    leftmargin=\parindentaux,
+    listparindent=\parindentaux
+}
+
+% \usepackage{calc}  % Needed to be able to calculate, e.g., sum of dimensions
+%\usepackage{ifthen}
+
+\makeatletter
+\newcommand*\@myenumerate{enumerate}
+\newcommand*\@myitemize{itemize}
+\newcommand{\comment}[1]{{\color{black!60}#1}}
+\newcommand{\response}[1]{{%
+		\color{black}%
+		\par\frenchspacing%
+		\ifx\@currenvir\@myenumerate%
+		\addtolength{\leftskip}{-\parindentaux}%
+		\rm\noindent #1\par%
+		\addtolength{\leftskip}{\parindentaux}%
+		\else%
+		\ifx\@currenvir\@myitemize%
+		\addtolength{\leftskip}{-\parindentaux}%
+		\rm\noindent #1\par%
+		\addtolength{\leftskip}{\parindentaux}%
+		\else%
+		\rm\noindent #1\par%
+		\fi%
+		\fi%
+}}
+\makeatother
+
+\renewcommand{\theequation}{\roman{equation}}
+\renewcommand{\thetable}{\Roman{table}}
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thesection}{\Roman{section}}
+
+
+\setlength{\parindent}{0ex}
+
+
+\begin{document}
+
+\title{\large Reply to the Editor's and Reviewers' comments on: \\[2ex]
+    \LARGE The Effectiveness of Antigen Rapid Diagnostic Tests, Vaccinations and Contact Restrictions for Containing the Covid-19 Pandemic\\[2ex]
+    \large Submitted to Scientific Reports (Submission ID db917d3c-b56a-4129-8eb1-a62a716aaede)\\[-6ex]
+}
+
+\author{}
+\date{}
+
+\maketitle
+
+
+
+\section*{Editors}
+
+\comment{
+The title should have a clear, precise scientific meaning and should not contain a colon. Where possible, the title should be read as one concise sentence.
+}
+\vskip1ex
+\response{%
+    We changed the title from ``The Effectiveness of Strategies to Contain SARS-CoV-2: Testing, Vaccinations, and NPIs'' to ``The Effectiveness of Antigen Rapid Diagnostic Tests, Vaccinations and Contact Restrictions for Containing the Covid-19 Pandemic''
+}
+
+
+\section*{Reviewer 1}
+\comment{
+The authors of the manuscript presented here have used mathematical models to examine the impact of different measures to contain the SARS-CoV-2 pandemic. Using epidemiological data from Germany, the contribution of rapid antigen testing is considered in particular.
+
+The topic studied here is of great importance for the control of the coronavirus pandemic. The presentation of the scientific methodology is sufficiently detailed, especially with the supplementary materials. It allows the reader to follow the research process in detail. However, I noticed a significant deficiency when reviewing the submitted work. Therefore, the manuscript should definitely be revised again before publication: A crucial point of the authors is to point out the special benefit of a rapid test strategy. However, for the calculation of the corresponding influencing factors in their mathematical model, the authors simplify, specifically, the sensitivity of rapid antigen tests in an unacceptable way. In the development of the mathematical model, apparently only the knowledge available a few months ago on the performance of rapid antigen tests was taken into account. This is evident from literature references mentioned above. In part, incorrect references are also used, especially for the assumption of the high sensitivity of the rapid tests. For example, reference No. 74 explicitly does not refer to rapid antigen tests, but to an immunological laboratory test method (Quidel SARS Sofia antigen FIA). Especially in light of the benefit of rapid antigen tests described by the authors, it should be considered that many of the commercially marketed tests show only extremely poor performance. This has recently been demonstrated by several publications:
+\begin{itemize}
+    \item     Comparative sensitivity evaluation for 122 CE-marked rapid diagnostic tests for SARS-CoV-2 antigen, Germany, September 2020 to April 2021, Scheiblauer, Heinrich and Filomena, Angela and Nitsche, Andreas and Puyskens, Andreas and Corman, Victor M and Drosten, Christian and Zwirglmaier, Karin and Lange, Constanze and Emmerich, Petra and Müller, Michael and Knauer, Olivia and Nübling, C Micha, Eurosurveillance, 26, 2100441 (2021), \url{https://doi.org/10.2807/1560-7917.ES.2021.26.44.2100441}
+    \item Assessment of SARS-CoV-2 rapid antigen tests, Özcürümez, Mustafa, Katsounas, Antonios, Holdenrieder, Stefan, von Meyer, Alexander, Renz, Harald and Wölfel, Roman, Journal of Laboratory Medicine, vol. 45, no. 3, 2021, pp. 143-148. \url{https://doi.org/10.1515/labmed-2021-0036}
+\end{itemize}
+
+Especially in the case of a mass application of antigen tests, it is therefore to be expected that products with lowest sensitivity will also be used in the general population. The authors should at least model this with an alternative calculation and discuss it accordingly. Such an improvement would increase the importance of this manuscript enormously.
+
+Furthermore, I recommend including a declaration of potential conflicts of interest in the manuscript. This may be particularly important in light of the significance of the findings from the study for the continued operation of industrial companies.
+
+\vskip1ex
+
+\response{Many thanks for these insightful comments. We respond in three parts.}
+
+\begin{enumerate}
+    \item In part, incorrect references are also used, especially for the assumption of the high sensitivity of the rapid tests. For example, reference No. 74 explicitly does not refer to rapid antigen tests, but to an immunological laboratory test method (Quidel SARS Sofia antigen FIA).
+
+          \response{%
+              We thank the reviewer for spotting this mistake on our part. We removed the reference and only use current information as detailed in the next item.
+          }
+
+    \item In the development of the mathematical model, apparently only the knowledge available a few months ago on the performance of rapid antigen tests was taken into account.
+
+          The authors should at least model this with an alternative calculation and discuss it accordingly. Such an improvement would increase the importance of this manuscript enormously.
+
+          \response{%
+              We agree that the references we used have become outdated in the meantime (we submitted the paper in  August 2021). Indeed, the numbers we used turned out to be too optimistic in light of newer studies.
+
+              We therefore ran additional simulations with updated and more conservative assumptions on the sensitivity of rapid tests (Appendix B.12) and found that our main results are remarkably robust to this change. The percentage of the decrease in spring 2021 attributed to rapid tests decreases by only 4 percentage points even in the least favourable scenario. We describe our approach for calculating the adjusted sensitivities in the next answer.
+          }
+    \item I recommend including a declaration of potential conflicts of interest in the manuscript.
+          \response{We have added such a declaration. There are no competing interests.}
+
+\end{enumerate}
+}
+
+\section{Reviewer 2}
+
+\comment{
+This is a comprehensive and important study that highlights the relevance of testing to stop the spread of the pandemic.
+
+I cannot comment on the validity of the underlaying mathematical analysis, but I would like to comment on some assumptions made, which I think require further clarification or discussion.
+
+\begin{enumerate}
+    \item They use contact-frequency from pre-pandemic diary data. Is  this truly useful if behavior of people is already changed by the fact there is a pandemic?
+          \response{%
+              We account for individual responses in behaviour to the pandemic through a time-variant multiplier that reduces the number of other (i.e. non-work, non-household, non-educational) contacts. The values at change points that mark policy announcements or fatigue effects are estimated. They are detailed in Section A.9.
+
+              Since we estimate both the infection probability of this contact type and the multiplier, one of them has to be normalised. We decided to normalise the multiplier to 1 in October 2020. This may appear as if we assumed that pre-pandemic behaviour had resumed during that time in Germany. However, this is not the case. In fact, we would achieve the exact same fit if we doubled the infection probability and halved the multiplier. This is because halving the multiplier means only half the number of contacts take place. However, because of the doubling of the infection probability, in expectation we would arrive at the same number of infections in that contact category.
+          }
+    \item They state that susceptibility is dependent on age. This requires references and needs to be further explained. Also, younger populations are highly susceptible, they may just not contribute transmission as much. On that same note, infectiousness may not be independent of age
+
+          Edward Goldstein, Marc Lipsitch, Muge Cevik, On the Effect of Age on the Transmission of SARS-CoV-2 in Households, Schools, and the Community, The Journal of Infectious Diseases, Volume 223, Issue 3, 1 February 2021, Pages 362–369, \url{https://doi.org/10.1093/infdis/jiaa691}
+
+          \response{%
+              We now cite our main reference for the susceptibilities for each age group also in the main text. We directly take the susceptibilities given by Davies et al. 2020, in their Extended Data Fig. 4.
+              We base our assumption on infectiousness being independent of age on Jones et al. 2021. They report only slight differences in viral loads between German adults and children: ``The least infectious youngest children have 78\% (61, 94) of the peak culture probability of adults aged 45 to 55''. Furthermore, they caution that these lower numbers may be due to different sample taking - such as the usage of smaller pediatric swab devices - rather than actual lower viral loads and conclude that the differences, if existent, are likely not clinically relevant.
+          }
+    \item It is not accurate that the vaccines stop transmission. This has to be adapted accordingly. Also, the authors should state which vaccines they based this analysis on, as in which ones were in use in Germany at that time and how does that affect the relative transmissibility as it cannot be assumed that all vaccines will have the same effect.
+          \response{%
+              We talk in detail about the vaccines that were used in Germany and on which we base our analysis on in the last third of appendix A.1.
+              We agree that vaccines do not stop transmission completely. We simplify the way vaccines reduce transmission risk considerably by assuming that 75\% of individuals achieve sterile immunity through a vaccination while the remaining 25\% remain fully susceptible. [Continue here]
+          }
+\end{enumerate}
+}
+
+
+% \setstretch{1}
+% \bibliographystyle{ecta}
+% \bibliography{refs}
+
+\end{document}
