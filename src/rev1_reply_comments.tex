@@ -194,9 +194,18 @@ I cannot comment on the validity of the underlaying mathematical analysis, but I
 \begin{enumerate}
     \item They use contact-frequency from pre-pandemic diary data. Is  this truly useful if behavior of people is already changed by the fact there is a pandemic?
           \response{%
-              We account for individual responses in behaviour to the pandemic through a time-variant multiplier that reduces the number of other (i.e. non-work, non-household, non-educational) contacts. The values at change points that mark policy announcements or fatigue effects are estimated. They are detailed in Section A.9.
-
-              Since we estimate both the infection probability of this contact type and the multiplier, one of them has to be normalised. We decided to normalise the multiplier to 1 in October 2020. This may appear as if we assumed that pre-pandemic behaviour had resumed during that time in Germany. However, this is not the case. In fact, we would achieve the exact same fit if we doubled the infection probability and halved the multiplier. This is because halving the multiplier means only half the number of contacts take place. However, because of the doubling of the infection probability, in expectation we would arrive at the same number of infections in that contact category.
+          
+          Other models also use the Mossong data: OpenABM-Covid-19 model (Hinch2020), Bicher2021. 
+          
+          We only use the pre-pandemic diary data as the starting point. Our policies, which include non-mandated individual behavior adjustments, then reduce contacts taking the type of contact into account and for the most part not randomly but in very specific ways. This allows us to account for behavior reactions and policy effects that target different types of contacts differently. For example, household contacts continue to take place no matter the policy environment. Work from home does not keep random individuals at home but every individual that works has a time-constant value that determines when he or she will stay home. Which share of the population stays home is taken from Google mobility data. In the education sector we do not use the Mossong data but use completely mechanistic models. This gives us confidence that we can sufficiently accurately represent the contact patterns during the pandemic and account for changes induced by the pandemic. 
+            
+          Also, our excellent fit for most age groups gives us confidence that we manage to match actual meeting patterns. If we were far off for example for the number of work contacts, we would not be able to match either the infections of individuals in the working age (35-59) or of those that mostly do not work anymore (60-79). 
+          
+          \textbf{Answer in case there is confusion because the other multiplier is 1 in fall 2020:}
+          
+          We account for individual responses in behaviour to the pandemic through a time-variant multiplier that reduces the number of other (i.e. non-work, non-household, non-educational) contacts. The values at change points that mark policy announcements or fatigue effects are estimated. They are detailed in Section A.9.
+          
+          Since we estimate both the infection probability of this contact type and the multiplier, one of them has to be normalised. We decided to normalise the multiplier to 1 in October 2020. This may appear as if we assumed that pre-pandemic behaviour had resumed during that time in Germany. However, this is not the case. In fact, we would achieve the exact same fit if we doubled the infection probability and halved the multiplier. This is because halving the multiplier means only half the number of contacts take place. However, because of the doubling of the infection probability, in expectation we would arrive at the same number of infections in that contact category.
           }
     \item They state that susceptibility is dependent on age. This requires references and needs to be further explained. Also, younger populations are highly susceptible, they may just not contribute transmission as much. On that same note, infectiousness may not be independent of age
 
@@ -208,8 +217,10 @@ I cannot comment on the validity of the underlaying mathematical analysis, but I
           }
     \item It is not accurate that the vaccines stop transmission. This has to be adapted accordingly. Also, the authors should state which vaccines they based this analysis on, as in which ones were in use in Germany at that time and how does that affect the relative transmissibility as it cannot be assumed that all vaccines will have the same effect.
           \response{%
-              We talk in detail about the vaccines that were used in Germany and on which we base our analysis on in the last third of appendix A.1.
-              We agree that vaccines do not stop transmission completely. We simplify the way vaccines reduce transmission risk considerably by assuming that 75\% of individuals achieve sterile immunity through a vaccination while the remaining 25\% remain fully susceptible. [Continue here]
+          We agree that vaccines do not stop transmission completely. We simplify the way vaccines reduce transmission risk considerably by assuming that 75\% of individuals achieve sterile immunity through a vaccination while the remaining 25\% remain fully susceptible. We are comfortable with this assumption for several reasons: 
+          Firstly, the existing evidence supports the assumption that all four vaccines approved in the EU (Biontech/Pfizer, Moderna, AstraZeneca and Johnson&Johnson) provide similar levels of protection in the first few months after vaccination and against the Alpha variant (for details see the last third of appendix A.1), which is the only time period and variant our simulations cover.
+          Secondly, given the surprisingly good performance of rapid tests we tried to err on the side of being too optimistic with our modelling of vaccine performance. This is  why we chose the perfect protection from vaccination for a large part of the population. 
+          Thirdly, reinfections are not a big issue for the time period that we look at. The incidences were small and the chance of more than one exposure to Covid are negligibly small. Thus, the value added by a probabilistic model of vaccination protection is very small for the period that we cover.
           }
 \end{enumerate}
 }
