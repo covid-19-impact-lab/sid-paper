@@ -116,7 +116,7 @@ probability of infection associated with a contact \citep{Cheng2021}.
 \end{figure}
 
 In the model, susceptibility to contracting the SARS-CoV-2 virus is dependent on age
-\citep{Davies2020}. A possible infection progresses as shown in
+\citep{Davies2020}.\label{r.2.b} A possible infection progresses as shown in
 Figure~\ref{fig:model_disease_progression}. We differentiate between an initial period
 of infection without being infectious or showing symptoms, being infectious
 (presymptomatic or asymptomatic), showing symptoms, requiring intensive care, and
@@ -404,7 +404,11 @@ are turned on. The effect on total cases, however, is visible immediately in
 Figure~\ref{fig:2021_scenarios_newly_infected}. Despite the fact that only 10\% of the
 population performed weekly rapid tests in March on average, new infections on April~1
 would have been reduced by 53\% relative to the scenario without vaccinations, rapid
-tests, or seasonality.
+tests, or seasonality. \label{r.1.b}\Copy{r.1.b}{In
+    Appendix~\ref{subsec:robustness_rapid_test_sensitivity}, we provide a detailed analysis
+    of whether our results are robust regarding the sensitivity parameters we assume for
+    rapid tests. Even if we take a very pessimistic stance, the effect is only reduced from
+    42\% to 38\%.}
 
 So why is rapid testing so effective? In order to shed more light on this question,
 Figure~\ref{fig:2021_scenarios_decomposition_tests} decomposes the difference in the
@@ -428,17 +432,17 @@ administered randomly in the population would not have been nearly as effective.
 
 Having quantified the effects of various mechanisms, we now simulate hypothetical
 scenarios comparing changes in NPIs and testing regimes. Two of the most contentious
-NPIs concern schools and mandates to work from home. In many countries, schools switched
-to remote instruction during the first wave, so did Germany. After the summer break,
-they were operating at full capacity with increased hygiene measures, before being
-closed again from mid-December onward. Some states started opening them gradually in
-late February, but operation at normal capacity did not resume until the beginning of
-June. Figure~\ref{fig:school_scenarios} shows the effects of different policies
-regarding schools starting after Easter, at which point rapid tests had become widely
-available. We estimate the realized scenario to have essentially the same effect as a
-situation with closed schools. Under fully opened schools with mandatory tests, total
-infections would have been 6\% higher; this number rises to 20\% without tests. These
-effect sizes are broadly in line with empirical studies (e.g. \citet{Vlachos2021,
+NPIs concern schools and mandates to work from home.\label{ref.2.a} In many countries,
+schools switched to remote instruction during the first wave, so did Germany. After the
+summer break, they were operating at full capacity with increased hygiene measures,
+before being closed again from mid-December onward. Some states started opening them
+gradually in late February, but operation at normal capacity did not resume until the
+beginning of June. Figure~\ref{fig:school_scenarios} shows the effects of different
+policies regarding schools starting after Easter, at which point rapid tests had become
+widely available. We estimate the realized scenario to have essentially the same effect
+as a situation with closed schools. Under fully opened schools with mandatory tests,
+total infections would have been 6\% higher; this number rises to 20\% without tests.
+These effect sizes are broadly in line with empirical studies (e.g. \citet{Vlachos2021,
     Berger2021}, see Section~\ref{subsec:model_validation} for a comparison). In light of
 the large negative effects school closures have on children and parents
 \citep{Luijten2021, Melegari2021}---and in particular on those with low socio-economic

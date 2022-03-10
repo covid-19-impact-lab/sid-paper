@@ -181,26 +181,28 @@ manuscript enormously.
     finalised in June already.
 
     Many thanks for pointing out that we misclassified the Quidel SARS Sofia antigen
-    FIA test; we removed the reference.
+    FIA test; we removed the reference.{\bf \color{red}DOUBLE-CHECK -- this is Smith2021}
 
     Indeed, in the line of the additional evidence, the numbers we use for test
     sensitivity seem to be in the upper part of plausible values. On
-    page~\pageref{r.1.a} of the paper, we cite the two references you pointed out (numbering of references as in this document):
+    page~\pageref{r.1.a} of the paper, we cite the two references you pointed out
+    (numbering of references relates to this document):
 
     \textit{\Paste{r.1.a}}
 
+    We followed your suggestion and ran additional analyses with more conservative
+    assumptions on the sensitivity of rapid tests. The results are very robust. We write
+    in the main text on page~\pageref{r.1.b}
 
-    We therefore followed
-    your suggestion and ran additional analyses with more conservative assumptions on
-    the sensitivity of rapid tests. We report on these in
-    Appendix~\ref{subsec:robustness_rapid_test_sensitivity}. Our results are
-    remarkably robust to this change. We write:
+    \textit{\Paste{r.1.b}}
 
+    The robustness is due to the fact that over the course of an infection, the largest differences between the parameters we use in our main analysis and those based on other studies are found during the later stages of an infection. Uncovering an infection that was previously undetected at that stage does
+    not have a large effect on subsequent infection dynamics. Our whole analysis in
+    Appendix~\ref{subsec:robustness_rapid_test_sensitivity} reads as follows:
 
-    The percentage of the decrease in spring 2021
-    attributed to rapid tests decreases by only 4 percentage points even in the least
-    favourable scenario. We describe our approach for calculating the adjusted
-    sensitivities in the next answer. }
+    \textit{\Paste{r.1.b-appendix}}
+
+}
 
 Furthermore, I recommend including a declaration of potential conflicts of interest in
 the manuscript. This may be particularly important in light of the significance of the
@@ -225,23 +227,26 @@ discussion.
           if behavior of people is already changed by the fact there is a pandemic?
           \response{%
 
-              Other models also use the Mossong data: OpenABM-Covid-19 model
-              (Hinch2020), Bicher2021.
+              Many thanks for this comment. Ideally, we would of course use real-time data. For example, several studies have used smartphone tracking data for this purpose. However, they are not detailed enough for our requirements, because they do not provide any information about \textit{who} is meeting with each other. These dimensions make up our contact networks, which are absolutely crucial.
 
-              We only use the pre-pandemic diary data as the starting point. Our
-              policies, which include non-mandated individual behavior adjustments, then
-              reduce contacts taking the type of contact into account and for the most
-              part not randomly but in very specific ways. This allows us to account for
-              behavior reactions and policy effects that target different types of
-              contacts differently. For example, household contacts continue to take
-              place no matter the policy environment. Work from home does not keep
-              random individuals at home but every individual that works has a
-              time-constant value that determines when he or she will stay home. Which
-              share of the population stays home is taken from Google mobility data. In
-              the education sector we do not use the Mossong data but use completely
-              mechanistic models. This gives us confidence that we can sufficiently
-              accurately represent the contact patterns during the pandemic and account
-              for changes induced by the pandemic.
+              Furthermore, note that we only use the pre-pandemic diary data as the
+              starting point. Contact restrictions and individual behavior adjustments
+              reduce contacts. These are active throughout the period of analysis and
+              they vary with the strictness of measure. In order to do so, it is crucial
+              to take the type of contact into account; see for example our analysis of
+              potential school closures on Page~\pageref{ref.2.a}. Closed schools mean
+              that children have far fewer and parents have somewhat fewer contacts than
+              at  and for the most part not randomly but in very specific ways. This
+              allows us to account for behavior reactions and policy effects that target
+              different types of contacts differently. For example, household contacts
+              continue to take place no matter the policy environment. Work from home
+              does not keep random individuals at home but every individual that works
+              has a time-constant value that determines when he or she will stay home.
+              Which share of the population stays home is taken from Google mobility
+              data. In the education sector we do not use the Mossong data but use
+              completely mechanistic models. This gives us confidence that we can
+              sufficiently accurately represent the contact patterns during the pandemic
+              and account for changes induced by the pandemic.
 
               Also, our excellent fit for most age groups gives us confidence that we
               manage to match actual meeting patterns. If we were far off for example
