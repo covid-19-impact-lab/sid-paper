@@ -225,6 +225,7 @@ discussion.
 \begin{enumerate}
     \item They use contact-frequency from pre-pandemic diary data. Is  this truly useful
           if behavior of people is already changed by the fact there is a pandemic?
+
           \response{%
 
               Many thanks for this comment. Ideally, we would of course use real-time data. For example, several studies have used smartphone tracking data for this purpose. However, they are not detailed enough for our requirements, because they do not provide any information about \textit{who} is meeting with each other. These dimensions make up our contact networks, which are absolutely crucial.
@@ -236,41 +237,14 @@ discussion.
               to take the type of contact into account; see for example our analysis of
               potential school closures on Page~\pageref{ref.2.a}. Closed schools mean
               that children have far fewer and parents have somewhat fewer contacts than
-              at  and for the most part not randomly but in very specific ways. This
-              allows us to account for behavior reactions and policy effects that target
-              different types of contacts differently. For example, household contacts
-              continue to take place no matter the policy environment. Work from home
-              does not keep random individuals at home but every individual that works
-              has a time-constant value that determines when he or she will stay home.
-              Which share of the population stays home is taken from Google mobility
-              data. In the education sector we do not use the Mossong data but use
-              completely mechanistic models. This gives us confidence that we can
-              sufficiently accurately represent the contact patterns during the pandemic
-              and account for changes induced by the pandemic.
+              without school closures.
 
-              Also, our excellent fit for most age groups gives us confidence that we
-              manage to match actual meeting patterns. If we were far off for example
-              for the number of work contacts, we would not be able to match either the
-              infections of individuals in the working age (35-59) or of those that
-              mostly do not work anymore (60-79).
-
-              \textbf{Answer in case there is confusion because the other multiplier is 1 in fall 2020:}
-
-              We account for individual responses in behaviour to the pandemic through a
-              time-variant multiplier that reduces the number of other (i.e. non-work,
-              non-household, non-educational) contacts. The values at change points that
-              mark policy announcements or fatigue effects are estimated. They are
-              detailed in Section A.9.
-
-              Since we estimate both the infection probability of this contact type and
-              the multiplier, one of them has to be normalised. We decided to normalise the
-              multiplier to 1 in October 2020. This may appear as if we assumed that
-              pre-pandemic behaviour had resumed during that time in Germany. However, this
-              is not the case. In fact, we would achieve the exact same fit if we doubled
-              the infection probability and halved the multiplier. This is because halving
-              the multiplier means only half the number of contacts take place. However,
-              because of the doubling of the infection probability, in expectation we would
-              arrive at the same number of infections in that contact category. }
+              Finally, the very good fit of our model to official infection rates across
+              age groups increases our confidence that we manage to match actual meeting
+              patterns. If we were far off for, for example, the number of work contacts,
+              we would not be able to match either the infections of individuals in the
+              working age (35-59) or of those that mostly do not work anymore (60-79).
+          }
     \item They state that susceptibility is dependent on age. This requires references
           and needs to be further explained. Also, younger populations are highly susceptible,
           they may just not contribute transmission as much. On that same note, infectiousness
@@ -282,40 +256,53 @@ discussion.
           362–369, \url{https://doi.org/10.1093/infdis/jiaa691}
 
           \response{%
-              We now cite our main reference for the susceptibilities for each age group
-              also in the main text. We directly take the susceptibilities given by
-              Davies et al. 2020, in their Extended Data Fig. 4. We base our assumption
-              on infectiousness being independent of age on Jones et al. 2021. They
-              report only slight differences in viral loads between German adults and
-              children: ``The least infectious youngest children have 78\% (61, 94) of
-              the peak culture probability of adults aged 45 to 55''. Furthermore, they
-              caution that these lower numbers may be due to different sample taking -
-              such as the usage of smaller pediatric swab devices - rather than actual
-              lower viral loads and conclude that the differences, if existent, are
-              likely not clinically relevant. }
+              Many thanks for pointing this out, indeed we had not cited our key reference for susceptibilities by age group \citep{Davies2020} in the main text. We do so now on Page~\ref{r.2.b}.
+
+              We base our assumption on infectiousness being independent of age on
+              \citep{Jones2021}. That paper reports only slight differences in viral
+              loads between German adults and children: ``The least infectious youngest
+              children have 78\% (61, 94) of the peak culture probability of adults aged
+              45 to 55''. Furthermore, they caution that these lower numbers may be due
+              to different sample taking---such as the usage of smaller pediatric swab
+              devices---rather than actual lower viral loads and conclude that the
+              differences, if existent, are likely not clinically relevant.
+
+                  {\bf ToDo: Check paper suggestion
+                      \url{https://doi.org/10.1093/infdis/jiaa691} -- are they actually checking
+                      infectiousness conditional on contact type? Or could we even reproduce
+                      what they are doing (not suggesting we should, certainly no need to spend
+                      time on it)}
+              %   In any case, while the jury is certainly still out on that particular issue, we are confident that different assumptions would not change our results much. 
+          }
     \item It is not accurate that the vaccines stop transmission. This has to be adapted
           accordingly. Also, the authors should state which vaccines they based this
           analysis on, as in which ones were in use in Germany at that time and how does
           that affect the relative transmissibility as it cannot be assumed that all
-          vaccines will have the same effect. \response{%
-              We agree that vaccines do not stop transmission completely. We simplify
-              the way vaccines reduce transmission risk considerably by assuming that
-              75\% of individuals achieve sterile immunity through a vaccination while
-              the remaining 25\% remain fully susceptible. We are comfortable with this
-              assumption for several reasons: Firstly, the existing evidence supports
-              the assumption that all four vaccines approved in the EU (Biontech/Pfizer,
+          vaccines will have the same effect.
+
+          \response{%
+              Many thanks, it is of course true that vaccines do not stop transmission
+              completely. We do not assume that, either. However, we have not been able
+              to find data on the way in which this affects different population groups
+              for the wild type and the $\alpha$-variant.
+
+              In our model, we thus simplify the way vaccines reduce transmission risk.
+              In particular, we assume that that 75\% of individuals achieve sterile
+              immunity through a vaccination while the remaining 25\% remain fully
+              susceptible. SFirstly, the existing evidence supports the
+              assumption that all four vaccines approved in the EU (Biontech/Pfizer,
               Moderna, AstraZeneca and Johnson \& Johnson) provide similar levels of
-              protection in the first few months after vaccination and against the Alpha
-              variant (for details see the last third of appendix A.1), which is the
-              only time period and variant our simulations cover. Secondly, given the
-              surprisingly good performance of rapid tests we tried to err on the side
-              of being too optimistic with our modelling of vaccine performance. This is
-              why we chose the perfect protection from vaccination for a large part of
-              the population. Thirdly, reinfections are not a big issue for the time
-              period that we look at. The incidences were small and the chance of more
-              than one exposure to Covid are negligibly small. Thus, the value added by
-              a probabilistic model of vaccination protection is very small for the
-              period that we cover. }
+              protection in the first few months after vaccination against the wild type
+              and the $\alpha$ variant (for details see Appendix~\ref{r.2.c}, starting
+              on Page~\pageref{r.2.c}), which is the only time period and variant our
+              simulations cover. Secondly, given the surprisingly good performance of
+              rapid tests we tried to err on the side of being too optimistic with our
+              modelling of vaccine performance. This is why we chose the perfect
+              protection from vaccination for a large part of the population. Thirdly,
+              reinfections are not a big issue for the time period that we look at. The
+              incidences were small and the chance of more than one exposure to Covid
+              are negligibly small. Thus, the value added by a probabilistic model of
+              vaccination protection is very small for the period that we cover. }
 \end{enumerate}
 }
 
