@@ -182,7 +182,7 @@ manuscript enormously.
     numbers we use for test sensitivity appear to be in the upper part of plausible
     values. We have followed your suggestion and report detailed robustness analyses in
     the paper and its Appendix.
-    
+
     Before describing our changes, we would like to thank you for pointing out that the
     test analysed in \citet{Smith2021} is not a rapid test. While this is true, the
     crucial feature in \citet{Smith2021} is that the paper reports the sensitivity over
@@ -226,7 +226,7 @@ findings from the study for the continued operation of industrial companies.\\[2
 
 \response{We have added such a declaration at the end of the paper:\\[2ex]
 
-\textit{\Paste{r.1.c}}
+    \textit{\Paste{r.1.c}}
 }
 
 }
@@ -265,10 +265,11 @@ discussion.
 
               Finally, the very good fit of our model to official infection rates across
               age groups increases our confidence that we manage to match actual meeting
-              patterns. If we were far off for, for example, the number of work contacts,
-              we would not be able to match either the infections of individuals in the
-              working age (35-59) or of those that mostly do not work anymore (60-79).
-          }
+              patterns. If we were far off for, for example, the number of work
+              contacts, we would not be able to match either the infections of
+              individuals during working age (35-59) or of those that mostly do not work
+              anymore (60-79). 
+            }
     \item They state that susceptibility is dependent on age. This requires references
           and needs to be further explained. Also, younger populations are highly susceptible,
           they may just not contribute transmission as much. On that same note, infectiousness
@@ -280,10 +281,12 @@ discussion.
           362–369, \url{https://doi.org/10.1093/infdis/jiaa691}
 
           \response{%
-              Many thanks for pointing this out, indeed we had not cited our key reference for susceptibilities by age group \citep{Davies2020} in the main text. We do so now on Page~\ref{r.2.b}.
+              Many thanks for pointing this out, indeed we had not cited our key
+              reference for susceptibilities by age group \citep{Davies2020} in the main
+              text. We do so now on Page~\ref{r.2.b}.
 
               We base our assumption on infectiousness being independent of age on
-              \citep{Jones2021}. That paper reports only slight differences in viral
+              \citet{Jones2021}. That paper reports only slight differences in viral
               loads between German adults and children: ``The least infectious youngest
               children have 78\% (61, 94) of the peak culture probability of adults aged
               45 to 55''. Furthermore, they caution that these lower numbers may be due
@@ -291,12 +294,16 @@ discussion.
               devices---rather than actual lower viral loads and conclude that the
               differences, if existent, are likely not clinically relevant.
 
-                  {\bf ToDo: Check paper suggestion
+                  {\bf \color{red} ToDo: Check paper suggestion
                       \url{https://doi.org/10.1093/infdis/jiaa691} -- are they actually checking
                       infectiousness conditional on contact type? Or could we even reproduce
                       what they are doing (not suggesting we should, certainly no need to spend
                       time on it)}
-              %   In any case, while the jury is certainly still out on that particular issue, we are confident that different assumptions would not change our results much. 
+
+              In any case, while the jury is certainly still out on that particular
+              issue, we are confident that different assumptions would not be quantitatively
+              meaningful to change our results in a significant way.
+
           }
     \item It is not accurate that the vaccines stop transmission. This has to be adapted
           accordingly. Also, the authors should state which vaccines they based this
