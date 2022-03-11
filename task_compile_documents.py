@@ -37,7 +37,7 @@ def task_extract_paper_body(depends_on, produces):
             "--empty",
             "--pages",
             depends_on.as_posix(),
-            "1-11",
+            "1-15",
             "--",
             produces.as_posix(),
         ]
@@ -54,7 +54,7 @@ def task_extract_supplementary_material(depends_on, produces):
             "--empty",
             "--pages",
             depends_on.as_posix(),
-            "12-78",
+            "16-83",
             "--",
             produces.as_posix(),
         ]
@@ -97,6 +97,28 @@ def task_compile_reply():
 
 @pytask.mark.depends_on(BLD / "rev1_reply_comments.pdf")
 @pytask.mark.produces(ROOT / "rev1_reply_comments.pdf")
-def task_copy_pdf_to_root(depends_on, produces):
+def task_copy_reply_to_root(depends_on, produces):
+    shutil.copy(depends_on, produces)
+
+
+@pytask.mark.latex(
+    [
+        "--pdf",
+        "--interaction=nonstopmode",
+        "--synctex=1",
+        "--cd",
+        "--shell-escape",
+        "-f",
+    ]
+)
+@pytask.mark.depends_on(SRC / "cover-letter.tex")
+@pytask.mark.produces(BLD / "cover-letter.pdf")
+def task_compile_reply():
+    pass
+
+
+@pytask.mark.depends_on(BLD / "cover-letter.pdf")
+@pytask.mark.produces(ROOT / "cover-letter.pdf")
+def task_copy_cover_letter_to_root(depends_on, produces):
     shutil.copy(depends_on, produces)
 
