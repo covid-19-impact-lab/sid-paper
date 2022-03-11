@@ -34,6 +34,7 @@
 \usepackage{epstopdf}
 \usepackage{longtable, tabularx, array}
 \usepackage{colortbl}
+\usepackage{placeins}
 
 % \usepackage[british]{babel} \usepackage[useregional]{datetime2}
 % \DTMlangsetup[en-GB]{showdayofmonth=false}
@@ -119,27 +120,25 @@
 \section*{Summary}
 
 We thank the editors and referees for their excellent comments. Revising the
-paper to address them has allowed us to substantially improve our paper. 
+paper to address them has allowed us to substantially improve our paper. \\[1ex]
 
-% strongest change came through sensitivity comment
-The largest adjustment was warrented with respect to the sensitivity of rapid
-tests. We fully agree that our calibration appears optimistic in light of the
-studies that have come out since our submission. We therefore verified that 
-our results and conclusions are not affected when repeating the simulations 
-with rapid tests with a much lower sensitivity. For that, we added a robustness
-check with sensitivities that are derived from more recent
-sources, relying on the progression of viral load over the course of an
-infection and rapid test sensitivity with respect to different viral loads. 
-These new sensitivities are on average significantly lower than those in our 
-main specification. We are happy to report that even the most conservative 
-estimates only lead to a small decrease in the estimated role of rapid tests. 
+The largest adjustment was warranted with respect to the sensitivity of rapid tests. We
+fully agree that our calibration appears optimistic in light of the studies that have
+come out since our submission. We therefore verified that our results and conclusions
+are not affected when repeating the simulations under a much lower sensitivity of rapid
+tests. For that, we added a robustness check with sensitivities that are derived from
+more recent sources, relying on the progression of viral load over the course of an
+infection and rapid test sensitivity with respect to different viral loads. These new
+sensitivities are on average significantly lower than those in our main specification.
+We are happy to report that even the most conservative estimates lead to only a minor
+decrease in the estimated role of rapid tests. \\[1ex]
 
-The remaining comments have allowed us to improve our text significantly to be
-clearer and better referenced. We also updated our citations for papers that we
-had cited as pre-prints and that have been published in the meantime.
-In our view the text has become clearer, more legible and better referenced 
-as a result.
+The remaining comments have allowed us to improve our text significantly to be clearer
+and better referenced. We also updated our citations for papers that we cited as
+pre-prints and that have been published in the meantime. In our view the text has become
+clearer, more legible and better referenced as a result.\\[1ex]
 
+We now address the comments by the Editors and Reviewers in turn.
 
 \section*{Editors}
 
@@ -150,6 +149,7 @@ contain a colon. Where possible, the title should be read as one concise sentenc
     Testing, Vaccinations, and NPIs'' to ``The Effectiveness of Testing, Vaccinations, and Contact Restrictions for Containing the Covid-19 Pandemic''
 }
 
+\clearpage
 
 \section*{Reviewer 1}
 \comment{The authors of the manuscript presented here have used mathematical models to
@@ -201,10 +201,10 @@ manuscript enormously.
     We would like to thank the reviewer for these insightful comments. First of all, we
     agree that the references we used have become outdated in the meantime. Note that we
     submitted the original manuscript in early September 2021; the analysis had been
-    finalised in June of last year. Indeed, in the line of the additional evidence, the
+    finalised in June of last year. Indeed, in the light of the additional evidence, the
     numbers we use for test sensitivity appear to be in the upper part of plausible
     values. We have followed your suggestion and report detailed robustness analyses in
-    the paper and its Appendix.
+    the paper and its appendix.
 
     Before describing our changes, we would like to thank you for pointing out that the
     test analysed in \citet{Smith2021} is not a rapid test. While this is true, the
@@ -218,17 +218,13 @@ manuscript enormously.
     (numbering of references relates to this document) and note that we conduct a
     robustness analysis:\\[1ex]
 
-    \textit{\Paste{r.1.a}}
-
-    \vskip1ex
+    \textit{\Paste{r.1.a}}\\[1ex]
 
     We followed your suggestion and ran additional analyses with more conservative
     assumptions on the sensitivity of rapid tests. The results are very robust. We write
     in the main text on page~\pageref{r.1.b}:\\[1ex]
 
-    \textit{\Paste{r.1.b}}
-
-    \vskip1ex
+    \textit{\Paste{r.1.b}}\\[1ex]
 
     The robustness is due to the fact that over the course of an infection, the largest
     differences between the parameters we use in our main analysis and those based on
@@ -249,7 +245,7 @@ Furthermore, I recommend including a declaration of potential conflicts of inter
 the manuscript. This may be particularly important in light of the significance of the
 findings from the study for the continued operation of industrial companies.\\[2ex]
 
-\response{We have added such a declaration at the end of the paper:\\[2ex]
+\response{We have added such a declaration at the end of the paper:
 
     \textit{\Paste{r.1.c}}
 }
@@ -322,8 +318,8 @@ discussion.
               45 to 55''. Furthermore, they caution that these lower numbers may be due
               to different sample taking---such as the usage of smaller pediatric swab
               devices---rather than actual lower viral loads and conclude that the
-              differences, if existent, are likely not clinically relevant. 
-              
+              differences, if existent, are likely not clinically relevant.
+
               In fact,
               \citet{Goldstein2021}  reach similar conclusions, writing: \textit{``There
                   is limited evidence in the literature regarding age-related differences in
@@ -340,17 +336,17 @@ discussion.
           vaccines will have the same effect.
 
           \response{%
-              Many thanks, it is of course true that vaccines do not stop transmission
-              completely. We do not assume that, either. However, we have not been able
-              to find data on the way in which this affects different population groups
-              for the wild type and the $\alpha$-variant.
+              Many thanks, it is of course true that vaccines reduce transmissions, but
+              do not stop them completely. We do not assume that, either. However, we
+              have not been able to find data on the way in which this affects different
+              population groups for the wild type and the $\alpha$-variant.
 
               In our model, we thus simplify the way vaccines reduce transmission risk.
               In particular, we assume that that 75\% of individuals achieve sterile
               immunity through a vaccination while the remaining 25\% remain fully
-              susceptible. Firstly, the existing evidence supports the
-              assumption that all four vaccines approved in the EU (Biontech/Pfizer,
-              Moderna, AstraZeneca and Johnson \& Johnson) provide similar levels of
+              susceptible. Firstly, the existing evidence supports the assumption that
+              all four vaccines approved in the EU (Biontech/Pfizer, Moderna,
+              Oxford/AstraZeneca and Johnson \& Johnson) provide similar levels of
               protection in the first few months after vaccination against the wild type
               and the $\alpha$ variant (for details see Appendix~\ref{r.2.c}, starting
               on Page~\pageref{r.2.c}), which is the only time period and variant our
@@ -361,7 +357,8 @@ discussion.
               reinfections are not a big issue for the time period that we look at. The
               incidences were small and the chance of more than one exposure to Covid
               are negligibly small. Thus, the value added by a probabilistic model of
-              vaccination protection is very small for the period that we cover. }
+              vaccination protection is very small for the period that we cover. At the
+              same time, it comes at prohibitive computational costs.}
 \end{enumerate}
 }
 
