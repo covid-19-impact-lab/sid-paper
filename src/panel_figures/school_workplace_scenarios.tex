@@ -1,0 +1,40 @@
+% \documentclass[varwidth,10pt, border=10pt]{wlscirep}
+\documentclass[varwidth, border=10pt, class=wlscirep, 10pt]{standalone}
+
+\RequirePackage{helvet}
+\RequirePackage{courier}
+
+% border={10pt 5pt} % left/right bottom/top
+% border={10pt 10pt 0pt 10pt} % left right bottom top
+
+
+\usepackage{subcaption}
+\usepackage[
+    font=footnotesize,
+    labelfont={bf,sf,footnotesize},
+    labelsep=period,
+    justification=raggedright
+]{caption}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{figure}
+    \centering
+
+    \begin{subfigure}[b]{6cm}
+        \centering
+        \includegraphics[width=5cm]{../figures/results/figures/scenario_comparisons/school_scenarios/full_newly_infected}
+        \caption{{Effects of different schooling scenarios}}
+        \label{fig:school_scenarios}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{6cm}
+        \centering
+        \includegraphics[width=5cm]{../figures/results/figures/scenario_comparisons/new_work_scenarios/full_newly_infected}
+        \caption{{Effects of different work scenarios}}
+        \label{fig:workplace_scenarios}
+    \end{subfigure}
+\end{figure}
+
+\end{document}
