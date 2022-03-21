@@ -6,10 +6,10 @@
     the CoViD-19 Pandemic
 }
 
-\author[1, 2, +]{Janoś Gabler}
-\author[3, +]{Tobias Raabe}
-\author[1, +]{Klara Röhrl}
-\author[2, 4, *, +]{Hans-Martin von Gaudecker}
+\author[1, 2]{Janoś Gabler}
+\author[3]{Tobias Raabe}
+\author[1]{Klara Röhrl}
+\author[2, 4, *]{Hans-Martin von Gaudecker}
 
 \affil[1]{Bonn Graduate School of Economics, Bonn, 53113, Germany}
 \affil[2]{IZA Institute of Labor Economics, Bonn, 53113, Germany}
@@ -17,8 +17,6 @@
 \affil[4]{Rheinische Friedrich-Wilhelms-Universität Bonn, Bonn, 53113, Germany}
 
 \affil[*]{hmgaudecker@uni-bonn.de}
-
-\affil[+]{These authors contributed equally to this work}
 
 \keywords{
     CoViD-19, agent based simulation model, rapid testing, non-pharmaceutical
@@ -59,12 +57,13 @@ pandemic or even protect the most vulnerable \cite{Mathieu2021}. In the meantime
 of utmost importance to employ an effective mix of strategies for containing the virus.
 The most frequent initial response was a set of non-pharmaceutical interventions (NPIs)
 to reduce contacts between individuals. While this has allowed some countries to sustain
-equilibria with very low infection numbers (see \cite{Contreras2021} for a theoretical
-equilibrium at low case numbers which is sustained with test-trace-and-isolate
-policies), most have seen large fluctuations of infection rates over time. Containment
-measures have become increasingly diverse and now include rapid testing, more nuanced
-NPIs, and contact tracing. Neither these policies' effects nor the influence of seasonal
-patterns or of more infectious virus strains are well understood in quantitative terms.
+equilibria with very low infection numbers\textcolor{red}{---see \cite{Contreras2021}
+for a theoretical equilibrium at low case numbers which is sustained with
+test-trace-and-isolate policies---}, most have seen large fluctuations of infection
+rates over time. Containment measures have become increasingly diverse and now include
+rapid testing, more nuanced NPIs, and contact tracing. Neither these policies' effects
+nor the influence of seasonal patterns or of more infectious virus strains are well
+understood in quantitative terms.
 
 This paper develops a quantitative model incorporating these factors simultaneously. The
 framework allows to combine a wide variety of data and mechanisms in a timely fashion,
@@ -78,8 +77,8 @@ offered to an entire population.
 
 \section{Model description}
 
-At the core of our agent-based model---we review more literature in Supplementary
-Material~B.1 \cite{Aleta2020,Hinch2021a}---are physical contacts between heterogeneous
+At the core of our agent-based model\cite{Aleta2020,Hinch2021a}---we review more
+literature in Supplementary Material~B.1---are physical contacts between heterogeneous
 agents (Figure~1a). Each contact between an infectious individual and somebody
 susceptible to the disease bears the risk of transmitting the virus. Contacts occur in
 up to four networks: Within the household, at work, at school, or in other settings
@@ -132,7 +131,7 @@ In the model, susceptibility to contracting the SARS-CoV-2 virus is dependent on
 \cite{Davies2020,Goldstein2021}. A possible infection progresses as shown in Figure~1b.
 We differentiate between an initial period of infection without being infectious or
 showing symptoms, being infectious (presymptomatic or asymptomatic), showing symptoms,
-requiring intensive care, and recovery or death similar to \cite{Aleta2020}. The
+requiring intensive care, and recovery or death (similar to \cite{Aleta2020}). The
 probabilities of transitioning between these states depend on age; their duration is
 random and calibrated to medical literature (for a detailed description see
 Supplementary Material~A.1). Conditional on the type of contact, infectiousness is
@@ -152,22 +151,23 @@ contrast, rapid antigen tests yield immediate results. Specificity and sensitivi
 these tests is set according to data analyzed in
 \cite{Bruemmer2021,Scheiblauer2021,Ozcurumez2021}; sensitivity depends on the timing of
 the test relative to the onset of infectiousness as in \cite{Smith2021}. We analyse
-robustness to different assumptions in Supplementary Material~A.12. After a phase-in
+robustness to different assumptions in Supplementary Material~B.12. After a phase-in
 period, all tests that are demanded will be performed. Figure~1c shows our model for
 rapid test demand. Schools may require staff and students to be tested regularly. Rapid
 tests may be offered by employers to on-site workers. Individuals may demand tests for
 private reasons, which include having plans to meet other people, showing symptoms of
 CoViD-19, and a household member having tested positively for the virus. We endow each
 agent with an individual compliance parameter. This parameter determines whether she
-takes up rapid tests. (Positive test results or symptoms lead most individuals to reduce
-their contacts; this is why tests impact the actual contacts in Figure~1.)
+takes up rapid tests. \textcolor{red}{(Positive test results or symptoms lead most
+individuals to reduce their contacts; this is why tests impact the actual contacts in
+Figure~1.)}
 
 Modelling a population of agents according to actual demographic characteristics means
 that we can use a wide array of data to identify and calibrate the model's many
-parameters (see Supplementary Material~A for a complete description). Contact diaries
-yield pre-pandemic distributions of contacts for different contact types and their
-assortativity by age group. Mobility data is used to model the evolution of work
-contacts. School and daycare policies can be incorporated directly from official
+parameters \textcolor{red}{(see Supplementary Material~A for a complete description)}.
+Contact diaries yield pre-pandemic distributions of contacts for different contact types
+and their assortativity by age group. Mobility data is used to model the evolution of
+work contacts. School and daycare policies can be incorporated directly from official
 directives. Administrative records on the number of tests, vaccinations by age and
 region, and the prevalence of virus strains are generally available. Surveys may ask
 about test offers, propensities to take them up, and past tests. Other studies'
@@ -194,7 +194,7 @@ positive PCR tests.
 \section*{Second and third waves of the CoViD-19 pandemic in Germany}
 
 The model is applied to the second and third waves of the CoViD-19 pandemic in Germany,
-covering the period mid-September 2020 to the end of May 2021. Figure~2a describes the
+covering the period mid-September 2020 to the end of May 2021. Figure~2 describes the
 evolution of the pandemic and of its drivers. The black line in Figure~2a shows
 officially recorded cases; the black line in Figure~2b the Oxford Response Stringency
 Index \cite{Hale2020}, which tracks the tightness of non-pharmaceutical interventions.
@@ -211,11 +211,11 @@ closed, so were customer-facing businesses except for grocery and drug stores. F
 peak of the second wave just before Christmas until the trough in mid-February, newly
 detected cases decreased by almost three quarters. The third wave in the spring of 2021
 is associated with the B.1.1.7 (Alpha) strain, which became dominant in March
-(Figure~2c)---B.1.617.2 (Delta) was first detected in Germany in April; at the end of
-our simulation period it accounted for less than 5\% of cases. In early March, some NPIs
-were relaxed; e.g., hairdressers and home improvement stores were allowed to open again
-to the public. There were many changes in details of regulations afterwards, but they
-did not change the overall stringency index.
+(Figure~2c). \textcolor{red}{B.1.617.2 (Delta) was first detected in Germany in April;
+at the end of our simulation period it accounted for less than 5\% of cases.} In early
+March, some NPIs were relaxed; e.g., hairdressers and home improvement stores were
+allowed to open again to the public. There were many changes in details of regulations
+afterwards, but they did not change the overall stringency index.
 
 \begin{figure}[tb]
     \centering
@@ -347,17 +347,18 @@ So why is rapid testing so effective? In order to shed more light on this questi
 Figure~3d decomposes the difference in the scenario without rapid tests and the main
 specification into the three channels for rapid tests. Tests at schools have the
 smallest effect, which is largely explained by schools not operating at full capacity
-during our period of study and the relatively small number of students. (18\% of our
-population are in the education sector, e.g., pupils, teachers; 46\% are workers outside
-the education sector.) Almost 40\% come from tests at the workplace. Despite the fact
-that rapid tests for private reasons are phased in only in mid-March, they make up for
-more than half of the total effect. The reason lies in the fact that a substantial share
-of these tests is driven by an elevated probability to carry the virus, i.e., showing
-symptoms of CoViD-19 or following up on a positive test of a household member. The
-latter is essentially a form of contact tracing, which has been shown to be very
-effective \cite{Contreras2021, Fetzer2021,Kretzschmar2020}. Indeed, a deeper analysis in
-Supplementary Material~B.15 shows that the same amount of rapid tests administered
-randomly in the population would not have been nearly as effective.
+during our period of study and the relatively small number of students.
+\textcolor{red}{18\% of our population are in the education sector, e.g., pupils,
+teachers; 46\% are workers outside the education sector.} Almost 40\% come from tests at
+the workplace. Despite the fact that rapid tests for private reasons are phased in only
+in mid-March, they make up for more than half of the total effect. The reason lies in
+the fact that a substantial share of these tests is driven by an elevated probability to
+carry the virus, i.e., showing symptoms of CoViD-19 or following up on a positive test
+of a household member. The latter is essentially a form of contact tracing, which has
+been shown to be very effective \cite{Contreras2021, Fetzer2021,Kretzschmar2020}.
+Indeed, a deeper analysis in Supplementary Material~B.15 shows that the same amount of
+rapid tests administered randomly in the population would not have been nearly as
+effective.
 
 \section*{Discussion and conclusions}
 
@@ -432,7 +433,7 @@ https://github.com/covid-19-impact-lab/sid-germany.
 
 \bibliography{references}
 
-\section*{Acknowledgements (not compulsory)}
+\section*{Acknowledgements}
 
 The authors are grateful for support by the Deutsche Forschungsgemeinschaft (DFG, German
 Research Foundation) under Germany´s Excellence Strategy – EXC 2126/1– 390838866 – and
@@ -446,8 +447,6 @@ experiment(s),  A.A. and B.A. conducted the experiment(s), C.A. and D.A. analyse
 results.  All authors reviewed the manuscript.
 
 \section*{Additional information}
-
-To include, in this order: \textbf{Accession codes} (where applicable);
 
 \textbf{Competing interests}: The authors declare no competing interests.
 
