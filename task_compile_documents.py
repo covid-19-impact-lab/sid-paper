@@ -111,6 +111,28 @@ def task_copy_reply_to_root(depends_on, produces):
         "-f",
     ]
 )
+@pytask.mark.depends_on([SRC / "rev2_reply_comments.tex", BLD / "paper.pdf"])
+@pytask.mark.produces(BLD / "rev2_reply_comments.pdf")
+def task_compile_reply2():
+    pass
+
+
+@pytask.mark.depends_on(BLD / "rev2_reply_comments.pdf")
+@pytask.mark.produces(ROOT / "rev2_reply_comments.pdf")
+def task_copy_reply2_to_root(depends_on, produces):
+    shutil.copy(depends_on, produces)
+
+
+@pytask.mark.latex(
+    [
+        "--pdf",
+        "--interaction=nonstopmode",
+        "--synctex=1",
+        "--cd",
+        "--shell-escape",
+        "-f",
+    ]
+)
 @pytask.mark.depends_on(SRC / "cover-letter.tex")
 @pytask.mark.produces(BLD / "cover-letter.pdf")
 def task_compile_cover_letter():
@@ -131,7 +153,8 @@ def task_copy_cover_letter_to_root(depends_on, produces):
         "--cd",
         "--shell-escape",
         "-f",
-        "-e", "$bibtex_fudge=1"
+        "-e",
+        "$bibtex_fudge=1",
     ]
 )
 @pytask.mark.depends_on(SRC / "scientific_reports_submission" / "article.tex")
